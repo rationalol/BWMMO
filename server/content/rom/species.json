@@ -1,0 +1,1078 @@
+{
+  "source": "Pokemon Black/White ROM (local extraction)",
+  "personalFile": "a/0/1/6",
+  "learnsetFile": "a/0/1/8",
+  "notes": "baseStats order: hp, atk, def, spAtk, spDef, speed; move ids are Gen 5 ids",
+  "species": {
+    "snivy": {
+      "dex": 495,
+      "types": [
+        "Grass"
+      ],
+      "baseStats": {
+        "hp": 45,
+        "atk": 45,
+        "def": 55,
+        "spAtk": 45,
+        "spDef": 55,
+        "speed": 63
+      },
+      "catchRate255": 45,
+      "learnset": [
+        {
+          "moveId": 33,
+          "level": 1,
+          "supported": true
+        },
+        {
+          "moveId": 43,
+          "level": 4,
+          "supported": true
+        },
+        {
+          "moveId": 22,
+          "level": 7,
+          "supported": true
+        },
+        {
+          "moveId": 35,
+          "level": 10,
+          "supported": true
+        },
+        {
+          "moveId": 74,
+          "level": 13,
+          "supported": true
+        },
+        {
+          "moveId": 536,
+          "level": 16,
+          "supported": true
+        },
+        {
+          "moveId": 73,
+          "level": 19,
+          "supported": false
+        },
+        {
+          "moveId": 72,
+          "level": 22,
+          "supported": false
+        },
+        {
+          "moveId": 21,
+          "level": 25,
+          "supported": false
+        },
+        {
+          "moveId": 348,
+          "level": 28,
+          "supported": false
+        },
+        {
+          "moveId": 489,
+          "level": 31,
+          "supported": false
+        },
+        {
+          "moveId": 202,
+          "level": 34,
+          "supported": false
+        },
+        {
+          "moveId": 378,
+          "level": 37,
+          "supported": false
+        },
+        {
+          "moveId": 380,
+          "level": 40,
+          "supported": false
+        },
+        {
+          "moveId": 437,
+          "level": 43,
+          "supported": false
+        }
+      ]
+    },
+    "tepig": {
+      "dex": 498,
+      "types": [
+        "Fire"
+      ],
+      "baseStats": {
+        "hp": 65,
+        "atk": 63,
+        "def": 45,
+        "spAtk": 45,
+        "spDef": 45,
+        "speed": 45
+      },
+      "catchRate255": 45,
+      "learnset": [
+        {
+          "moveId": 33,
+          "level": 1,
+          "supported": true
+        },
+        {
+          "moveId": 39,
+          "level": 3,
+          "supported": true
+        },
+        {
+          "moveId": 52,
+          "level": 7,
+          "supported": true
+        },
+        {
+          "moveId": 316,
+          "level": 9,
+          "supported": true
+        },
+        {
+          "moveId": 111,
+          "level": 13,
+          "supported": true
+        },
+        {
+          "moveId": 488,
+          "level": 15,
+          "supported": true
+        },
+        {
+          "moveId": 123,
+          "level": 19,
+          "supported": false
+        },
+        {
+          "moveId": 205,
+          "level": 21,
+          "supported": false
+        },
+        {
+          "moveId": 36,
+          "level": 25,
+          "supported": true
+        },
+        {
+          "moveId": 535,
+          "level": 27,
+          "supported": false
+        },
+        {
+          "moveId": 372,
+          "level": 31,
+          "supported": false
+        },
+        {
+          "moveId": 53,
+          "level": 33,
+          "supported": false
+        },
+        {
+          "moveId": 457,
+          "level": 37,
+          "supported": false
+        },
+        {
+          "moveId": 46,
+          "level": 39,
+          "supported": false
+        },
+        {
+          "moveId": 394,
+          "level": 43,
+          "supported": false
+        }
+      ]
+    },
+    "oshawott": {
+      "dex": 501,
+      "types": [
+        "Water"
+      ],
+      "baseStats": {
+        "hp": 55,
+        "atk": 55,
+        "def": 45,
+        "spAtk": 63,
+        "spDef": 45,
+        "speed": 45
+      },
+      "catchRate255": 45,
+      "learnset": [
+        {
+          "moveId": 33,
+          "level": 1,
+          "supported": true
+        },
+        {
+          "moveId": 39,
+          "level": 5,
+          "supported": true
+        },
+        {
+          "moveId": 55,
+          "level": 7,
+          "supported": true
+        },
+        {
+          "moveId": 346,
+          "level": 11,
+          "supported": false
+        },
+        {
+          "moveId": 116,
+          "level": 13,
+          "supported": true
+        },
+        {
+          "moveId": 534,
+          "level": 17,
+          "supported": false
+        },
+        {
+          "moveId": 210,
+          "level": 19,
+          "supported": false
+        },
+        {
+          "moveId": 352,
+          "level": 23,
+          "supported": false
+        },
+        {
+          "moveId": 279,
+          "level": 25,
+          "supported": false
+        },
+        {
+          "moveId": 453,
+          "level": 29,
+          "supported": false
+        },
+        {
+          "moveId": 227,
+          "level": 31,
+          "supported": false
+        },
+        {
+          "moveId": 401,
+          "level": 35,
+          "supported": false
+        },
+        {
+          "moveId": 514,
+          "level": 37,
+          "supported": false
+        },
+        {
+          "moveId": 14,
+          "level": 41,
+          "supported": false
+        },
+        {
+          "moveId": 56,
+          "level": 43,
+          "supported": false
+        }
+      ]
+    },
+    "patrat": {
+      "dex": 504,
+      "types": [
+        "Normal"
+      ],
+      "baseStats": {
+        "hp": 45,
+        "atk": 55,
+        "def": 39,
+        "spAtk": 35,
+        "spDef": 39,
+        "speed": 42
+      },
+      "catchRate255": 255,
+      "learnset": [
+        {
+          "moveId": 33,
+          "level": 1,
+          "supported": true
+        },
+        {
+          "moveId": 43,
+          "level": 3,
+          "supported": true
+        },
+        {
+          "moveId": 44,
+          "level": 6,
+          "supported": false
+        },
+        {
+          "moveId": 117,
+          "level": 8,
+          "supported": false
+        },
+        {
+          "moveId": 197,
+          "level": 11,
+          "supported": false
+        },
+        {
+          "moveId": 28,
+          "level": 13,
+          "supported": false
+        },
+        {
+          "moveId": 242,
+          "level": 16,
+          "supported": false
+        },
+        {
+          "moveId": 95,
+          "level": 18,
+          "supported": false
+        },
+        {
+          "moveId": 162,
+          "level": 21,
+          "supported": false
+        },
+        {
+          "moveId": 495,
+          "level": 23,
+          "supported": false
+        },
+        {
+          "moveId": 526,
+          "level": 26,
+          "supported": true
+        },
+        {
+          "moveId": 158,
+          "level": 28,
+          "supported": false
+        },
+        {
+          "moveId": 212,
+          "level": 31,
+          "supported": false
+        },
+        {
+          "moveId": 226,
+          "level": 33,
+          "supported": false
+        },
+        {
+          "moveId": 21,
+          "level": 36,
+          "supported": false
+        }
+      ]
+    },
+    "lillipup": {
+      "dex": 506,
+      "types": [
+        "Normal"
+      ],
+      "baseStats": {
+        "hp": 45,
+        "atk": 60,
+        "def": 45,
+        "spAtk": 25,
+        "spDef": 45,
+        "speed": 55
+      },
+      "catchRate255": 255,
+      "learnset": [
+        {
+          "moveId": 43,
+          "level": 1,
+          "supported": true
+        },
+        {
+          "moveId": 33,
+          "level": 1,
+          "supported": true
+        },
+        {
+          "moveId": 316,
+          "level": 5,
+          "supported": true
+        },
+        {
+          "moveId": 44,
+          "level": 8,
+          "supported": false
+        },
+        {
+          "moveId": 270,
+          "level": 12,
+          "supported": false
+        },
+        {
+          "moveId": 36,
+          "level": 15,
+          "supported": true
+        },
+        {
+          "moveId": 526,
+          "level": 19,
+          "supported": true
+        },
+        {
+          "moveId": 242,
+          "level": 22,
+          "supported": false
+        },
+        {
+          "moveId": 46,
+          "level": 26,
+          "supported": false
+        },
+        {
+          "moveId": 514,
+          "level": 29,
+          "supported": false
+        },
+        {
+          "moveId": 179,
+          "level": 33,
+          "supported": false
+        },
+        {
+          "moveId": 387,
+          "level": 36,
+          "supported": false
+        },
+        {
+          "moveId": 416,
+          "level": 40,
+          "supported": false
+        }
+      ]
+    },
+    "pansage": {
+      "dex": 511,
+      "types": [
+        "Grass"
+      ],
+      "baseStats": {
+        "hp": 50,
+        "atk": 53,
+        "def": 48,
+        "spAtk": 53,
+        "spDef": 48,
+        "speed": 64
+      },
+      "catchRate255": 190,
+      "learnset": [
+        {
+          "moveId": 10,
+          "level": 1,
+          "supported": true
+        },
+        {
+          "moveId": 43,
+          "level": 4,
+          "supported": true
+        },
+        {
+          "moveId": 122,
+          "level": 7,
+          "supported": false
+        },
+        {
+          "moveId": 22,
+          "level": 10,
+          "supported": true
+        },
+        {
+          "moveId": 154,
+          "level": 13,
+          "supported": true
+        },
+        {
+          "moveId": 73,
+          "level": 16,
+          "supported": false
+        },
+        {
+          "moveId": 44,
+          "level": 19,
+          "supported": false
+        },
+        {
+          "moveId": 402,
+          "level": 22,
+          "supported": false
+        },
+        {
+          "moveId": 259,
+          "level": 25,
+          "supported": false
+        },
+        {
+          "moveId": 374,
+          "level": 28,
+          "supported": false
+        },
+        {
+          "moveId": 512,
+          "level": 31,
+          "supported": false
+        },
+        {
+          "moveId": 447,
+          "level": 34,
+          "supported": false
+        },
+        {
+          "moveId": 278,
+          "level": 37,
+          "supported": false
+        },
+        {
+          "moveId": 363,
+          "level": 40,
+          "supported": false
+        },
+        {
+          "moveId": 242,
+          "level": 43,
+          "supported": false
+        }
+      ]
+    },
+    "pansear": {
+      "dex": 513,
+      "types": [
+        "Fire"
+      ],
+      "baseStats": {
+        "hp": 50,
+        "atk": 53,
+        "def": 48,
+        "spAtk": 53,
+        "spDef": 48,
+        "speed": 64
+      },
+      "catchRate255": 190,
+      "learnset": [
+        {
+          "moveId": 10,
+          "level": 1,
+          "supported": true
+        },
+        {
+          "moveId": 43,
+          "level": 4,
+          "supported": true
+        },
+        {
+          "moveId": 122,
+          "level": 7,
+          "supported": false
+        },
+        {
+          "moveId": 510,
+          "level": 10,
+          "supported": true
+        },
+        {
+          "moveId": 154,
+          "level": 13,
+          "supported": true
+        },
+        {
+          "moveId": 281,
+          "level": 16,
+          "supported": false
+        },
+        {
+          "moveId": 44,
+          "level": 19,
+          "supported": false
+        },
+        {
+          "moveId": 481,
+          "level": 22,
+          "supported": false
+        },
+        {
+          "moveId": 133,
+          "level": 25,
+          "supported": false
+        },
+        {
+          "moveId": 374,
+          "level": 28,
+          "supported": false
+        },
+        {
+          "moveId": 512,
+          "level": 31,
+          "supported": false
+        },
+        {
+          "moveId": 126,
+          "level": 34,
+          "supported": false
+        },
+        {
+          "moveId": 278,
+          "level": 37,
+          "supported": false
+        },
+        {
+          "moveId": 363,
+          "level": 40,
+          "supported": false
+        },
+        {
+          "moveId": 242,
+          "level": 43,
+          "supported": false
+        }
+      ]
+    },
+    "panpour": {
+      "dex": 515,
+      "types": [
+        "Water"
+      ],
+      "baseStats": {
+        "hp": 50,
+        "atk": 53,
+        "def": 48,
+        "spAtk": 53,
+        "spDef": 48,
+        "speed": 64
+      },
+      "catchRate255": 190,
+      "learnset": [
+        {
+          "moveId": 10,
+          "level": 1,
+          "supported": true
+        },
+        {
+          "moveId": 43,
+          "level": 4,
+          "supported": true
+        },
+        {
+          "moveId": 122,
+          "level": 7,
+          "supported": false
+        },
+        {
+          "moveId": 55,
+          "level": 10,
+          "supported": true
+        },
+        {
+          "moveId": 154,
+          "level": 13,
+          "supported": true
+        },
+        {
+          "moveId": 346,
+          "level": 16,
+          "supported": false
+        },
+        {
+          "moveId": 44,
+          "level": 19,
+          "supported": false
+        },
+        {
+          "moveId": 503,
+          "level": 22,
+          "supported": false
+        },
+        {
+          "moveId": 269,
+          "level": 25,
+          "supported": false
+        },
+        {
+          "moveId": 374,
+          "level": 28,
+          "supported": false
+        },
+        {
+          "moveId": 512,
+          "level": 31,
+          "supported": false
+        },
+        {
+          "moveId": 362,
+          "level": 34,
+          "supported": false
+        },
+        {
+          "moveId": 278,
+          "level": 37,
+          "supported": false
+        },
+        {
+          "moveId": 363,
+          "level": 40,
+          "supported": false
+        },
+        {
+          "moveId": 242,
+          "level": 43,
+          "supported": false
+        }
+      ]
+    },
+    "pidove": {
+      "dex": 519,
+      "types": [
+        "Normal",
+        "Flying"
+      ],
+      "baseStats": {
+        "hp": 50,
+        "atk": 55,
+        "def": 50,
+        "spAtk": 36,
+        "spDef": 30,
+        "speed": 43
+      },
+      "catchRate255": 255,
+      "learnset": [
+        {
+          "moveId": 16,
+          "level": 1,
+          "supported": true
+        },
+        {
+          "moveId": 45,
+          "level": 4,
+          "supported": true
+        },
+        {
+          "moveId": 43,
+          "level": 8,
+          "supported": true
+        },
+        {
+          "moveId": 98,
+          "level": 11,
+          "supported": true
+        },
+        {
+          "moveId": 314,
+          "level": 15,
+          "supported": false
+        },
+        {
+          "moveId": 355,
+          "level": 18,
+          "supported": true
+        },
+        {
+          "moveId": 197,
+          "level": 22,
+          "supported": false
+        },
+        {
+          "moveId": 269,
+          "level": 25,
+          "supported": false
+        },
+        {
+          "moveId": 403,
+          "level": 29,
+          "supported": false
+        },
+        {
+          "moveId": 13,
+          "level": 32,
+          "supported": false
+        },
+        {
+          "moveId": 297,
+          "level": 36,
+          "supported": false
+        },
+        {
+          "moveId": 207,
+          "level": 39,
+          "supported": false
+        },
+        {
+          "moveId": 263,
+          "level": 43,
+          "supported": false
+        },
+        {
+          "moveId": 366,
+          "level": 46,
+          "supported": false
+        },
+        {
+          "moveId": 143,
+          "level": 50,
+          "supported": false
+        }
+      ]
+    },
+    "blitzle": {
+      "dex": 522,
+      "types": [
+        "Electric"
+      ],
+      "baseStats": {
+        "hp": 45,
+        "atk": 60,
+        "def": 32,
+        "spAtk": 50,
+        "spDef": 32,
+        "speed": 76
+      },
+      "catchRate255": 190,
+      "learnset": [
+        {
+          "moveId": 98,
+          "level": 1,
+          "supported": true
+        },
+        {
+          "moveId": 39,
+          "level": 4,
+          "supported": true
+        },
+        {
+          "moveId": 268,
+          "level": 8,
+          "supported": true
+        },
+        {
+          "moveId": 351,
+          "level": 11,
+          "supported": true
+        },
+        {
+          "moveId": 86,
+          "level": 15,
+          "supported": false
+        },
+        {
+          "moveId": 488,
+          "level": 18,
+          "supported": true
+        },
+        {
+          "moveId": 228,
+          "level": 22,
+          "supported": false
+        },
+        {
+          "moveId": 209,
+          "level": 25,
+          "supported": true
+        },
+        {
+          "moveId": 23,
+          "level": 29,
+          "supported": false
+        },
+        {
+          "moveId": 435,
+          "level": 32,
+          "supported": false
+        },
+        {
+          "moveId": 97,
+          "level": 36,
+          "supported": false
+        },
+        {
+          "moveId": 528,
+          "level": 39,
+          "supported": false
+        },
+        {
+          "moveId": 37,
+          "level": 43,
+          "supported": false
+        }
+      ]
+    },
+    "roggenrola": {
+      "dex": 524,
+      "types": [
+        "Rock"
+      ],
+      "baseStats": {
+        "hp": 55,
+        "atk": 75,
+        "def": 85,
+        "spAtk": 25,
+        "spDef": 25,
+        "speed": 15
+      },
+      "catchRate255": 255,
+      "learnset": [
+        {
+          "moveId": 33,
+          "level": 1,
+          "supported": true
+        },
+        {
+          "moveId": 106,
+          "level": 4,
+          "supported": true
+        },
+        {
+          "moveId": 28,
+          "level": 7,
+          "supported": false
+        },
+        {
+          "moveId": 29,
+          "level": 10,
+          "supported": true
+        },
+        {
+          "moveId": 350,
+          "level": 14,
+          "supported": true
+        },
+        {
+          "moveId": 189,
+          "level": 17,
+          "supported": false
+        },
+        {
+          "moveId": 334,
+          "level": 20,
+          "supported": false
+        },
+        {
+          "moveId": 479,
+          "level": 23,
+          "supported": false
+        },
+        {
+          "moveId": 157,
+          "level": 27,
+          "supported": false
+        },
+        {
+          "moveId": 446,
+          "level": 30,
+          "supported": false
+        },
+        {
+          "moveId": 201,
+          "level": 33,
+          "supported": false
+        },
+        {
+          "moveId": 444,
+          "level": 36,
+          "supported": false
+        },
+        {
+          "moveId": 153,
+          "level": 40,
+          "supported": false
+        }
+      ]
+    },
+    "audino": {
+      "dex": 531,
+      "types": [
+        "Normal"
+      ],
+      "baseStats": {
+        "hp": 103,
+        "atk": 60,
+        "def": 86,
+        "spAtk": 60,
+        "spDef": 86,
+        "speed": 50
+      },
+      "catchRate255": 255,
+      "learnset": [
+        {
+          "moveId": 1,
+          "level": 1,
+          "supported": true
+        },
+        {
+          "moveId": 45,
+          "level": 1,
+          "supported": true
+        },
+        {
+          "moveId": 270,
+          "level": 1,
+          "supported": false
+        },
+        {
+          "moveId": 287,
+          "level": 5,
+          "supported": true
+        },
+        {
+          "moveId": 3,
+          "level": 10,
+          "supported": true
+        },
+        {
+          "moveId": 213,
+          "level": 15,
+          "supported": false
+        },
+        {
+          "moveId": 290,
+          "level": 20,
+          "supported": true
+        },
+        {
+          "moveId": 494,
+          "level": 25,
+          "supported": false
+        },
+        {
+          "moveId": 36,
+          "level": 30,
+          "supported": true
+        },
+        {
+          "moveId": 505,
+          "level": 35,
+          "supported": false
+        },
+        {
+          "moveId": 495,
+          "level": 40,
+          "supported": false
+        },
+        {
+          "moveId": 493,
+          "level": 45,
+          "supported": false
+        },
+        {
+          "moveId": 38,
+          "level": 50,
+          "supported": false
+        },
+        {
+          "moveId": 387,
+          "level": 55,
+          "supported": false
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,25 @@
+# Local tooling
+.tools/
+
+# Node
+node_modules/
+server/data/
+*.log
+
+# Godot
+client/.godot/
+# Locally extracted ROM assets (never commit)
+client/assets/bw/
+client/android/
+*.import
+
+# Godot export artifacts
+client/build/
+
+# ROM / APK reference material (never commit copyrighted game files)
+*.nds
+*.apk
+*.zip
+
+# Layout test dumps
+client/.tmp_*.json

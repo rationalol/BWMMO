@@ -1,0 +1,102 @@
+{
+  "id": "unova_in_425",
+  "name": "Pokémon Center",
+  "zone": 425,
+  "spawn": {
+    "x": 6,
+    "y": 19,
+    "dir": "down"
+  },
+  "tiles": [
+    "################################",
+    "#.............##################",
+    "#.............##################",
+    "#.............##################",
+    "#.............##################",
+    "#...........####################",
+    "#...........####################",
+    "#.....###.....##################",
+    "#..#########..##################",
+    "#..#########..##################",
+    "#..####.####..##################",
+    "#..#.......#..##################",
+    "#.............##################",
+    "#.............##################",
+    "#.............##################",
+    "#.........#...##################",
+    "#.............##################",
+    "####..........##################",
+    "#####.........##################",
+    "######...#######################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################"
+  ],
+  "npcs": [
+    {
+      "id": "z425_n4",
+      "name": "Nurse Joy",
+      "x": 7,
+      "y": 10,
+      "color": "#f2b8c6",
+      "kind": "healer",
+      "sprite": 2,
+      "dialogue": [
+        "Welcome to the Pokémon Center!",
+        "Let me take care of your Pokémon.",
+        "There! Your team is fighting fit again."
+      ]
+    }
+  ],
+  "portals": [],
+  "visual": {
+    "originX": -248,
+    "originZ": -248,
+    "tile": 16,
+    "cellSize": 32,
+    "heightScale": 16,
+    "chunks": [
+      {
+        "asset": "unova_indoor/zone_425/0_0",
+        "cellX": 0,
+        "cellY": 0,
+        "offsetX": 0,
+        "offsetZ": 0,
+        "mapFile": "unova_indoor/mapsets/tex_211/m_pc01_00_00.glb",
+        "heights": "wAXgA8ACwAIAAMACwAIAAMACwAIAAMACwALgA8AFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAF4APAAsACAADAAsACAADAAsACAADAAsAC4APABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADABeADwALAAsACwALAAsACwALAAsACwALAAuADwAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAXgA8ACwALAAsACwALAAsACwALAAsACwALgA8AFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAF4APAAsACwALAAsACwALAAsACwALAAsAC4APABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADABcACwALAAtACvwK/AtACwALAAtACvwK/AsACwAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAXAAsACvgK9Ar0CvwLAAsACvgK9Ar4CvwLAAsAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAFwAK/Ar4CvgLw/8D/wP/A//D/vwLAAsACwALABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADABUACQAIOA44A8P/A/8D/wP/A/44ADgNAAkACwAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAVAAUABCAKMAMD/wP/A/8D/wP+MAAgCQAFAAcAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAFQABAAAMBdwCPAMD/wP/A/48AcgADAUAAQADABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADABfD/wP/A/8D/AwCKAIsAigAAANb/wP/A/8D/wAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAXw/8D/wP/A/8D/wP/W/9b/wP/A/8D/wP/A/8AFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAF8P/g/+D/4P/A/+D/4P/g/8D/4P/g/+D/4P/ABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADABfD/4P/g/+D/4P/g/+D/4P/g/7IAhwCSALoDwAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAXw/+D/4P/g/+D/4P/g/+D/4P+SAJIAAwADAMAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAF8P/g/+D/4P/g/8D/wP/A//D/kgD8/+D/4P/ABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADABfD/4P/g/+D/4P/A/8D/wP/w/woB9//g/+D/wAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAXw/+D/4P/g/+D/wP/A/8D/8P+SAPf/4P+6A8AFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOD/4P/g/+D/4P/g/8D/wP/A/+D/4P/g/+D/4P/g/+D/4P8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADg/+D/4P/g/+D/4P8AAMD/AADg/+D/4P/g/+D/4P/g/+D/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        "props": [
+          {
+            "x": -184.0,
+            "y": 0.0,
+            "z": -72.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/pc_01.glb"
+          },
+          {
+            "x": -232.0,
+            "y": 0.0,
+            "z": 0.0,
+            "rotation": 90.0,
+            "file": "unova_indoor/propsets/b6/searock_01.glb"
+          },
+          {
+            "x": -48.0,
+            "y": 48.0,
+            "z": -160.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/c04_football_01.glb"
+          }
+        ]
+      }
+    ]
+  }
+}

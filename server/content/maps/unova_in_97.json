@@ -1,0 +1,80 @@
+{
+  "id": "unova_in_97",
+  "name": "Gym",
+  "zone": 97,
+  "spawn": {
+    "x": 12,
+    "y": 3,
+    "dir": "down"
+  },
+  "tiles": [
+    "################################",
+    "################################",
+    "################################",
+    "############..###..#############",
+    "############..###..#############",
+    "############.......#############",
+    "############.......#############",
+    "############.......#############",
+    "############.......#############",
+    "###############.################",
+    "###############.################",
+    "###############.################",
+    "###############.################",
+    "###############.################",
+    "###############.################",
+    "###############.################",
+    "###############.################",
+    "#############.#.#.##############",
+    "#############.#.#.##############",
+    "###############.################",
+    "##############...###############",
+    "##############...###############",
+    "##############...###############",
+    "###############.################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################"
+  ],
+  "npcs": [],
+  "portals": [],
+  "visual": {
+    "originX": -248,
+    "originZ": -248,
+    "tile": 16,
+    "cellSize": 32,
+    "heightScale": 16,
+    "chunks": [
+      {
+        "asset": "unova_indoor/zone_97/0_0",
+        "cellX": 0,
+        "cellY": 0,
+        "offsetX": 0,
+        "offsetZ": 0,
+        "mapFile": "unova_indoor/mapsets/tex_236/m_gym0501_00_00.glb",
+        "heights": "EMTgxBDE+MJEwpDBLcEAwQDBAMGNwQDBAMEAwQDBAMEAwQDBAMEAwY3BAMEAwQDBLcGQwUTC+MIQxODEEMQQxPjC4MT4wmjCtMEAwQDBn8GMwQzCAMEAwQDBAMEAwQDBAMEAwQDBAMFAwYnBIcJAwQDBAMG0wWjC+MLgxPjC+MJowuDEsMLYwSTBAMEAwZ/BH8IMwgDBwMHAwcDBwMHAwcDBwMHAwcDBQMEqwiHCQMEAwQDBJMHYwbDC4MRowmjC2MHgxLDCkMEAwQDB0MIAwQDBAMEAwcDBAMIAwqjEqcUxxADCAMLAwQDBAMEAwQDB0MIAwQDBkMGwwuDE2MHYwUjB4MSwwpDBAMEAwQDBAMEAwQDBAMHAwQDCAMKjwgDCxMQAwgDCwMEAwQDBAMEAwQDBUMEAwZDBsMLgxEjBSMEAAODEsMKQwQDBAMEAwUDBQMFAwQDBwMEAwgDCAMIAwgDCAMIAwsDBAMEAwQDBAMEAwVDBAMGQwbDC4MQAAAAAAADgxLDCkMEAwQDBAMFAwUDBQMEAwcDBAMIAwgDCAMIAwgDCAMLAwUDBQMFAwUDBAMEAwQDBkMGwwuDEAAAAAAAA4MSwwpDBAMFAwQDCAMIAwQDBAMHAwQDCAMIAwgDCAMIAwgDCwMFAwUDBQMFAwUDBQMEAwZDBsMLgxAAAAAAAAODEsMKQwQDBAMEAwQDBAMEAwQDBwMEAwgDCAMIAwgDCAMIAwsDBAMEAwQDBQMFAwUDBAMGQwbDC4MQAAAAAAADgxLDCkMEAwQDBAMEAwQDBAMEAwcDBwMHAwcDBAMLAwcDBwMHAwQDBAMEAwQDBAMEAwQDBkMGwwuDEAAAAAAAA4MSwwpDBAMEAwQDBAMEAwQDBAMFAwQDBQMGAwQDCgMEAwQDBQMEAwQDBAMEAwQDBAMEAwZDBsMLgxAAAAAAAAODEsMKQwQDBAMEAwQDBAMEAwQDB3ML3wwzDgMEAwoDBbcJrxEDBAMEAwQDBAMEAwQDBAMGQwbDC4MQAAAAAAADgxLDCkMEAwQDBAMEAwQDBAMEAwUDBqsJAwcDBQMLAwa7CX8NAwQDBAMEAwQDBAMEAwQDBkMGwwuDEAAAAAAAA4MSwwpDBAMEAwQDBAMEAwQDBAMFAwXnDXMFAwsDCQMJAwUDBQMEAwQDBAMEAwQDBAMEAwZDBsMLgxAAAAAAAAODEsMKQwQDBAMEAwQDBAMEAwQDBQMGkwuvCwMJAw8DCQMHGw0DBAMEAwQDBAMEAwQDBAMGQwbDC4MQAAAAAAADgxLDCkMEAwUDBAMEAwQDBAMEAwUDBQMGawUDDwMNAwwDBQMEAwQDBAMEAwQDBAMEAwQDBkMGwwuDEAAAAAAAA4MSwwpDBAMGywUDBQMEAwQDBAMEAwQDBmMLAw0DEwMOQwUDCAMEAwQDBAMEAwUDBQMEAwZDBsMLgxAAAAAAAAODEsMKQwQDBAMGfwYzBAMEAwQDBAMEAwQDBQMTAxEDEAMEAwQDBAMEAwQDBAMEAwaPBAMGQwbDC4MQAAAAAAADgxLDCkMEAwQPCAOY5ONg2MTbFIWMMWQxQDEgMQAw1DCsMIQyUKWspQSkYKVU5AP1AwUDBkMGwwuDEAAAAAAAA4MSwwpDBAMEAwQcuADIAMgAyADIAMgAyADIAMgAyADIAMgAyrDIAMgAyADIAMisuAMEAwZDBsMLgxAAAAAAAAODEsMKQwQDBAMEA2wAoAMEAwQDBgMLAxADEAMQAxADEAMTAxIDCAMEAwQDBTCUA/QDBAMGQwbDC4MQAAAAAAADgxLDCkMEAwQDBANsAKADBAMEAwYDCwMQAxADEAMQAxADEwMSAwgDBAMEAwTIlAP0AwQDBkMGwwuDEAAAAAAAA4MSwwpDBAMEAwQDbACgAwQDBAMGAwsDEAMQAxADEAMQAxMDEgMIAwQDBAMEYJQD9AMEAwZDBsMLgxAAAAAAAAODEsMKQwQDBAMEHLgAyADIAMgAyADIAMgAyADIAMgAyADIAMgAyADIAMgAyADIrLgDBAMGQwbDC4MQAAAAAAAAAAADBAMEAwQDBAMEAwQDBAMEAwQDBAMEAwQDBAMEAwQDBAMEAwQDBAMEAweQkAP0AwQDBAMEAwQAAAAAAAAAAAAAAwQDBAMEAwQDBAMEAwQDBAMEAwQDBAMEAwQDBAMEAwQDBAMEAwQDBAMHKJAD9AMEAwQDBAMEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAsCQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJYkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADIAMgAyADIAMgAyADIAMgAyADIAMgAyADIAMgAyADIAMgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYiQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEgkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuJAAAAAAAAAAAAAAAAAAAAAA=",
+        "props": [
+          {
+            "x": -120.0,
+            "y": -1008.0,
+            "z": -32.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b22/door01.glb"
+          },
+          {
+            "x": 104.0,
+            "y": -1008.0,
+            "z": -32.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b22/door01.glb"
+          }
+        ]
+      }
+    ]
+  }
+}

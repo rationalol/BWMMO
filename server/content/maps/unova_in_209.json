@@ -1,0 +1,65 @@
+{
+  "id": "unova_in_209",
+  "name": "Interior",
+  "zone": 209,
+  "spawn": {
+    "x": 13,
+    "y": 4,
+    "dir": "down"
+  },
+  "tiles": [
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "#############...################",
+    "#############...################",
+    "#############...################",
+    "#########..##..#################",
+    "#########..##..#################",
+    "#########..##..#.....###########",
+    "#########..##..#.....###########",
+    "#########..#####################",
+    "######.##..#.#.#.#.#.###########",
+    "######.#########.#.#.###########",
+    "######.##..###.#.#.#.###########",
+    "####...##..###.#################",
+    "#########..###...#.#..##########",
+    "#########..#########..##########",
+    "#########..#...#...#..##########",
+    "#########..#...#...#..##########",
+    "################################",
+    "#############.######..##########",
+    "#############.#.#..#..##########",
+    "#################..#############",
+    "#################..#############",
+    "################....############",
+    "################....############",
+    "################....############",
+    "################################",
+    "################################",
+    "################################",
+    "################################"
+  ],
+  "npcs": [],
+  "portals": [],
+  "visual": {
+    "originX": -248,
+    "originZ": -248,
+    "tile": 16,
+    "cellSize": 32,
+    "heightScale": 16,
+    "chunks": [
+      {
+        "asset": "unova_indoor/zone_209/0_0",
+        "cellX": 0,
+        "cellY": 0,
+        "offsetX": 0,
+        "offsetZ": 0,
+        "mapFile": "unova_indoor/mapsets/tex_223/m_dun0803_00_00.glb",
+        "heights": "APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD54A3gDeANrQ1cDRwN3wwA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+eAN4A3gDaoNUQ0LDcgMiQxQDAD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APngDeAN4A2hDUcN+gyxDG0MLQz1CwD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+eAN4A0A+QD54A3gDQD5APkA+QD5lgxMDAoMzQuXC2oLAPkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APngDeANAPkA+eAN4A0A+QD5APkA+QD5APncC50LaAs5CwD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD54A3gDQD5APngDeANKg7gDeAN4A3gDeANAPlqCzILAQvdCgD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+eAN4A0A+QD54A3gDQD54A3gDeAN4A3gDQD5APn0CscKogqDCgD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APngDeANAPkA+QD5Kg4A+SoOAPkqDgD5Kg4A+QD5APmGCmEKSAoA+QD5APkA+QD5ABMAEwATABMAEwAT4BIA+QD54A3gDSoO4A0qDuANAPngDQD54A0A+eANAPkA+QD5PQocCggK9QkA+QD5APkA+QATABMAEwATABMAE+ASAPkA+SoOAPkA+QD5APkqDgD54A0A+eANAPngDQD5APkA+QD51QnDCbcJAPkA+QD5APkAEwATABMAEwATABPgEgD5APngDeANAPkA+QD54A0A+eANAPngDQD54A0A+QD5APkA+YUJfAl8CQD5APkA+QD5APkA+QD5APngEuAS4BIA+QD54A3gDQD5APkA+eANAPkqDgD5Kg4A+SoOAPkA+QD5APlgCX0JfQl9CX0JfQkA+QD5APkA+QD5vRK7ErESAPkA+eAN4A0A+QD5APngDeAN4A0A+eANAPngDeANAPkA+QD5YAl9CX0JfQl9CX0JAPkA+QD5APkA+WgSYRJQEgD5APngDeANAPkA+QD5APkA+QD5APkqDgD54A3gDQD5APkA+WAJfQl9CX0JfQl9CQD5APkA+QD5APkfEhIS+hEA+QD54A3gDQD54A3gDeANAPngDeAN4A0A+eAN4A0A+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD52BHEEagRhxEA+eAN4A0qDuAN4A3gDSoO4A3gDeANAPngDeANAPkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5ehFdETURAPkA+QD5APkA+SoOAPkA+QD5APkA+QD5Kg4A+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+TYRFRHnELUQAPkA+QD5APngDQD5APkA+QD5APkA+eAN4A0A+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+dEQpRBzEDIQAPkA+QD54A0qDuANKg7gDeANKg7gDeANAPkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+WkQMhD0D60PAPkA+QD5APkA+QD54A3gDQD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkwEP4Pwg99DzEP3Q4A+QD5APkA+eAN4A0A+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+ZAPVA8OD8AObA4bDuoN4A3gDeAN4A0A+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+SsP6A6kDlkOEw7pDeAN4A3gDeANAPkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5iQ5EDgcO6A3gDeAN4A3gDQD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APkA+QD5APk=",
+        "props": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "id": "unova_in_86",
+  "name": "Interior",
+  "zone": 86,
+  "spawn": {
+    "x": 6,
+    "y": 25,
+    "dir": "down"
+  },
+  "tiles": [
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "####........................####",
+    "####........................####",
+    "####........................####",
+    "####...........##...........####",
+    "####...........##...........####",
+    "####...........##...........####",
+    "####...........##...........####",
+    "####...........##...........####",
+    "####...........##...........####",
+    "####...........##...........####",
+    "####...........##...........####",
+    "####...........##...........####",
+    "####...........##...........####",
+    "####........................####",
+    "####........................####",
+    "####........................####",
+    "#####...########################",
+    "#####.P.########################",
+    "#####...########################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################"
+  ],
+  "npcs": [],
+  "portals": [
+    {
+      "x": 6,
+      "y": 25,
+      "targetMap": "unova_in_84",
+      "targetX": 11,
+      "targetY": 8,
+      "onWarpTile": true,
+      "targetDir": "down"
+    }
+  ],
+  "visual": {
+    "originX": -248,
+    "originZ": -248,
+    "tile": 16,
+    "cellSize": 32,
+    "heightScale": 16,
+    "chunks": [
+      {
+        "asset": "unova_indoor/zone_86/0_0",
+        "cellX": 0,
+        "cellY": 0,
+        "offsetX": 0,
+        "offsetZ": 0,
+        "mapFile": "unova_indoor/mapsets/tex_259/m_tennis01_00_00.glb",
+        "heights": "oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/6D/oP+g/6D/oP+g/6D/oP/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P+g/6D/oP+g/6D/oP+g/6D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/oP+g/6D/oP+g/6D/oP+g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/6D/oP+g/6D/oP+g/6D/oP/g/+D/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOD/4P+g/6D/oP+g/6D/oP+g/6D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/oP+g/6D/oP+g/6D/oP+g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/6D/oP+g/6D/oP+g/6D/oP/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P+g/6D/oP+g/6D/oP+g/6D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/oP+g/6D/oP+g/6D/oP+g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/6D/oP+g/6D/oP+g/6D/oP/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P+g/6D/oP+g/6D/oP+g/6D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/oP+g/6D/oP+g/6D/oP+g/+D/4P8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4P/g/6D/oP+g/6D/oP+g/6D/oP/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P+g/6D/oP+g/6D/oP+g/6D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/oP+g/6D/oP+g/6D/oP+g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/6D/oP+g/6D/oP+g/6D/oP+g/+D/4P/g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP/g/+D/4P+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/4P/g/+D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP8=",
+        "props": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "id": "unova_in_203",
+  "name": "Interior",
+  "zone": 203,
+  "spawn": {
+    "x": 7,
+    "y": 25,
+    "dir": "down"
+  },
+  "tiles": [
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "######g.gggggggggggggggg#g######",
+    "######g.gggg#g######gggggg######",
+    "######g.gg#####gggg#ggg#gg######",
+    "######g####gggggggg#ggg#gg######",
+    "######g##gggggggggg#ggg#gg######",
+    "######g#gggg###ggg#gggg#gg######",
+    "######g#gggg###ggg######gg######",
+    "######g###gg###ggg#ggggggg######",
+    "######ggg#gggggggg##gggggg######",
+    "######ggg#gggggggg#ggggggg######",
+    "######ggg#####ggg######ggg######",
+    "######ggggggggggggggggggg#######",
+    "######gggggggggggggggggggg######",
+    "######gggggggggggggggggggg######",
+    "######ggg#g#############gg######",
+    "######ggg#ggggggg##ggggggg######",
+    "######ggg##########ggggggg######",
+    "######ggg#######################",
+    "######ggg#######################",
+    "######gPg#######################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################"
+  ],
+  "npcs": [],
+  "portals": [
+    {
+      "x": 7,
+      "y": 25,
+      "targetMap": "unova_in_202",
+      "targetX": 21,
+      "targetY": 50,
+      "onWarpTile": false,
+      "targetDir": "down",
+      "entryDir": "down"
+    }
+  ],
+  "visual": {
+    "originX": -248,
+    "originZ": -248,
+    "tile": 16,
+    "cellSize": 32,
+    "heightScale": 16,
+    "chunks": [
+      {
+        "asset": "unova_indoor/zone_203/0_0",
+        "cellX": 0,
+        "cellY": 0,
+        "offsetX": 0,
+        "offsetZ": 0,
+        "mapFile": "unova_indoor/mapsets/tex_222/m_dun0705_00_00.glb",
+        "heights": "AAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADmgKaApoCmgKaApoCmgKaApoCmgKaApoCmgKaApoCmgKaApoCmgKaApoCmgKaApoCmgKaAgADAAMAAwADAAMAA5oCmgGaAZoBmgGaAZoBmgGaAZoBmgGaAZoBmgGaAZoBmgGaAZoBmgGaAZoBmgGaAZoBmgIAAwADAAMAAwADAAOaApoBmgCaAJoAmgCaAJoAmgCaAJoAmgCaAJoAmgCaAJoAmgCaAJoAmgCaAJoAmgCaAZoCAAMAAwADAAMAAwADmgKaAZoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAJoAmgGaAgADAAMAAwADAAMAA5oCmgGaAAAAAAAAAAAAAAAAAGAAAACa/5r/mv+a/5r/mv8AAAAAAAAAAAAAAACaAJoBmgIAAwADAAMAAwADAAOaApoBmgAAAAAAAAAAAJr/mv+a/5r/U/8A/wD/AP8A/5r/AAAAAAAAYAAAAAAAmgCaAZoCAAMAAwADAAMAAwADmgKaAZoAAACa/5r/mv9T/wD/AP8A/wD/AP8A/wD/AP9T/4D/gP+A/5r/AAAAAJoAmgGaAgADAAMAAwADAAMAA5oCmgGaAAAAmv9g/wD/AP8A/zD/MP8w/wD/AP8A/wD/YP8A/wD/AP+a/wAAAACaAJoBmgIAAwADAAMAAwADAAOaApoBmgAAAJr/AP8A/wD/MP8w/yUAMP8w/wD/AP9g/wD/AP8A/wD/mv8AAAAAmgCaAZoCAAMAAwADAAMAAwADmgKaAZoAAACa/wD/AP8A/zD/IQBAAfT/MP8A/wD/U/+a/5r/mv+a/5r/AAAAAJoAmgGaAgADAAMAAwADAAMAA5oCmgGaAAAAmv+a/1P/AP8w/zD/MP8w/zD/AP8A/5r/AAAAAAAAAAAAAAAAAACaAJoBmgIAAwADAAMAAwADAAOaApoBmgAAAAAAAACa/wD/AP8w/zD/MP8A/wD/AP+a/2AAAAAAAAAAAAAAAAAAmgCaAZoCAAMAAwADAAMAAwADmgKaAZoAAAAAAAAAmv8A/wD/AP8A/wD/AP8A/wD/mv8AAAAAAAAAAAAAAAAAAJoAmgGaAgADAAMAAwADAAMAA5oCmgGaAAAAAAAAAJr/YP+a/pr+mv6A/oD+gP6a/lP/mv+a/5r/mv8AAAAAAACaAJoBmgIAAwADAAMAAwADAAOaApoBmgAAAAAAAACA/wD/gP4A/gD+AP4A/gD+gP4A/wD/AP8A/4D/AAAAAGAAmgCaAZoCAAMAAwADAAMAAwADmgKaAZoAAAAAAAAAgP8A/4D+AP4A/gD+AP4A/oD+AP8A/wD/AP+A/wAAAAAAAJoAmgGaAgADAAMAAwADAAMAA5oCmgGaAAAAAAAAAID/AP+A/gD+AP4A/gD+AP6A/gD/AP8A/wD/gP8AAAAAAACaAJoBmgIAAwADAAMAAwADAAOaApoBmgAAAAAAAACa/wD/mv6a/pr+mv6a/pr+mv5T/5r/mv+a/5r/YAAAAAAAmgCaAZoCAAMAAwADAAMAAwADmgKaAZoAAAAAAAAAmv8A/wD/AP8A/wD/AP8A/2D/mv8AAAAAAAAAAAAAAAAAAJoAmgGaAgADAAMAAwADAAMAA5oCmgGaAAAAAAAAAJr/mv+a/5r/mv+a/5r/mv+a/5r/AAAAAAAAAAAAAAAAAACaAJoBmgIAAwADAAMAAwADAAOaApoBmgAAAAAAAABTAJoAmgCaAJoAmgCaAJoAmgCaAJoAmgCaAJoAmgCaAJoAmgCaAZoCAAMAAwADAAMAAwADmgKaAZoAAAAAAAAAmgBTAZoBmgGaAZoBmgGaAZoBmgGaAZoBmgGaAZoBmgGaAZoBmgGaAgADAAMAAwADAAMAA5oCmgGaAAAAIAAAAJoAmgFTApoCmgKaApoCmgKaApoCmgKaApoCmgKaApoCmgKaApoCmgIAAwADAAMAAwADAAOaApoBmgCaAEoAmgCaAJoBAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADmgKaAZoBmgGgAZoBmgGaAZoCAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAA5oCmgKaApoCmgKaApoCmgKaAgADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAM=",
+        "props": []
+      }
+    ]
+  }
+}

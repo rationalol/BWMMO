@@ -1,0 +1,125 @@
+{
+  "id": "unova_in_396",
+  "name": "Professor Juniper's Lab",
+  "zone": 396,
+  "spawn": {
+    "x": 3,
+    "y": 11,
+    "dir": "down"
+  },
+  "tiles": [
+    "#########.######################",
+    "#####...#.######################",
+    "#####...#.##.###################",
+    "#####...#.#...##################",
+    "##....###.#....#################",
+    "##.....####....#################",
+    "###....####..#..################",
+    "#............#..################",
+    "#............#..################",
+    "#..............#################",
+    "#.#...#........#################",
+    "###PPP##########################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################"
+  ],
+  "npcs": [],
+  "portals": [
+    {
+      "x": 3,
+      "y": 11,
+      "targetMap": "unova_full",
+      "targetX": 777,
+      "targetY": 741,
+      "onWarpTile": true,
+      "targetDir": "down",
+      "entryDir": "down"
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "targetMap": "unova_full",
+      "targetX": 777,
+      "targetY": 741,
+      "onWarpTile": true,
+      "targetDir": "down",
+      "entryDir": "down"
+    },
+    {
+      "x": 5,
+      "y": 11,
+      "targetMap": "unova_full",
+      "targetX": 777,
+      "targetY": 741,
+      "onWarpTile": true,
+      "targetDir": "down",
+      "entryDir": "down"
+    }
+  ],
+  "visual": {
+    "originX": -248,
+    "originZ": -248,
+    "tile": 16,
+    "cellSize": 32,
+    "heightScale": 16,
+    "chunks": [
+      {
+        "asset": "unova_indoor/zone_396/0_0",
+        "cellX": 0,
+        "cellY": 0,
+        "offsetX": 0,
+        "offsetZ": 0,
+        "mapFile": "unova_indoor/mapsets/tex_213/m_labo01_00_00.glb",
+        "heights": "/QL9Av0C/QL9Av0C/QL9Av0C/QL9Av0C/QL9Av0C/QL9Av0CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP0C/QL9Av0C/QL9Av0C/QL9Av0C/QL9Av0C/QL9Av0C/QL9AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD9At3/3f/d/93/3f/d/93//QL9Av0C3f/d/93/3f/9Av0C/QIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/QLd/93/3f/d/93/3f/d//0C/QL9At3/3f/d/93//QL9Av0CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP0CPQHd/93/3f/d/93/oAD9Av0C/QLd/93/3f/d/30AkAD9AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD9At3/3f/d/93/3f/d/yAB/QL9Av0C3f/d/93/3f99AI4A/QIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/QLd/93/3f/d/93/3f+gAP0C/QL9At3//f+dAP3/3f+MAP0CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP0C3f/d/93/3f/d/93/3f/d/93/3f/d//3/nQD9/93/igD9AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD9At3/3f/d/93/3f/d/93/3f/d/93/3f/9/50A/f/d//0C/QIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/QLd/93/3f/d/93/3f/d/93/3f/d/93/3f/d/93//QL9Av0CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP0C3f/d/93/3f/d/93/3f/d/93/3f/d/93/3f/d//0C/QL9AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADd/93/3f8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        "props": [
+          {
+            "x": -48.0,
+            "y": 8.0,
+            "z": -232.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/o_chair_01.glb"
+          },
+          {
+            "x": -56.0,
+            "y": 0.0,
+            "z": -136.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/buill_02.glb"
+          },
+          {
+            "x": -24.0,
+            "y": 0.0,
+            "z": -136.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/buill_02.glb"
+          },
+          {
+            "x": -224.0,
+            "y": 0.0,
+            "z": -208.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/fountain_01.glb"
+          }
+        ]
+      }
+    ]
+  }
+}

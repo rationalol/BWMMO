@@ -1,0 +1,922 @@
+msgid ""
+msgstr ""
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "#%03d Not yet seen"
+msgstr "#%03d 尚未发现"
+
+msgid "%d / %d SLOTS"
+msgstr "%d / %d 个位置"
+
+msgid "%d GOODS IN STOCK"
+msgstr "库存 %d 件商品"
+
+msgid "%d PP"
+msgstr "%d PP"
+
+msgid "%d move waiting to be learned"
+msgstr "%d 个招式等待学习"
+
+msgid "%d moves waiting to be learned"
+msgstr "%d 个招式等待学习"
+
+msgid "%d win"
+msgstr "%d 胜"
+
+msgid "%d wins"
+msgstr "%d 胜"
+
+msgid "%d/%d PP"
+msgstr "%d/%d PP"
+
+msgid "%s  -  %d ms"
+msgstr "%s  -  %d ms"
+
+msgid "%s  -  %s"
+msgstr "%s  -  %s"
+
+msgid "%s  -  %s  -  %d trainers here"
+msgstr "%s  -  %s  -  此处有 %d 位训练家"
+
+msgid "%s  -  %s  -  1 trainer here"
+msgstr "%s  -  %s  -  此处有 1 位训练家"
+
+msgid "%s POCKET"
+msgstr "%s口袋"
+
+msgid "%s Retrying..."
+msgstr "%s 正在重试..."
+
+msgid "%s wants to learn %s!"
+msgstr "%s 想学会 %s！"
+
+msgid "(active)"
+msgstr "（出战）"
+
+msgid "(fainted)"
+msgstr "（濒死）"
+
+msgid "2-16 letters, numbers, or underscores"
+msgstr "2-16 个字母、数字或下划线"
+
+msgid "3-20 letters, numbers, or underscores"
+msgstr "3-20 个字母、数字或下划线"
+
+msgid "A wild %s appeared!"
+msgstr "野生的 %s 出现了！"
+
+msgid "ALL"
+msgstr "全部"
+
+msgid "AREA"
+msgstr "区域"
+
+msgid "Added to your party."
+msgstr "已加入队伍。"
+
+msgid "Auto-connecting..."
+msgstr "正在自动连接..."
+
+msgid "BACK"
+msgstr "返回"
+
+msgid "BAG"
+msgstr "背包"
+
+msgid "BAG EMPTY"
+msgstr "背包为空"
+
+msgid "BASE"
+msgstr "种族值"
+
+msgid "BOX"
+msgstr "盒子"
+
+msgid "BRN"
+msgstr "灼伤"
+
+msgid "BUY"
+msgstr "购买"
+
+msgid "BUY 1"
+msgstr "买 1"
+
+msgid "Bag"
+msgstr "背包"
+
+msgid "Balls"
+msgstr "精灵球"
+
+msgid "Berries"
+msgstr "树果"
+
+msgid "Blacked out..."
+msgstr "眼前一黑……"
+
+msgid "Buy and sell items. ESC to close."
+msgstr "买卖道具。按 ESC 关闭。"
+
+msgid "CANCEL"
+msgstr "取消"
+
+msgid "CAUGHT"
+msgstr "已捕获"
+
+msgid "CAUGHT  %d"
+msgstr "已捕获  %d"
+
+msgid "CONTINUE"
+msgstr "继续"
+
+msgid "Chat"
+msgstr "聊天"
+
+msgid "Chat timestamps"
+msgstr "聊天时间戳"
+
+msgid "Choose a move."
+msgstr "选择招式。"
+
+msgid "Choose a partner Pokemon."
+msgstr "请选择伙伴宝可梦。"
+
+msgid "Choose a party member"
+msgstr "选择队伍成员"
+
+msgid "Choose an item"
+msgstr "选择道具"
+
+msgid "Choose an item."
+msgstr "选择道具。"
+
+msgid "Choose your partner"
+msgstr "选择伙伴"
+
+msgid "Close"
+msgstr "关闭"
+
+msgid "Close (Esc)"
+msgstr "关闭（Esc）"
+
+msgid "Collapse chat"
+msgstr "收起聊天"
+
+msgid "Collapse party"
+msgstr "收起队伍"
+
+msgid "Connecting..."
+msgstr "正在连接..."
+
+msgid "Connection"
+msgstr "连接"
+
+msgid "Connection lost. Reconnecting..."
+msgstr "连接中断，正在重连..."
+
+msgid "Control hints"
+msgstr "操作提示"
+
+msgid "Controls"
+msgstr "操作"
+
+msgid "Could not reconnect to the server."
+msgstr "无法重新连接到服务器。"
+
+msgid "Create account"
+msgstr "创建账号"
+
+msgid "Create your trainer"
+msgstr "创建你的训练家"
+
+msgid "Creating trainer..."
+msgstr "正在创建训练家..."
+
+msgid "D-pad move  -  Talk  -  Chat"
+msgstr "方向键移动  -  对话  -  聊天"
+
+msgid "DON'T LEARN"
+msgstr "不学习"
+
+msgid "Dawn"
+msgstr "黎明"
+
+msgid "Day"
+msgstr "白天"
+
+msgid "Dex"
+msgstr "图鉴"
+
+msgid "Disconnected from server."
+msgstr "已断开与服务器的连接。"
+
+msgid "Display"
+msgstr "显示"
+
+msgid "Dusk"
+msgstr "黄昏"
+
+msgid "E  talk    -    T / Enter  chat    -    Esc  close"
+msgstr "E 对话    -    T / Enter 聊天    -    Esc 关闭"
+
+msgid "E / Space / Tap to close"
+msgstr "E / 空格 / 点击关闭"
+
+msgid "E / Space / Tap to continue"
+msgstr "E / 空格 / 点击继续"
+
+msgid "EMPTY"
+msgstr "空"
+
+msgid "ESC to close"
+msgstr "ESC 关闭"
+
+msgid "EV"
+msgstr "努力值"
+
+msgid "Encounter this species to register it\nin the Pokédex."
+msgstr "遇到该物种后即可\n登记到图鉴。"
+
+msgid "Enter Unova"
+msgstr "进入合众"
+
+msgid "Entering %s..."
+msgstr "正在进入 %s..."
+
+msgid "Entering Unova..."
+msgstr "正在进入合众..."
+
+msgid "Escaped!"
+msgstr "成功逃脱！"
+
+msgid "Evolution"
+msgstr "进化"
+
+msgid "Expand chat"
+msgstr "展开聊天"
+
+msgid "Expand party"
+msgstr "展开队伍"
+
+msgid "FIGHT"
+msgstr "战斗"
+
+msgid "FNT"
+msgstr "濒死"
+
+msgid "FORGET"
+msgstr "遗忘"
+
+msgid "FRZ"
+msgstr "冰冻"
+
+msgid "Forest"
+msgstr "森林"
+
+msgid "Forget a move to make room"
+msgstr "遗忘一个招式腾出位置"
+
+msgid "Gotcha!"
+msgstr "捕获成功！"
+
+msgid "Grass"
+msgstr "草地"
+
+msgid "HELD ITEM"
+msgstr "携带道具"
+
+msgid "HP"
+msgstr "HP"
+
+msgid "High friendship  ->  %s"
+msgstr "亲密度高时  ->  %s"
+
+msgid "ITEMS ×%d"
+msgstr "道具 ×%d"
+
+msgid "IV"
+msgstr "个体值"
+
+msgid "Is the server running?"
+msgstr "服务器是否已启动？"
+
+msgid "Item"
+msgstr "道具"
+
+msgid "Items"
+msgstr "道具"
+
+msgid "Key Items"
+msgstr "重要道具"
+
+msgid "LEARN %s"
+msgstr "学习 %s"
+
+msgid "Language"
+msgstr "语言"
+
+msgid "Learn Move"
+msgstr "学习招式"
+
+msgid "Level up holding an item  ->  %s"
+msgstr "携带道具升级  ->  %s"
+
+msgid "Level up knowing a move  ->  %s"
+msgstr "掌握指定招式升级  ->  %s"
+
+msgid "Loading entries..."
+msgstr "正在加载条目..."
+
+msgid "Log in"
+msgstr "登录"
+
+msgid "Logging in..."
+msgstr "正在登录..."
+
+msgid "Lv %d"
+msgstr "Lv %d"
+
+msgid "Lv %d   %d/%d HP"
+msgstr "Lv %d   %d/%d HP"
+
+msgid "Lv --"
+msgstr "Lv --"
+
+msgid "Lv.%d  %s"
+msgstr "Lv.%d  %s"
+
+msgid "Lv.%d - %s"
+msgstr "Lv.%d - %s"
+
+msgid "MONEY"
+msgstr "金钱"
+
+msgid "Map"
+msgstr "地图"
+
+msgid "Medicine"
+msgstr "药品"
+
+msgid "Medicine is used on one party member and costs your turn."
+msgstr "药品只能对一名队伍成员使用，并会消耗本回合。"
+
+msgid "Menu"
+msgstr "菜单"
+
+msgid "Minimap"
+msgstr "小地图"
+
+msgid "Moves"
+msgstr "招式"
+
+msgid "NATURE"
+msgstr "性格"
+
+msgid "NO DATA"
+msgstr "无资料"
+
+msgid "NO MAP DATA"
+msgstr "没有地图数据"
+
+msgid "NO MEDICINE"
+msgstr "没有药品"
+
+msgid "NO MOVES"
+msgstr "没有招式"
+
+msgid "NUVEMA TOWN  -  BW ROM MAP TEST"
+msgstr "诺文镇  -  BW ROM 地图测试"
+
+msgid "New Pokémon"
+msgstr "新捕获的宝可梦"
+
+msgid "Night"
+msgstr "夜晚"
+
+msgid "No PP left"
+msgstr "PP 已耗尽"
+
+msgid "No Pokémon selected"
+msgstr "未选择宝可梦"
+
+msgid "No items"
+msgstr "没有道具"
+
+msgid "No move is waiting to be learned."
+msgstr "没有等待学习的招式。"
+
+msgid "None"
+msgstr "无"
+
+msgid "Not connected to the server."
+msgstr "未连接到服务器。"
+
+msgid "Nothing in stock."
+msgstr "没有库存。"
+
+msgid "OF %d"
+msgstr "共 %d"
+
+msgid "OFF"
+msgstr "关"
+
+msgid "OFFLINE"
+msgstr "离线"
+
+msgid "ON"
+msgstr "开"
+
+msgid "ONLINE"
+msgstr "在线"
+
+msgid "PAGE %d / %d   -   %d entries"
+msgstr "第 %d / %d 页   -   %d 条"
+
+msgid "PAR"
+msgstr "麻痹"
+
+msgid "PARTY"
+msgstr "队伍"
+
+msgid "PARTY  -  click a row to select for swapping"
+msgstr "队伍  -  点击一行选择交换"
+
+msgid "PARTY %d/%d   -   BOX %d/%d"
+msgstr "队伍 %d/%d   -   盒子 %d/%d"
+
+msgid "PC Storage"
+msgstr "PC 存储"
+
+msgid "POKéMON"
+msgstr "宝可梦"
+
+msgid "PP %d/%d"
+msgstr "PP %d/%d"
+
+msgid "PSN"
+msgstr "中毒"
+
+msgid "Party"
+msgstr "队伍"
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Password must be at least 4 characters."
+msgstr "密码至少需要 4 个字符。"
+
+msgid "Path"
+msgstr "道路"
+
+msgid "Ping %d ms"
+msgstr "延迟 %d ms"
+
+msgid "Ping --"
+msgstr "延迟 --"
+
+msgid "Poké Balls"
+msgstr "精灵球"
+
+msgid "Pokédex"
+msgstr "图鉴"
+
+msgid "Pokémon"
+msgstr "宝可梦"
+
+msgid "Pow %d"
+msgstr "威力 %d"
+
+msgid "Power %d"
+msgstr "威力 %d"
+
+msgid "Press Enter to chat..."
+msgstr "按 Enter 聊天..."
+
+msgid "Quantity: %d"
+msgstr "数量：%d"
+
+msgid "REPLACE"
+msgstr "替换"
+
+msgid "RUN"
+msgstr "逃跑"
+
+msgid "Reconnecting... (attempt %d)"
+msgstr "正在重连...（第 %d 次尝试）"
+
+msgid "Registered by capture or evolution."
+msgstr "通过捕获或进化登记。"
+
+msgid "Restoring session..."
+msgstr "正在恢复会话..."
+
+msgid "SEEN"
+msgstr "已发现"
+
+msgid "SEEN  %d"
+msgstr "已发现  %d"
+
+msgid "SELL"
+msgstr "出售"
+
+msgid "SELL 1"
+msgstr "卖 1"
+
+msgid "SLP"
+msgstr "睡眠"
+
+msgid "STORE"
+msgstr "存入"
+
+msgid "SURE?"
+msgstr "确定？"
+
+msgid "SWAP"
+msgstr "交换"
+
+msgid "Say something..."
+msgstr "说点什么..."
+
+msgid "Send (Enter)"
+msgstr "发送（Enter）"
+
+msgid "Send out a healthy party member to continue."
+msgstr "派出一名健康的队伍成员继续战斗。"
+
+msgid "Server"
+msgstr "服务器"
+
+msgid "Server URL must start with ws:// or wss://."
+msgstr "服务器地址必须以 ws:// 或 wss:// 开头。"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Shop"
+msgstr "商店"
+
+msgid "Special condition  ->  %s"
+msgstr "特殊条件  ->  %s"
+
+msgid "Stats"
+msgstr "能力"
+
+msgid "Status"
+msgstr "变化"
+
+msgid "Stored Pokémon keep their HP and status. ESC to close."
+msgstr "存入的宝可梦会保留 HP 和状态。按 ESC 关闭。"
+
+msgid "Switching uses your turn. The wild Pokémon will attack."
+msgstr "换人会消耗本回合，野生宝可梦会发动攻击。"
+
+msgid "System"
+msgstr "系统"
+
+msgid "TAKE"
+msgstr "取出"
+
+msgid "TMs"
+msgstr "学习器"
+
+msgid "TMs & HMs"
+msgstr "招式学习器"
+
+msgid "TOX"
+msgstr "剧毒"
+
+msgid "Talk"
+msgstr "对话"
+
+msgid "Talk to %s"
+msgstr "与 %s 对话"
+
+msgid "The box is empty."
+msgstr "盒子是空的。"
+
+msgid "The learned move starts with full PP."
+msgstr "学会的招式以满 PP 开始。"
+
+msgid "This pocket is empty."
+msgstr "这个口袋是空的。"
+
+msgid "This shop has nothing in stock."
+msgstr "这家商店没有库存。"
+
+msgid "Trade  ->  %s"
+msgstr "交换  ->  %s"
+
+msgid "Trainer color"
+msgstr "训练家颜色"
+
+msgid "Trainer name"
+msgstr "训练家名字"
+
+msgid "Trainer name must be at least 2 characters."
+msgstr "训练家名字至少需要 2 个字符。"
+
+msgid "Trainer name must be at most 16 characters."
+msgstr "训练家名字最多 16 个字符。"
+
+msgid "UNKNOWN"
+msgstr "未知"
+
+msgid "UNOVA ONLINE  -  PROTOTYPE"
+msgstr "合众在线  -  原型"
+
+msgid "USE"
+msgstr "使用"
+
+msgid "Unknown"
+msgstr "未知"
+
+msgid "Unknown area"
+msgstr "未知区域"
+
+msgid "Unova"
+msgstr "合众"
+
+msgid "Use %s on whom?"
+msgstr "对谁使用 %s？"
+
+msgid "Use an item  ->  %s"
+msgstr "使用道具  ->  %s"
+
+msgid "Use on"
+msgstr "使用对象"
+
+msgid "Username"
+msgstr "用户名"
+
+msgid "Username must be at least 3 characters."
+msgstr "用户名至少需要 3 个字符。"
+
+msgid "Using a medicine costs your turn."
+msgstr "使用药品会消耗本回合。"
+
+msgid "Victory!"
+msgstr "胜利！"
+
+msgid "WASD / Arrows to walk\nMultiplayer sync is the next step"
+msgstr "WASD / 方向键移动\n下一步是多人同步"
+
+msgid "WASD / arrows  move    -    Shift  run"
+msgstr "WASD / 方向键  移动    -    Shift  跑步"
+
+msgid "WASD move  -  Shift run  -  E talk  -  T chat"
+msgstr "WASD 移动  -  Shift 跑步  -  E 对话  -  T 聊天"
+
+msgid "Water"
+msgstr "水面"
+
+msgid "Welcome to Unova. Press Enter to chat."
+msgstr "欢迎来到合众。按 Enter 开始聊天。"
+
+msgid "What will %s do?"
+msgstr "%s 要做什么？"
+
+msgid "World"
+msgstr "世界"
+
+msgid "World map"
+msgstr "世界地图"
+
+msgid "XP"
+msgstr "经验"
+
+msgid "You have nothing to sell."
+msgstr "你没有可出售的道具。"
+
+msgid "Your partner fainted"
+msgstr "你的伙伴倒下了"
+
+msgid "Your party is empty."
+msgstr "你的队伍是空的。"
+
+msgid "a new move"
+msgstr "新招式"
+
+msgid "at least 4 characters"
+msgstr "至少 4 个字符"
+
+msgid "category.physical"
+msgstr "物理"
+
+msgid "category.special"
+msgstr "特殊"
+
+msgid "category.status"
+msgstr "变化"
+
+msgid "move.ember"
+msgstr "火花"
+
+msgid "move.quick_attack"
+msgstr "电光一闪"
+
+msgid "move.tackle"
+msgstr "撞击"
+
+msgid "move.vine_whip"
+msgstr "藤鞭"
+
+msgid "move.water_gun"
+msgstr "水枪"
+
+msgid "nature.Adamant"
+msgstr "固执"
+
+msgid "nature.Bashful"
+msgstr "害羞"
+
+msgid "nature.Bold"
+msgstr "大胆"
+
+msgid "nature.Brave"
+msgstr "勇敢"
+
+msgid "nature.Calm"
+msgstr "温和"
+
+msgid "nature.Careful"
+msgstr "慎重"
+
+msgid "nature.Docile"
+msgstr "坦率"
+
+msgid "nature.Gentle"
+msgstr "温顺"
+
+msgid "nature.Hardy"
+msgstr "勤奋"
+
+msgid "nature.Hasty"
+msgstr "急躁"
+
+msgid "nature.Impish"
+msgstr "淘气"
+
+msgid "nature.Jolly"
+msgstr "爽朗"
+
+msgid "nature.Lax"
+msgstr "乐天"
+
+msgid "nature.Lonely"
+msgstr "怕寂寞"
+
+msgid "nature.Mild"
+msgstr "慢吞吞"
+
+msgid "nature.Modest"
+msgstr "内敛"
+
+msgid "nature.Naive"
+msgstr "天真"
+
+msgid "nature.Naughty"
+msgstr "顽皮"
+
+msgid "nature.Quiet"
+msgstr "冷静"
+
+msgid "nature.Quirky"
+msgstr "浮躁"
+
+msgid "nature.Rash"
+msgstr "马虎"
+
+msgid "nature.Relaxed"
+msgstr "悠闲"
+
+msgid "nature.Sassy"
+msgstr "自大"
+
+msgid "nature.Serious"
+msgstr "认真"
+
+msgid "nature.Timid"
+msgstr "胆小"
+
+msgid "season.autumn"
+msgstr "秋"
+
+msgid "season.spring"
+msgstr "春"
+
+msgid "season.summer"
+msgstr "夏"
+
+msgid "season.winter"
+msgstr "冬"
+
+msgid "species.oshawott"
+msgstr "水水獭"
+
+msgid "species.snivy"
+msgstr "藤藤蛇"
+
+msgid "species.tepig"
+msgstr "暖暖猪"
+
+msgid "stat.atk"
+msgstr "攻击"
+
+msgid "stat.def"
+msgstr "防御"
+
+msgid "stat.hp"
+msgstr "HP"
+
+msgid "stat.spAtk"
+msgstr "特攻"
+
+msgid "stat.spDef"
+msgstr "特防"
+
+msgid "stat.speed"
+msgstr "速度"
+
+msgid "status.BRN"
+msgstr "灼伤"
+
+msgid "status.FNT"
+msgstr "濒死"
+
+msgid "status.FRZ"
+msgstr "冰冻"
+
+msgid "status.PAR"
+msgstr "麻痹"
+
+msgid "status.PSN"
+msgstr "中毒"
+
+msgid "status.SLP"
+msgstr "睡眠"
+
+msgid "status.TOX"
+msgstr "剧毒"
+
+msgid "the item"
+msgstr "该道具"
+
+msgid "type.Bug"
+msgstr "虫"
+
+msgid "type.Dark"
+msgstr "恶"
+
+msgid "type.Dragon"
+msgstr "龙"
+
+msgid "type.Electric"
+msgstr "电"
+
+msgid "type.Fighting"
+msgstr "格斗"
+
+msgid "type.Fire"
+msgstr "火"
+
+msgid "type.Flying"
+msgstr "飞行"
+
+msgid "type.Ghost"
+msgstr "幽灵"
+
+msgid "type.Grass"
+msgstr "草"
+
+msgid "type.Ground"
+msgstr "地面"
+
+msgid "type.Ice"
+msgstr "冰"
+
+msgid "type.Normal"
+msgstr "一般"
+
+msgid "type.Poison"
+msgstr "毒"
+
+msgid "type.Psychic"
+msgstr "超能力"
+
+msgid "type.Rock"
+msgstr "岩石"
+
+msgid "type.Steel"
+msgstr "钢"
+
+msgid "type.Water"
+msgstr "水"
+
+msgid "x %d"
+msgstr "×%d"
+
+msgid "x5"
+msgstr "×5"

@@ -1,0 +1,175 @@
+{
+  "id": "unova_in_385",
+  "name": "Interior",
+  "zone": 385,
+  "spawn": {
+    "x": 12,
+    "y": 51,
+    "dir": "down"
+  },
+  "tiles": [
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "###################.############",
+    "###################.############",
+    "###################.############",
+    "###########.#######.############",
+    "###########.....P...############",
+    "#########...........############",
+    "############.....###############",
+    "############.....###############",
+    "############.....###############",
+    "############...........#########",
+    "############...........#########",
+    "############...........#########",
+    "#############..........#########",
+    "#############........###########",
+    "#############........###########",
+    "#############.......############",
+    "###############.....############",
+    "###############.....############",
+    "#########..ggggg..##############",
+    "#########ggggggg..#g....########",
+    "#########gg...ggg.#..ggg########",
+    "########ggg.ggggg.#.gggg########",
+    "########ggg.ggggg.#.gggg########",
+    "########ggg..ggggg#ggggg########",
+    "########ggg..ggggg#ggggg########",
+    "########ggg###....#g.#~~########",
+    "########ggg###g.gg#g.~ggg#######",
+    "#########gg#g#g.gg#g.~gggg######",
+    "#########gggggg.gg#g.~g#~~######",
+    "#########gggggg.g.#g.~g~gggg####",
+    "#########.ggggg.g.#g.~g~gggg####",
+    "#########.ggggg.g.#g.~g~gggg####",
+    "#########...gg....#..~g~gggg####",
+    "#########~#...#~~~~~~#g~..ggg###",
+    "########gg~...~ggg~gggg~ggggg###",
+    "###########...#~~~~~~~~#ggggg###",
+    "##########......###ggg..ggg..###",
+    "##########..PP..#####.ggggg#####",
+    "#####################.ggggg#####",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################"
+  ],
+  "npcs": [],
+  "portals": [
+    {
+      "x": 12,
+      "y": 51,
+      "targetMap": "unova_full",
+      "targetX": 483,
+      "targetY": 417,
+      "onWarpTile": false,
+      "targetDir": "down",
+      "entryDir": "down"
+    },
+    {
+      "x": 13,
+      "y": 51,
+      "targetMap": "unova_full",
+      "targetX": 483,
+      "targetY": 417,
+      "onWarpTile": false,
+      "targetDir": "down",
+      "entryDir": "down"
+    },
+    {
+      "x": 16,
+      "y": 18,
+      "targetMap": "unova_in_386",
+      "targetX": 4,
+      "targetY": 5,
+      "onWarpTile": false,
+      "targetDir": "up",
+      "entryDir": "up"
+    }
+  ],
+  "visual": {
+    "originX": -248,
+    "originZ": -248,
+    "tile": 16,
+    "cellSize": 32,
+    "heightScale": 16,
+    "chunks": [
+      {
+        "asset": "unova_indoor/zone_385/0_0",
+        "cellX": 0,
+        "cellY": 0,
+        "offsetX": 0,
+        "offsetZ": 0,
+        "mapFile": "unova_indoor/mapsets/tex_202/m_dun2101_00_00.glb",
+        "heights": "6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAkQERAREBOgC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6AJEBEQERAREBEQERAREBEQERAREBEQERAToAugC6ALoAugC6ALoAugC6ALoAugC6AJEBEQERAREBEQERAToAugCRAREBEQERAREBEQERAREBEQERAREBEQE6ALoAugC6ALoAugC6ALoAugC6ALoAugCRAREBEQERAREBEQE6ALoAkQERAREBEQERAREBEQERAREBEQERAREBOgC6ALoAugC6ALoAugC6ALoAugC6ALoAkQERAREBEQERAREBOgC6AJEBEQERAREBEQERAREBEQERAREBEQERAToAugC6ALoAugC6ALoAugC6ALoAugC6AJEBEQERAREBEQERAToAugCRAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQE6ALoAugC6ALoAugCRAREBEQERAREBEQE6ALoAkQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBOgC6ALoAugC6ALoAkQERAREBEQERAREBOgC6AJEBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAToAugCRAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQE6ALoAkQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBOgC6AJEBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAToAugCAAAAAAAARAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQE6ALoAugC6ALoAugCRAREBEQE6ALoAgAAAAAAAEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBOgC6ALoAugC6ALoAkQERAREBOgC6AIAAAAAAABEBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAQAAAAAAAAAAAAAAAAAACAARAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQEAAAAAAAAAAAAAAAAAAAgAEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBAAAAAAAAAAAAAAAAAAAIABEBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAToAugCIAAAAAAAAAAAAAAAAAAAAAAARAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQE6ALoAgAAMAAwAAAAAAAwADAAIAAgAEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBAAAAAAAAAAAAAAAAAAAMAAwACAAIABEBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAToAugC6ALoAugC6AIAAAAAAAAAAAAAAAAAAAAARAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQE6ALoAugC6ALoAugCAAAAAAAAAAAAAAAAAAAAAEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBOgC6ALoAugC6ALoAgAAAAAAAAAAAAAAAAAAAABEBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAToAugC6ALoAugC6AIwAAAAAAAAAAAAAAAAADAAMAAAACAARAREBEQERAREBEQERAREBEQERAREBEQERAREBEQE6ALoAugC6ALoAugCMAAAAAAAAAAAAAAAAAAgACAAIAAgAEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBOgC6ALoAugC6ALoAgAAAAAAAAAAAAAAAAAAIAAgACAAIABEBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAToAugC6ALoAiAAIAAgAAAAAAAAAAAAIAAgACAARAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQE6ALoAugC6AIgACAAIAAAAAAAAAAwAAAA6ALoAkQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBOgC6ALoAugCIAAgACAAAAAAAAAAAAAAAOgC6AJEBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAToAugC6ALoAgAAAAAAAAAAAAAAAAAARAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQE6ALoAugC6ALoAugCAAAwAAAAAAAAAEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBEQERAREBOgC6ALoAugC6ALoAgAAAAAAADAAAABEBEQERAREBEQERAREBEQERAREBEQERAQ=",
+        "props": [
+          {
+            "x": 8.0,
+            "y": 0.0,
+            "z": 0.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b5/thouse_01.glb"
+          },
+          {
+            "x": -40.0,
+            "y": 0.0,
+            "z": 0.0,
+            "rotation": 270.0,
+            "file": "unova_indoor/propsets/b5/cart_01.glb"
+          }
+        ]
+      },
+      {
+        "asset": "unova_indoor/zone_385/0_1",
+        "cellX": 0,
+        "cellY": 1,
+        "offsetX": 0,
+        "offsetZ": 512,
+        "mapFile": "unova_indoor/mapsets/tex_202/m_dun2101_00_01.glb",
+        "heights": "RAREBEQERAREBEQEAAAAAAAAAAAAAIAAgACAAIAAgAAgACAAwATABMAEwATABMAEwATABMAEwATABMAEwATABEQERAREBEQERAREBAAAAAAAAIAAgACAAIAAgACAAIAAAAAgAAAFoAUABQAFIAUgBegH6AdECUQJRAlECUQJRAlEBEQERAREBEQERAQAAAAAAACAAIAAAAAAAAAAgACAAIAAIAAABQAFAAWgBaAFoAXoB+gHRAlECUQJRAlECUQJRAREBEQERAREBEQE6ALoAoAAgACAAAAAgACAAIAAgACAAAAAAAUABZAFkAWQBZAF6AfoB0QJRAlECUQJRAlECUQERAREBEQERAREBOgC6AKAAIAAgAAAAIAAgACAAIAAgAAAAMAEIAWQBZAFkAWQBegH6AdECUQJRAlECUQJRAlEBEQERAREBEQERAToAugCgACAAIAAAAAgAIAAgACAAIAAgADABKAFkAWQBZAFkAXoB+gHRAlECUQJRAlECUQJRAREBEQERAREBEQE6ALoAoAAgACAACAAIACAAIAAgACAAIAAwASgBZAFkAWQBZAF6AfoB0QJRAlECUQJRAlECUQERAREBEQERAREBOgC6AKAAIAAgAAAAAAAAAAbABAAEAAbAAAFoAUgBQAF1QTABMAEwATABMAEwATABMAEwAREBEQERAREBEQERAToAugCgACAAIAAAAAAAAAAgAAAAIAAgAAABaAFIAXVBAAEAAQABAAEAAQABIAEgAQABAAERAREBEQERAREBEQERAREBEQEgACAAAAAgAAAAIAAAACAAIAAAAWgBQAFwAQABAAEAAQABAAEAAQABIAEAAQABEQERAREBEQERAREBEQERAREBIAAgACAAIAAgACAADAAgACAAMAEoAUABcAEAASABMAEwATABMAEwATABMAEwAREBEQERAREBEQERAREBEQERASAAIAAgACAAIAAgAAwAIAAAADABKAFAAXABAAEwASQBZAFkAWQBegH6AfoB+gHRAREBEQERAREBEQERAREBEQEAACAAIAAgACAAIAAAACAAAAAwASgBQAFwAQABMAEkAWQBZAFkAXoB+gH6AfoB0QERAREBEQERAREBEQERAREBAAAgACAAIAAgACAAAAAgAAAAMAEoAUABcAEgATABJAFkAWQBZAF6AfoB+gH6AdEBEQERAREBEQERAREBEQERAQAAAAAAACAAIAAAAAAAAAAAADABAAFAAXABAAEwASQBZAFkAWQBegH6AfoB+gHwP/A/8D/wP/A/8D/wP/A/8D/wP8AAAAAAAAAAAAAwP/A/8D/QATABMAEgAQABMAEAAUgBZAFkAWQBUQJRAlECQD/AP8A/wD/gP+A/wD/AP8A/wD/AAAAAAAAAAAAAAD/AP+A/wAEawRgBAAEAATVBJAFkAWQBZAFkAVECUQJRAnA/8D/wP/A/8D/wP/A/8D/wP/A/wAAAAAAAAAAAADA/8D/wP9ABMAEwATABNUEAAWQBZAFkAWQBZAFRAlECUQJ6ALoAugC6ALoAugC6ALoAugC6AIwADAAAAAAADAAAADoAugCwASgBaAFoAUABQAFkAWQBZAFIAUABUQJRAlECegC6ALoAugC6ALoAugC6ALoAugCMAAwACAAIAAgAAAA6ALoAsAE6AfoBwAFkAWQBZAFkAWQBegH6AdECUQJRAnoAugC6ALoAugC6ALoAugC6ALoAggDCAMgACAACAMIA+gC6ALABOgH6AcgBZAFkAWQBZAFkAXoB+gHRAlECUQJ6ALoAugC6ALoAugC6ALoAugCuAO4AygDKAMoAygDuAO4A+gCAADABMAEwAQABQAFAAXABMAE6AfoB0QJRAlECegC6ALoAugC6ALoAugC6ALoArgDuAMoAygDKAMoA7gDuAPoAugC6ALoAugC6ALoAugC6ALABOgH6AdECUQJRAnoAugC6ALoAugC6ALoAugC6ALoAggC6ALoAugC6AIIAugC6ALoAugC6ALoAugC6ALoAugCAAXoB+gHRAlECUQJ6ALoAugC6ALoAugC6ALoAugC6AK4A7gDuAO4A7gDuAPoAugC6ALoAugC6ALoAugC6ALoAgAF6AfoB0QJRAlECegC6ALoAugC6ALoAugC6ALoAugCuAO4A7gDuAO4A7gD6ALoAugC6ALoAugC6ALoAugC6ALABOgH6AdECUQJRAnoAugC6ALoAugC6ALoAugC6ALoArgDuAO4A7gDuAO4A+gC6ALoAugC6ALoAugC6ALoAugCwAToB+gHRAlECUQJ6ALoAugC6ALoAugC6ALoAugC6AK4A7gDuAO4A7gDuAPoAugC6ALoAugC6ALoAugC6ALoAgAAwATABMAEwATABOgC6ALoAugC6ALoAugC6ALoAugCuAO4A7gDuAO4A7gD6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoArgDuAO4A7gDuAO4A+gC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6AK4A7gDuAO4A7gDuAPoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugCuAO4A7gDuAO4A7gD6ALoAugC6ALoAugC6ALoAugC6ALoAugC6ALoAugC6AI=",
+        "props": [
+          {
+            "x": 176.0,
+            "y": 72.0,
+            "z": -104.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b5/searock_01.glb"
+          },
+          {
+            "x": 160.0,
+            "y": 72.0,
+            "z": -128.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b5/searock_01.glb"
+          },
+          {
+            "x": -136.0,
+            "y": 0.0,
+            "z": 8.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b5/searock_02.glb"
+          }
+        ]
+      }
+    ]
+  }
+}

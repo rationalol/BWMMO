@@ -1,0 +1,76 @@
+{
+  "id": "unova_in_222",
+  "name": "Interior",
+  "zone": 222,
+  "spawn": {
+    "x": 18,
+    "y": 20,
+    "dir": "down"
+  },
+  "tiles": [
+    "################################",
+    "################################",
+    "####g#ggggg#####################",
+    "###gggggggP#####################",
+    "####ggggggg#####################",
+    "####ggggggg#####################",
+    "###gggggggg#####################",
+    "###gggggggg#####################",
+    "#######ggg######################",
+    "#######ggg######################",
+    "#####gggggggg####ggggggggg######",
+    "#######ggg############ggg#######",
+    "######gggggggggggggggggggg######",
+    "#######ggg###############g######",
+    "#######ggg###############g######",
+    "#######ggg###############g######",
+    "#######ggg##g############g######",
+    "#######ggg##g#g##########g######",
+    "#######ggggggggggggg############",
+    "#######ggggggggggggg############",
+    "#######ggggggggggggg############",
+    "#######ggg##g#g#################",
+    "#######ggg##g###################",
+    "#######ggg######################",
+    "#######ggg######################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################"
+  ],
+  "npcs": [],
+  "portals": [
+    {
+      "x": 10,
+      "y": 3,
+      "targetMap": "unova_in_223",
+      "targetX": 6,
+      "targetY": 4,
+      "onWarpTile": false,
+      "targetDir": "right",
+      "entryDir": "right"
+    }
+  ],
+  "visual": {
+    "originX": -248,
+    "originZ": -248,
+    "tile": 16,
+    "cellSize": 32,
+    "heightScale": 16,
+    "chunks": [
+      {
+        "asset": "unova_indoor/zone_222/0_0",
+        "cellX": 0,
+        "cellY": 0,
+        "offsetX": 0,
+        "offsetZ": 0,
+        "mapFile": "unova_indoor/mapsets/tex_224/m_dun0908_00_00.glb",
+        "heights": "AAqQCZAJkAmQCZAJkAmQCZAJkAmQCZAJkAkACgAKAAoACgAKAAoACgAKAAoACgAKAAoACgAKAAoACgAKAAoACgAKkAmQCJAIkAiQCJAIkAiQCJAIkAiQCJAJAAoACgAKAAoACgAKAAoACgAKAAoACgAKAAoACgAKAAoACgAKAAoACpAJkAgACAAIAAgACEAIQAhACEAIAAgACAAIAAgACgAKAAoACgAKAAoACgAKAAoACgAKAAoACgAKAAoACgAKAAqQCZAIAAgACAAIAAgACEAIQAggCAAIAAgACAAIAAoACgAKAAoACgAKAAoACgAKAAoACgAKAAoACgAKAAoACgAKkAmQCEAIAAgACAAIAAgACAAIIAgACAAIAAgACAAKAAoACgAKAAoACgAKAAoACgAKAAoACgAKAAoACgAKAAoACpAJkAhACCAIAAgACAAIAAgACAAIkAiQCQAKAAoACgAKAAoACgAKAAoACgAKAAoACgAKAAoACgAKAAoACgAKAAqQCZAIQAhACCAIAAgACAAIAAgACJAIJQmQCZAJkAmQCZAJkAmQCZAJkAmQCZAJkAmQCZAJkAmQCZAJkAkACgAKkAmQCCAIIAggCCAIAAgACAAIAAglCJAIkAiQCJAIkAiQCJAIkAiQCJAIkAiQCJAIkAiQCJAIkAiQCJAJAAoACpAJkAiQB5AHkAeQB4AHgAeAB5AHkAeQB5AHkAeQB5AHkAeQB5AHkAeQB5AHkAeQB5AHkAeQB5AHkAiQCQAKAAqQCZAIkAeQBpAGkAaABoAGgAaQBpAGkAaQBpAGkAaQBpAGkAaQBpAGkAaQBpAGkAaQBpAGkAaQB5AIkAkACgAKkAmQCJAHkAYABgAGAAYABgAGAAYABgAGAAYABgAGAAYABgAGAAYABgAGAAYABgAGAAYABpAGkAeQCJAJAAoACpAJkAiQB5AGkAWQBYAFgAWABZAFkAWQBZAFkAWQBZAFkAWQBZAFkAWQBYAFgAWABZAFkAWQBpAHkAiQCQAKAAqQCZAIkAeQBpAFAAUABQAFAAUABQAFAAUABQAFAAUABQAFAAUABQAFAAUABQAFAAUABZAFkAaQB5AIkAkACgAKkAmQCJAHkAaQBZAEgASABIAEkASQBJAEkASQBJAEkASQBJAEkASQBJAEkASQBJAEAAWQBZAGkAeQCJAJAAoACpAJkAiQB5AGkAWQBAAEAAQABJADkAOQA5ADkAOQA5ADkAOQA5ADkAOQA5ADkAOQBAAFkAWQBpAHkAiQCQAKAAqQCZAIkAeQBpAFkAQABAAEAASQA5ACkAKQApACkAKQApACkAKQApACkAKQApADkAQABZAFkAaQB5AIkAkACgAKkAmQCJAHkAaQBZAEIAQABAAEkAOQAgACkAGQAZABkAGQAZABkAGQAZABkAKQA5AEAAWQBZAGkAeQCJAJAAoACpAJkAiQB5AGkAWQBAAEIAQABJADkAIAApABAAGQAJAAkACQAJAAkACQAZACkAOQBAAFkAWQBpAHkAiQCQAKAAqQCZAIkAeQBpAFkAQgBEAEIASAA4ACAAKAAQABgAAgAEAAQADA/5AAkAGQApADkAQABZAFkAaQB5AIkAkACgAKkAmQCJAHkAaQBZAEIARABCAEgAOAAgACgAEAAYAAwP8gAMD/IACQAJABkAKQA5AEAAWQBZAGkAeQCJAJAAoACpAJkAiQB5AGkAWQBCAEIAQgBIADgAIAAoABAAGAACAAwP8QAMD/kACQAZACkAOQBAAFkAWQBpAHkAiQCQAKAAqQCZAIkAeQBpAFkAQABAAEQASQA5ACAAKQAQABkACQANMAHQDTAJAAkAGQApADkAQABZAFkAaQB5AIkAkACgAKkAmQCJAHkAaQBZAEAAQABEAEkAOQAgACkAGQAZABkAHsAewB7AGQAZABkAKQA5AEAAWQBZAGkAeQCJAJAAoACpAJkAiQB5AGkAWQBAAEAAQABJADkAKQApACkAKQApACkAKQApACkAKQApACkAOQBAAFkAWQBpAHkAiQCQAKAAqQCZAIkAeQBpAFkAQABAAEAASQA5ADkAOQA5ADkAOQA5ADkAOQA5ADkAOQA5ADkAQABZAFkAaQB5AIkAkACgAKkAmQCJAHkAaQBZAEkASQBJAEkASQBJAEkASQBJAEkASQBJAEkASQBJAEkASQBJAEAAWQBZAGkAeQCJAJAAoACpAJkAiQB5AGkAWQBZAFkAWQBZAFkAWQBZAFkAWQBZAFkAWQBZAFkAWQBZAFkAWQBZAFkAWQBpAHkAiQCQAKAAqQCZAIkAeQBpAGkAaQBpAGkAaQBpAGkAaQBpAGkAaQBpAGkAaQBpAGkAaQBpAGkAaQBpAGkAaQB5AIkAkACgAKkAmQCJAHkAeQB5AHkAeQB5AHkAeQB5AHkAeQB5AHkAeQB5AHkAeQB5AHkAeQB5AHkAeQB5AHkAeQCJAJAAoACpAJkAiQCJAIkAiQCJAIkAiQCJAIkAiQCJAIkAiQCJAIkAiQCJAIkAiQCJAIkAiQCJAIkAiQCJAIkAiQCQAKAAqQCZAJkAmQCZAJkAmQCZAJkAmQCZAJkAmQCZAJkAmQCZAJkAmQCZAJkAmQCZAJkAmQCZAJkAmQCZAJkAkACgAKAAoACgAKAAoACgAKAAoACgAKAAoACgAKAAoACgAKAAoACgAKAAoACgAKAAoACgAKAAoACgAKAAoACgAKAAo=",
+        "props": []
+      }
+    ]
+  }
+}

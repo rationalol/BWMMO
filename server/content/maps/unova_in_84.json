@@ -1,0 +1,106 @@
+{
+  "id": "unova_in_84",
+  "name": "Interior",
+  "zone": 84,
+  "spawn": {
+    "x": 10,
+    "y": 19,
+    "dir": "down"
+  },
+  "tiles": [
+    "################################",
+    "################################",
+    "##########.P.###################",
+    "######...........###############",
+    "######...........###############",
+    "#####.............##############",
+    "####.....#####.....#############",
+    "####.....#...#.....#############",
+    "####...###...###...#############",
+    "####...#.......#...#############",
+    "####...#.......#...#############",
+    "####...#.......#...#############",
+    "####...#.......#...#############",
+    "####...............#############",
+    "####...............#############",
+    "####...............#############",
+    "####...............#############",
+    "####...............#############",
+    "####...............#############",
+    "##########PPP###################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################"
+  ],
+  "npcs": [],
+  "portals": [
+    {
+      "x": 10,
+      "y": 19,
+      "targetMap": "unova_full",
+      "targetX": 393,
+      "targetY": 434,
+      "onWarpTile": true,
+      "targetDir": "down",
+      "entryDir": "down"
+    },
+    {
+      "x": 11,
+      "y": 19,
+      "targetMap": "unova_full",
+      "targetX": 393,
+      "targetY": 434,
+      "onWarpTile": true,
+      "targetDir": "down",
+      "entryDir": "down"
+    },
+    {
+      "x": 12,
+      "y": 19,
+      "targetMap": "unova_full",
+      "targetX": 393,
+      "targetY": 434,
+      "onWarpTile": true,
+      "targetDir": "down",
+      "entryDir": "down"
+    },
+    {
+      "x": 11,
+      "y": 2,
+      "targetMap": "unova_in_85",
+      "targetX": 15,
+      "targetY": 29,
+      "onWarpTile": false,
+      "targetDir": "up",
+      "entryDir": "up"
+    }
+  ],
+  "visual": {
+    "originX": -248,
+    "originZ": -248,
+    "tile": 16,
+    "cellSize": 32,
+    "heightScale": 16,
+    "chunks": [
+      {
+        "asset": "unova_indoor/zone_84/0_0",
+        "cellX": 0,
+        "cellY": 0,
+        "offsetX": 0,
+        "offsetZ": 0,
+        "mapFile": "unova_indoor/mapsets/tex_259/m_stadium02_00_0.glb",
+        "heights": "AAAAAAAAAAAAAAAAAAAAAAAAAAcABwAHAAcABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwAHAAcABwAHAAcABwAHAAcABwAHAAcABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcABwAHAAcAB+ABAAXgAQAHAAcABwAHAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwAH4AHgAeAB4AHgAeAB4AHgAeAB4AHgAQAHAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHAAcAB+AB4AHgAeAB4AHgAeAB4AHgAeAB4AEABwAHAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwAH4AHgAeAB4AHgAeAB4AHgAeAB4AHgAeAB4AEABwAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfgAeAB4AHgAeABygLgAeAB4AHKAuAB4AHgAeAB4AEABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH4AHgAeAB4AHgAcoC4P3g/eD9ygLgAeAB4AHgAeABAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+AB4AHgAcoC4AHgAeD94P3g/eAB4AHKAuAB4AHgAQAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfgAeAB4AHKAuD94P3g/eD94P3g/eD9ygLgAeAB4AEABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHYAFgAWABTQLg/eD94P3g/eD94P3g/UsCYAFgAWABAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB2AAYABgAFIBYP5g/mD+YP5g/mD+YP5NAWAAYABgAAAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfg/+D/4P/QAGD/YP9g/2D/YP9g/2D/ygDg/+D/4P8ABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH4P/g/+D/4P/g/+D/4ADg/+AA4P/g/+D/4P/g/+D/AAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+D/4P/g/+D/4P/g/+AA4P/gAOD/4P/g/+D/4P/g/wAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfg/+D/4P/g/+D/4P/g/wAAAADg/+D/4P/g/+D/4P8ABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/AAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/wAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfg/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P8ABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4P/g/+D/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        "props": []
+      }
+    ]
+  }
+}

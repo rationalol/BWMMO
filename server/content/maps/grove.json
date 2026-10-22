@@ -1,0 +1,103 @@
+{
+  "id": "grove",
+  "name": "Whispering Grove",
+  "tiles": [
+    "##############################",
+    "#............................#",
+    "#..ggggg...........ggggg.....#",
+    "#..ggggg...........ggggg.....#",
+    "#..ggggg...........ggggg.....#",
+    "#............................#",
+    "#.....###...........###......#",
+    "#.....###...........###......#",
+    "#............................#",
+    "#...~~~~~~........ggggg......#",
+    "#...~~~~~~........ggggg......#",
+    "#...~~~~~~........ggggg......#",
+    "#............................#",
+    "#....gggggg........gggggg....#",
+    "#....gggggg........gggggg....#",
+    "#....gggggg........gggggg....#",
+    "#............................#",
+    "#....###............###......#",
+    "#....###............###......#",
+    "#............................#",
+    "#...........,,,,,,,,.........#",
+    "#...........,,,,,,,,.........#",
+    "#...........,,,,,,,,.........#",
+    "#..............P.............#",
+    "##############################"
+  ],
+  "spawn": {
+    "x": 15,
+    "y": 22,
+    "dir": "up"
+  },
+  "npcs": [
+    {
+      "id": "ranger",
+      "name": "Ranger Fern",
+      "x": 10,
+      "y": 16,
+      "color": "#7bd88f",
+      "kind": "healer",
+      "dialogue": [
+        "Welcome to Whispering Grove.",
+        "The Pokemon here are tougher than they look.",
+        "Let me tend to your team before you go deeper.",
+        "There! All patched up."
+      ],
+      "sprite": 17
+    }
+  ],
+  "portals": [
+    {
+      "x": 15,
+      "y": 23,
+      "targetMap": "route1",
+      "targetX": 15,
+      "targetY": 2
+    }
+  ],
+  "encounter": {
+    "rate": 0.16,
+    "table": [
+      {
+        "species": "pansage",
+        "minLevel": 3,
+        "maxLevel": 6,
+        "weight": 20
+      },
+      {
+        "species": "pansear",
+        "minLevel": 3,
+        "maxLevel": 6,
+        "weight": 20
+      },
+      {
+        "species": "panpour",
+        "minLevel": 3,
+        "maxLevel": 6,
+        "weight": 20
+      },
+      {
+        "species": "roggenrola",
+        "minLevel": 3,
+        "maxLevel": 6,
+        "weight": 20
+      },
+      {
+        "species": "blitzle",
+        "minLevel": 3,
+        "maxLevel": 6,
+        "weight": 12
+      },
+      {
+        "species": "audino",
+        "minLevel": 4,
+        "maxLevel": 6,
+        "weight": 8
+      }
+    ]
+  }
+}

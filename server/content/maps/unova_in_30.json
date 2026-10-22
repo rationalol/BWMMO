@@ -1,0 +1,141 @@
+{
+  "id": "unova_in_30",
+  "name": "Interior",
+  "zone": 30,
+  "spawn": {
+    "x": 13,
+    "y": 1,
+    "dir": "down"
+  },
+  "tiles": [
+    "################################",
+    "#############PPPPPP#############",
+    "#############......#############",
+    "#############......#############",
+    "#############...........########",
+    "#########...............########",
+    "#####......................#####",
+    "####.........................###",
+    "###...........................##",
+    "###...........####............##",
+    "##...........######............#",
+    "##..........########..........##",
+    "##..........########..........##",
+    "##..........########..........##",
+    "##..........########..........##",
+    "##...........######............#",
+    "#.............####.............#",
+    "#..............................#",
+    "###............................#",
+    "###............................#",
+    "#########...............########",
+    "##########..............########",
+    "##########......#.....##########",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################"
+  ],
+  "npcs": [],
+  "portals": [
+    {
+      "x": 13,
+      "y": 1,
+      "targetMap": "unova_in_32",
+      "targetX": 12,
+      "targetY": 62,
+      "onWarpTile": false,
+      "targetDir": "up",
+      "entryDir": "up"
+    },
+    {
+      "x": 14,
+      "y": 1,
+      "targetMap": "unova_in_32",
+      "targetX": 12,
+      "targetY": 62,
+      "onWarpTile": false,
+      "targetDir": "up",
+      "entryDir": "up"
+    },
+    {
+      "x": 15,
+      "y": 1,
+      "targetMap": "unova_in_32",
+      "targetX": 12,
+      "targetY": 62,
+      "onWarpTile": false,
+      "targetDir": "up",
+      "entryDir": "up"
+    },
+    {
+      "x": 16,
+      "y": 1,
+      "targetMap": "unova_in_32",
+      "targetX": 12,
+      "targetY": 62,
+      "onWarpTile": false,
+      "targetDir": "up",
+      "entryDir": "up"
+    },
+    {
+      "x": 17,
+      "y": 1,
+      "targetMap": "unova_in_32",
+      "targetX": 12,
+      "targetY": 62,
+      "onWarpTile": false,
+      "targetDir": "up",
+      "entryDir": "up"
+    },
+    {
+      "x": 18,
+      "y": 1,
+      "targetMap": "unova_in_32",
+      "targetX": 12,
+      "targetY": 62,
+      "onWarpTile": false,
+      "targetDir": "up",
+      "entryDir": "up"
+    }
+  ],
+  "visual": {
+    "originX": -248,
+    "originZ": -248,
+    "tile": 16,
+    "cellSize": 32,
+    "heightScale": 16,
+    "chunks": [
+      {
+        "asset": "unova_indoor/zone_30/0_0",
+        "cellX": 0,
+        "cellY": 0,
+        "offsetX": 0,
+        "offsetZ": 0,
+        "mapFile": "unova_indoor/mapsets/tex_186/c03_a00_00.glb",
+        "heights": "av/w/8L/wP/A/8D/wP/A/8D/wP8aBDcEMACv/6//r/+v/6//r/8wADQE/gPQ/9D/0P/Q/9D/0P/Q/9D/8P9Q//D/x//E/8H/wP/A/8D/SwO8A64DCQQwADAAr/+v/6//r/+v/6//MAAwADAAz//P/8//0P/Q/9D/0P/Q/9D/8P/L/8j/xf/D/8D/v/+//7//7gICBOYDv/+//6//r/+v/6//r/+v/+//z//P/8//z//P/2sDZgTdBDAA0P/Q/9D/zf/K/8f/DQQTBGkEv/+//zAAMAAwAB4A3v/e/97/3v/e/97/3v/e/x4AHgAeAM//z//P/zAAMAAjA9D/0P/Q/8r/yP/G/zAANwQaBB4AHgDe/97/3v8AAAAA3v/e/97/3v/e/97/3v9QAlACUAJQAh4AHgAwAJoDkQQwAND/0P/I/8b/w/8wADAAMADe/97/3v/e/97/3v/e/97/AAAAAAAAAADe/97/3v/e/97/3v/e/97/HgCHAjAAfQTP/9D/xv/E/8H/HgDe/97/3v/e/97/3v/e/97/IAD///////////////8gAN7/3v/e/97/3v/e/97/3v8wADAAz//P/8T/wv8eAN7/3v/e/97/3v/e/97/3v////////8AAAAAAAAAAP///////97/3v/e/97/3v/e/97/3v8fAM//z/9pBB4A3v/e/97/3//e/97/3v/e//////8AAAAAAAAAAAAAAAAAAAAA/////97/3v/e/97/3v/e/97/3v9rA2YEGgQZAN7/3v/e/97/3v/e/97/IAD//wAAAAAAAAAAAAAAAAAAAAAAAAAA//8gAN7/3v/e/97/3v/f/97/HQAwADAAeADe/97/3v/e/97/3v/e//////8AAAAAAAAAAAAAAAAAAAAAAAAAAP/////e/97/3v/e/97/3//e/97/MADz/3gA3v/e/97/3v/e/97/AAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AADe/97/3v/e/97/3v/e/xAA7v/IAN7/3v/e/97/3v/e/wAA//8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA3v/e/97/3v/e/97/eAAGAO7/eADe/97/3v/e/97/3v8AAP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAN7/3v/e/97/3v/e/3gAyP/u/3gA3v/e/97/3v/e/97/AAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AADe/97/3v/e/97/3v/IAK//7v/IAN7/3v/e/97/3//e/97//////wAAAAAAAAAAAAAAAAAAAAAAAAAA/////97/3v/e/97/3v/e/97/3v+v/2kE3v/e/97/3v/e/97/3v/e/yEA//8AAAAAAAAAAAAAAAAAAAAAAAAAAP//IADe/97/3v/e/97/3v/e/97/r/8aBK//3v/e/97/3v/e/97/3v/e//////8AAAAAAAAAAAAAAAAAAAAA/////97/3v/e/97/3v/e/97/3v+v/6//MACv/zAC3v/e/97/3v/e/97/3v/e/////////wAAAAAAAAAA////////3v/e/97/3v/e/97/3v/e/6//r/8wAuD/MAIwAq//3v/e/97/3v/e/97/3v/e/yAA////////////////IADe/97/3v/e/97/3v/e/97/r/+v/6//MAKv/6//4P+v/6//r//e/97/3v/e/97/3v/e/97/AAAAAAAAAADe/97/3v/e/97/3v/e/97/r/+v/6//r/+v/+D/r/+v/6//r/+v/6//r/+v/97/3v/e/97/3v/e/97/3v/e/97/3v/e/97/3v/e/97/7/+v/6//r/+v/6//r/+v/6//r/+v/6//r/+v/6//r/+v/+//7//e/97/3v/e/97/3v/e/97/3v/e/97/UAHv/7//r/+v/6//r/+v/6//r/+v/6//r/+v/6//r/+v/+//r/+v/+//r/+v/6//7//v/+//7/+v/6//r/+v/6//7/+//+//r/+v/6//r/+v/6//r/+v/6//r/+v/6//r//v/6//r//v/6//r/+v/7L/sv+y/7H/r/+v/6//r/+v/+//v//v/6//r/+v/6//r/+v/6//r/+v/6//r/+v/6//r/8IBBoE7/+v/6//r/+3/7f/tv+1/6//r/+v/6//r//v/wgEGgSv/6//r/+v/6//r/+v/6//r/+v/6//r//v/7D/MAAwBBMEr/+v/+//vP+7/7r/uP+v/6//r/+v/6//r/8wADAEEwSv/6//r/+v/6//r/+v/6//r/+v/6//8P+w/zAAMACv/6//r//v/8D/DQQTBGkE8P+v/6//r/+v/6//MAAwAO//r/+v/6//r/+v/6//r/+v/6//r/+v/1D/UP9Q/+//r/+v/6//7//E/zAANwQaBPD/r/+v/6//r/+v/6//UP9Q/6//r/+v/6//r/+v/6//r/+v/6//r/9Q/1D/UP9Q/6//r/+v/6//7/8wADAAMADw/6//r/+v/6//r/+v/1D/UP8RAK//r/+v/6//7/+v/6//r/+v/6//GwBQ/1D/r/+v/6//r/8cAVD/UP9Q/1D/DACv/6//r/+v/6//r/8cAFD/r/+v/6//r/+v/+//7//v/+//r/8bAVD/UP9Q/woAr/+v/6//HAHAA8ADwAPAAwsBr/+v/6//r/+v/6//UP9Q/1D/r/+v/+//7/8=",
+        "props": [
+          {
+            "x": 56.0,
+            "y": 0.0,
+            "z": -184.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b5/out_dust01.glb"
+          },
+          {
+            "x": -104.0,
+            "y": 0.0,
+            "z": 72.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b5/out_dust01.glb"
+          }
+        ]
+      }
+    ]
+  }
+}

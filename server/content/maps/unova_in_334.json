@@ -1,0 +1,106 @@
+{
+  "id": "unova_in_334",
+  "name": "Interior",
+  "zone": 334,
+  "spawn": {
+    "x": 5,
+    "y": 20,
+    "dir": "down"
+  },
+  "tiles": [
+    "################################",
+    "################################",
+    "######gggggggggggggggggggggg####",
+    "####ggg##################ggg####",
+    "########gggggggggggggggg#ggggg##",
+    "#####ggggggg###########g##gggg##",
+    "#####ggggggg###########g#ggggg##",
+    "#####gg###gg###########g##ggg###",
+    "#####g##g#gg###########gggggg###",
+    "#####g#gg#ggg############gggg###",
+    "#######gg#g##############gggg###",
+    "####ggggg#g##############gggg###",
+    "####ggg###g##############gggg###",
+    "#####gg#ggg######PPP#####gggg###",
+    "####ggg#ggg######ggg#gg..gggg###",
+    "####ggg#...######gggggg..gggg###",
+    "####ggg#gggg..ggggggggg####gg###",
+    "#####gg#gggg..gggg######ggggg###",
+    "#####gg#gg#######g#gggggggggg###",
+    "#####gggg##ggggg###gggggggggg###",
+    "#####Pggg#gggggggggggggg###gg###",
+    "#####gggg#gggggg#########gggg###",
+    "########g####ggg###########gg###",
+    "######ggggg..ggggg####.#gg#gg###",
+    "######ggggg..ggggg######ggggg###",
+    "######gg######gggggg###gggggg###",
+    "#######g####g####ggggg#gggggg###",
+    "#######g####gggg#gg#gg#ggg######",
+    "#############ggg#######ggggg####",
+    "#############ggggggggggggg#g####",
+    "################################",
+    "################################"
+  ],
+  "npcs": [],
+  "portals": [
+    {
+      "x": 5,
+      "y": 20,
+      "targetMap": "unova_in_333",
+      "targetX": 12,
+      "targetY": 16,
+      "onWarpTile": false,
+      "targetDir": "left",
+      "entryDir": "left"
+    },
+    {
+      "x": 17,
+      "y": 13,
+      "targetMap": "unova_in_335",
+      "targetX": 16,
+      "targetY": 26,
+      "onWarpTile": false,
+      "targetDir": "up",
+      "entryDir": "up"
+    },
+    {
+      "x": 18,
+      "y": 13,
+      "targetMap": "unova_in_335",
+      "targetX": 16,
+      "targetY": 26,
+      "onWarpTile": false,
+      "targetDir": "up",
+      "entryDir": "up"
+    },
+    {
+      "x": 19,
+      "y": 13,
+      "targetMap": "unova_in_335",
+      "targetX": 16,
+      "targetY": 26,
+      "onWarpTile": false,
+      "targetDir": "up",
+      "entryDir": "up"
+    }
+  ],
+  "visual": {
+    "originX": -248,
+    "originZ": -248,
+    "tile": 16,
+    "cellSize": 32,
+    "heightScale": 16,
+    "chunks": [
+      {
+        "asset": "unova_indoor/zone_334/0_0",
+        "cellX": 0,
+        "cellY": 0,
+        "offsetX": 0,
+        "offsetZ": 0,
+        "mapFile": "unova_indoor/mapsets/tex_260/m_dun1502_00_00.glb",
+        "heights": "AAIAAgACAAKQAZABkAGQAZABkAGQAZABkAGQAZABkAGQAZABkAGQAZABkAGQAZABkAGQAZABkAGQAZABkAGQAQACAAKQAZABJQGQAJAAkACQAJAAkACQAJAAkACQAJAAkACQAJAAkACQAJAAkACQAJAAkACQAJAAkACQAJAAkAEAAgACkAGQAJAAJQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQAJABAAIAApABkAAAAAAAAACQ/5D/kP+Q/5D/kP+Q/5D/kP+Q/5D/kP+Q/5D/kP+Q/5D/kP8AAAAAAAAAAAAAkACQAQACAAKQAZAAkP+Q/5D/Jf8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/5D/AAAAAAAAIAAgAJAAkAEAAgACkAGQAJD/AP8A/wD/AP8g/yD/AP8l/5D/kP+Q/5D/kP+Q/5D/kP+Q/yX/AP+Q/wAAAAAAACAAIACQAJABAAIAApABkACQ/wD/AP8A/wD/IP8g/yD/kP8lAJAAkACQAJAAkACQAJAAJQCQ/wD/kP8AAAAAIAAgACAAkACQAQACAAKQAZAAkP8A/wD/Jf+Q/yX/IP8A/5D/JQCQAJAAJQGQAZABkAElAZAAkP8A/yX/kP+A/4D/gP+Q/5AAkAEAAgACkAGQAJD/AP8l/5D/AACQ/wD/AP8l/5D/kP+QAJABAAIAAgACkAGQAJD/AP8A/wD/AP8A/wD/kP+QAJABAAIAApABkACQ/wD/kP8AAAAAkP8A/wD/AP8A/5D/kACQAQACAAIAApABkACQ/5D/Jf8A/wD/AP8A/5D/kACQAQACAAKQAZAAkP+Q/5D/AAAAAJD/AP8l/5D/kP+Q/5AAkAEAAQABAAGQAZAAkAAlAJD/AP8A/wD/AP+Q/5AAkAEAAgACkAGQAAAAAAAAAAAAAACQ/wD/kP8lAJAAkACQACUBAAAAAAAAJQEAAQABkACQ/wD/AP8A/wD/kP+QAJABAAIAApABkAAAAAAAAACQ/5D/Jf8A/5D/kAAAAQABAAGQAAAAAAAAAJAAkACQACUAkP8A/wD/AP8A/5D/kACQAQACAAKQAZAAAAAAAAAAkP8A/wD/AP+Q/5AAAAEAAZAAJQAAAAAAAACQ/5D/kP+Q/yX/AP8A/wD/AP+Q/5AAkAEAAgACkAGQAAAAAAAAAJD/AP8A/wD/kP8lAJAAkAAlAJD/gP+A/4D/Jf8A/wD/AP4A/gD/AP8A/wD/kP+QAJABAAIAApABkAAAAAAAAACQ/xv/EP8b/yX/kP+Q/5D/kP8l/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/5D/kACQAQACAAKQAZAAAAAAAAAAkP8A/wD/AP8A/wD+AP4A/wD/AP8A/wD/AP8A/wD/AP8l/5D/kP8l/wD/AP+Q/5AAkAGQAZABJQGQACUAAAAAAJD/AP8A/wD/AP/g/uD+AP8A/wD/AP8l/5D/kP+Q/5D/kP8AAAAAgP8A/wD/kP+QAJABkAGQAJAAkAAlAAAAAACQ/wD/AP8l/5D/kP+Q/5D/kP8l/wD/kP8AAAAAAAAAAAAAAAAAAID/AP8A/5D/kACQAZABkAAAAAAAAAAAAAAAgP8A/yX/kP8AACAAIAAgAAAAkP+Q/5D/AAAAAAAAAAAAAAAAAACA/wD/AP+Q/5AAkAGQAZAAAAAAAAAAAAAAAID/AP+Q/wAAAAAgADAAIAAAAAAAAAAAAAAAAAAAAAAAAACQ/5D/Jf8A/wD/kP+QAJABkAGQAAAAAAAAAAAAAACA/wD/kP8AAAAAIAAgACAAAACQ/5D/kP8lAJAAkACQACUAkP8A/wD/AP8A/5D/kACQAZABkACQAJAAJQCQ/5D/Jf8A/yX/kP+Q/5D/gP+A/4D/Jf8A/5D/kAAAAQABAAGQAJD/kP8l/wD/AP+Q/5AAkAGQAZABkAElAZAAkP8A/wD/AP8A/wD/AP4A/gD/AP8A/wD/AP+Q/yUAkACQAAABkAAAAAAAkP8A/wD/kP+QAJABAAIAAgACkAGQAJD/AP8A/wD/AP8A/+D+4P4A/wD/AP8A/wD/Jf+Q/5D/JQCQACUAAAAAAID/AP8A/5D/kACQAQACAAIAApABkACQ/wD/AP8l/5D/kP+Q/5D/Jf8A/wD/AP8A/wD/AP8l/5D/kP8AAAAAAACA/wD/AP+Q/5AAkAEAAgACAAKQAZAAkP8l/wD/kP8lAJAAJQAAAJD/kP+Q/yX/AP8A/wD/AP8A/5D/AAAAAAAAgP8A/wD/kP+QAJABAAIAAgACkAGQAAAAkP8A/5D/kAAAAZAAAAAAACAAAACQ/wD/AP8A/wD/AP+Q/wAAAAAAAJD/kP+Q/5D/kACQAQACAAIAApABkAAAAJD/AP+Q/5AAAAGQACUAIABAAEAAkP+Q/5D/kP+Q/5D/kP8AAAAAAAAAAAAAJQCQAJAAkAEAAgACAAKQAZAAAACQ/5D/kP+QAAABAAGQAAAAQABAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJAAJQGQAZABAAIAAgACkAGQAJAAkACQAJAAkAAAAQABkACQAJAAkACQAJAAkACQAJAAkACQAJAAkACQAJAAkACQAJABAAIAAgACAAIAApABkAGQAZABkAGQAZABkAGQAZABkAGQAZABkAGQAZABkAGQAZABkAGQAZABkAGQAZABkAGQAQACAAI=",
+        "props": []
+      }
+    ]
+  }
+}

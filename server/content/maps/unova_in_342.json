@@ -1,0 +1,65 @@
+{
+  "id": "unova_in_342",
+  "name": "Interior",
+  "zone": 342,
+  "spawn": {
+    "x": 21,
+    "y": 13,
+    "dir": "down"
+  },
+  "tiles": [
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "############g#######g###########",
+    "###########gg#######gg##########",
+    "##########ggg#.....#ggg#########",
+    "##########ggg#.....#ggg#########",
+    "#########gggg#.....#g.gg########",
+    "#########gggg#.....###gg########",
+    "#########gggg#.....###gg########",
+    "#########gggg##...####gg########",
+    "#########ggggg##.##ggggg########",
+    "##########ggggg#.#ggggg#########",
+    "##########ggggg#.#ggggg#########",
+    "###########ggggggggggg##########",
+    "############ggggggggg###########",
+    "##############ggggg#############",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################"
+  ],
+  "npcs": [],
+  "portals": [],
+  "visual": {
+    "originX": -248,
+    "originZ": -248,
+    "tile": 16,
+    "cellSize": 32,
+    "heightScale": 16,
+    "chunks": [
+      {
+        "asset": "unova_indoor/zone_342/0_0",
+        "cellX": 0,
+        "cellY": 0,
+        "offsetX": 0,
+        "offsetZ": 0,
+        "mapFile": "unova_indoor/mapsets/tex_90/m_dun1705_00_00.glb",
+        "heights": "6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6QvpC+kL6Qs=",
+        "props": []
+      }
+    ]
+  }
+}

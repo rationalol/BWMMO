@@ -1,0 +1,105 @@
+{
+  "id": "unova_in_95",
+  "name": "Interior",
+  "zone": 95,
+  "spawn": {
+    "x": 11,
+    "y": 2,
+    "dir": "down"
+  },
+  "tiles": [
+    "################################",
+    "################################",
+    "###########P.###################",
+    "###########...##################",
+    "##............##################",
+    ".#.............#################",
+    "##..###........#################",
+    "##..###......#.#################",
+    "##..###......#.#################",
+    "###..........#.#################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################"
+  ],
+  "npcs": [],
+  "portals": [
+    {
+      "x": 11,
+      "y": 2,
+      "targetMap": "unova_in_94",
+      "targetX": 7,
+      "targetY": 2,
+      "onWarpTile": false,
+      "targetDir": "left",
+      "entryDir": "left"
+    }
+  ],
+  "visual": {
+    "originX": -248,
+    "originZ": -248,
+    "tile": 16,
+    "cellSize": 32,
+    "heightScale": 16,
+    "chunks": [
+      {
+        "asset": "unova_indoor/zone_95/0_0",
+        "cellX": 0,
+        "cellY": 0,
+        "offsetX": 0,
+        "offsetZ": 0,
+        "mapFile": "unova_indoor/mapsets/tex_210/m_buill02_00_00.glb",
+        "heights": "AAAAAAAAAAAAAAAAAADgAuAC4ALgAuAC4ALgAuAC4ALgAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAC4ALgAuAC4ALgAuAC4ALgAuD/4P/g/+D/4P/g/+AC4AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAuAC4ALgAuAC4ALgAuAC4AIAAAAA4P/g/+D/4P/gAuACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4ALgAuD/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4ALgAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAC4ALg/+D/AAAAAAAAAADg/+D/4P/g/+D/4P/g/+AC4AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAuAC4P8AAAAAAAAAAAAA4P/g/+D/4P/g/+D/4P/gAuACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4ALgAuD/AAAAAAAAAAAAAOD/4P/g/+D/4P/g/+D/4ALgAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAC4ALg/wAAAAAAAAAAAADg/+D/4P/g/+D/4P/g/+AC4AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAuAC4P8AAAAAAAAAAAAA4P/g/+D/4P/g/+D/4P/gAuACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4ALgAuD/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/4ALgAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        "props": [
+          {
+            "x": -216.0,
+            "y": 0.0,
+            "z": -128.0,
+            "rotation": 90.0,
+            "file": "unova_indoor/propsets/b1/c1_rest_01.glb"
+          },
+          {
+            "x": -24.0,
+            "y": 0.0,
+            "z": -184.0,
+            "rotation": 270.0,
+            "file": "unova_indoor/propsets/b1/sodateya_01.glb"
+          },
+          {
+            "x": -200.0,
+            "y": 8.0,
+            "z": -200.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b1/o_chair_01.glb"
+          },
+          {
+            "x": -40.0,
+            "y": 8.0,
+            "z": -232.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b1/o_chair_01.glb"
+          }
+        ]
+      }
+    ]
+  }
+}

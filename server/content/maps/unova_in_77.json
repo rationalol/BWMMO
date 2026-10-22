@@ -1,0 +1,104 @@
+{
+  "id": "unova_in_77",
+  "name": "Interior",
+  "zone": 77,
+  "spawn": {
+    "x": 13,
+    "y": 20,
+    "dir": "down"
+  },
+  "tiles": [
+    "################################",
+    "################################",
+    "#########.###...###.#...##..####",
+    "###........................#####",
+    "#...........................####",
+    "#..........................#####",
+    "#...........................####",
+    "#..........................#####",
+    "#....###########################",
+    "#....##.#...........#.......####",
+    "#....##...#...#...#.........####",
+    "#....##....................#####",
+    "#...........................####",
+    "#..........................#####",
+    "#.........................######",
+    "##........................######",
+    "####..##.............##..#######",
+    "########..###...###..###########",
+    "########..##.....##..###########",
+    "############.....###############",
+    "#############PPP################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################",
+    "################################"
+  ],
+  "npcs": [],
+  "portals": [
+    {
+      "x": 13,
+      "y": 20,
+      "targetMap": "unova_full",
+      "targetX": 433,
+      "targetY": 434,
+      "onWarpTile": true,
+      "targetDir": "down",
+      "entryDir": "down"
+    },
+    {
+      "x": 14,
+      "y": 20,
+      "targetMap": "unova_full",
+      "targetX": 433,
+      "targetY": 434,
+      "onWarpTile": true,
+      "targetDir": "down",
+      "entryDir": "down"
+    },
+    {
+      "x": 15,
+      "y": 20,
+      "targetMap": "unova_full",
+      "targetX": 433,
+      "targetY": 434,
+      "onWarpTile": true,
+      "targetDir": "down",
+      "entryDir": "down"
+    }
+  ],
+  "visual": {
+    "originX": -248,
+    "originZ": -248,
+    "tile": 16,
+    "cellSize": 32,
+    "heightScale": 16,
+    "chunks": [
+      {
+        "asset": "unova_indoor/zone_77/0_0",
+        "cellX": 0,
+        "cellY": 0,
+        "offsetX": 0,
+        "offsetZ": 0,
+        "mapFile": "unova_indoor/mapsets/tex_233/m_theater01_00_0.glb",
+        "heights": "oAqgCqAKoAqgCqAKoAqgCqAKoAqgCqAKoAqgCqAKoAqgCqAKoAqgCqAKoAqgCqAKoAqgCqAKoAqgCub/5v/m/6AKoAqgCqAKoAqgCqAKoAqgCqAK0ArQCqAKoAqgCqAKoArQCtAKoAqgCroK0Aq6CqAKoAqgCqAKoArm/+b/5v+gCtAK0AqgCqAKoAqgCqAKoAoABgAGAAYABiAGIAYgBgAGAAYABgAGBQq6CtAKugoFCnIHAAYABqAK5v/m/+b/oAoAAwADAAMAAwADgAOABIAFAAYABgAGAAYABgAGAAYABgAGAAYABgAGAAYABgAGAAYABgAGzwagCub/5v/m/6AKAAMAAwADAAMAA4ADgASABQAGAAYgBiAGAAYABiAGIAYABgAGAAYgBiAGAAYABgAGAAYABgAGoArm/+b/5v+gCgADAAMAAwADAAOAA4AEgAUABgAGIAYgBgAGAAYgBiAGAAYABgAGIAYgBgAGAAYABgAGAAbPBqAK5v/m/+b/oAoAAwADAAMAAwADgAOABIAFAAYABgAGAAYABgAGAAYABgAGAAYABgAGAAYABgAGAAYABgAGAAagCub/5v/m/6AKAAMAAwADAAMAA4ADgASABQAGAAYABgAGAAYABgAGAAYABgAGAAYABgAGAAYABgAGAAYABs8GoArm/+b/5v+gCnsCewJ7AnsC4AMjBD4FWQagBqAGoAagBqAGoAagBqAGoAagBqAGoAagBqAGoAagBqAGoAagBqAK5v/m/+b/oApwAXABcAFwAeADoP+gAKD/oP+g/6D/AACg/6D/oP+g/6D/AACg/6D/oADg/6D/0P/Q/9D/0P+gCub/5v/m/6AKZQBlAGUAZQD8AqD/4P+gAKD/oP+g/6D/oP+g/6D/oP+g/6D/oP+gAOD/oP+g/9D/0P/Q/9D/oArm/+b/5v+gCqD/oP+g/6D/oP+g/6D/4P+gAOD/wACgABkB4P/AAKAAGQHg/6AA4P+g/6D/oP/Q/9D/0P86AaAK5v/m/+b/oAqg/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/oP+g/6D/0P/Q/9D/0P+gCub/5v/m/6AKoP+g/6D/oP+g/yAAIACg/6D/oP+g/6D/EAAQABAAoP+g/6D/oP+g/yAAIACg/9D/0P/Q/zoBoArm/+b/5v+gCqD/oP+g/6D/oP+g/6D/oP+g/yAAIACg/xAAEAAQAKD/IAAgAKD/oP+g/6D/oP/Q/9D/MgHQ/6AK5v/m/+b/5v/m/6D/oP+g/6D/oP+g/6D/oP8gACAAoP8QABAAEACg/yAAIACg/6D/oP+g/6D/0P/Q/9D/5v/m/+b/5v/m/+b/5v/m/6D/oP+g/8EE8P+g/6D/oP+g/6D/EAAQABAAoP+g/6D/oP+g/6D/wQSg/9D/0P/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/oP/BBPD/oP+g/7QEtASg/xAAEAAQAKD/swSzBKD/oP+g/8EEoP/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/6D/oP+yBLIEoP8QABAAEACg/7MEswSg/6D/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/EAAQABAA5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/xAAEAAQAOb/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/+b/5v/m/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        "props": [
+          {
+            "x": 88.0,
+            "y": 0.0,
+            "z": -72.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b19/pc_01.glb"
+          }
+        ]
+      }
+    ]
+  }
+}
