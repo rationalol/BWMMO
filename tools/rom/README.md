@@ -3,6 +3,9 @@
 This folder contains the local, personal-use asset pipeline for extracting
 battle sprites from a Pokémon Black/White ROM.
 
+Per-script reference (what each tool reads, writes, and when to re-run it):
+see [`docs/rom-tools.md`](../../docs/rom-tools.md).
+
 ## Why it is separate
 
 The extracted PNGs are copyrighted game assets. They are **not** part of the
@@ -103,13 +106,39 @@ Output:
   original 32×32 overworld pixel-sprite frames
 - `client/assets/bw/nuvema/actors/<actor>/actor.json` — four-direction
   idle/walk animation map; hero and heroine also expose the running frames as
-  `run_*`, used by the Shift-run control
+  `run_*`, used by the Shift-run control. The ids are 1-based file numbers and
+  the file declares `frameOffset: 0`, so readers must not shift them.
 - `client/assets/bw/nuvema/player.png` — fallback trainer portrait
 
 The online client uses these assets for Nuvema Town, the default spawn: start the
-server and run the Godot project, and other players/NPCs appear as the original actor
-sprites. `run-nuvema.cmd` (or `NuvemaTown.tscn`) still opens the standalone offline
-preview for asset checks.
+server and run the Godot project, and players appear as the original field actors while
+NPCs use their own overworld sheets (below). `run-nuvema.cmd` (or `NuvemaTown.tscn`)
+still opens the standalone offline preview for asset checks.
+
+## NPC overworld sprites
+
+Zone NPCs carry a `model` id that indexes the 0x1C-byte object-code table in
+`a/0/4/8`; `resource[0]` (offset 0x10) is the sprite sheet id in `a/0/4/9`.
+Model 78 is the Pokémon Center nurse (sprite 83) and model 147 is Mom
+(sprite 144), so both the builder and the extractor resolve the same mapping:
+
+```bash
+python tools/rom/extract_overworld_sprites.py --rom "Pokemon - White Version (USA, Europe) (NDSi Enhanced).nds"
+```
+
+The script scans the map files and the story packs for sprite ids and writes
+`client/assets/bw/overworld/npc_<id>/frames/frame_XX.png` plus `actor.json`.
+Those sheet-derived frame ids are 0-based, so `actor.json` declares
+`frameOffset: 1`; the client adds it when resolving the PNG names. The 3D client
+loads `npc_<id>` when the assets exist; player character ids 0-3 keep using the
+shared field actors, and missing assets fall back to the hero card. Pass
+`--ids 12,135` to extract specific sheets, or `--models 7,134` to
+resolve field model ids through the object-code table first.
+
+The reader is stdlib-only and decodes the ROM directly; it uses the local
+aletheia sources in `.tools/aletheia_src/tools` (`ndsrom.py`, `assets/narc.py`,
+`assets/nsbmd.py`) instead of `ndspy`. Sprite sheets keep palette index 0 as
+the transparent backdrop.
 
 ## Route 1 cells
 
@@ -132,6 +161,8 @@ python tools/rom/extract_unova_indoor.py    # 387 scenes -> ~175 MB
 python tools/rom/build_unova_indoor_worlds.py
 python tools/rom/extract_zone_entities.py   # NPCs/warps/triggers from a/1/2/5
 python tools/rom/build_unova_maps.py        # 374 indoor maps + 129 outdoor doors
+python tools/rom/extract_overworld_sprites.py  # NPC sheets from a/0/4/9 + a/0/4/8
+python tools/rom/extract_town_map.py        # Unova map PNG + 40 world-map markers
 python tools/rom/extract_seasonal_props.py  # r01_a/b seasonal blossom models 295-302
 python tools/rom/fix_alpha_textures.py --root client/assets/bw  # bleed transparent RGB
 ```
@@ -139,6 +170,47 @@ python tools/rom/fix_alpha_textures.py --root client/assets/bw  # bleed transpar
 Building doors are separate props authored at the building origin. The outdoor
 extractor also exports `door_pc.glb` beside each Pokémon Center (`p0_pc_01`),
 and the client attaches it at the entrance.
+
+Indoor props do **not** come from `area[0]`, and `area[1] // 4` is only the
+tie-break. The area record (`a/0/1/3`, a raw 10-byte table, not a NARC) stores
+the map texture set in field 1 and the overworld fallback bundle in field 0.
+Using field 0 puts every room on Nuvema's outdoor bundle, so the house and lab
+render a park chair, a fountain and building shells while their furniture
+disappears — that is how the bedroom lost its staircase. Field 1 alone is also
+not enough: across all 270 furnished interiors only about a quarter resolve
+every prop through `area[1] // 4`, and the rest come out empty.
+
+The resolution rule lives in `tools/rom/prop_resolve.py` and is shared by the
+extractor and the audit:
+
+- Ids below 147 are prop-bundle furniture; ids 147 and above are outdoor map
+  objects, so they are excluded from the indoor pipeline rather than dropped
+  later.
+- The two AB archives are **separate id spaces** (138 ids collide: indoor 2 is
+  `tv01`, outdoor 2 is `t2_house01`). Indoor furniture is the unnamed FAT 472
+  (64 bundles); outdoor props are `a/2/2/9` = FAT 471 (52). `a/2/2/8` is FAT 470
+  with 6 bundles and is a decoy.
+- The bundle is a texture group, not the unit of availability: the same id has
+  the same model in every bundle that supplies it, so a room reads each id from
+  its own texture-set bundle when possible and from any other bundle otherwise.
+  Picking one bundle per room and dropping the rest lost 1138 of 3355 ids.
+- Both archives are scored by how often `area[1] // 4` names a real bundle of
+  that archive; the indoor one wins 126 scenes to 14. Raw id coverage would pick
+  the wrong archive, because the outdoor table happens to contain more ids.
+
+Check the result headlessly instead of by eye:
+
+```bash
+npm run audit:assets        # props: every room vs the ROM, plus sprite directions
+npm run audit:assets:test   # prove the audit fails the old area[0] rule
+python3 tools/rom/audit_assets.py --props    # indoor props only
+python3 tools/rom/audit_assets.py --sprites  # walk-sheet left/right check
+```
+
+`build_unova_maps.py` also exports each NPC's ROM `movement` byte and drops
+conditional duplicates: a record with a non-zero `spawnFlag` only appears after
+that flag is set, and it usually repeats the model and script of an unflagged
+record — zone 390 stores Mom that way, which used to place her on two tiles.
 
 ROM textures use magenta as their transparency key. Bilinear filtering blends
 those hidden texels into tree and window edges as purple fringes, so the final
@@ -268,6 +340,62 @@ conditional variants. The server persists `storyFlags` per character and applies
 Opcode parameter widths live in `bw_script_ops.json`. They are factual metadata derived
 from public Gen 5 scripting documentation and the BW/B2W2 decompilation; no tool source
 is included. The extractor is intentionally local and reads the user's own ROM.
+
+Two VM fixes from 2026-10-23 matter for coverage. `0x2A` is `var + value` (four bytes),
+but the VM read only the var and left every following command two bytes out of step, so
+scripts that reached it produced garbage or stopped early; fixing the width unblocked
+seven scripts on its own. `0x04` may also call *backwards* into a shared subroutine
+earlier in the same file, which the old range guard rejected as an invalid pc; a
+backward target inside the file that lands on a known command is now allowed. Bulk
+compilation went from 4172 to 4584 lines, with `blocked` and `fallback` down from 15 to
+6 each. The remaining six stop on values outside the opcode space (`0x8021`, `0x8025`,
+`0x32f`, `0x3b8`, `0x3f02`, `0xd000`) — a wrong width or a jump into data, not a missing
+command — and are left flagged instead of guessed.
+
+## Trainer parties
+
+`extract_trainers.py` reads trainer definitions for compiled battles. Both archives are
+found by content because the ROM's file-name table is stripped: one record per trainer
+(20–64 bytes, first four bytes = party format, class, battle type, party size), then the
+archive whose member count matches and whose length equals `party size * entry length`
+for at least 90% of records. Party entries use the Gen 5 layout — IVs, gender + ability,
+level, nature, species, form, plus an optional held item (`format >= 2`) and four moves
+(`format & 1`) — giving 8/16/18/26-byte entries.
+
+```bash
+python tools/rom/extract_trainers.py         # -> server/content/rom/trainers.json
+python3 tools/rom/compile_story.py --bulk    # battle steps pick up real parties
+```
+
+Current output: 616 trainers and 1304 party members; 68 of the 70 compiled battles carry
+a real party (the other two reference trainer 0, a placeholder). The JSON is ROM-derived
+and gitignored, like the other extraction output.
+
+## Chinese NPC dialogue
+
+`build_dialogue_zh.py` pairs the extracted English lines with the PokeMMO community
+Chinese language pack:
+
+```bash
+python tools/rom/build_dialogue_zh.py   # -> server/content/i18n/zh_CN/dialogue.json
+```
+
+The pack ships as a MOD, but its storyline dumps (`ns_strings_zh_white.xml`) keep the
+ROM's text table coordinates: `table_id` is the `a/0/0/3` member, `entry_id` is the
+segment index inside it. The generator therefore reads the same text files
+`extract_dialogues.py` reads and maps each English segment straight onto its
+translation, with no fuzzy matching. One translated segment becomes one dialogue page
+(reflowed to at most three lines); the English side may split the same segment into
+several `<PAGE>` pages.
+
+Extract the mod into `.tools/pokemmo-zh/mod/` first; the pack and the ROM stay local
+and are never committed. Each text table is read either by section id or by the
+ordinal among non-empty sections, whichever matches the dump's entry count; tables
+that match neither, or whose argument placeholders do not line up, are skipped
+rather than guessed. The generator also skips ambiguous blocks (identical English
+text used by scenes with different translations) and writes an alignment report to
+`.tools/pokemmo-zh/alignment-report.json`. Project-authored service and story lines
+are translated by hand in `server/content/i18n/zh_CN/dialogue_manual.json`.
 
 ## Map texture libraries (BTX0 / TEX0)
 

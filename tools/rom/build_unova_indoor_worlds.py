@@ -20,8 +20,21 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import ndspy.rom
 
-from build_unova_world import CELL, encode_heights, sample_cell, sample_cell_heights
-from extract_nuvema import find_rom, lz11_decompress, permission_rows, read_narc
+from build_unova_world import (
+    CELL,
+    encode_heights,
+    encode_terrain_heights,
+    sample_cell,
+    sample_cell_heights
+)
+from extract_nuvema import (
+    chunk_terrain_heights,
+    find_height_tables,
+    find_rom,
+    lz11_decompress,
+    permission_rows,
+    read_narc
+)
 
 
 def indoor_char(name: str) -> str:
@@ -44,6 +57,13 @@ def indoor_char(name: str) -> str:
         or lower.startswith("fhgenkan")
         or lower.startswith("fhyuka")
         or lower.startswith("m_lab01")
+        # Separate-map ground materials: bridges (h1_michi), outdoor paths,
+        # grass and the Abyssal Ruins floor. Without these the NG/RD fallback
+        # treated Skyarrow Bridge, White Forest and the ruins as solid walls
+        # and dropped the whole scene.
+        or "michi" in lower
+        or lower.startswith(("grass", "ue_grass", "bc_ha", "sands", "field_bg"))
+        or ("h1_" in lower and ("machi" in lower or "yuka" in lower or "kaidan" in lower))
     )
     return "." if walkable else "#"
 
@@ -60,6 +80,7 @@ def main() -> int:
     rom_path = find_rom((root / args.rom).resolve() if not Path(args.rom).is_absolute() else Path(args.rom))
     rom = ndspy.rom.NintendoDSRom.fromFile(str(rom_path))
     chunks = read_narc(rom, "a/0/0/8")
+    height_slopes, height_offsets = find_height_tables(rom)
     library = json.loads((asset_dir / "library.json").read_text(encoding="utf-8"))
     fallback_cache: dict[str, list[str]] = {}
     height_cache: dict[str, str] = {}
@@ -85,9 +106,18 @@ def main() -> int:
                 for local_x, char in enumerate(row):
                     rows[cell["y"] * CELL + local_y][cell["x"] * CELL + local_x] = char
             if map_file not in height_cache:
-                height_cache[map_file] = encode_heights(
-                    sample_cell_heights(asset_dir / map_file)
+                # GC/WB chunks keep the authoritative terrain height grid;
+                # sampling the GLB picked tree canopies and wall tops instead
+                # (the Pinwheel Forest entrance pavement read as 28 units).
+                terrain_rows = chunk_terrain_heights(
+                    chunk, height_slopes, height_offsets, CELL
                 )
+                if terrain_rows is not None:
+                    height_cache[map_file] = encode_terrain_heights(terrain_rows)
+                else:
+                    height_cache[map_file] = encode_heights(
+                        sample_cell_heights(asset_dir / map_file)
+                    )
             visual_chunks.append({
                 "asset": f"unova_indoor/zone_{scene['zone']}/{cell['x']}_{cell['y']}",
                 "cellX": cell["x"],

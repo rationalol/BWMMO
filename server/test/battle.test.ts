@@ -5,6 +5,7 @@ import {
   catchChance,
   catchShakes,
   createBattle,
+  createTrainerBattle,
   effectiveness,
   resolveTurn,
   type BattleState
@@ -356,4 +357,75 @@ test("small amounts of experience do not force a level", () => {
   assert.equal(result.levelsGained, 0);
   assert.equal(creature.level, 5);
   assert.equal(creature.xp, 1);
+});
+
+function makeTrainerBattle(
+  playerIds: string[],
+  enemy: [string, number][],
+  playerLevel = 5
+): BattleState {
+  return createTrainerBattle(
+    `battle-${Math.random()}`,
+    makeParty(playerIds, playerLevel),
+    enemy.map(([id, level]) => createCreature(content, id, level)),
+    "Bianca",
+    "Tester",
+    makeInventory(),
+    6,
+    content.items,
+    { id: "bianca_oshawott", reward: 0 }
+  );
+}
+
+test("a trainer battle introduces the opponent and hides the wild framing", () => {
+  const battle = makeTrainerBattle(["tepig"], [["oshawott", 5]]);
+  assert.equal(battle.mode, "trainer");
+  assert.equal(battle.opponentName, "Bianca");
+  assert.equal(battle.trainerId, "bianca_oshawott");
+  assert.equal(battle.wild.species, "oshawott");
+  assert.equal(battle.opponentParty?.length, 1);
+  assert.ok(battle.log[0]?.includes("Bianca wants to battle!"));
+  assert.ok(battle.log[1]?.includes("Bianca sent out Oshawott!"));
+
+  resolveTurn(battle, { action: "move", moveIndex: 0 }, highRng);
+  assert.ok(
+    !battle.log.some((line) => line.startsWith("Wild ")),
+    "a trainer's creature is never described as wild"
+  );
+});
+
+test("run and catch are rejected in a trainer battle", () => {
+  const battle = makeTrainerBattle(["tepig"], [["oshawott", 5]]);
+  assert.throws(
+    () => resolveTurn(battle, { action: "run" }, highRng),
+    /no running from a Trainer/
+  );
+  assert.throws(
+    () => resolveTurn(battle, { action: "catch", itemId: "poke_ball" }, highRng),
+    /can't catch another Trainer/
+  );
+  assert.equal(battle.turn, 0, "a rejected action does not consume the turn");
+  assert.equal(battle.status, "active");
+});
+
+test("the trainer sends out its next creature after a faint", () => {
+  const battle = makeTrainerBattle(
+    ["tepig"],
+    [
+      ["oshawott", 3],
+      ["patrat", 3]
+    ],
+    50
+  );
+  let turns = 0;
+  while (battle.status === "active" && turns < 20) {
+    resolveTurn(battle, { action: "move", moveIndex: 0 }, highRng);
+    turns++;
+  }
+  assert.equal(battle.status, "won");
+  assert.ok(
+    battle.log.some((line) => line.includes("Bianca sent out Patrat!")),
+    "the AI replaces a fainted lead on its own"
+  );
+  assert.ok(battle.opponentParty!.every((creature) => creature.hp <= 0));
 });

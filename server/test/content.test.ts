@@ -5,7 +5,7 @@ import { loadContent, validateContent } from "../src/content/loader.js";
 const content = loadContent();
 
 test("content has the expected shape", () => {
-  assert.equal(Object.keys(content.maps).length, 378);
+  assert.equal(Object.keys(content.maps).length, 386);
   assert.equal(Object.keys(content.species).length, 649);
   assert.equal(Object.keys(content.moves).length, 559);
   assert.deepEqual(content.starters, ["snivy", "tepig", "oshawott"]);
@@ -18,14 +18,28 @@ test("content has the expected shape", () => {
 
 test("items and shops cover the catch/heal loop", () => {
   assert.deepEqual(Object.keys(content.items).sort(), [
+    "dawnstone",
+    "duskstone",
+    "firestone",
     "full_heal",
     "great_ball",
     "hyper_potion",
+    "leafstone",
+    "moonstone",
     "poke_ball",
     "potion",
     "revive",
+    "shinystone",
+    "sunstone",
     "super_potion",
-    "ultra_ball"
+    "thunderstone",
+    "tm_protect",
+    "tm_return",
+    "tm_roost",
+    "tm_toxic",
+    "tm_workup",
+    "ultra_ball",
+    "waterstone"
   ]);
   assert.equal(content.items.poke_ball.category, "ball");
   assert.equal(content.items.poke_ball.ballBonus, 1);
@@ -67,6 +81,21 @@ test("content validation reports broken references", () => {
   assert.ok(
     errors.some((error) => error.includes("evolution target 'missing_species'"))
   );
+});
+
+test("story walk steps must name a real NPC and move one tile at a time", () => {
+  const broken = structuredClone(content);
+  const scene = broken.story!.scenes.prologue_bedroom_intro;
+  const walk = scene.steps.find((step) => step.type === "walk");
+  if (!walk) throw new Error("the bedroom farewell should walk its rivals out");
+  walk.npcId = "nobody";
+  walk.path = [
+    { x: 1, y: 1 },
+    { x: 4, y: 4 }
+  ];
+  const errors = validateContent(broken);
+  assert.ok(errors.some((error) => error.includes("unknown NPC 'nobody'")));
+  assert.ok(errors.some((error) => error.includes("walk hops must be one tile")));
 });
 
 test("full Gen 5 roster and move data are imported", () => {

@@ -22,7 +22,7 @@ const maps = content.maps;
 
 test("content loads and every map passes structural validation", () => {
   assert.deepEqual(validateMaps(maps), []);
-  assert.equal(Object.keys(maps).length, 378);
+  assert.equal(Object.keys(maps).length, 386);
 });
 
 test("all maps are rectangular; hand-authored maps are bordered", () => {
@@ -69,6 +69,38 @@ test("every Pokémon Center interior has a working Nurse Joy", () => {
     assert.equal(isWalkable(center, 7, 10), true, `${center.id} nurse tile`);
     assert.equal(isWalkable(center, 7, 11), true, `${center.id} front approach`);
   }
+});
+
+test("indoor maps keep only functional or story-owned NPCs", () => {
+  // Resident NPCs without event scripts once filled the Pinwheel Forest
+  // entrance and made the door look broken. Plain NPCs are allowed only when
+  // the story layer owns them (they have dialogue or a scene to run).
+  const serviceKinds = new Set(["healer", "shop", "pc"]);
+  const storyNpcs = new Set(
+    (content.story?.npcs ?? []).map((npc) => `${npc.mapId}/${npc.id}`)
+  );
+  for (const map of Object.values(maps)) {
+    if (!map.id.startsWith("unova_in_")) continue;
+    for (const npc of map.npcs) {
+      assert.ok(
+        serviceKinds.has(npc.kind) || storyNpcs.has(`${map.id}/${npc.id}`),
+        `${map.id}/${npc.id} keeps non-service NPC kind ${npc.kind}`
+      );
+    }
+  }
+});
+
+test("Pinwheel Forest entrance pavement is flat and walkable", () => {
+  // The entrance used to sample a tree canopy as the ground, reporting a
+  // 28-unit step at (84,75), so pressing east was rejected. GC chunks carry
+  // the real terrain height grid; both tiles must be level.
+  const forest = maps.unova_in_155;
+  assert.ok(forest, "Pinwheel Forest map");
+  assert.ok(isWalkable(forest, 83, 75), "player tile");
+  assert.ok(isWalkable(forest, 84, 75), "east tile");
+  assert.equal(heightAt(forest, 83, 75), 0);
+  assert.equal(heightAt(forest, 84, 75), 0);
+  assert.equal(canStep(forest, 83, 75, 84, 75), true, "walk east");
 });
 
 test("wide ROM doorways expose a portal on every walkable door tile", () => {

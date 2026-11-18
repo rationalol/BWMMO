@@ -1,0 +1,251 @@
+{
+  "source": "a/0/8/5[7] + a/0/8/6",
+  "image": {
+    "asset": "res://assets/bw/ui/unova_map.png",
+    "width": 256,
+    "height": 168
+  },
+  "places": [
+    {
+      "key": "Accumula Town",
+      "x": 232,
+      "y": 138,
+      "kind": "town"
+    },
+    {
+      "key": "Driftveil City",
+      "x": 74,
+      "y": 91,
+      "kind": "town"
+    },
+    {
+      "key": "Icirrus City",
+      "x": 74,
+      "y": 43,
+      "kind": "town"
+    },
+    {
+      "key": "Lacunosa Town",
+      "x": 190,
+      "y": 43,
+      "kind": "town"
+    },
+    {
+      "key": "Mistralton City",
+      "x": 40,
+      "y": 67,
+      "kind": "town"
+    },
+    {
+      "key": "Nacrene City",
+      "x": 203,
+      "y": 118,
+      "kind": "town"
+    },
+    {
+      "key": "Nimbasa City",
+      "x": 132,
+      "y": 91,
+      "kind": "town"
+    },
+    {
+      "key": "Nuvema Town",
+      "x": 232,
+      "y": 158,
+      "kind": "town"
+    },
+    {
+      "key": "Opelucid City",
+      "x": 132,
+      "y": 43,
+      "kind": "town"
+    },
+    {
+      "key": "Striaton City",
+      "x": 228,
+      "y": 118,
+      "kind": "town"
+    },
+    {
+      "key": "Undella Town",
+      "x": 224,
+      "y": 67,
+      "kind": "town"
+    },
+    {
+      "key": "Desert Resort",
+      "x": 125,
+      "y": 104,
+      "kind": "route"
+    },
+    {
+      "key": "Route 1",
+      "x": 232,
+      "y": 148,
+      "kind": "route"
+    },
+    {
+      "key": "Route 10",
+      "x": 150,
+      "y": 31,
+      "kind": "route"
+    },
+    {
+      "key": "Route 11",
+      "x": 143,
+      "y": 43,
+      "kind": "route"
+    },
+    {
+      "key": "Route 12",
+      "x": 177,
+      "y": 42,
+      "kind": "route"
+    },
+    {
+      "key": "Route 13",
+      "x": 206,
+      "y": 54,
+      "kind": "route"
+    },
+    {
+      "key": "Route 14",
+      "x": 207,
+      "y": 80,
+      "kind": "route"
+    },
+    {
+      "key": "Route 15",
+      "x": 176,
+      "y": 91,
+      "kind": "route"
+    },
+    {
+      "key": "Route 16",
+      "x": 144,
+      "y": 92,
+      "kind": "route"
+    },
+    {
+      "key": "Route 17",
+      "x": 216,
+      "y": 159,
+      "kind": "route"
+    },
+    {
+      "key": "Route 18",
+      "x": 204,
+      "y": 159,
+      "kind": "route"
+    },
+    {
+      "key": "Route 2",
+      "x": 231,
+      "y": 127,
+      "kind": "route"
+    },
+    {
+      "key": "Route 3",
+      "x": 214,
+      "y": 118,
+      "kind": "route"
+    },
+    {
+      "key": "Route 4",
+      "x": 132,
+      "y": 110,
+      "kind": "route"
+    },
+    {
+      "key": "Route 5",
+      "x": 118,
+      "y": 91,
+      "kind": "route"
+    },
+    {
+      "key": "Route 6",
+      "x": 57,
+      "y": 80,
+      "kind": "route"
+    },
+    {
+      "key": "Route 7",
+      "x": 57,
+      "y": 55,
+      "kind": "route"
+    },
+    {
+      "key": "Route 8",
+      "x": 87,
+      "y": 44,
+      "kind": "route"
+    },
+    {
+      "key": "Route 9",
+      "x": 120,
+      "y": 44,
+      "kind": "route"
+    },
+    {
+      "key": "Chargestone Cave",
+      "x": 42,
+      "y": 80,
+      "kind": "landmark"
+    },
+    {
+      "key": "Cold Storage",
+      "x": 74,
+      "y": 103,
+      "kind": "landmark"
+    },
+    {
+      "key": "Dragonspiral Tower",
+      "x": 66,
+      "y": 31,
+      "kind": "landmark"
+    },
+    {
+      "key": "Giant Chasm",
+      "x": 198,
+      "y": 31,
+      "kind": "landmark"
+    },
+    {
+      "key": "Liberty Garden",
+      "x": 74,
+      "y": 145,
+      "kind": "landmark"
+    },
+    {
+      "key": "P2 Laboratory",
+      "x": 222,
+      "y": 151,
+      "kind": "landmark"
+    },
+    {
+      "key": "Pinwheel Forest",
+      "x": 194,
+      "y": 125,
+      "kind": "landmark"
+    },
+    {
+      "key": "Twist Mountain",
+      "x": 72,
+      "y": 55,
+      "kind": "landmark"
+    },
+    {
+      "key": "Undella Bay",
+      "x": 248,
+      "y": 68,
+      "kind": "landmark"
+    },
+    {
+      "key": "Unity Tower",
+      "x": 99,
+      "y": 157,
+      "kind": "landmark"
+    }
+  ],
+  "missing": []
+}

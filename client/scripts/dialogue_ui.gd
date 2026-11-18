@@ -32,6 +32,7 @@ func _ready() -> void:
 	_panel.mouse_filter = MOUSE_FILTER_STOP
 	_panel.gui_input.connect(_on_panel_input)
 	add_child(_panel)
+	UI.scale_hud(_panel, Vector2(0.5, 1.0))
 	UI.add_bw_frame_overlay(_panel)
 	var panel_margin := UI.add_panel_content(_panel, 12, 10)
 
@@ -48,7 +49,7 @@ func _ready() -> void:
 	_text_label.vertical_alignment = VERTICAL_ALIGNMENT_TOP
 	box.add_child(_text_label)
 
-	_hint_label = Loc.make_label("E / Space / Tap to continue", 10, UI.MUTED)
+	_hint_label = Loc.make_label("A / Tap to continue", 10, UI.MUTED)
 	_hint_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	box.add_child(_hint_label)
 
@@ -73,15 +74,16 @@ func show_dialogue(npc_name: String, lines: Array, kind: String = "npc") -> void
 func _update_line() -> void:
 	_text_label.text = str(_lines[_index])
 	var key := (
-		"E / Space / Tap to close"
+		"A / Tap to close"
 		if _index >= _lines.size() - 1
-		else "E / Space / Tap to continue"
+		else "A / Tap to continue"
 	)
 	Loc.bind(_hint_label, key)
 
 func advance() -> void:
 	if not visible:
 		return
+	Audio.play_sfx("message", -2.0)
 	_index += 1
 	if _index >= _lines.size():
 		close()

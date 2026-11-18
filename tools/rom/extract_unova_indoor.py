@@ -26,6 +26,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import ndspy.rom
 
+import prop_resolve
+from nds_fs import magic_archives
+
 from extract_nuvema import (
     AREA_RECORD,
     ZONE_HEADER,
@@ -34,7 +37,6 @@ from extract_nuvema import (
     find_rom,
     lz11_decompress,
     model_name,
-    prop_bundle_models,
     read_narc,
     run_apicula,
 )
@@ -47,6 +49,12 @@ def main() -> int:
     parser.add_argument("--apicula", default=None, help="Apicula executable")
     parser.add_argument("--limit", type=int, default=0, help="only process the first N scenes")
     parser.add_argument("--force", action="store_true", help="rebuild asset folders")
+    parser.add_argument(
+        "--strict-props",
+        action="store_true",
+        help="fail when a scene has prop ids no bundle supplies (default: warn and "
+        "drop them; audit_assets.py lists them headlessly afterwards)",
+    )
     args = parser.parse_args()
 
     root = Path(__file__).resolve().parents[2]
@@ -69,13 +77,20 @@ def main() -> int:
     area_data = bytes(rom.getFileByName("a/0/1/3"))
     chunks = read_narc(rom, "a/0/0/8")
     map_textures = read_narc(rom, "a/0/1/4")
-    prop_bundles = read_narc(rom, "a/2/2/9")
-    prop_textures = read_narc(rom, "a/1/7/6")
+    # Indoor props live in their own AB bundle archive, separate from the
+    # overworld one, each paired with a BTX0 archive of the same length. This
+    # ROM ships a stripped name table, so the two are located by content and
+    # disambiguated by how many of this batch's prop ids they resolve.
+    file_table = [(index, bytes(data)) for index, data in enumerate(rom.files)]
+    bundle_archives = magic_archives(file_table, b"AB")
+    texture_archives = magic_archives(file_table, b"BTX0")
+    if not bundle_archives:
+        print("No AB prop bundle archive found in the ROM.", file=sys.stderr)
+        return 1
 
     zone_count = len(zone_data) // ZONE_HEADER.size
     scenes: list[dict] = []
     model_pairs: set[tuple[int, int]] = set()
-    prop_pairs: set[tuple[int, int]] = set()
 
     for zone_id in range(zone_count):
         header = ZONE_HEADER.unpack_from(zone_data, zone_id * ZONE_HEADER.size)
@@ -92,8 +107,16 @@ def main() -> int:
         _, _, width, height = struct.unpack_from("<HHHH", matrix)
         cells = struct.unpack_from(f"<{width * height}I", matrix, 8)
         area = AREA_RECORD.unpack_from(area_data, area_id * AREA_RECORD.size)
-        bundle_id, texture_set = area[0], area[1]
+        # area[1] is the map texture set: it is what the map models are textured
+        # with, and it is the tie-break when several prop bundles cover a scene
+        # (see prop_resolve.py). It is *not* the bundle: applying texSet // 4 to
+        # every zone leaves most interiors empty. area[0] is the overworld
+        # fallback and must never be used here -- doing so furnished the
+        # player's house with outdoor props and dropped the staircase.
+        texture_set = area[1]
         scene_cells = []
+        scene_props: list[int] = []
+        scene_objects = 0
         for index, model_id in enumerate(cells):
             if model_id == 0xFFFFFFFF:
                 continue
@@ -101,13 +124,18 @@ def main() -> int:
             model_pairs.add((model_id, texture_set))
             chunk = lz11_decompress(chunks[model_id])
             _, placements = extract_chunk(chunk)
-            for placement in placements:
-                prop_pairs.add((placement["prop"], bundle_id))
+            scene_objects += prop_resolve.map_objects(placements)
+            kept = [
+                placement
+                for placement in placements
+                if placement["prop"] < prop_resolve.PROP_ID_LIMIT
+            ]
+            scene_props.extend(placement["prop"] for placement in kept)
             scene_cells.append({
                 "x": cell_x,
                 "y": cell_y,
                 "model": model_id,
-                "props": placements
+                "props": kept
             })
         if not scene_cells:
             continue
@@ -119,7 +147,10 @@ def main() -> int:
             "width": width,
             "height": height,
             "texSet": texture_set,
-            "bundle": bundle_id,
+            # Filled in below once the bundle archive is chosen.
+            "bundle": None,
+            "propIds": sorted(set(scene_props)),
+            "mapObjects": scene_objects,
             "cells": scene_cells
         })
 
@@ -127,17 +158,14 @@ def main() -> int:
         scenes = scenes[: args.limit]
         used_models = {cell["model"] for scene in scenes for cell in scene["cells"]}
         model_pairs = {(model_id, tex) for model_id, tex in model_pairs if model_id in used_models}
-        used_props = {
-            placement["prop"]
-            for scene in scenes
-            for cell in scene["cells"]
-            for placement in cell["props"]
-        }
-        prop_pairs = {(res_id, bundle) for res_id, bundle in prop_pairs if res_id in used_props}
 
+    interiors = [scene for scene in scenes if scene["propIds"]]
     print(f"ROM:    {rom_path}")
     print(f"Output: {out}")
-    print(f"Scenes: {len(scenes)}, model/tex pairs: {len(model_pairs)}, prop pairs: {len(prop_pairs)}")
+    print(
+        f"Scenes: {len(scenes)} ({len(interiors)} with furniture, "
+        f"{len(scenes) - len(interiors)} map-only), model/tex pairs: {len(model_pairs)}"
+    )
 
     # Resolve BMD names and group models by texture set.
     model_info: dict[int, tuple[str, bytes]] = {}
@@ -190,14 +218,77 @@ def main() -> int:
             map_file_by_model[model_id] = f"mapsets/tex_{texture_set}/m{model_id}_{name}/{name}.glb"
             print(f"  tex {texture_set}: duplicate {name} model {model_id} -> {target.name}")
 
+    # Choose the prop bundle archive, and then a bundle per scene.
+    #
+    # Both AB archives are scored the same way: how many scenes can be covered
+    # by a single bundle, then how many ids in total. The indoor archive (64
+    # bundles) wins, which matters because bundle 53 -- the Nuvema bedroom's --
+    # exists only there. The rule itself lives in prop_resolve.py so the audit
+    # and this extractor cannot drift apart.
+    candidates = []
+    for index, files in bundle_archives:
+        tables = prop_resolve.prop_tables(files)
+        picks = prop_resolve.assign(interiors, tables)
+        candidates.append((prop_resolve.score(interiors, tables), index, files, tables, picks))
+    candidates.sort(key=lambda item: item[0], reverse=True)
+    (complete, covered), bundle_file, prop_bundles, prop_tables, picks = candidates[0]
+    print(
+        f"Prop bundles: file {bundle_file} ({len(prop_bundles)} bundles), "
+        f"{complete}/{len(interiors)} scenes fully covered by their own texture-set bundle, "
+        f"{covered} prop instances from that bundle"
+    )
+
+    unresolved: list[str] = []
+    prop_pairs: set[tuple[int, int]] = set()
+    for scene in scenes:
+        bundle_id, missing = picks.get(scene["zone"], (None, []))
+        scene["bundle"] = bundle_id
+        if missing:
+            unresolved.append(
+                f'zone {scene["zone"]}: no bundle supplies prop {missing[:6]}'
+            )
+        if bundle_id is None:
+            continue
+        # A room's props are not confined to its own bundle: the same id has the
+        # same model in every bundle that supplies it, so ids the preferred
+        # bundle lacks are read from whichever bundle has them instead of being
+        # dropped (see prop_resolve.sources).
+        scene_sources = prop_resolve.sources(scene, prop_tables, bundle_id)
+        scene["propSources"] = scene_sources
+        for prop_id, source_bundle in scene_sources.items():
+            prop_pairs.add((prop_id, source_bundle))
+    if unresolved:
+        for line in unresolved[:20]:
+            print(f"  {line}", file=sys.stderr)
+        print(
+            f"Warning: {len(unresolved)} scenes reference prop ids that no bundle of the "
+            f"chosen archive supplies; those props will be left out. Run "
+            f"tools/rom/audit_assets.py --props to list them, or --strict-props to fail.",
+            file=sys.stderr
+        )
+        if args.strict_props:
+            return 1
+
+    texture_matches = [
+        files for _, files in texture_archives if len(files) == len(prop_bundles)
+    ]
+    if len(texture_matches) != 1:
+        print(
+            f"Error: expected one BTX0 prop texture archive with "
+            f"{len(prop_bundles)} entries, found {len(texture_matches)}",
+            file=sys.stderr
+        )
+        return 1
+    prop_textures = texture_matches[0]
+    print(f"Prop textures: {len(prop_textures)} entries (paired with the bundle archive)")
+
     # Props grouped by bundle.
     props_by_bundle: dict[int, list[tuple[int, str, bytes]]] = defaultdict(list)
     for res_id, bundle_id in sorted(prop_pairs):
-        bundle = prop_bundles[bundle_id]
-        models = prop_bundle_models(bundle)
-        if res_id not in models:
+        entry = prop_tables[bundle_id].get(res_id) if bundle_id < len(prop_tables) else None
+        if entry is None:
             continue
-        name, model = models[res_id]
+        name, model = entry
         props_by_bundle[bundle_id].append((res_id, name, model))
     prop_file_by_key: dict[tuple[int, int], str] = {}
     for bundle_id, entries in props_by_bundle.items():
@@ -237,15 +328,27 @@ def main() -> int:
                 f"propsets/b{bundle_id}/p{res_id}_{name}/{name}.glb"
             )
 
+    dropped: list[str] = []
+    unplaced = 0
     for scene in scenes:
-        bundle_id = scene["bundle"]
+        scene_sources: dict[int, int] = scene.get("propSources") or {}
         for cell in scene["cells"]:
             model_id = cell["model"]
             cell["mapFile"] = map_file_by_model.get(model_id, "")
             rendered_props = []
             for placement in cell["props"]:
-                prop_file = prop_file_by_key.get((placement["prop"], bundle_id))
+                source_bundle = scene_sources.get(placement["prop"])
+                if source_bundle is None:
+                    # No bundle of the archive supplies this id at all; that is
+                    # already reported per zone above. Not an extraction error.
+                    unplaced += 1
+                    continue
+                prop_file = prop_file_by_key.get((placement["prop"], source_bundle))
                 if not prop_file:
+                    dropped.append(
+                        f'{scene["id"]} cell ({cell["x"]},{cell["y"]}) '
+                        f'prop {placement["prop"]}'
+                    )
                     continue
                 rendered_props.append({
                     "x": placement["x"],
@@ -256,6 +359,22 @@ def main() -> int:
                 })
             cell["props"] = rendered_props
 
+    if dropped:
+        for line in dropped[:20]:
+            print(f"  unresolved {line}", file=sys.stderr)
+        print(
+            f"Error: {len(dropped)} prop placements could not be resolved",
+            file=sys.stderr
+        )
+        return 1
+    prop_total = sum(len(cell["props"]) for scene in scenes for cell in scene["cells"])
+    print(
+        f"Props placed: {prop_total} across {len(scenes)} scenes"
+        + (f" ({unplaced} placements reference ids no bundle supplies)" if unplaced else "")
+    )
+
+    for scene in scenes:
+        scene.pop("propSources", None)
     library = {
         "source": "Pokemon Black/White ROM (local extraction)",
         "cellSize": 32,

@@ -14,7 +14,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "2": {
       "scriptFile": 4,
@@ -36,7 +37,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "3": {
       "scriptFile": 6,
@@ -66,7 +68,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "4": {
       "scriptFile": 8,
@@ -89,7 +92,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "5": {
       "scriptFile": 10,
@@ -246,7 +250,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "6": {
       "scriptFile": 12,
@@ -359,7 +364,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "7": {
       "scriptFile": 14,
@@ -427,7 +433,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "8": {
       "scriptFile": 16,
@@ -453,7 +460,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "9": {
       "scriptFile": 18,
@@ -487,7 +495,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "10": {
       "scriptFile": 20,
@@ -517,7 +526,8 @@
           ],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "11": {
       "scriptFile": 22,
@@ -540,7 +550,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "12": {
       "scriptFile": 24,
@@ -572,7 +583,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "13": {
       "scriptFile": 26,
@@ -605,7 +617,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "14": {
       "scriptFile": 28,
@@ -646,7 +659,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "15": {
       "scriptFile": 30,
@@ -736,13 +750,21 @@
             "Or maybe I should test how well I can\nbattle without items...?",
             "Anyway, this is an indoor match, so let's\nbattle without getting too rough!",
             "So learning to use items well is\ndefinitely important, then.",
-            "Oh, here. {name}, I'll give you\nthese Berries."
+            "Oh, here. {name}, I'll give you\nthese Berries.",
+            "If you give a Pok\u00e9mon this kind\nof Berry to hold, it will eat it to heal up",
+            "when its HP goes down in battle.",
+            "But if you give Pok\u00e9mon man-made items\nlike Potions to hold, they can't",
+            "use them.",
+            "Well, good luck, then."
           ],
           "usedFlags": [
             113,
             192
           ],
-          "setFlags": [],
+          "setFlags": [
+            192,
+            538
+          ],
           "variants": [
             {
               "flags": {
@@ -770,13 +792,22 @@
                 "Or maybe I should test how well I can\nbattle without items...?",
                 "Anyway, this is an indoor match, so let's\nbattle without getting too rough!",
                 "So learning to use items well is\ndefinitely important, then.",
-                "Oh, here. {name}, I'll give you\nthese Berries."
+                "Oh, here. {name}, I'll give you\nthese Berries.",
+                "If you give a Pok\u00e9mon this kind\nof Berry to hold, it will eat it to heal up",
+                "when its HP goes down in battle.",
+                "But if you give Pok\u00e9mon man-made items\nlike Potions to hold, they can't",
+                "use them.",
+                "Well, good luck, then."
               ],
-              "setFlags": []
+              "setFlags": [
+                192,
+                538
+              ]
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "16": {
       "scriptFile": 32,
@@ -857,7 +888,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "17": {
       "scriptFile": 34,
@@ -1008,7 +1040,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "18": {
       "scriptFile": 36,
@@ -1068,7 +1101,8 @@
           ],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "19": {
       "scriptFile": 38,
@@ -1084,7 +1118,15 @@
             "how you battle with the",
             "Pok\u00e9mon you've so lovingly raised!",
             "Your fighting style is so enchanting.\nIt is charming.",
-            "You are a Pok\u00e9mon Trainer\nworthy of receiving this Basic Badge!"
+            "You are a Pok\u00e9mon Trainer\nworthy of receiving this Basic Badge!",
+            "If you have two Badges, traded\nPok\u00e9mon up to Lv. 30 will obey you.",
+            "Here, I also want you to have this TM.",
+            "Retaliate does a lot more damage if an\nally fainted the turn before you use it!",
+            "If you master the timing, you can defeat\neven strong opponents.",
+            "Dear! Come quickly!",
+            "Team Plasma is threatening to steal\nsome bones!",
+            "What? What's going on?!",
+            "{name}!\nYou come, too!"
           ],
           "usedFlags": [
             126,
@@ -1099,9 +1141,16 @@
             2416,
             2418
           ],
-          "setFlags": []
+          "setFlags": [
+            126,
+            550,
+            564,
+            2416,
+            2418
+          ]
         }
-      }
+      },
+      "scripts": {}
     },
     "20": {
       "scriptFile": 40,
@@ -1136,7 +1185,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "22": {
       "scriptFile": 44,
@@ -1175,7 +1225,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "23": {
       "scriptFile": 46,
@@ -1220,7 +1271,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "24": {
       "scriptFile": 48,
@@ -1260,7 +1312,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "25": {
       "scriptFile": 50,
@@ -1309,7 +1362,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "26": {
       "scriptFile": 52,
@@ -1393,7 +1447,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "27": {
       "scriptFile": 54,
@@ -1429,7 +1484,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "28": {
       "scriptFile": 56,
@@ -1523,7 +1579,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "29": {
       "scriptFile": 58,
@@ -1554,12 +1611,22 @@
             "Let's get straight to it!",
             "Aww...\nI lost.",
             "Whatever! Losing to you doesn't bug me\nbecause you are a-MAZ-ingly strong!",
-            "This is the Gym Badge!\nYou beat me, so it's yours!"
+            "This is the Gym Badge!\nYou beat me, so it's yours!",
+            "It's the Insect Badge!\nIt's insectible--I mean, incredible!",
+            "If you have three Badges,\nPok\u00e9mon up to Lv. 40 will obey you,",
+            "including traded Pok\u00e9mon.",
+            "Because I'm a generous guy,\nI'll also give you this.",
+            "Struggle Bug also lowers the\nSp. Atk of the target that was damaged.",
+            "I'm the best guy to tell you,\nit's the little things that count!"
           ],
           "usedFlags": [
             2400
           ],
-          "setFlags": []
+          "setFlags": [
+            130,
+            131,
+            2419
+          ]
         },
         "10": {
           "name": "",
@@ -1572,7 +1639,8 @@
           ],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "30": {
       "scriptFile": 60,
@@ -1624,7 +1692,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "31": {
       "scriptFile": 62,
@@ -1646,6 +1715,36 @@
           ],
           "usedFlags": [],
           "setFlags": []
+        },
+        "2": {
+          "name": "Team Plasma",
+          "lines": [
+            "No one's here! Not a soul!",
+            "No other Team Plasma members, nor any\nof the Seven Sages, are inside.",
+            "...If you think I'm lying, why don't\nwe have a little battle and find out?",
+            "I...had a thought!",
+            "I'll take care of this weak-looking runt,\nso you can show off by handling",
+            "that tough-looking guy over there!",
+            "This is bad...",
+            "Badbadbadbadbadbadbad!",
+            "Bad for Team Plasma!\nOr Plasbad, for short!",
+            "It's in my best interest to go\nreport to the Seven Sages right now!",
+            "Phew, we got lost.",
+            "Even with directions from the\nXtransceiver, I couldn't figure it out!",
+            "Team Plasma is inside.",
+            "The stolen Pok\u00e9mon may be in\nthere as well.",
+            "OK, I'm going in!",
+            "OK! This time, I'll join the fight!",
+            "Come on, Bianca. You, too!",
+            "W-wait!",
+            "{name}! You come, too!"
+          ],
+          "usedFlags": [],
+          "setFlags": [
+            796,
+            797,
+            798
+          ]
         },
         "3": {
           "name": "",
@@ -1699,7 +1798,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "32": {
       "scriptFile": 64,
@@ -1724,7 +1824,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "33": {
       "scriptFile": 66,
@@ -1834,7 +1935,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "35": {
       "scriptFile": 70,
@@ -1860,7 +1962,10 @@
           "name": "",
           "lines": [
             "Meow!\nHow did you find me?!",
-            "You are something else!\nSo, I'm going to give you something. This!"
+            "You are something else!\nSo, I'm going to give you something. This!",
+            "If you use the move Flash, the accuracy\nof the opponent's moves goes down.",
+            "When you use it twice, the rate to get\nhit by a move will be about half.",
+            "'Cause it means more light!"
           ],
           "usedFlags": [],
           "setFlags": []
@@ -1878,7 +1983,8 @@
           ],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "36": {
       "scriptFile": 72,
@@ -1914,7 +2020,8 @@
           ],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "37": {
       "scriptFile": 74,
@@ -1950,7 +2057,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "38": {
       "scriptFile": 76,
@@ -1983,7 +2091,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "39": {
       "scriptFile": 78,
@@ -2024,7 +2133,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "40": {
       "scriptFile": 80,
@@ -2069,7 +2179,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "41": {
       "scriptFile": 82,
@@ -2107,7 +2218,8 @@
             361
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "42": {
       "scriptFile": 84,
@@ -2220,7 +2332,15 @@
                 "254": 1
               },
               "lines": [
-                "Hi, {name}.\nAre you conducting a survey vigorously?"
+                "Hi, {name}.\nAre you conducting a survey vigorously?",
+                "Actually, I have a favor to ask you.",
+                "I'm asking statisticians to answer\na questionnaire.",
+                "OK, here we go!",
+                "Oh? It looks like you've answered\nall the questionnaires.",
+                "Would you like to re-answer\nthe questionnaires you did before?",
+                "Let's get started.\nThis questionnaire...",
+                "is about\n\u201cDetails about people.\"",
+                "\u201cWhat is your hobby?\""
               ],
               "setFlags": [
                 255
@@ -2228,7 +2348,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "43": {
       "scriptFile": 86,
@@ -2281,7 +2402,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "44": {
       "scriptFile": 88,
@@ -2307,7 +2429,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "45": {
       "scriptFile": 90,
@@ -2317,12 +2440,19 @@
           "name": "",
           "lines": [
             "Oh! A company tour?\nOr some Pok\u00e9mon practice?",
-            "Either way, I'm glad you came.\nI'm happy, so I'll give you these!"
+            "Either way, I'm glad you came.\nI'm happy, so I'll give you these!",
+            "I'm very happy, so I will give you\nanother present!",
+            "A Quick Ball makes it easier to catch a\nPok\u00e9mon if you use it at the very",
+            "beginning of a battle.",
+            "And a Timer Ball makes it easier to catch\na Pok\u00e9mon you've been battling",
+            "for a long time!"
           ],
           "usedFlags": [
             266
           ],
-          "setFlags": [],
+          "setFlags": [
+            266
+          ],
           "variants": [
             {
               "flags": {
@@ -2338,7 +2468,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "46": {
       "scriptFile": 92,
@@ -2380,7 +2511,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "47": {
       "scriptFile": 94,
@@ -2428,12 +2560,17 @@
         "2": {
           "name": "",
           "lines": [
-            "Yip yap!"
+            "Yip yap!",
+            "It looks like Zorua and Celebi are really\ngood friends!",
+            "I'm sure Zorua wants to go with you\nand Celebi!",
+            "...But do you have room for Zorua\nin your party?",
+            "You can't take more than six Pok\u00e9mon\nwith you. Right?"
           ],
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "48": {
       "scriptFile": 96,
@@ -2579,7 +2716,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "49": {
       "scriptFile": 98,
@@ -2629,7 +2767,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "50": {
       "scriptFile": 100,
@@ -2668,7 +2807,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "51": {
       "scriptFile": 102,
@@ -2690,7 +2830,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "52": {
       "scriptFile": 104,
@@ -2806,7 +2947,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "53": {
       "scriptFile": 106,
@@ -2847,7 +2989,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "54": {
       "scriptFile": 108,
@@ -2901,7 +3044,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "55": {
       "scriptFile": 110,
@@ -2922,12 +3066,18 @@
           "lines": [
             "People in the past said wise things.\n\u201cA child who sleeps well grows well.\"",
             "Yes, if a Pok\u00e9mon uses the move Rest,\nthe Pok\u00e9mon will fall asleep and recover!",
-            "I already taught the move to my Pok\u00e9mon,\nso I will give this to you!"
+            "I already taught the move to my Pok\u00e9mon,\nso I will give this to you!",
+            "Even if a Pok\u00e9mon falls asleep, I heard\nthere is a Berry to wake it up instantly.",
+            "If a Pok\u00e9mon holds that Berry and uses\nRest, the Pok\u00e9mon will fall asleep",
+            "and recover, then wake up instantly!",
+            "It's a great combination!"
           ],
           "usedFlags": [
             265
           ],
-          "setFlags": [],
+          "setFlags": [
+            265
+          ],
           "variants": [
             {
               "flags": {
@@ -2943,7 +3093,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "58": {
       "scriptFile": 116,
@@ -3012,7 +3163,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "59": {
       "scriptFile": 118,
@@ -3320,7 +3472,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "60": {
       "scriptFile": 120,
@@ -3361,7 +3514,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "61": {
       "scriptFile": 122,
@@ -3470,7 +3624,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "62": {
       "scriptFile": 124,
@@ -3555,7 +3710,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "63": {
       "scriptFile": 126,
@@ -3576,12 +3732,20 @@
           "lines": [
             "How about it? I can see you're surprised!",
             "Would you ever have guessed that\nthis Gym is a roller coaster?",
-            "OK, let me fill you in...\nAnd take this, too!"
+            "OK, let me fill you in...\nAnd take this, too!",
+            "In this roller coaster Gym, the first\nstep is to get in the car.",
+            "Next comes the platform!\nThere, you can change",
+            "where the coaster is going!",
+            "Sometimes you continue by riding\nthe cars of opponents you defeat.",
+            "That's how you aim for the Gym Leader!",
+            "By the way, Electric-type Pok\u00e9mon don't\ndo well against Ground-type moves..."
           ],
           "usedFlags": [
             121
           ],
-          "setFlags": [],
+          "setFlags": [
+            121
+          ],
           "variants": [
             {
               "flags": {
@@ -3614,14 +3778,27 @@
             "My beloved Pok\u00e9mon will be the next one\nto make your head spin!",
             "My, oh my...\nYou have a sweet fighting style.",
             "I mean, you're a great Trainer!\nExcuse me, I...uh... Oh, here!",
-            "I want you to have this!"
+            "I want you to have this!",
+            "If you have four Badges, including this\nBolt Badge, Pok\u00e9mon up to Lv. 50,",
+            "including traded Pok\u00e9mon, will obey you.",
+            "Also, here's this move I like.\nFeel free to use it, um, if you want to.",
+            "Volt Switch lets the Pok\u00e9mon switch with\na different Pok\u00e9mon after attacking.",
+            "Of course, if you don't have another\nPok\u00e9mon in your party, you can't switch.",
+            "You're going to Driftveil City next?",
+            "Of course. There is a Pok\u00e9mon Gym there,\nafter all. Oh...",
+            "I bet you won't be able to get there.\nYou know what?",
+            "I'll fix it so you can cross.\nWait for me on Route 5."
           ],
           "usedFlags": [
             2400
           ],
-          "setFlags": []
+          "setFlags": [
+            565,
+            2420
+          ]
         }
-      }
+      },
+      "scripts": {}
     },
     "64": {
       "scriptFile": 128,
@@ -3659,7 +3836,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "65": {
       "scriptFile": 130,
@@ -3692,7 +3870,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "66": {
       "scriptFile": 132,
@@ -3750,7 +3929,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "74": {
       "scriptFile": 148,
@@ -3764,7 +3944,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "76": {
       "scriptFile": 152,
@@ -3788,7 +3969,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "77": {
       "scriptFile": 154,
@@ -3918,7 +4100,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "79": {
       "scriptFile": 158,
@@ -4007,7 +4190,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "80": {
       "scriptFile": 160,
@@ -4091,7 +4275,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "81": {
       "scriptFile": 162,
@@ -4236,7 +4421,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "82": {
       "scriptFile": 164,
@@ -4301,7 +4487,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "83": {
       "scriptFile": 166,
@@ -4369,7 +4556,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "84": {
       "scriptFile": 168,
@@ -4459,7 +4647,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "85": {
       "scriptFile": 170,
@@ -4547,7 +4736,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "86": {
       "scriptFile": 172,
@@ -4587,7 +4777,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "87": {
       "scriptFile": 174,
@@ -4611,7 +4802,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "88": {
       "scriptFile": 176,
@@ -4637,7 +4829,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "89": {
       "scriptFile": 178,
@@ -4684,7 +4877,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "90": {
       "scriptFile": 180,
@@ -4707,7 +4901,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "91": {
       "scriptFile": 182,
@@ -4729,7 +4924,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "92": {
       "scriptFile": 184,
@@ -4765,7 +4961,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "93": {
       "scriptFile": 186,
@@ -4781,7 +4978,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "94": {
       "scriptFile": 188,
@@ -4812,7 +5010,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "95": {
       "scriptFile": 190,
@@ -4827,7 +5026,9 @@
           "usedFlags": [
             273
           ],
-          "setFlags": []
+          "setFlags": [
+            273
+          ]
         },
         "1": {
           "name": "",
@@ -4847,7 +5048,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "96": {
       "scriptFile": 192,
@@ -4970,7 +5172,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "97": {
       "scriptFile": 194,
@@ -4986,12 +5189,27 @@
             "Mrrrmph. I see. But I sure don't like it!",
             "Fer such a young 'un, ya have an imposin'\nbattle style.",
             "I know ya got people who can dig up\nyer potential.",
-            "Mrmph.\nHere! Take this!"
+            "Mrmph.\nHere! Take this!",
+            "So this is yer fifth Badge, huh?",
+            "If that's so, Pok\u00e9mon up to Lv. 60\nwill obey ya.",
+            "Also, I'll give ya this TM.",
+            "...Well, that was the plan, but I just\nremembered there's somethin' I want.",
+            "Wait in front of the cave at the end of\nRoute 6, wouldja?"
           ],
-          "usedFlags": [],
-          "setFlags": []
+          "usedFlags": [
+            568,
+            598,
+            2400,
+            2421
+          ],
+          "setFlags": [
+            568,
+            598,
+            2421
+          ]
         }
-      }
+      },
+      "scripts": {}
     },
     "98": {
       "scriptFile": 196,
@@ -5001,12 +5219,18 @@
           "name": "",
           "lines": [
             "I'm sure it was tough dealing with all\nthat right after you arrived here.",
-            "For now, I'll just give you this!"
+            "For now, I'll just give you this!",
+            "The Gym Leader Clay uses\nGround-type Pok\u00e9mon!",
+            "Well, just between you and me,\nGround-type Pok\u00e9mon aren't good against",
+            "Water-type attacks.",
+            "Kinda makes me wonder why Clay is living\nnext to water."
           ],
           "usedFlags": [
             122
           ],
-          "setFlags": [],
+          "setFlags": [
+            122
+          ],
           "variants": [
             {
               "flags": {
@@ -5031,7 +5255,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "99": {
       "scriptFile": 198,
@@ -5045,7 +5270,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "100": {
       "scriptFile": 200,
@@ -5076,7 +5302,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "101": {
       "scriptFile": 202,
@@ -5120,7 +5347,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "102": {
       "scriptFile": 204,
@@ -5135,7 +5363,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "103": {
       "scriptFile": 206,
@@ -5162,7 +5391,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "104": {
       "scriptFile": 208,
@@ -5242,7 +5472,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "105": {
       "scriptFile": 210,
@@ -5318,7 +5549,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "106": {
       "scriptFile": 212,
@@ -5377,7 +5609,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "107": {
       "scriptFile": 214,
@@ -5445,8 +5678,14 @@
             "Yoooo-ooou can uuu-uuuuuse it!",
             "See you! Bye-bye!"
           ],
-          "usedFlags": [],
-          "setFlags": []
+          "usedFlags": [
+            668
+          ],
+          "setFlags": [
+            181,
+            662,
+            668
+          ]
         },
         "11": {
           "name": "",
@@ -5457,7 +5696,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "108": {
       "scriptFile": 216,
@@ -5483,12 +5723,28 @@
             "You're an amazing Pok\u00e9mon Trainer.",
             "My Pok\u00e9mon and I are happy,\nbecause for the first time in a while,",
             "we could fight with our full strength.",
-            "This is an official League Gym Badge.\nI think it will look good on you."
+            "This is an official League Gym Badge.\nI think it will look good on you.",
+            "Wow, hot stuff!",
+            "With that many Gym Badges,\nPok\u00e9mon up to Lv. 70 will obey you.",
+            "Also, as thanks for a Pok\u00e9mon battle\nthat made me very happy,",
+            "I want you to have this TM.",
+            "My present to you is Acrobatics.\nIf the user doesn't have a held item,",
+            "its power doubles.",
+            "It's a pretty technical move.",
+            "Be sure to compensate for the\nlack of a held item!",
+            "By the way, when I flew over\nTwist Mountain on the way",
+            "to Icirrus City...",
+            "Team Plasma--is that the name?\nAnyway, they were heading for the city.",
+            "What kind of people are they?"
           ],
           "usedFlags": [],
-          "setFlags": []
+          "setFlags": [
+            687,
+            2422
+          ]
         }
-      }
+      },
+      "scripts": {}
     },
     "109": {
       "scriptFile": 218,
@@ -5529,7 +5785,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "110": {
       "scriptFile": 220,
@@ -5556,7 +5813,8 @@
           ],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "111": {
       "scriptFile": 222,
@@ -5639,7 +5897,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "112": {
       "scriptFile": 224,
@@ -5664,7 +5923,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "113": {
       "scriptFile": 226,
@@ -5729,7 +5989,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "114": {
       "scriptFile": 228,
@@ -5738,12 +5999,16 @@
         "1": {
           "name": "",
           "lines": [
-            "Please take this Fresh Water!"
+            "Please take this Fresh Water!",
+            "Ice can be melted with Fire\nor shattered with Fighting.",
+            "Or you might want to smash it\ninto dust with Rock or Steel."
           ],
           "usedFlags": [
             124
           ],
-          "setFlags": [],
+          "setFlags": [
+            124
+          ],
           "variants": [
             {
               "flags": {
@@ -5762,12 +6027,20 @@
           "lines": [
             "You appear ready to face a Gym Leader.\nThen...",
             "Bring it!",
-            "In honor of your stout heart,\nI will give you this."
+            "In honor of your stout heart,\nI will give you this.",
+            "You have seven Badges.",
+            "That means Pok\u00e9mon up to Lv. 80\nwill obey you.",
+            "This TM will convey my regard\nfor your accomplishments.",
+            "A move that always results in\na critical hit: Frost Breath."
           ],
           "usedFlags": [],
-          "setFlags": []
+          "setFlags": [
+            678,
+            2423
+          ]
         }
-      }
+      },
+      "scripts": {}
     },
     "116": {
       "scriptFile": 232,
@@ -5800,7 +6073,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "117": {
       "scriptFile": 234,
@@ -5830,7 +6104,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "118": {
       "scriptFile": 236,
@@ -5856,7 +6131,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "119": {
       "scriptFile": 238,
@@ -5916,7 +6192,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "120": {
       "scriptFile": 240,
@@ -6007,7 +6284,8 @@
           ],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "121": {
       "scriptFile": 242,
@@ -6020,21 +6298,42 @@
             "Tell me... What Pok\u00e9mon are you using?\nHow will you fight?",
             "Ooh, I'm super curious, so let's just\nget started!",
             "Whoooa!\nThat was so cool!",
-            "I'm sooo happy I could battle a Trainer\nas strong as you!"
+            "I'm sooo happy I could battle a Trainer\nas strong as you!",
+            "Hey, that's your eighth Badge, right?\nThat's so cool!",
+            "Now every Pok\u00e9mon will do what you ask,\nno matter how big they are!",
+            "Know what? I'll give you this TM, too!",
+            "Dragon Tail doesn't just do damage.",
+            "It sends the other Pok\u00e9mon back to its\nPok\u00e9 Ball, too!",
+            "Ooh, hey!\nI wonder how Mister Alder is doing?",
+            "I wonder if he's battling that Trainer\ncalled N in the Pok\u00e9mon League right now?",
+            "Do you know about the Pok\u00e9mon League?",
+            "It's past Victory Road, at the end of\nRoute 10!"
           ],
-          "usedFlags": [],
-          "setFlags": []
+          "usedFlags": [
+            2400,
+            2424,
+            2425
+          ],
+          "setFlags": [
+            2424
+          ]
         },
         "8": {
           "name": "",
           "lines": [
             "Welcome to the Opelucid Gym, the Unova\nregion's strongest and biggest trial!",
-            "First off, please take this Fresh Water.\nIt'll help you in the challenge ahead."
+            "First off, please take this Fresh Water.\nIt'll help you in the challenge ahead.",
+            "Let me give you a brief explanation of\nthe trick to the Opelucid Gym!",
+            "The path around this Gym is shaped like\ntwo dragons.",
+            "This path changes when you step on\nthe switches on the dragons' arms.",
+            "Pay attention to how the dragons'\nnecks move!"
           ],
           "usedFlags": [
             125
           ],
-          "setFlags": [],
+          "setFlags": [
+            125
+          ],
           "variants": [
             {
               "flags": {
@@ -6059,7 +6358,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "123": {
       "scriptFile": 246,
@@ -6088,7 +6388,8 @@
           ],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "124": {
       "scriptFile": 248,
@@ -6139,7 +6440,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "125": {
       "scriptFile": 250,
@@ -6175,7 +6477,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "127": {
       "scriptFile": 254,
@@ -6231,7 +6534,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "128": {
       "scriptFile": 256,
@@ -6260,7 +6564,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "129": {
       "scriptFile": 258,
@@ -6294,7 +6599,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "130": {
       "scriptFile": 260,
@@ -6310,7 +6616,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "131": {
       "scriptFile": 262,
@@ -6326,7 +6633,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "132": {
       "scriptFile": 264,
@@ -6358,7 +6666,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "133": {
       "scriptFile": 266,
@@ -6372,7 +6681,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "135": {
       "scriptFile": 270,
@@ -6403,7 +6713,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "136": {
       "scriptFile": 272,
@@ -6434,7 +6745,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "140": {
       "scriptFile": 280,
@@ -6591,7 +6903,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "141": {
       "scriptFile": 282,
@@ -6764,7 +7077,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "142": {
       "scriptFile": 284,
@@ -6926,7 +7240,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "143": {
       "scriptFile": 286,
@@ -7084,7 +7399,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "144": {
       "scriptFile": 288,
@@ -7113,7 +7429,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "146": {
       "scriptFile": 292,
@@ -7128,7 +7445,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "147": {
       "scriptFile": 294,
@@ -7143,7 +7461,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "148": {
       "scriptFile": 296,
@@ -7218,7 +7537,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "149": {
       "scriptFile": 298,
@@ -7240,6 +7560,24 @@
           ],
           "usedFlags": [],
           "setFlags": []
+        },
+        "6": {
+          "name": "",
+          "lines": [
+            "Return to the entrance?"
+          ],
+          "usedFlags": [],
+          "setFlags": []
+        }
+      },
+      "scripts": {
+        "8": {
+          "name": "",
+          "lines": [
+            "Return to the entrance?"
+          ],
+          "usedFlags": [],
+          "setFlags": []
         }
       }
     },
@@ -7255,7 +7593,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "151": {
       "scriptFile": 302,
@@ -7269,7 +7608,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "152": {
       "scriptFile": 304,
@@ -7299,7 +7639,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "153": {
       "scriptFile": 306,
@@ -7313,7 +7654,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "154": {
       "scriptFile": 308,
@@ -7328,7 +7670,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "155": {
       "scriptFile": 310,
@@ -7456,7 +7799,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "157": {
       "scriptFile": 314,
@@ -7481,7 +7825,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "158": {
       "scriptFile": 316,
@@ -7534,7 +7879,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "159": {
       "scriptFile": 318,
@@ -7559,7 +7905,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "160": {
       "scriptFile": 320,
@@ -7628,7 +7975,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "161": {
       "scriptFile": 322,
@@ -7642,7 +7990,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "167": {
       "scriptFile": 334,
@@ -7659,7 +8008,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "181": {
       "scriptFile": 362,
@@ -7700,7 +8050,8 @@
             809
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "191": {
       "scriptFile": 382,
@@ -7741,7 +8092,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "192": {
       "scriptFile": 384,
@@ -7773,7 +8125,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "193": {
       "scriptFile": 386,
@@ -7813,10 +8166,26 @@
             "That might be how you feel.",
             "If that's so, is it necessary to\nseparate people and Pok\u00e9mon?",
             "By talking to you, I've discovered that\nthere's much I need to think about...",
-            "I wish I had more to give you in thanks...\nHere, take this."
+            "I wish I had more to give you in thanks...\nHere, take this.",
+            "My lord N said that he wanted\nto make Pok\u00e9mon perfect...",
+            "But, even if the relationship between\nPok\u00e9mon and people stayed as it now is,",
+            "Pok\u00e9mon can aspire to perfection...",
+            "Indeed! I am an officer of the\nInternational Police, and I demand to",
+            "hear all you know about Team Plasma!",
+            "It's too cold and I'm already\ntired of shivering in here.",
+            "If you'll give me some time to think,\nI'll tell you what I know.",
+            "So...take me with you.",
+            "Thanks many times over!",
+            "Now, Ghetsis notwithstanding, there\nyet remains but {} of the",
+            "Seven Sages still at large.",
+            "The thoughts they are contemplating,\nthe hopes they are anticipating,",
+            "these--these are what I want to know!",
+            "Until our next meeting!"
           ],
           "usedFlags": [],
-          "setFlags": []
+          "setFlags": [
+            716
+          ]
         },
         "3": {
           "name": "Cheren",
@@ -7940,7 +8309,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "194": {
       "scriptFile": 388,
@@ -7967,7 +8337,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "195": {
       "scriptFile": 390,
@@ -7995,7 +8366,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "196": {
       "scriptFile": 392,
@@ -8006,12 +8378,15 @@
           "lines": [
             "Hi! We're the Nugget brothers.\nI am the big brother.",
             "And I am the little brother\nof the Nugget brothers!",
-            "Glad you showed up!\nI want to give you this."
+            "Glad you showed up!\nI want to give you this.",
+            "I want to give you this, too."
           ],
           "usedFlags": [
             169
           ],
-          "setFlags": [],
+          "setFlags": [
+            169
+          ],
           "variants": [
             {
               "flags": {
@@ -8029,12 +8404,15 @@
           "lines": [
             "Hi! We're the Nugget brothers.\nI am the big brother.",
             "And I am the little brother\nof the Nugget brothers!",
-            "Glad you showed up!\nI want to give you this."
+            "Glad you showed up!\nI want to give you this.",
+            "I want to give you this, too."
           ],
           "usedFlags": [
             169
           ],
-          "setFlags": [],
+          "setFlags": [
+            169
+          ],
           "variants": [
             {
               "flags": {
@@ -8048,7 +8426,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "197": {
       "scriptFile": 394,
@@ -8071,7 +8450,8 @@
             839
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "198": {
       "scriptFile": 396,
@@ -8089,7 +8469,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "199": {
       "scriptFile": 398,
@@ -8113,7 +8494,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "202": {
       "scriptFile": 404,
@@ -8148,9 +8530,13 @@
               },
               "lines": [
                 "If you look for something in an empty\nplace like this, you can discover things!",
-                "Like this Fossil I just found! Take this!"
+                "Like this Fossil I just found! Take this!",
+                "If you come again tomorrow, you might be\nable to find a Fossil of your own.",
+                "So come on out and play if ya want!"
               ],
-              "setFlags": []
+              "setFlags": [
+                2762
+              ]
             },
             {
               "flags": {
@@ -8165,7 +8551,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "205": {
       "scriptFile": 410,
@@ -8187,7 +8574,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "206": {
       "scriptFile": 412,
@@ -8202,7 +8590,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "207": {
       "scriptFile": 414,
@@ -8217,7 +8606,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "210": {
       "scriptFile": 420,
@@ -8298,7 +8688,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "212": {
       "scriptFile": 424,
@@ -8346,7 +8737,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "214": {
       "scriptFile": 428,
@@ -8387,7 +8779,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "228": {
       "scriptFile": 456,
@@ -8468,7 +8861,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "235": {
       "scriptFile": 470,
@@ -8553,7 +8947,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "236": {
       "scriptFile": 472,
@@ -8569,7 +8964,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "237": {
       "scriptFile": 474,
@@ -8596,7 +8992,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "239": {
       "scriptFile": 478,
@@ -8636,7 +9033,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "251": {
       "scriptFile": 502,
@@ -8661,7 +9059,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "252": {
       "scriptFile": 504,
@@ -8684,7 +9083,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "253": {
       "scriptFile": 506,
@@ -8719,7 +9119,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "254": {
       "scriptFile": 508,
@@ -8730,12 +9131,16 @@
           "lines": [
             "When I was running around trying\nto outrun the trains,",
             "I got overheated. Phew!",
-            "Anyway, please take this!"
+            "Anyway, please take this!",
+            "This TM contains Flame Charge!\nIf the move lands, the user's Speed",
+            "goes up! You'll blow by everyone!"
           ],
           "usedFlags": [
             260
           ],
-          "setFlags": [],
+          "setFlags": [
+            260
+          ],
           "variants": [
             {
               "flags": {
@@ -8820,7 +9225,8 @@
           ],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "255": {
       "scriptFile": 510,
@@ -9223,7 +9629,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "256": {
       "scriptFile": 512,
@@ -9258,7 +9665,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "257": {
       "scriptFile": 514,
@@ -9291,7 +9699,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "258": {
       "scriptFile": 516,
@@ -9351,7 +9760,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "259": {
       "scriptFile": 518,
@@ -9383,7 +9793,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "260": {
       "scriptFile": 520,
@@ -9452,7 +9863,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "261": {
       "scriptFile": 522,
@@ -9466,7 +9878,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "263": {
       "scriptFile": 526,
@@ -9574,7 +9987,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "264": {
       "scriptFile": 528,
@@ -9703,7 +10117,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "266": {
       "scriptFile": 532,
@@ -9728,7 +10143,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "267": {
       "scriptFile": 534,
@@ -9749,7 +10165,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "268": {
       "scriptFile": 536,
@@ -9775,7 +10192,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "270": {
       "scriptFile": 540,
@@ -9803,7 +10221,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "271": {
       "scriptFile": 542,
@@ -9820,7 +10239,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "272": {
       "scriptFile": 544,
@@ -9861,7 +10281,9 @@
           "usedFlags": [
             362
           ],
-          "setFlags": [],
+          "setFlags": [
+            362
+          ],
           "variants": [
             {
               "flags": {
@@ -9874,7 +10296,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "275": {
       "scriptFile": 550,
@@ -9890,7 +10313,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "276": {
       "scriptFile": 552,
@@ -9914,7 +10338,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "278": {
       "scriptFile": 556,
@@ -9924,6 +10349,37 @@
           "name": "",
           "lines": [
             "N: {}Was my formula incorrect?{}"
+          ],
+          "usedFlags": [],
+          "setFlags": []
+        },
+        "1": {
+          "name": "Ghetsis",
+          "lines": [
+            "What?!",
+            "I created Team Plasma with my own hands.\nI'm absolutely perfect! I AM PERFECTION!",
+            "I am the perfect ruler of\na perfect new world!",
+            "Now, N...",
+            "Do you still think Pok\u00e9mon\nand people should be separated?",
+            "Mwa ha ha!",
+            "Since I couldn't become the hero and\nobtain the legendary Pok\u00e9mon myself...",
+            "I prepared someone for that purpose--N!",
+            "He's nothing more than a freak\nwithout a human heart.",
+            "Do you think you're going to get\nthrough to a warped person like that?!",
+            "Alder, it's a waste of valuable\ntime listening to him ramble on.",
+            "He is the one without a human heart!",
+            "You're right.\nHe's truly pitiful.",
+            "N: {}But...I have no right to be the hero!{}",
+            "Is that so?",
+            "What you and the legendary Pok\u00e9mon\nare going to do from now on...",
+            "That's important, wouldn't you say?",
+            "N: {}Acting like you understand...",
+            "Up till now, we've been fighting each\nother over our beliefs!",
+            "Yet, despite that... Why?!{}",
+            "N, even if we don't understand\neach other, that's not a reason",
+            "to reject each other.",
+            "There are two sides to any argument.",
+            "Is there one point of view that has all\nthe answers? Give it some thought."
           ],
           "usedFlags": [],
           "setFlags": []
@@ -9963,7 +10419,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "279": {
       "scriptFile": 558,
@@ -12681,7 +13138,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "289": {
       "scriptFile": 578,
@@ -12706,7 +13164,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "290": {
       "scriptFile": 580,
@@ -12731,7 +13190,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "291": {
       "scriptFile": 582,
@@ -12754,7 +13214,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "292": {
       "scriptFile": 584,
@@ -12778,7 +13239,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "293": {
       "scriptFile": 586,
@@ -12803,7 +13265,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "315": {
       "scriptFile": 630,
@@ -12828,7 +13291,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "316": {
       "scriptFile": 632,
@@ -12853,7 +13317,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "317": {
       "scriptFile": 634,
@@ -12883,12 +13348,34 @@
             "Pok\u00e9mon that still have all of\ntheir energy are difficult to catch.",
             "If you can, use your Pok\u00e9mon's moves to\nmake the Pok\u00e9mon you want to catch",
             "fall asleep. Or paralyze it!",
-            "And to wrap this up in the best way,\nI have a gift for you--some Pok\u00e9 Balls!"
+            "And to wrap this up in the best way,\nI have a gift for you--some Pok\u00e9 Balls!",
+            "Pok\u00e9 Balls are used\nfor catching Pok\u00e9mon and for carrying",
+            "the Pok\u00e9mon you catch!",
+            "I'm going on ahead.\nI'll be waiting for you in Accumula Town!",
+            "She forgot to say that Pok\u00e9mon\njump out at you in the tall grass.",
+            "I'm heading to Accumula Town, too.",
+            "I think I'll go, too.",
+            "I'm looking forward to the next town\nso I can go shopping for Pok\u00e9 Balls!",
+            "Wait a minute!",
+            "Hey, listen!\n{name}, Cheren,",
+            "I thought of something fun!",
+            "But we need to get going!\nI'd imagine the professor's waiting, too.",
+            "Would you just listen a sec?\nSeriously!",
+            "Why don't we see who can catch\nthe most Pok\u00e9mon?",
+            "The person carrying the most Pok\u00e9mon,\nincluding the one received from",
+            "Professor Juniper, is the winner!",
+            "Huh.\nActually, that sounds interesting.",
+            "It will fill up Pok\u00e9dex pages, so I'm\nsure it will please the professor, too.",
+            "OK, then. Until we reach Accumula Town,\ntake care of healing your Pok\u00e9mon",
+            "at your own house.",
+            "Me and {rival}\nwill do the best for sure!"
           ],
           "usedFlags": [
             508
           ],
-          "setFlags": []
+          "setFlags": [
+            508
+          ]
         },
         "3": {
           "name": "Cheren",
@@ -12910,7 +13397,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "318": {
       "scriptFile": 636,
@@ -12935,7 +13423,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "319": {
       "scriptFile": 638,
@@ -12988,7 +13477,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "320": {
       "scriptFile": 640,
@@ -13012,7 +13502,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "321": {
       "scriptFile": 642,
@@ -13082,7 +13573,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "322": {
       "scriptFile": 644,
@@ -13146,7 +13638,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "323": {
       "scriptFile": 646,
@@ -13163,7 +13656,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "326": {
       "scriptFile": 652,
@@ -13214,7 +13708,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "327": {
       "scriptFile": 654,
@@ -13236,7 +13731,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "328": {
       "scriptFile": 656,
@@ -13252,7 +13748,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "329": {
       "scriptFile": 658,
@@ -13369,7 +13866,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "331": {
       "scriptFile": 662,
@@ -13421,7 +13919,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "332": {
       "scriptFile": 664,
@@ -13461,7 +13960,9 @@
             813,
             814
           ],
-          "setFlags": [],
+          "setFlags": [
+            350
+          ],
           "variants": [
             {
               "flags": {
@@ -13550,7 +14051,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "335": {
       "scriptFile": 670,
@@ -13588,7 +14090,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "336": {
       "scriptFile": 672,
@@ -13613,7 +14116,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "337": {
       "scriptFile": 674,
@@ -13628,7 +14132,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "338": {
       "scriptFile": 676,
@@ -13651,7 +14156,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "342": {
       "scriptFile": 684,
@@ -13661,6 +14167,26 @@
           "name": "Skyla",
           "lines": [
             "Come on, don't be shy!"
+          ],
+          "usedFlags": [],
+          "setFlags": []
+        }
+      },
+      "scripts": {
+        "3": {
+          "name": "",
+          "lines": [
+            "What a pretty sound.",
+            "{name}, you are\na kind and strong person.",
+            "It's that kind of sound.",
+            "What a pretty sound.",
+            "{name}, you are\na kind and strong person.",
+            "It's that kind of sound.",
+            "I'd like to introduce myself again!",
+            "I'm Skyla, the Leader of\nMistralton's Pok\u00e9mon Gym.",
+            "I use Flying-type Pok\u00e9mon.",
+            "When you are ready, please\ncome to the Gym.",
+            "I'll give you a big welcome!"
           ],
           "usedFlags": [],
           "setFlags": []
@@ -13710,7 +14236,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "344": {
       "scriptFile": 688,
@@ -13777,7 +14304,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "345": {
       "scriptFile": 690,
@@ -13836,12 +14364,17 @@
             "I find rocks, and then\nI give them to people...",
             "That's my simple life.",
             "You rock...",
-            "Here, I'll give you the Damp Rock\nI found this morning."
+            "Here, I'll give you the Damp Rock\nI found this morning.",
+            "Yeah, yeah...",
+            "If you like rocks, come back tomorrow...\nRoll in at a different time, if possible.",
+            "I'll be here, I pumice."
           ],
           "usedFlags": [
             2764
           ],
-          "setFlags": [],
+          "setFlags": [
+            2764
+          ],
           "variants": [
             {
               "flags": {
@@ -13856,7 +14389,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "346": {
       "scriptFile": 692,
@@ -13875,7 +14409,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "347": {
       "scriptFile": 694,
@@ -13911,7 +14446,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "348": {
       "scriptFile": 696,
@@ -13951,7 +14487,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "349": {
       "scriptFile": 698,
@@ -13975,7 +14512,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "350": {
       "scriptFile": 700,
@@ -14046,7 +14584,9 @@
           "usedFlags": [
             262
           ],
-          "setFlags": [],
+          "setFlags": [
+            262
+          ],
           "variants": [
             {
               "flags": {
@@ -14070,7 +14610,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "351": {
       "scriptFile": 702,
@@ -14086,7 +14627,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "356": {
       "scriptFile": 712,
@@ -14100,7 +14642,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "357": {
       "scriptFile": 714,
@@ -14114,7 +14657,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "358": {
       "scriptFile": 716,
@@ -14128,7 +14672,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "359": {
       "scriptFile": 718,
@@ -14142,7 +14687,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "360": {
       "scriptFile": 720,
@@ -14169,7 +14715,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "361": {
       "scriptFile": 722,
@@ -14183,7 +14730,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "362": {
       "scriptFile": 724,
@@ -14197,7 +14745,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "363": {
       "scriptFile": 726,
@@ -14214,7 +14763,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "366": {
       "scriptFile": 732,
@@ -14240,7 +14790,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "367": {
       "scriptFile": 734,
@@ -14255,7 +14806,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "369": {
       "scriptFile": 738,
@@ -14286,7 +14838,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "370": {
       "scriptFile": 740,
@@ -14438,7 +14991,10 @@
                 "Well, could this be it? It fell on my head\njust now.",
                 "Here, give this to Wingull."
               ],
-              "setFlags": []
+              "setFlags": [
+                318,
+                320
+              ]
             },
             {
               "flags": {
@@ -14452,7 +15008,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "371": {
       "scriptFile": 742,
@@ -14463,12 +15020,16 @@
           "lines": [
             "I found this plate when I used the move\nDive in the sea around Undella Town!",
             "But I don't know how to use it.\nYou can have it if you like.",
-            "I have another one.\nTake this, too!"
+            "I have another one.\nTake this, too!",
+            "They say there's a sunken temple at the\nbottom of the sea around Undella Town.",
+            "Those plates were resting in the temple.\nMaybe they're treasure..."
           ],
           "usedFlags": [
             356
           ],
-          "setFlags": [],
+          "setFlags": [
+            356
+          ],
           "variants": [
             {
               "flags": {
@@ -14482,7 +15043,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "372": {
       "scriptFile": 744,
@@ -14506,7 +15068,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "373": {
       "scriptFile": 746,
@@ -14526,7 +15089,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "374": {
       "scriptFile": 748,
@@ -14570,7 +15134,8 @@
             705
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "377": {
       "scriptFile": 754,
@@ -14599,7 +15164,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "380": {
       "scriptFile": 760,
@@ -14656,7 +15222,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "382": {
       "scriptFile": 764,
@@ -14686,7 +15253,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "383": {
       "scriptFile": 766,
@@ -14708,7 +15276,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "384": {
       "scriptFile": 768,
@@ -14740,7 +15309,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "385": {
       "scriptFile": 770,
@@ -14760,7 +15330,8 @@
           ],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "386": {
       "scriptFile": 772,
@@ -14774,7 +15345,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "387": {
       "scriptFile": 774,
@@ -14796,12 +15368,29 @@
             "But... Even that was part of the\nperfection of Ghetsis's plan.",
             "When it comes to Ghetsis, I cannot\nseparate the truths from the lies.",
             "See this? I received it from Ghetsis,\nbut I no longer need it.",
-            "I hope you can put it to good use."
+            "I hope you can put it to good use.",
+            "Someday, if my lord N develops the\nability to understand the feelings",
+            "of people as well as Pok\u00e9mon,",
+            "I would like us to gather again.",
+            "More than anything, I want to see\nN confront Ghetsis.",
+            "Ah... And now,\nabout Team Plasma...",
+            "I am an officer of the\nInternational Police, and there are so",
+            "many things you must tell me at once!",
+            "If that is what you desire...",
+            "Many thanks!",
+            "Now, Ghetsis notwithstanding,\nthere yet remains but {} of the",
+            "Seven Sages still at large.",
+            "What it is they are thinking,\nwhat it may be they are hoping,",
+            "this is the information I have need of.",
+            "Quick and soon, say I!"
           ],
           "usedFlags": [],
-          "setFlags": []
+          "setFlags": [
+            708
+          ]
         }
-      }
+      },
+      "scripts": {}
     },
     "388": {
       "scriptFile": 776,
@@ -14860,7 +15449,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "389": {
       "scriptFile": 778,
@@ -14914,7 +15504,8 @@
           ],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "390": {
       "scriptFile": 780,
@@ -14972,7 +15563,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "391": {
       "scriptFile": 782,
@@ -15047,7 +15639,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "392": {
       "scriptFile": 784,
@@ -15111,7 +15704,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "394": {
       "scriptFile": 788,
@@ -15170,7 +15764,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "396": {
       "scriptFile": 792,
@@ -15269,7 +15864,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "397": {
       "scriptFile": 794,
@@ -15364,7 +15960,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "398": {
       "scriptFile": 796,
@@ -15396,7 +15993,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "399": {
       "scriptFile": 798,
@@ -15430,7 +16028,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "400": {
       "scriptFile": 800,
@@ -15455,7 +16054,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "401": {
       "scriptFile": 802,
@@ -15478,7 +16078,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "402": {
       "scriptFile": 804,
@@ -15502,7 +16103,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "403": {
       "scriptFile": 806,
@@ -15535,7 +16137,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "404": {
       "scriptFile": 808,
@@ -15560,7 +16163,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "405": {
       "scriptFile": 810,
@@ -15593,7 +16197,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "406": {
       "scriptFile": 812,
@@ -15693,7 +16298,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "407": {
       "scriptFile": 814,
@@ -15838,7 +16444,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "408": {
       "scriptFile": 816,
@@ -15880,7 +16487,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "409": {
       "scriptFile": 818,
@@ -15914,7 +16522,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "410": {
       "scriptFile": 820,
@@ -15930,7 +16539,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "411": {
       "scriptFile": 822,
@@ -16032,7 +16642,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "412": {
       "scriptFile": 824,
@@ -16107,7 +16718,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "413": {
       "scriptFile": 826,
@@ -16139,7 +16751,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "414": {
       "scriptFile": 828,
@@ -16286,7 +16899,8 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     },
     "415": {
       "scriptFile": 830,
@@ -16321,7 +16935,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "416": {
       "scriptFile": 832,
@@ -16345,7 +16960,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "417": {
       "scriptFile": 834,
@@ -16466,7 +17082,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "418": {
       "scriptFile": 836,
@@ -16600,7 +17217,8 @@
           "name": "",
           "lines": [
             "With that face, I bet you have\nsomething I want.",
-            "Will you trade your {} {} for\nmy {} {}?"
+            "Will you trade your {} {} for\nmy {} {}?",
+            "Ooh-la-la!\nYou don't have enough {}s."
           ],
           "usedFlags": [],
           "setFlags": []
@@ -16610,12 +17228,14 @@
           "lines": [
             "I am a {} collector!",
             "You, over there! Let's have a\nbusinesslike exchange.",
-            "Will you trade your {} {} for\nmy {} {}?"
+            "Will you trade your {} {} for\nmy {} {}?",
+            "Hah! You don't have\nany {}s."
           ],
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "419": {
       "scriptFile": 838,
@@ -16639,7 +17259,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "420": {
       "scriptFile": 840,
@@ -16663,7 +17284,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "421": {
       "scriptFile": 842,
@@ -16680,7 +17302,8 @@
           ],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "424": {
       "scriptFile": 848,
@@ -16756,7 +17379,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "425": {
       "scriptFile": 850,
@@ -16771,7 +17395,8 @@
           "usedFlags": [],
           "setFlags": []
         }
-      }
+      },
+      "scripts": {}
     },
     "426": {
       "scriptFile": 852,
@@ -16891,12 +17516,14 @@
             }
           ]
         }
-      }
+      },
+      "scripts": {}
     }
   },
   "totals": {
     "zones": 278,
-    "npcs": 966,
+    "npcs": 969,
+    "scripts": 2,
     "variants": 164
   }
 }

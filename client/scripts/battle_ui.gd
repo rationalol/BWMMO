@@ -34,6 +34,7 @@ var _battle: Dictionary = {}
 var _awaiting := false
 var _displayed_active := -1
 var _menu_mode := "commands"
+var _mode := "wild"
 var _entry_active := false
 var _season := "autumn"
 var _indoor := false
@@ -63,6 +64,10 @@ var _message_primary: Label
 var _battle_clock: Label
 var _command_panel: Panel
 var _command_row: HBoxContainer
+var _ability_banner: PanelContainer
+var _ability_name_label: Label
+var _ability_desc_label: Label
+var _ability_tween: Tween
 
 var _switch_overlay: Control
 var _switch_title: Label
@@ -79,8 +84,19 @@ var _continue_button: Button
 var _entry_overlay: Control
 var _entry_wipe: ColorRect
 var _entry_flash: ColorRect
+var _entry_plate: Panel
 var _entry_banner: Label
 var _entry_tween: Tween = null
+
+var _evolving := false
+var _evolution_seq := 0
+var _evolution_dim: ColorRect
+var _evolution_overlay: Control
+var _evolution_flash: ColorRect
+var _effect_silhouette := 0.0
+var _effect_flash := 0.0
+var _caught_evolution: Dictionary = {}
+var _evolution_tweens: Array = []
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(PRESET_FULL_RECT)
@@ -177,6 +193,8 @@ func _build_ui() -> void:
 	_build_item_overlay()
 	_build_end_overlay()
 	_build_entry_overlay()
+	_build_evolution_overlay()
+	_build_ability_banner()
 
 	_event_player = BattleEventPlayerScript.new()
 	add_child(_event_player)
@@ -188,7 +206,8 @@ func _build_ui() -> void:
 		_effects,
 		_actor_fx,
 		_message_primary,
-		func() -> bool: return visible
+		func() -> bool: return visible,
+		Callable(self, "_show_ability_banner")
 	)
 
 func set_environment(season: String, indoor: bool) -> void:
@@ -312,6 +331,84 @@ func _build_message_box() -> void:
 	_message_primary.clip_text = true
 	_message_primary.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	margin.add_child(_message_primary)
+
+func _build_ability_banner() -> void:
+	var holder := CenterContainer.new()
+	holder.name = "AbilityBannerHolder"
+	holder.anchor_left = 0.0
+	holder.anchor_right = 1.0
+	holder.anchor_top = 0.0
+	holder.anchor_bottom = 0.0
+	holder.offset_top = 16.0
+	holder.offset_bottom = 136.0
+	holder.mouse_filter = MOUSE_FILTER_IGNORE
+	add_child(holder)
+
+	_ability_banner = PanelContainer.new()
+	_ability_banner.name = "AbilityBanner"
+	_ability_banner.custom_minimum_size = Vector2(520.0, 0.0)
+	_ability_banner.add_theme_stylebox_override(
+		"panel", _battle_panel_style(10, 3, 14)
+	)
+	_ability_banner.mouse_filter = MOUSE_FILTER_IGNORE
+	_ability_banner.visible = false
+	holder.add_child(_ability_banner)
+
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 2)
+	box.mouse_filter = MOUSE_FILTER_IGNORE
+	_ability_banner.add_child(box)
+
+	var tag := _make_label("", BAG_COLOR, "small")
+	Loc.bind(tag, "ABILITY")
+	tag.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	box.add_child(tag)
+
+	_ability_name_label = _make_label("", TEXT, "big")
+	_ability_name_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	box.add_child(_ability_name_label)
+
+	_ability_desc_label = _make_label("", MUTED, "small")
+	_ability_desc_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_ability_desc_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_ability_desc_label.custom_minimum_size = Vector2(480.0, 0.0)
+	box.add_child(_ability_desc_label)
+
+func _show_ability_banner(ability_name: String, description: String = "") -> void:
+	if _ability_banner == null or ability_name == "":
+		return
+	if _ability_tween != null and _ability_tween.is_valid():
+		_ability_tween.kill()
+	_ability_name_label.text = ability_name
+	_ability_desc_label.text = description
+	_ability_desc_label.visible = description != ""
+	if _message_primary != null:
+		_message_primary.text = "%s!" % ability_name
+	_ability_banner.visible = true
+	_ability_banner.modulate.a = 0.0
+	_ability_tween = create_tween()
+	_ability_tween.tween_property(_ability_banner, "modulate:a", 1.0, 0.16)
+	_ability_tween.tween_interval(1.15)
+	_ability_tween.tween_property(_ability_banner, "modulate:a", 0.0, 0.3)
+	_ability_tween.tween_callback(func() -> void: _ability_banner.visible = false)
+
+func _play_initial_ability_banners(events: Array) -> void:
+	if events.is_empty():
+		return
+	var battle_id := str(_battle.get("id", ""))
+	await get_tree().create_timer(2.15).timeout
+	if not visible or str(_battle.get("id", "")) != battle_id:
+		return
+	for value in events:
+		if not (value is Dictionary):
+			continue
+		var event: Dictionary = value
+		if str(event.get("type", "")) == "ability":
+			_show_ability_banner(
+				str(event.get("abilityName", "")),
+				str(event.get("description", ""))
+			)
+			return
 
 func _build_command_panel() -> void:
 	_command_panel = Panel.new()
@@ -489,6 +586,7 @@ func _build_end_overlay() -> void:
 	_continue_button = _make_text_button("", TEXT, "huge")
 	Loc.bind(_continue_button, "CONTINUE")
 	_continue_button.custom_minimum_size = Vector2(0, 52)
+	_continue_button.focus_mode = Control.FOCUS_ALL
 	_continue_button.pressed.connect(_on_continue_pressed)
 	box.add_child(_continue_button)
 
@@ -513,6 +611,29 @@ func _build_entry_overlay() -> void:
 	_entry_flash.mouse_filter = MOUSE_FILTER_IGNORE
 	_entry_overlay.add_child(_entry_flash)
 
+	# Dark strip behind the banner: the flash is near-white and the banner text
+	# is near-white too, so the line used to wash out for its first frames.
+	_entry_plate = Panel.new()
+	var plate_style := StyleBoxFlat.new()
+	plate_style.bg_color = Color(0.02, 0.03, 0.05, 0.72)
+	plate_style.corner_radius_top_left = 8
+	plate_style.corner_radius_top_right = 8
+	plate_style.corner_radius_bottom_left = 8
+	plate_style.corner_radius_bottom_right = 8
+	plate_style.border_width_top = 1
+	plate_style.border_width_bottom = 1
+	plate_style.border_color = Color(1, 1, 1, 0.10)
+	_entry_plate.add_theme_stylebox_override("panel", plate_style)
+	_entry_plate.anchor_left = 0.08
+	_entry_plate.anchor_right = 0.92
+	_entry_plate.anchor_top = 0.0
+	_entry_plate.anchor_bottom = 0.0
+	_entry_plate.offset_top = 112.0
+	_entry_plate.offset_bottom = 188.0
+	_entry_plate.modulate = Color(1, 1, 1, 0)
+	_entry_plate.mouse_filter = MOUSE_FILTER_IGNORE
+	_entry_overlay.add_child(_entry_plate)
+
 	_entry_banner = _make_label("", TEXT, "huge")
 	_entry_banner.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_entry_banner.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
@@ -525,6 +646,30 @@ func _build_entry_overlay() -> void:
 	_entry_banner.modulate = Color(1, 1, 1, 0)
 	_entry_banner.mouse_filter = MOUSE_FILTER_IGNORE
 	_entry_overlay.add_child(_entry_banner)
+
+func _build_evolution_overlay() -> void:
+	# Sits just above the arena but under the battlers, so the background
+	# darkens during evolution while the Pokémon keeps full contrast.
+	_evolution_dim = ColorRect.new()
+	_evolution_dim.color = Color(0, 0, 0, 0)
+	_evolution_dim.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+	_evolution_dim.mouse_filter = MOUSE_FILTER_IGNORE
+	_field_root.add_child(_evolution_dim)
+	_field_root.move_child(_evolution_dim, 1)
+
+	# Full-screen block above the HUD: swallows clicks for the duration and
+	# provides the white-out between the two forms.
+	_evolution_overlay = Control.new()
+	_evolution_overlay.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+	_evolution_overlay.mouse_filter = MOUSE_FILTER_STOP
+	_evolution_overlay.visible = false
+	add_child(_evolution_overlay)
+
+	_evolution_flash = ColorRect.new()
+	_evolution_flash.color = Color(1.0, 0.99, 0.94, 0.0)
+	_evolution_flash.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+	_evolution_flash.mouse_filter = MOUSE_FILTER_IGNORE
+	_evolution_overlay.add_child(_evolution_flash)
 
 func _battle_panel_style(
 	radius: int,
@@ -625,13 +770,25 @@ func _play_entry() -> void:
 	_entry_overlay.visible = true
 	_entry_overlay.modulate = Color(1, 1, 1, 1)
 	_entry_flash.modulate = Color(1, 1, 1, 1)
+	_entry_plate.modulate = Color(1, 1, 1, 0)
 	_entry_banner.modulate = Color(1, 1, 1, 0)
 	_set_wipe_progress(0.0)
 	_command_panel.visible = true
 	_awaiting = false
 	_rebuild_menu()
-	var wild: Dictionary = _battle.get("wild", {})
-	Loc.bind(_entry_banner, "A wild %s appeared!", [str(wild.get("name", Loc.t("Pokémon")))])
+	if _mode == "duel":
+		Loc.bind(_entry_banner, "%s wants to duel!", [
+			str(_battle.get("opponentName", Loc.t("Trainer")))
+		])
+	elif _mode == "trainer":
+		Loc.bind(_entry_banner, "%s wants to battle!", [
+			str(_battle.get("opponentName", Loc.t("Trainer")))
+		])
+	else:
+		var wild: Dictionary = _battle.get("wild", {})
+		Loc.bind(_entry_banner, "A wild %s appeared!", [
+			str(wild.get("name", Loc.t("Pokémon")))
+		])
 	await get_tree().process_frame
 	if not _entry_active:
 		return
@@ -640,9 +797,12 @@ func _play_entry() -> void:
 	tween.set_parallel(true)
 	tween.tween_property(_entry_flash, "modulate:a", 0.0, 0.20)
 	tween.tween_method(_set_wipe_progress, 0.0, 1.0, 0.62).set_delay(0.04)
-	tween.tween_property(_entry_overlay, "modulate:a", 0.0, 0.26).set_delay(0.58)
-	tween.tween_property(_entry_banner, "modulate:a", 1.0, 0.18).set_delay(0.42)
-	tween.tween_property(_entry_banner, "modulate:a", 0.0, 0.24).set_delay(1.32)
+	# The banner is a child of the overlay, so fading the overlay used to take
+	# the banner with it at 0.84 s — about 0.3 s of actual screen time. Keep the
+	# overlay opaque until the line has been readable for ~1.4 s.
+	tween.tween_property(_entry_plate, "modulate:a", 1.0, 0.18).set_delay(0.34)
+	tween.tween_property(_entry_banner, "modulate:a", 1.0, 0.18).set_delay(0.34)
+	tween.tween_property(_entry_overlay, "modulate:a", 0.0, 0.26).set_delay(1.90)
 	tween.finished.connect(_finish_entry)
 
 func _finish_entry() -> void:
@@ -669,8 +829,190 @@ func _set_wipe_progress(value: float) -> void:
 	if material != null:
 		material.set_shader_parameter("progress", value)
 
+func _apply_effect(silhouette: float, flash: float) -> void:
+	_effect_silhouette = clampf(silhouette, 0.0, 1.0)
+	_effect_flash = clampf(flash, 0.0, 1.0)
+	if _player_creature != null:
+		_player_creature.set_evolution_effect(_effect_silhouette, _effect_flash)
+
+func _apply_silhouette(value: float) -> void:
+	_apply_effect(value, _effect_flash)
+
+func _evolution_still_active(seq: int) -> bool:
+	return _evolving and seq == _evolution_seq and visible
+
+func _payload_type(value: Variant) -> String:
+	if value is Array and not value.is_empty():
+		return str(value[0])
+	return ""
+
+func _evolution_tween() -> Tween:
+	var tween := create_tween()
+	_evolution_tweens.append(tween)
+	return tween
+
+# The BW-style sequence: darken the arena, shrink the battler to a silhouette,
+# strobe black/white while swapping the form at the midpoint, then white out
+# the screen and reveal the new sprite with the congratulation line.
+func _play_evolution(evolution: Dictionary) -> bool:
+	if _evolving or not visible:
+		return false
+	var from_species := str(evolution.get("fromSpecies", ""))
+	var to_species := str(evolution.get("toSpecies", ""))
+	if from_species == "" or to_species == "":
+		return false
+	var from_name := str(evolution.get("fromName", from_species))
+	var to_name := str(evolution.get("toName", to_species))
+	var from_type := _payload_type(evolution.get("fromTypes", []))
+	if from_type == "":
+		from_type = _primary_type(_active_player())
+	var to_type := _payload_type(evolution.get("toTypes", []))
+	if to_type == "":
+		to_type = from_type
+
+	_evolving = true
+	_evolution_seq += 1
+	_evolution_tweens.clear()
+	var seq := _evolution_seq
+	_cancel_entry()
+	if _effects != null:
+		_effects.stop()
+	_reset_actor_visuals()
+	_end_overlay.visible = false
+	_switch_overlay.visible = false
+	_item_overlay.visible = false
+	_command_panel.visible = false
+	_set_awaiting(false)
+	_enemy_plate.visible = false
+	_player_plate.visible = false
+	_evolution_overlay.visible = true
+	_evolution_overlay.modulate = Color(1, 1, 1, 1)
+	_evolution_flash.color = Color(1.0, 0.99, 0.94, 0.0)
+	_message_primary.text = Loc.tf("What? %s is evolving!", [from_name])
+
+	_apply_effect(0.0, 0.0)
+	_player_creature.setup(from_species, from_name, from_type, false)
+	_player_creature.modulate = Color(1, 1, 1, 1)
+	_player_creature.pivot_offset = Vector2(
+		_player_creature.size.x * 0.5,
+		_player_creature.size.y - 6.0
+	)
+	_player_creature.scale = Vector2.ONE
+
+	var opening := _evolution_tween()
+	opening.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	opening.tween_property(_evolution_dim, "color:a", 0.62, 0.40)
+	opening.parallel().tween_property(_enemy_creature, "modulate:a", 0.0, 0.32)
+	await get_tree().create_timer(0.42).timeout
+	if not _evolution_still_active(seq):
+		return false
+
+	var grow := _evolution_tween()
+	grow.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	grow.tween_method(_apply_silhouette, 0.0, 1.0, 0.45)
+	grow.parallel().tween_property(_player_creature, "scale", Vector2(1.10, 1.10), 1.0)
+	await get_tree().create_timer(0.5).timeout
+	if not _evolution_still_active(seq):
+		return false
+	await get_tree().create_timer(0.12).timeout
+	if not _evolution_still_active(seq):
+		return false
+
+	for index in range(3):
+		_apply_effect(1.0, 0.95)
+		await get_tree().create_timer(0.10).timeout
+		if not _evolution_still_active(seq):
+			return false
+		if index == 1:
+			# Swap while the white flash hides the frame.
+			_player_creature.setup(to_species, to_name, to_type, false)
+			_apply_silhouette(1.0)
+		_apply_effect(1.0, 0.0)
+		await get_tree().create_timer(0.15).timeout
+		if not _evolution_still_active(seq):
+			return false
+
+	var white := _evolution_tween()
+	white.tween_property(_evolution_flash, "color:a", 1.0, 0.09)
+	await white.finished
+	if not _evolution_still_active(seq):
+		return false
+	_apply_effect(0.0, 0.0)
+	_message_primary.text = Loc.tf(
+		"Congratulations! %s evolved into %s!",
+		[from_name, to_name]
+	)
+	await get_tree().create_timer(0.30).timeout
+	if not _evolution_still_active(seq):
+		return false
+
+	var reveal := _evolution_tween()
+	reveal.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	reveal.tween_property(_evolution_flash, "color:a", 0.0, 0.45)
+	reveal.parallel().tween_property(_player_creature, "scale", Vector2(1.03, 1.03), 0.45)
+	await reveal.finished
+	if not _evolution_still_active(seq):
+		return false
+	await get_tree().create_timer(0.85).timeout
+	if not _evolution_still_active(seq):
+		return false
+
+	var restore := _evolution_tween()
+	restore.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	restore.tween_property(_evolution_dim, "color:a", 0.0, 0.35)
+	restore.parallel().tween_property(_player_creature, "scale", Vector2.ONE, 0.3)
+	restore.parallel().tween_property(_enemy_creature, "modulate:a", _sprite_tint.a, 0.35)
+	await restore.finished
+	if not _evolution_still_active(seq):
+		return false
+
+	_evolution_overlay.visible = false
+	_evolution_flash.color = Color(1.0, 0.99, 0.94, 0.0)
+	_apply_effect(0.0, 0.0)
+	_player_creature.clear_evolution_effect()
+	_player_creature.modulate = _sprite_tint
+	_player_creature.pivot_offset = Vector2(
+		_player_creature.size.x * 0.5,
+		_player_creature.size.y - 6.0
+	)
+	_enemy_plate.visible = true
+	_player_plate.visible = true
+	_evolving = false
+	_evolution_tweens.clear()
+	return true
+
+func _cancel_evolution() -> void:
+	_evolution_seq += 1
+	_evolving = false
+	_effect_silhouette = 0.0
+	_effect_flash = 0.0
+	for tween in _evolution_tweens:
+		if tween is Tween and tween.is_valid():
+			tween.kill()
+	_evolution_tweens.clear()
+	if _player_creature != null:
+		_player_creature.clear_evolution_effect()
+		_player_creature.scale = Vector2.ONE
+	if _enemy_creature != null:
+		_enemy_creature.modulate = _sprite_tint
+	if _evolution_overlay != null:
+		_evolution_overlay.visible = false
+	if _evolution_flash != null:
+		_evolution_flash.color = Color(1.0, 0.99, 0.94, 0.0)
+	if _evolution_dim != null:
+		_evolution_dim.color = Color(0, 0, 0, 0)
+	if _enemy_plate != null:
+		_enemy_plate.visible = true
+	if _player_plate != null:
+		_player_plate.visible = true
+
 func show_battle(battle: Dictionary) -> void:
 	_cancel_entry()
+	_cancel_evolution()
+	if _ability_tween != null and _ability_tween.is_valid():
+		_ability_tween.kill()
+	if _ability_banner != null:
+		_ability_banner.visible = false
 	if _effects != null:
 		_effects.stop()
 	_reset_actor_visuals()
@@ -678,6 +1020,7 @@ func show_battle(battle: Dictionary) -> void:
 	_caught_pending = false
 	_turn_animating = false
 	_battle = battle
+	_mode = str(battle.get("mode", "wild"))
 	visible = true
 	_end_overlay.visible = false
 	_switch_overlay.visible = false
@@ -692,10 +1035,12 @@ func show_battle(battle: Dictionary) -> void:
 	_update_from_battle()
 	set_world_time(WorldTimeScript.now_hours())
 	_play_entry()
+	_play_initial_ability_banners(battle.get("events", []))
 
 func update_battle(battle: Dictionary) -> void:
 	var events: Array = battle.get("events", [])
 	_battle = battle
+	_mode = str(battle.get("mode", _mode))
 	# `battle_end` repeats the final `battle_turn` snapshot. Keep the newest
 	# data, but never start a second playback while the first is running.
 	if _turn_animating:
@@ -707,6 +1052,13 @@ func update_battle(battle: Dictionary) -> void:
 		_update_from_battle()
 		return
 	_turn_animating = true
+	if _entry_active:
+		# A battle_turn can arrive while the "wants to battle!" banner is still
+		# on screen. Cancelling here used to cut the banner down to a flash, so
+		# let it finish (bounded in case the tween is cancelled elsewhere).
+		var until := Time.get_ticks_msec() + 2500
+		while _entry_active and Time.get_ticks_msec() < until:
+			await get_tree().process_frame
 	_cancel_entry()
 	_set_awaiting(false)
 	_reset_actor_visuals()
@@ -722,8 +1074,9 @@ func update_battle(battle: Dictionary) -> void:
 	_update_from_battle()
 	_present_pending_result()
 
-func finish_caught() -> void:
+func finish_caught(evolution: Dictionary = {}) -> void:
 	_caught_pending = true
+	_caught_evolution = evolution
 	if not _turn_animating:
 		_complete_caught()
 
@@ -731,23 +1084,37 @@ func _complete_caught() -> void:
 	if not _caught_pending:
 		return
 	_caught_pending = false
+	var evolution := _caught_evolution
+	_caught_evolution = {}
+	if not evolution.is_empty():
+		var played: bool = await _play_evolution(evolution)
+		if not played and not visible:
+			return
 	if _enemy_creature != null:
 		_enemy_creature.visible = false
 	_on_continue_pressed()
 
-func show_result(result: String, message: String) -> void:
-	_pending_result = {"result": result, "message": message}
+func show_result(result: String, message: String, evolution: Dictionary = {}) -> void:
+	_pending_result = {"result": result, "message": message, "evolution": evolution}
 	if _turn_animating:
 		return
 	_present_pending_result()
 
 func _present_pending_result() -> void:
-	if _pending_result.is_empty():
+	if _pending_result.is_empty() or _evolving:
 		return
 	var result := str(_pending_result.get("result", ""))
 	var message := str(_pending_result.get("message", ""))
+	var evolution: Dictionary = {}
+	var raw_evolution: Variant = _pending_result.get("evolution", {})
+	if raw_evolution is Dictionary:
+		evolution = raw_evolution
 	_pending_result = {}
 	_cancel_entry()
+	if not evolution.is_empty():
+		await _play_evolution(evolution)
+		if not visible:
+			return
 	_end_overlay.visible = true
 	_switch_overlay.visible = false
 	_item_overlay.visible = false
@@ -759,7 +1126,7 @@ func _present_pending_result() -> void:
 			Loc.bind(_result_label, "Victory!")
 			_result_label.add_theme_color_override("font_color", Color("ffd75e"))
 		"lost":
-			Loc.bind(_result_label, "Blacked out...")
+			Loc.bind(_result_label, "Defeated..." if _mode != "wild" else "Blacked out...")
 			_result_label.add_theme_color_override("font_color", Color("ff7a86"))
 		"caught":
 			Loc.bind(_result_label, "Gotcha!")
@@ -849,7 +1216,16 @@ func _update_message() -> void:
 		prompt = Loc.t("Choose a move.")
 	elif _menu_mode == "bag":
 		prompt = Loc.t("Choose an item.")
-	_message_primary.text = prompt if _awaiting and not _entry_active else last
+	if (
+		_mode == "duel"
+		and not _awaiting
+		and not _entry_active
+		and not _turn_animating
+		and str(_battle.get("status", "active")) == "active"
+	):
+		_message_primary.text = Loc.t("Waiting for opponent...")
+	else:
+		_message_primary.text = prompt if _awaiting and not _entry_active else last
 
 func _primary_type(creature: Dictionary) -> String:
 	var types: Array = creature.get("types", [])
@@ -923,11 +1299,12 @@ func _populate_commands() -> void:
 	fight.pressed.connect(_on_fight_pressed)
 	_command_row.add_child(fight)
 
-	var bag := _make_text_button("", BAG_COLOR, "huge")
-	Loc.bind(bag, "BAG")
-	bag.set_meta("command", "bag")
-	bag.pressed.connect(_on_bag_pressed)
-	_command_row.add_child(bag)
+	if _mode != "duel":
+		var bag := _make_text_button("", BAG_COLOR, "huge")
+		Loc.bind(bag, "BAG")
+		bag.set_meta("command", "bag")
+		bag.pressed.connect(_on_bag_pressed)
+		_command_row.add_child(bag)
 
 	var mons := _make_text_button("", MON_COLOR, "huge")
 	Loc.bind(mons, "POKéMON")
@@ -935,11 +1312,13 @@ func _populate_commands() -> void:
 	mons.pressed.connect(_on_switch_pressed)
 	_command_row.add_child(mons)
 
-	var run := _make_text_button("", RUN_COLOR, "huge")
-	Loc.bind(run, "RUN")
-	run.set_meta("command", "run")
-	run.pressed.connect(_on_run_pressed)
-	_command_row.add_child(run)
+	# Trainer battles cannot be fled, so RUN is only offered in the wild.
+	if _mode == "wild":
+		var run := _make_text_button("", RUN_COLOR, "huge")
+		Loc.bind(run, "RUN")
+		run.set_meta("command", "run")
+		run.pressed.connect(_on_run_pressed)
+		_command_row.add_child(run)
 
 func _populate_moves() -> void:
 	var moves: Array = _active_player().get("moves", [])
@@ -1136,16 +1515,19 @@ func _add_back_button() -> void:
 	_command_row.add_child(back)
 
 func _on_fight_pressed() -> void:
+	Audio.play_sfx("select")
 	_menu_mode = "moves"
 	_rebuild_menu()
 	_update_message()
 
 func _on_bag_pressed() -> void:
+	Audio.play_sfx("select")
 	_menu_mode = "bag"
 	_rebuild_menu()
 	_update_message()
 
 func _on_back_pressed() -> void:
+	Audio.play_sfx("cancel")
 	_menu_mode = "commands"
 	_rebuild_menu()
 	_update_message()
@@ -1153,6 +1535,7 @@ func _on_back_pressed() -> void:
 func _on_move_pressed(index: int) -> void:
 	if not _awaiting:
 		return
+	Audio.play_sfx("decide")
 	_menu_mode = "waiting"
 	_rebuild_menu()
 	action_selected.emit("move", index, "")
@@ -1160,6 +1543,7 @@ func _on_move_pressed(index: int) -> void:
 func _on_ball_pressed(item_id: String) -> void:
 	if not _awaiting:
 		return
+	Audio.play_sfx("decide")
 	_menu_mode = "waiting"
 	_rebuild_menu()
 	action_selected.emit("catch", -1, item_id)
@@ -1167,6 +1551,7 @@ func _on_ball_pressed(item_id: String) -> void:
 func _on_run_pressed() -> void:
 	if not _awaiting:
 		return
+	Audio.play_sfx("cancel")
 	_menu_mode = "waiting"
 	_rebuild_menu()
 	action_selected.emit("run", -1, "")
@@ -1174,6 +1559,7 @@ func _on_run_pressed() -> void:
 func _on_switch_pressed() -> void:
 	if not _awaiting:
 		return
+	Audio.play_sfx("select")
 	_open_switch_menu(false)
 
 func _living_reserves() -> int:
@@ -1203,7 +1589,11 @@ func _open_switch_menu(forced: bool) -> void:
 	Loc.bind(_switch_help, (
 		"Send out a healthy party member to continue."
 		if forced
-		else "Switching uses your turn. The wild Pokémon will attack."
+		else (
+			"Switching uses your turn."
+			if _mode == "duel"
+			else "Switching uses your turn. The wild Pokémon will attack."
+		)
 	))
 	for i in range(party.size()):
 		var creature: Dictionary = party[i]
@@ -1252,10 +1642,13 @@ func _on_party_selected(index: int) -> void:
 	action_selected.emit("switch", index, "")
 
 func _on_continue_pressed() -> void:
+	Audio.play_sfx("decide")
 	if _effects != null:
 		_effects.stop()
+	_cancel_evolution()
 	_turn_animating = false
 	_pending_result = {}
+	_caught_evolution = {}
 	visible = false
 	_end_overlay.visible = false
 	_switch_overlay.visible = false

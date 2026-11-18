@@ -141,6 +141,42 @@ func remove_player(id: String) -> void:
 		remove_child(sprite)
 		sprite.queue_free()
 
+func move_npc(
+	id: String,
+	path: Array,
+	ms_per_tile: int = 500,
+	face: String = "",
+	vanish: bool = false
+) -> void:
+	if not npc_sprites.has(id):
+		return
+	var sprite = npc_sprites[id]
+	for point in path:
+		if not (point is Dictionary):
+			continue
+		if not is_instance_valid(sprite):
+			return
+		var target := Vector2i(int(point.get("x", 0)), int(point.get("y", 0)))
+		sprite.move_to_grid(target, str(point.get("dir", "down")))
+		var deadline := Time.get_ticks_msec() + ms_per_tile * 3 + 400
+		while sprite.is_moving() and Time.get_ticks_msec() < deadline:
+			await get_tree().process_frame
+	if face != "" and is_instance_valid(sprite):
+		sprite.set_facing(face)
+	if vanish and npc_sprites.has(id):
+		npc_sprites.erase(id)
+		_sprites.erase(sprite)
+		if is_instance_valid(sprite):
+			remove_child(sprite)
+			sprite.queue_free()
+
+func face_npc(id: String, direction: String) -> void:
+	if not npc_sprites.has(id):
+		return
+	var sprite = npc_sprites[id]
+	if is_instance_valid(sprite):
+		sprite.set_facing(direction)
+
 func show_bubble(id: String, text: String) -> void:
 	if self_sprite != null and self_sprite.entity_id == id:
 		self_sprite.show_bubble(text)

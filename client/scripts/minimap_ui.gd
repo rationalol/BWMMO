@@ -21,11 +21,21 @@ var self_grid := Vector2i.ZERO
 var self_dir := "down"
 var nearby_npc_id := ""
 var large := false
+var preview_texture: Texture2D = null
 
 func _ready() -> void:
 	mouse_filter = MOUSE_FILTER_STOP
 	mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	clip_contents = true
+	texture_filter = TEXTURE_FILTER_LINEAR
+
+func set_preview_texture(texture: Texture2D) -> void:
+	preview_texture = texture
+	queue_redraw()
+
+func _use_preview() -> bool:
+	var id := str(map_info.get("id", ""))
+	return preview_texture != null and (id == "unova_full" or id.begins_with("unova_in_"))
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_RESIZED:
@@ -67,6 +77,11 @@ func _gui_input(event: InputEvent) -> void:
 func _draw() -> void:
 	draw_rect(Rect2(Vector2.ZERO, size), Color(0.015, 0.043, 0.075, 0.98))
 	draw_rect(Rect2(Vector2.ZERO, size), Color(1, 1, 1, 0.05), false, 1.0)
+
+	if _use_preview():
+		_draw_preview()
+		_draw_compass()
+		return
 
 	var tiles: Array = map_info.get("tiles", [])
 	if tiles.is_empty():
@@ -244,6 +259,21 @@ func _draw_self(layout: Dictionary) -> void:
 		inner_back - side * 3.8
 	])
 	draw_colored_polygon(inner, Color(0.224, 0.639, 0.965))
+
+func _draw_preview() -> void:
+	var tex_size := preview_texture.get_size()
+	if tex_size.x <= 0.0 or tex_size.y <= 0.0:
+		return
+	var fit := maxf(size.x / tex_size.x, size.y / tex_size.y)
+	var drawn := tex_size * fit
+	var origin := (size - drawn) * 0.5
+	draw_texture_rect(preview_texture, Rect2(origin, drawn), false)
+	draw_rect(Rect2(Vector2.ZERO, size), Color(1, 1, 1, 0.06), false, 1.0)
+	# The minimap camera centres on the player, so a subtle marker is enough to
+	# read their feet against the rendered paving.
+	var center := size * 0.5
+	draw_arc(center, 10.0, 0.0, TAU, 28, Color(0.98, 0.80, 0.36, 0.65), 1.2)
+	draw_circle(center, 1.8, Color(0.98, 0.80, 0.36, 0.9))
 
 func _draw_compass() -> void:
 	var center := Vector2(15, 18)

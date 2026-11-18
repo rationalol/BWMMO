@@ -25,9 +25,14 @@ export function selectDialogue(
   return { lines: npc.dialogue, setFlags: npc.setFlags ?? [] };
 }
 
-export function renderDialogueLine(line: string, playerName: string): string {
+export function renderDialogueLine(
+  line: string,
+  playerName: string,
+  locale = "en"
+): string {
+  const chinese = locale.startsWith("zh");
   return line
     .replaceAll("{name}", playerName)
-    .replaceAll("{rival}", "your friend")
-    .replaceAll("{nickname}", "your partner");
+    .replaceAll("{rival}", chinese ? "你的朋友" : "your friend")
+    .replaceAll("{nickname}", chinese ? "你的搭档" : "your partner");
 }

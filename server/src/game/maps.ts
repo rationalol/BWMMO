@@ -311,6 +311,20 @@ export function validateMaps(maps: Record<string, MapDef>): string[] {
       }
     }
 
+    const objectIds = new Set<string>();
+    for (const object of map.interactables ?? []) {
+      if (objectIds.has(object.id)) {
+        errors.push(`${map.id}: duplicate interactable id ${object.id}`);
+      }
+      objectIds.add(object.id);
+      if (object.x < 0 || object.y < 0 || object.x >= map.width || object.y >= map.height) {
+        errors.push(`${map.id}: interactable ${object.id} is outside the map`);
+      }
+      if (!Array.isArray(object.dialogue) || object.dialogue.length === 0) {
+        errors.push(`${map.id}: interactable ${object.id} has no dialogue`);
+      }
+    }
+
     if (map.encounter) {
       if (!(map.encounter.rate >= 0 && map.encounter.rate <= 1)) {
         errors.push(`${map.id}: encounter rate must be 0..1`);

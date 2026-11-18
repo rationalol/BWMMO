@@ -204,6 +204,9 @@ func _build_player_sprite() -> void:
 		var frames := SpriteFrames.new()
 		frames.remove_animation("default")
 		var animations: Dictionary = hero.get("animations", {})
+		# The Nuvema extractor writes frame_01.png onward and its tables use
+		# those 1-based file numbers (idle_down 4 -> frame_04.png).
+		var frame_offset := int(hero.get("frameOffset", 0))
 		var loaded := false
 		for animation_name in animations.keys():
 			var list: Array = animations[animation_name]
@@ -214,7 +217,7 @@ func _build_player_sprite() -> void:
 				RUN_ANIM_FPS if str(animation_name).begins_with("run_") else WALK_ANIM_FPS
 			)
 			for frame_index in list:
-				var path := "%s/frames/frame_%02d.png" % [HERO_ROOT, int(frame_index)]
+				var path := "%s/frames/frame_%02d.png" % [HERO_ROOT, int(frame_index) + frame_offset]
 				if not ResourceLoader.exists(path):
 					continue
 				frames.add_frame(str(animation_name), load(path))

@@ -83,7 +83,7 @@ func _ready() -> void:
 	box.add_child(title)
 
 	var subtitle := Loc.make_label(
-		"Pick a look and a partner. The trainer name is unique across the server.",
+		"Pick a look. Your first partner is waiting for you in your room.",
 		11,
 		UI.MUTED
 	)
@@ -109,14 +109,6 @@ func _ready() -> void:
 		button.pressed.connect(_on_color_pressed.bind(i))
 		swatches.add_child(button)
 		color_buttons.append(button)
-
-	box.add_child(Loc.make_label("Choose your partner", 11, UI.MUTED))
-	_starter_row = HBoxContainer.new()
-	_starter_row.add_theme_constant_override("separation", 6)
-	box.add_child(_starter_row)
-	_starter_hint = UI.make_label("", 11, UI.MUTED)
-	_starter_hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	box.add_child(_starter_hint)
 
 	create_button = Button.new()
 	UI.style_button(create_button, true)
@@ -257,12 +249,10 @@ func _on_create_pressed() -> void:
 	if character_name.length() > 16:
 		set_status(Loc.t("Trainer name must be at most 16 characters."), true)
 		return
-	if selected_starter == "":
-		set_status(Loc.t("Choose a partner Pokemon."), true)
-		return
 	create_button.disabled = true
 	set_status(Loc.t("Creating trainer..."), false)
-	create_requested.emit(character_name, selected_color, selected_starter)
+	# Empty starter: the prologue in the bedroom hands out the partner.
+	create_requested.emit(character_name, selected_color, "")
 
 func set_status(text: String, is_error: bool = true) -> void:
 	status_label.text = text

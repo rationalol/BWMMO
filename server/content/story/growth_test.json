@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "scenes": {
+    "growth_test_kit": {
+      "id": "growth_test_kit",
+      "steps": [
+        {
+          "type": "say",
+          "speaker": "Lab Aide",
+          "lines": [
+            "Professor Juniper asked me to hand\nyou a field-test kit.",
+            "TMs, evolution stones, and a few\nother supplies are inside."
+          ]
+        },
+        { "type": "giveItem", "itemId": "tm_workup", "count": 1 },
+        { "type": "giveItem", "itemId": "tm_toxic", "count": 1 },
+        { "type": "giveItem", "itemId": "tm_protect", "count": 1 },
+        { "type": "giveItem", "itemId": "tm_return", "count": 1 },
+        { "type": "giveItem", "itemId": "tm_roost", "count": 1 },
+        { "type": "giveItem", "itemId": "firestone", "count": 1 },
+        { "type": "giveItem", "itemId": "waterstone", "count": 1 },
+        { "type": "giveItem", "itemId": "thunderstone", "count": 1 },
+        { "type": "giveItem", "itemId": "leafstone", "count": 1 },
+        { "type": "giveItem", "itemId": "moonstone", "count": 1 },
+        { "type": "givePokemon", "species": "pikachu", "level": 20 },
+        { "type": "givePokemon", "species": "kadabra", "level": 20 },
+        { "type": "givePokemon", "species": "golbat", "level": 30 },
+        { "type": "setFlag", "flag": "growth.testKit", "value": 1 },
+        {
+          "type": "say",
+          "speaker": "Lab Aide",
+          "lines": [
+            "Talk to me again if you need more.\nThe tutors next to me can help too."
+          ]
+        }
+      ]
+    }
+  },
+  "npcs": [
+    {
+      "id": "test_move_tutor",
+      "mapId": "unova_in_396",
+      "name": "Move Tutor",
+      "x": 8,
+      "y": 9,
+      "color": "#8e7cc3",
+      "kind": "move_tutor",
+      "sprite": 105,
+      "moveList": [
+        "workup",
+        "protect",
+        "return",
+        "roost",
+        "earthquake",
+        "icebeam",
+        "thunderbolt",
+        "flamethrower"
+      ],
+      "dialogue": [
+        "I can teach your Pokémon a move.\nPick a partner and a technique."
+      ]
+    },
+    {
+      "id": "test_move_reminder",
+      "mapId": "unova_in_396",
+      "name": "Move Reminder",
+      "x": 9,
+      "y": 9,
+      "color": "#d5a6bd",
+      "kind": "move_reminder",
+      "sprite": 104,
+      "dialogue": [
+        "A Pokémon remembers every move\nit has grown into. Let me remind it."
+      ]
+    },
+    {
+      "id": "test_link_trade",
+      "mapId": "unova_in_396",
+      "name": "Link Trade",
+      "x": 10,
+      "y": 9,
+      "color": "#76a5af",
+      "kind": "trade",
+      "sprite": 7,
+      "dialogue": [
+        "This station simulates a link trade.\nChoose a Pokémon that evolves by trade."
+      ]
+    },
+    {
+      "id": "test_bond_expert",
+      "mapId": "unova_in_396",
+      "name": "Bond Expert",
+      "x": 11,
+      "y": 9,
+      "color": "#f6b26b",
+      "kind": "friendship",
+      "sprite": 134,
+      "dialogue": [
+        "I can see how much your Pokémon\ntrust you. Let me top it up for testing."
+      ]
+    },
+    {
+      "id": "test_ability_expert",
+      "mapId": "unova_in_396",
+      "name": "Ability Expert",
+      "x": 12,
+      "y": 9,
+      "color": "#c27ba0",
+      "kind": "ability",
+      "sprite": 104,
+      "dialogue": [
+        "I can awaken the potential inside\nyour Pokémon. Choose an ability."
+      ]
+    },
+    {
+      "id": "test_lab_supply",
+      "mapId": "unova_in_396",
+      "name": "Lab Supply",
+      "x": 13,
+      "y": 9,
+      "color": "#93c47d",
+      "kind": "shop",
+      "sprite": 105,
+      "shopId": "lab_supply",
+      "scene": "growth_test_kit",
+      "sceneWhen": { "growth.testKit": 0 },
+      "dialogue": [
+        "Take whatever you need for field\ntesting. TMs and stones are on the shelf."
+      ]
+    },
+    {
+      "id": "test_pc",
+      "mapId": "unova_in_396",
+      "name": "Lab PC",
+      "x": 14,
+      "y": 9,
+      "color": "#9fc5e8",
+      "kind": "pc",
+      "sprite": 105,
+      "dialogue": [
+        "This terminal is linked to the\nPokémon Storage System."
+      ]
+    }
+  ],
+  "interactions": [],
+  "triggers": [],
+  "gates": [],
+  "onEnter": []
+}

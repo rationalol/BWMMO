@@ -15,6 +15,11 @@ func _ready() -> void:
 	_check(TranslationServer.translate("Victory!") == "胜利！", "PO lookup for Victory!")
 	_check(UI.type_label("Fire") == "火", "type label")
 	_check(UI.status_label("PAR") == "麻痹", "status label")
+	_check(UI.stat_label("spAtk") == "特攻", "stat label")
+	_check(UI.stat_label("spDef") == "特防", "special defense stat label")
+	_check(TranslationServer.translate("ABILITY") == "特性", "ability label")
+	_check(TranslationServer.translate("CURRENT") == "当前", "current ability label")
+	_check(TranslationServer.translate("HIDDEN") == "隐藏", "hidden ability label")
 	_check(UI.nature_label("Adamant") == "固执", "nature label")
 	_check(UI.season_label("autumn") == "秋", "season label")
 	_check(UI.font_size(12) == 12, "CJK font size keeps requested size")
@@ -34,7 +39,10 @@ func _ready() -> void:
 	add_child(create)
 	await get_tree().process_frame
 	_check(create.create_button.text == "进入合众", "create button translated")
-	_check(create._starter_hint.text.contains("撞击"), "starter hint uses translated moves")
+	_check(
+		create.name_input.placeholder_text == "2-16 个字母、数字或下划线",
+		"create name placeholder translated"
+	)
 	create.queue_free()
 
 	var hud = load("res://scripts/hud.gd").new()
@@ -44,9 +52,8 @@ func _ready() -> void:
 	hud.set_map("合众", 1, "诺文镇")
 	await get_tree().process_frame
 	_check(hud._location_label.text.contains("诺文镇"), "HUD shows town name")
-	_check(hud._minimap_title.text == "诺文镇", "minimap shows town name")
 	hud.set_location("1号道路")
-	_check(hud._minimap_title.text == "1号道路", "minimap updates route name")
+	_check(hud._location_label.text.contains("1号道路"), "HUD updates route name")
 	hud._open_menu("settings")
 	await get_tree().process_frame
 	_check(hud._menu_title.text == "设置", "HUD settings title translated")
@@ -109,13 +116,14 @@ func _ready() -> void:
 	await get_tree().process_frame
 	_check(chat._world_tab.text == "世界", "chat world tab translated")
 	_check(chat._system_tab.text == "系统", "chat system tab translated")
+	_check(chat._social_tab.text == "社交", "chat social tab translated")
 	chat.queue_free()
 
 	var dialogue = load("res://scripts/dialogue_ui.gd").new()
 	add_child(dialogue)
 	await get_tree().process_frame
 	dialogue.show_dialogue("Bianca", ["Line one", "Line two"])
-	_check(dialogue._hint_label.text == "E / 空格 / 点击继续", "dialogue hint translated")
+	_check(dialogue._hint_label.text == "A / 点按继续", "dialogue hint translated")
 	dialogue.queue_free()
 
 	var battle = load("res://scripts/battle_ui.gd")

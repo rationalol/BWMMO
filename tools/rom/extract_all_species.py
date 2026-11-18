@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
-"""Extract all 649 Gen 5 species with base stats, types and full learnsets.
+"""Extract all 649 Gen 5 species with base stats, types, EV yields and learnsets.
 
 Unlike extract_species.py, this tool does not filter to the current game.json
 roster. It writes every valid national dex entry to species_all.json so the
 content generator can decide which moves survive the Showdown mapping.
 
 Sources:
-- a/0/1/6: personal data indexed by national dex
+- a/0/1/6: personal data indexed by national dex. Offsets used here:
+  0x00-0x05 base stats (HP, Atk, Def, Spe, SpA, SpD), 0x06-0x07 types,
+  0x08 catch rate, 0x0A-0x0B EV yield (six 2-bit fields in the same stat
+  order, each 0-3).
 - a/0/1/8: level-up learnsets indexed by national dex
 - a/0/0/2 file 70: species names, section index == national dex
 
@@ -30,6 +33,25 @@ from extract_species import TYPE_NAMES, parse_learnset  # noqa: E402
 
 SPECIES_NAME_FILE = 70
 MAX_DEX = 649
+
+
+def parse_ev_yield(record: bytes) -> dict[str, int]:
+    """Decodes the packed 2-bit EV yield fields at offset 0x0A.
+
+    The order matches the base stat order: HP, Atk, Def, Speed, SpA, SpD.
+    """
+    packed = record[10] | (record[11] << 8)
+    hp, atk, dfn, speed, sp_atk, sp_def = (
+        (packed >> shift) & 3 for shift in (0, 2, 4, 6, 8, 10)
+    )
+    return {
+        "hp": hp,
+        "atk": atk,
+        "def": dfn,
+        "speed": speed,
+        "spAtk": sp_atk,
+        "spDef": sp_def,
+    }
 
 
 def main() -> int:
@@ -89,6 +111,7 @@ def main() -> int:
                 "speed": speed
             },
             "catchRate255": catch,
+            "evYield": parse_ev_yield(record),
             "learnset": learnset
         }
 
@@ -98,6 +121,17 @@ def main() -> int:
             assert entry, f"missing dex {dex}"
             assert entry["name"] or name, f"dex {dex} has no name"
             assert entry["learnset"], f"dex {dex} has no learnset"
+        # Sanity checks for the packed EV field against the retail yields.
+        expected_fields = {495: "speed", 504: "atk", 531: "hp", 635: "spAtk"}
+        for dex, stat in expected_fields.items():
+            entry = species.get(str(dex))
+            assert entry, f"missing dex {dex}"
+            yield_values = entry["evYield"]
+            assert all(value == 0 for key, value in yield_values.items() if key != stat), (
+                f"dex {dex}: unexpected EV yield {yield_values}"
+            )
+            expected = 2 if dex == 531 else 3 if dex == 635 else 1
+            assert yield_values[stat] == expected, f"dex {dex}: bad {stat} EV yield {yield_values}"
         print(f"Species check passed: {len(species)} species, {len(skipped)} skipped")
         return 0
 

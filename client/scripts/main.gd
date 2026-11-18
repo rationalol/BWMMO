@@ -1,6 +1,6 @@
 extends Node
 
-enum GameState { LOGIN, CREATE, ENTERING, WORLD, DIALOGUE, BATTLE, RECONNECTING, SHOP, PC, CAPTURE_CARD }
+enum GameState { LOGIN, CREATE, ENTERING, WORLD, DIALOGUE, BATTLE, RECONNECTING, SHOP, PC, MOVE_SERVICE, TRADE_SERVICE, ABILITY_SERVICE, CAPTURE_CARD }
 
 const NetClientScript = preload("res://scripts/net_client.gd")
 const WorldViewScript = preload("res://scripts/world_view.gd")
@@ -8,22 +8,34 @@ const NuvemaOnlineScript = preload("res://scripts/nuvema_online.gd")
 const LoginUIScript = preload("res://scripts/login_ui.gd")
 const CreateUIScript = preload("res://scripts/create_character_ui.gd")
 const DialogueUIScript = preload("res://scripts/dialogue_ui.gd")
+const StoryChoiceUIScript = preload("res://scripts/story_choice_ui.gd")
+const StarterChoiceUIScript = preload("res://scripts/starter_choice_ui.gd")
 const ChatUIScript = preload("res://scripts/chat_ui.gd")
 const HudScript = preload("res://scripts/hud.gd")
 const TouchControlsScript = preload("res://scripts/touch_controls.gd")
 const BattleUIScript = preload("res://scripts/battle_ui.gd")
 const ShopUIScript = preload("res://scripts/shop_ui.gd")
 const PcUIScript = preload("res://scripts/pc_ui.gd")
+const MoveServiceUIScript = preload("res://scripts/move_service_ui.gd")
+const TradeServiceUIScript = preload("res://scripts/trade_service_ui.gd")
+const AbilityServiceUIScript = preload("res://scripts/ability_service_ui.gd")
 const WorldTimeScript = preload("res://scripts/world_time.gd")
 const UI = preload("res://scripts/ui_theme.gd")
 
 const SESSION_PATH := "user://session.cfg"
-const DEFAULT_SERVER := "ws://127.0.0.1:2567"
+const DEFAULT_SERVER := "ws://122.51.98.40:2567"
 const STEP_INTERVAL_MS := 500
 const RUN_STEP_INTERVAL_MS := 250
 const BLOCKED_STEP_RETRY_MS := 100
 const TURN_CONFIRM_MS := 150
 const PING_INTERVAL_MS := 5000
+# Scene transitions: fade the old view out, build the new map behind black,
+# then fade back in. Tuned to feel like a soft cut rather than a loading screen.
+const MAP_FADE_OUT := 0.26
+const MAP_FADE_HOLD := 0.05
+const MAP_FADE_IN := 0.42
+const ENTRY_FADE_OUT := 0.28
+const ENTRY_FADE_IN := 0.6
 
 var state: int = GameState.LOGIN
 var ui_layer: CanvasLayer
@@ -33,17 +45,36 @@ var world3d
 var login_ui
 var create_ui
 var dialogue_ui
+var story_choice_ui
+var starter_choice_ui
 var chat_ui
 var hud
 var touch_ui
 var battle_ui
 var pending_capture: Dictionary = {}
+# Story scenes own the screen while they run: movement and services stay locked
+# between pages, and the server is told when a page is dismissed.
+var story_active := false
+var story_scene_id := ""
+var story_step_index := -1
 var shop_ui
 var pc_ui
+var move_service_ui
+var trade_service_ui
+var ability_service_ui
+var _move_service_npc_id := ""
+var _trade_service_npc_id := ""
+var _ability_service_npc_id := ""
 var loading_overlay: Control
 var loading_label: Label
 var reconnect_overlay: Control
 var reconnect_label: Label
+var fade_layer: CanvasLayer
+var fade_rect: ColorRect
+var _fade_tween: Tween
+var _transitioning := false
+var _transition_seq := 0
+var _entry_fade_ends_at := 0
 
 var server_url := DEFAULT_SERVER
 var token := ""
@@ -56,6 +87,9 @@ var self_name := ""
 var self_id := ""
 var current_map_name := ""
 var current_location := ""
+# Unlocalized ROM location ("Nuvema Town"), used for BGM lookup; the server
+# sends it alongside the localized display name.
+var current_location_key := ""
 var current_map_id := ""
 var current_battle: Dictionary = {}
 var pending_learn_request: Dictionary = {}
@@ -67,10 +101,18 @@ var last_move_seq := 0
 var next_step_at := 0
 var next_portal_push_at := 0
 var touch_dir := ""
+# NDS-style B button held on the touch pad; B also cancels. This is the touch
+# equivalent of holding K on the keyboard while moving.
+var touch_b_held := false
+# Throttles the wall-bump sound so holding into a wall does not machine-gun it.
+var _next_bump_sfx_at := 0
 
 var reconnect_attempts := 0
 var next_reconnect_at := 0
 var has_world := false
+# Set while an explicit sign-out tears the world down, so the socket's close
+# signal does not overwrite the "Logged out." status on the login screen.
+var logging_out := false
 var welcome_sent := false
 var reconnect_succeeded := false
 var _world_tint_layer: CanvasLayer
@@ -79,6 +121,7 @@ var _next_world_time_at := 0
 
 var next_ping_at := 0
 var next_npc_poll_at := 0
+var next_social_poll_at := 0
 
 var force_touch := false
 var auto_mode := false
@@ -116,6 +159,25 @@ var auto_reconnect_at := 0
 var auto_battle_phase := 0
 var auto_battle_at := 0
 var auto_login_fallback := false
+var auto_social := false
+var auto_social_phase := 0
+var auto_social_at := 0
+var auto_social_next_poll := 0
+var auto_social_peer_id := ""
+var auto_social_peer_name := ""
+var auto_social_dm_out := false
+var auto_social_dm_in := false
+var auto_social_dm_text := ""
+var auto_duel := false
+var auto_duel_phase := 0
+var auto_duel_at := 0
+var auto_duel_next_poll := 0
+var auto_duel_peer_id := ""
+var auto_duel_peer_name := ""
+var auto_duel_incoming := false
+var auto_duel_battle_turn := -1
+var auto_duel_end := ""
+var auto_duel_end_at := 0
 var screenshot_path := ""
 var capture_login := false
 var auto_create_only := false
@@ -128,7 +190,10 @@ func _ready() -> void:
 	_load_session()
 	_parse_debug_args()
 	WorldTimeScript.configure_from_args()
-	_build_ui()
+	Loading.set_progress(0.72, "Building the world...")
+	await _build_ui()
+	if not auto_mode:
+		Audio.play_title()
 	if capture_login:
 		_capture_login_screenshot()
 	elif auto_mode:
@@ -139,6 +204,7 @@ func _ready() -> void:
 		_begin_auth("resume", "", "", server_url)
 	else:
 		login_ui.focus_username()
+	Loading.finish()
 
 func _build_ui() -> void:
 	world = WorldViewScript.new()
@@ -148,6 +214,10 @@ func _build_ui() -> void:
 	world3d = NuvemaOnlineScript.new()
 	world3d.visible = false
 	add_child(world3d)
+	# The 3D world is the expensive part of the build; let the splash animate
+	# between the heavy steps instead of freezing on one long frame.
+	Loading.set_progress(0.80, "Loading the Unova region...")
+	await get_tree().process_frame
 
 	_world_tint_layer = CanvasLayer.new()
 	_world_tint_layer.layer = 5
@@ -166,28 +236,81 @@ func _build_ui() -> void:
 	ui_layer.layer = 10
 	add_child(ui_layer)
 
+	# Built before the rest of the HUD so that a failure in any later widget can
+	# never leave a window with no interface at all: the login screen and the
+	# socket it needs exist even if, say, the HUD or the battle UI fails to build.
+	login_ui = LoginUIScript.new()
+	login_ui.visible = not auto_mode
+	ui_layer.add_child(login_ui)
+	login_ui.login_requested.connect(_on_login_requested)
+	login_ui.register_requested.connect(_on_register_requested)
+	login_ui.set_server_url(server_url)
+
+	net = NetClientScript.new()
+	add_child(net)
+	net.connected.connect(_on_net_connected)
+	net.disconnected.connect(_on_net_disconnected)
+	net.connect_failed.connect(_on_connect_failed)
+	net.message_received.connect(_on_message)
+
+	# Sits above every UI layer so scene transitions fade the whole picture,
+	# HUD included. Transparent (and click-through) outside a transition.
+	fade_layer = CanvasLayer.new()
+	fade_layer.layer = 30
+	add_child(fade_layer)
+	fade_rect = ColorRect.new()
+	fade_rect.color = Color(0, 0, 0, 0)
+	fade_rect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	fade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	fade_layer.add_child(fade_rect)
+
 	chat_ui = ChatUIScript.new()
 	chat_ui.visible = false
 	ui_layer.add_child(chat_ui)
 	chat_ui.message_submitted.connect(_on_chat_submitted)
+	chat_ui.social_message_submitted.connect(_on_social_message_submitted)
+	chat_ui.tab_changed.connect(_on_chat_tab_changed)
 
 	hud = HudScript.new()
 	hud.visible = false
 	ui_layer.add_child(hud)
+	hud.set_minimap_texture(world3d.minimap_texture())
+	call_deferred("_attach_minimap_texture")
 	hud.interact_pressed.connect(_on_touch_interact)
 	hud.menu_state_changed.connect(_on_hud_menu_state)
 	hud.chat_timestamps_requested.connect(_on_chat_timestamps_changed)
+	hud.social_chat_requested.connect(_on_social_chat_requested)
+	hud.friend_requested.connect(_on_friend_requested)
+	hud.friend_accept_requested.connect(_on_friend_accept_requested)
+	hud.friend_decline_requested.connect(_on_friend_decline_requested)
+	hud.friend_cancel_requested.connect(_on_friend_cancel_requested)
+	hud.friend_remove_requested.connect(_on_friend_remove_requested)
+	hud.duel_requested.connect(_on_duel_requested)
+	hud.duel_accept_requested.connect(_on_duel_accept_requested)
+	hud.duel_decline_requested.connect(_on_duel_decline_requested)
+	hud.social_refresh_requested.connect(_request_social_state)
+	hud.logout_requested.connect(_on_logout_requested)
 
 	touch_ui = TouchControlsScript.new()
 	touch_ui.visible = false
 	ui_layer.add_child(touch_ui)
 	touch_ui.dir_changed.connect(_on_touch_dir)
 	touch_ui.interact_pressed.connect(_on_touch_interact)
-	touch_ui.chat_pressed.connect(_on_touch_chat)
+	touch_ui.cancel_pressed.connect(_on_touch_cancel)
+	touch_ui.b_held.connect(_on_touch_b_held)
+	touch_ui.extra_pressed.connect(_on_touch_extra)
 
 	dialogue_ui = DialogueUIScript.new()
 	ui_layer.add_child(dialogue_ui)
 	dialogue_ui.closed.connect(_on_dialogue_closed)
+
+	story_choice_ui = StoryChoiceUIScript.new()
+	ui_layer.add_child(story_choice_ui)
+	story_choice_ui.chosen.connect(_on_story_choice_picked)
+
+	starter_choice_ui = StarterChoiceUIScript.new()
+	ui_layer.add_child(starter_choice_ui)
+	starter_choice_ui.chosen.connect(_on_story_choice_picked)
 
 	battle_ui = BattleUIScript.new()
 	ui_layer.add_child(battle_ui)
@@ -205,6 +328,22 @@ func _build_ui() -> void:
 	ui_layer.add_child(pc_ui)
 	pc_ui.requested.connect(_on_pc_requested)
 	pc_ui.closed.connect(_on_pc_closed)
+
+	move_service_ui = MoveServiceUIScript.new()
+	ui_layer.add_child(move_service_ui)
+	move_service_ui.teach_requested.connect(_on_move_service_teach)
+	move_service_ui.closed.connect(_on_move_service_closed)
+
+	trade_service_ui = TradeServiceUIScript.new()
+	ui_layer.add_child(trade_service_ui)
+	trade_service_ui.trade_requested.connect(_on_trade_service_trade)
+	trade_service_ui.closed.connect(_on_trade_service_closed)
+
+	ability_service_ui = AbilityServiceUIScript.new()
+	ui_layer.add_child(ability_service_ui)
+	ability_service_ui.ability_requested.connect(_on_ability_service_requested)
+	ability_service_ui.closed.connect(_on_ability_service_closed)
+
 	hud.item_use_requested.connect(_on_hud_item_use)
 	hud.pokedex_requested.connect(_on_pokedex_requested)
 	hud.move_learn_choice.connect(_on_move_learn_choice)
@@ -219,23 +358,14 @@ func _build_ui() -> void:
 	reconnect_label = reconnect[1]
 	Loc.locale_changed.connect(_on_locale_changed)
 
-	login_ui = LoginUIScript.new()
-	login_ui.visible = false
-	ui_layer.add_child(login_ui)
-	login_ui.login_requested.connect(_on_login_requested)
-	login_ui.register_requested.connect(_on_register_requested)
-
 	create_ui = CreateUIScript.new()
 	create_ui.visible = false
 	ui_layer.add_child(create_ui)
 	create_ui.create_requested.connect(_on_create_requested)
+	ui_layer.move_child(login_ui, ui_layer.get_child_count() - 1)
 
-	net = NetClientScript.new()
-	add_child(net)
-	net.connected.connect(_on_net_connected)
-	net.disconnected.connect(_on_net_disconnected)
-	net.connect_failed.connect(_on_connect_failed)
-	net.message_received.connect(_on_message)
+	Loading.set_progress(0.94, "Preparing the interface...")
+	await get_tree().process_frame
 
 	if not auto_mode and token == "":
 		login_ui.visible = true
@@ -261,6 +391,44 @@ func _make_overlay(message: String) -> Array:
 	ui_layer.add_child(layer)
 	return [layer, label]
 
+func _set_fade(alpha: float) -> void:
+	if _fade_tween != null and _fade_tween.is_valid():
+		_fade_tween.kill()
+	_fade_tween = null
+	fade_rect.color = Color(0, 0, 0, clampf(alpha, 0.0, 1.0))
+	fade_rect.mouse_filter = (
+		Control.MOUSE_FILTER_STOP if alpha > 0.001 else Control.MOUSE_FILTER_IGNORE
+	)
+
+# Abandon any in-flight transition so error/login paths are never left behind
+# an opaque black frame.
+func _cancel_transition() -> void:
+	_transition_seq += 1
+	_transitioning = false
+	_set_fade(0.0)
+
+func _fade_alpha(alpha: float, duration: float) -> void:
+	if _fade_tween != null and _fade_tween.is_valid():
+		_fade_tween.kill()
+	fade_rect.mouse_filter = Control.MOUSE_FILTER_STOP
+	_fade_tween = create_tween()
+	_fade_tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	_fade_tween.tween_property(fade_rect, "color:a", clampf(alpha, 0.0, 1.0), duration)
+	var tween := _fade_tween
+	await get_tree().create_timer(duration).timeout
+	if _fade_tween == tween and alpha <= 0.001:
+		fade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+# Called as soon as the trainer is known to exist. The login/create screen
+# stays up while it fades out; _on_map_state hides it once the frame is black.
+func _begin_world_entry() -> void:
+	state = GameState.ENTERING
+	loading_overlay.visible = false
+	reconnect_overlay.visible = false
+	get_viewport().gui_release_focus()
+	_entry_fade_ends_at = Time.get_ticks_msec() + int(ENTRY_FADE_OUT * 1000.0)
+	_fade_alpha(1.0, ENTRY_FADE_OUT)
+
 func _on_locale_changed(_code: String) -> void:
 	Loc.refresh_all(self)
 	if net != null and net.is_open():
@@ -279,6 +447,22 @@ func _parse_debug_args() -> void:
 		elif argument == "--auto-b":
 			auto_mode = true
 			auto_role = "B"
+		elif argument == "--auto-social":
+			auto_mode = true
+			auto_role = "A"
+			auto_social = true
+		elif argument == "--auto-social-b":
+			auto_mode = true
+			auto_role = "B"
+			auto_social = true
+		elif argument == "--auto-duel":
+			auto_mode = true
+			auto_role = "A"
+			auto_duel = true
+		elif argument == "--auto-duel-b":
+			auto_mode = true
+			auto_role = "B"
+			auto_duel = true
 		elif argument == "--auto-battle":
 			auto_mode = true
 			auto_role = "A"
@@ -357,12 +541,10 @@ func _load_session() -> void:
 	var config := ConfigFile.new()
 	if config.load(SESSION_PATH) != OK:
 		return
-	server_url = str(config.get_value("session", "server_url", server_url))
 	token = str(config.get_value("session", "token", ""))
 
 func _save_session() -> void:
 	var config := ConfigFile.new()
-	config.set_value("session", "server_url", server_url)
 	config.set_value("session", "token", token)
 	config.save(SESSION_PATH)
 
@@ -375,14 +557,14 @@ func _touch_enabled() -> bool:
 
 func _default_hint() -> String:
 	if _touch_enabled():
-		return Loc.t("D-pad move  -  Talk  -  Chat")
-	return Loc.t("WASD move  -  Shift run  -  E talk  -  T chat")
+		return Loc.t("D-pad move  -  A talk  -  B back (hold B to run)")
+	return Loc.t("WASD move  -  J talk  -  K back / hold to run  -  T chat")
 
 func _start_auto() -> void:
 	var suffix := str(Time.get_ticks_msec() % 1000000) + str(randi_range(100, 999))
 	auto_username = ("autoa" if auto_role == "A" else "autob") + suffix
 	auto_character = ("Scout" + auto_role + suffix).substr(0, 16)
-	if auto_reconnect:
+	if auto_social or auto_duel or auto_reconnect:
 		auto_path = []
 	elif auto_indoor:
 		auto_path = [
@@ -440,6 +622,7 @@ func _start_auto() -> void:
 	_begin_auth("register", auto_username, "demopass", server_url)
 
 func _begin_auth(mode: String, username: String, password: String, url: String) -> void:
+	logging_out = false
 	server_url = url
 	pending_auth = {
 		"mode": mode,
@@ -490,9 +673,13 @@ func _on_register_requested(username: String, password: String, url: String) -> 
 	_begin_auth("register", username, password, url)
 
 func _on_net_connected() -> void:
+	if hud != null:
+		hud.add_log_line("Connected to %s." % server_url, "net")
 	_send_pending_auth()
 
 func _on_connect_failed(reason: String) -> void:
+	if hud != null:
+		hud.add_log_line(reason, "error")
 	if auto_mode:
 		print("[auto] connection failed: %s" % reason)
 		get_tree().quit(1)
@@ -503,14 +690,21 @@ func _on_connect_failed(reason: String) -> void:
 		return
 	state = GameState.LOGIN
 	pending_auth.clear()
+	_cancel_transition()
 	loading_overlay.visible = false
 	create_ui.visible = false
 	login_ui.visible = true
 	login_ui.set_busy(false)
 	login_ui.set_status("%s %s" % [reason, Loc.t("Is the server running?")], true)
 	login_ui.set_server_url(server_url)
+	Audio.play_title()
 
 func _on_net_disconnected() -> void:
+	if logging_out:
+		logging_out = false
+		return
+	if hud != null:
+		hud.add_log_line("Disconnected from the server.", "warn")
 	if token == "" or state == GameState.LOGIN:
 		if state == GameState.CREATE:
 			create_ui.set_busy(false)
@@ -521,16 +715,20 @@ func _on_net_disconnected() -> void:
 			login_ui.visible = true
 			login_ui.set_busy(false)
 			login_ui.set_status(Loc.t("Disconnected from server."), true)
+			Audio.play_title()
 		return
 	_start_reconnect()
 
 func _start_reconnect() -> void:
 	if state == GameState.RECONNECTING:
 		return
+	if hud != null:
+		hud.add_log_line("Connection lost. Reconnecting...", "warn")
 	state = GameState.RECONNECTING
 	reconnect_attempts = 0
 	next_reconnect_at = Time.get_ticks_msec() + 500
 	pending_auth = {"mode": "resume", "token": token}
+	_cancel_transition()
 	reconnect_overlay.visible = true
 	Loc.bind(reconnect_label, "Connection lost. Reconnecting...")
 	loading_overlay.visible = false
@@ -538,16 +736,28 @@ func _start_reconnect() -> void:
 	create_ui.visible = false
 	battle_ui.visible = false
 	dialogue_ui.close()
+	story_active = false
+	story_scene_id = ""
+	story_step_index = -1
+	_close_choice_uis()
 	if shop_ui != null and shop_ui.visible:
 		shop_ui.close()
 	if pc_ui != null and pc_ui.visible:
 		pc_ui.close()
+	if move_service_ui != null and move_service_ui.visible:
+		move_service_ui.close()
+	if trade_service_ui != null and trade_service_ui.visible:
+		trade_service_ui.close()
+	if ability_service_ui != null and ability_service_ui.visible:
+		ability_service_ui.close()
 	chat_ui.close_input()
 	chat_ui.visible = false
 	touch_ui.visible = false
 	touch_dir = ""
 	if hud != null:
 		hud.close_menu()
+		hud.close_duel_request()
+		hud.set_duel_outgoing("")
 		hud.set_dialogue_mode(false)
 		hud.set_nearby_npc({})
 		hud.set_connection("OFFLINE", false)
@@ -577,8 +787,24 @@ func _on_message(message: Dictionary) -> void:
 			_on_move_ack(message)
 		"chat":
 			_on_chat(message)
+		"direct_message":
+			_on_direct_message(message)
+		"social_state":
+			_on_social_state(message)
+		"journal":
+			_on_journal(message)
 		"dialogue":
 			_on_dialogue(message)
+		"story_begin":
+			_on_story_begin(message)
+		"story_choice":
+			_on_story_choice(message)
+		"story_end":
+			_on_story_end(message)
+		"npc_move":
+			_on_npc_move(message)
+		"npc_face":
+			_on_npc_face(message)
 		"party_state":
 			_on_party_state(message)
 		"pokedex_state":
@@ -589,12 +815,30 @@ func _on_message(message: Dictionary) -> void:
 			_on_shop_state(message)
 		"pc_state":
 			_on_pc_state(message)
+		"move_service":
+			_on_move_service(message)
+		"trade_service":
+			_on_trade_service(message)
+		"ability_service":
+			_on_ability_service(message)
+		"evolution_event":
+			_on_evolution_event(message)
 		"battle_start":
 			_on_battle_start(message)
 		"battle_turn":
 			_on_battle_turn(message)
 		"battle_end":
 			_on_battle_end(message)
+		"duel_request":
+			_on_duel_request(message)
+		"duel_request_sent":
+			_on_duel_request_sent(message)
+		"duel_request_cancelled":
+			_on_duel_request_cancelled(message)
+		"duel_request_expired":
+			_on_duel_request_expired(message)
+		"duel_declined":
+			_on_duel_declined(message)
 		"notice":
 			_on_notice(message)
 		"pong":
@@ -603,6 +847,9 @@ func _on_message(message: Dictionary) -> void:
 			_on_error(message)
 		_:
 			print("[net] unhandled message: %s" % str(message.get("type", "?")))
+			hud.add_log_line(
+				"Unhandled message: %s" % str(message.get("type", "?")), "warn"
+			)
 
 func _default_starter_id() -> String:
 	if starter_options.is_empty():
@@ -648,15 +895,22 @@ func _on_auth_ok(message: Dictionary) -> void:
 	self_data = character
 	self_name = str(character.get("name", ""))
 	self_id = str(character.get("id", ""))
-	login_ui.visible = false
-	create_ui.visible = false
-	state = GameState.ENTERING
 	reconnect_succeeded = was_reconnecting
-	loading_overlay.visible = true
-	Loc.bind(loading_label, "Entering Unova...")
+	if was_reconnecting:
+		# The world is already on screen; keep the reconnect notice up and let
+		# the incoming map_state reveal it again without a black dip.
+		state = GameState.ENTERING
+		login_ui.visible = false
+		create_ui.visible = false
+		loading_overlay.visible = false
+		reconnect_overlay.visible = true
+		Loc.bind(reconnect_label, "Restoring session...")
+	else:
+		_begin_world_entry()
 
 func _show_create_screen() -> void:
 	state = GameState.CREATE
+	_cancel_transition()
 	loading_overlay.visible = false
 	reconnect_overlay.visible = false
 	login_ui.visible = false
@@ -673,22 +927,23 @@ func _on_create_requested(character_name: String, color: String, starter_id: Str
 		create_ui.set_busy(false)
 		create_ui.set_status(Loc.t("Not connected to the server."), true)
 		return
-	net.send_message({
+	# The opening scene grants the first partner, so a normal creation carries
+	# no starter. The field is kept for older servers and auto-test runs.
+	var payload := {
 		"type": "create_character",
 		"name": character_name,
-		"color": color,
-		"starter": starter_id
-	})
+		"color": color
+	}
+	if starter_id != "":
+		payload["starter"] = starter_id
+	net.send_message(payload)
 
 func _on_character_created(message: Dictionary) -> void:
 	var character: Dictionary = message["character"]
 	self_data = character
 	self_name = str(character.get("name", ""))
 	self_id = str(character.get("id", ""))
-	create_ui.visible = false
-	state = GameState.ENTERING
-	loading_overlay.visible = true
-	Loc.bind(loading_label, "Entering Unova...")
+	_begin_world_entry()
 	if auto_mode:
 		print("[auto] character created")
 
@@ -712,6 +967,12 @@ func _on_map_state(message: Dictionary) -> void:
 		shop_ui.close()
 	if pc_ui != null and pc_ui.visible:
 		pc_ui.close()
+	if move_service_ui != null and move_service_ui.visible:
+		move_service_ui.close()
+	if trade_service_ui != null and trade_service_ui.visible:
+		trade_service_ui.close()
+	if ability_service_ui != null and ability_service_ui.visible:
+		ability_service_ui.close()
 	var map_info: Dictionary = message["map"]
 	var self_info: Dictionary = message["self"]
 	var players: Array = message.get("players", [])
@@ -720,16 +981,34 @@ func _on_map_state(message: Dictionary) -> void:
 	reconnect_succeeded = false
 	var previous_map_id := current_map_id
 	var map_changed: bool = has_world and previous_map_id != "" and previous_map_id != str(map_info.get("id", ""))
+	var first_entry: bool = not has_world
+	var animated_entry: bool = map_changed or first_entry
+	var seq := 0
+	if animated_entry:
+		# Keep the old scene on screen while it fades out; only then tear it
+		# down and build the new map, hidden behind full black.
+		_transition_seq += 1
+		seq = _transition_seq
+		_transitioning = true
+		if map_changed:
+			await _fade_alpha(1.0, MAP_FADE_OUT)
+			await get_tree().create_timer(MAP_FADE_HOLD).timeout
+		else:
+			# First entry: let the login-screen dip finish instead of snapping.
+			var remaining := _entry_fade_ends_at - Time.get_ticks_msec()
+			if remaining > 0:
+				await get_tree().create_timer(remaining / 1000.0).timeout
+		if seq != _transition_seq:
+			return
+		_set_fade(1.0)
 
 	self_data = self_info
 	self_name = str(self_info.get("name", self_name))
 	self_id = str(self_info.get("id", self_id))
 	current_map_name = str(map_info.get("name", ""))
 	current_location = str(message.get("location", current_map_name))
+	current_location_key = str(message.get("locationKey", current_location))
 	current_map_id = str(map_info.get("id", ""))
-	if map_changed:
-		loading_overlay.visible = true
-		Loc.bind(loading_label, "Entering %s...", [current_map_name])
 	if _is_rom_map(current_map_id):
 		world.visible = false
 		world.set_active(false)
@@ -744,7 +1023,9 @@ func _on_map_state(message: Dictionary) -> void:
 	has_world = true
 
 	if map_changed:
-		await get_tree().create_timer(0.35).timeout
+		Audio.play_sfx("door")
+	_update_map_bgm()
+
 	loading_overlay.visible = false
 	reconnect_overlay.visible = false
 	login_ui.visible = false
@@ -771,8 +1052,11 @@ func _on_map_state(message: Dictionary) -> void:
 		int(message.get("pokedexTotal", 649))
 	)
 	hud.set_map_data(map_info, self_info)
+	var world_map: Variant = message.get("worldMap", {})
+	hud.set_world_map(world_map if world_map is Dictionary else {})
 	hud.set_season(world3d.season if _is_rom_map(current_map_id) else "autumn")
 	hud.set_touch_layout(_touch_enabled())
+	chat_ui.set_touch_layout(_touch_enabled())
 	hud.set_dialogue_mode(false)
 	hud.set_nearby_npc({})
 	hud.set_connection("ONLINE", true)
@@ -781,6 +1065,14 @@ func _on_map_state(message: Dictionary) -> void:
 
 	if battle_open:
 		state = GameState.BATTLE
+		chat_ui.visible = false
+		touch_ui.visible = false
+		hud.set_hint("")
+	elif story_active:
+		# A scene warp or a story-driven appearance change: keep the page open
+		# and the world locked; the next story message continues the scene.
+		state = GameState.DIALOGUE
+		battle_ui.visible = false
 		chat_ui.visible = false
 		touch_ui.visible = false
 		hud.set_hint("")
@@ -793,10 +1085,18 @@ func _on_map_state(message: Dictionary) -> void:
 		hud.set_hint(_default_hint())
 		if not welcome_sent:
 			welcome_sent = true
-			chat_ui.add_system("Connected as %s. This is the prototype slice." % self_name)
+			hud.add_log_line("Session started as %s." % self_name, "info")
 		if was_reconnecting:
-			chat_ui.add_system("Reconnected to the server.")
+			hud.add_log_line("Reconnected to the server.", "net")
 			print("[net] reconnected")
+
+	if animated_entry and seq == _transition_seq:
+		# Let the new scene draw one frame while still black, then reveal it.
+		await get_tree().process_frame
+		await _fade_alpha(0.0, MAP_FADE_IN if map_changed else ENTRY_FADE_IN)
+		if seq == _transition_seq:
+			_transitioning = false
+
 	if auto_mode and not auto_moving and not auto_reconnect:
 		auto_moving = true
 		auto_step_at = Time.get_ticks_msec() + 1200
@@ -882,7 +1182,9 @@ func _on_move_ack(message: Dictionary) -> void:
 	hud.update_self_position(x, y, dir)
 	if bool(message.get("accepted", false)) and message.has("location"):
 		current_location = str(message.get("location", current_location))
+		current_location_key = str(message.get("locationKey", current_location))
 		hud.set_location(current_location)
+		_update_map_bgm()
 
 func _on_chat(message: Dictionary) -> void:
 	var speaker_id := str(message.get("playerId", ""))
@@ -894,9 +1196,58 @@ func _on_chat(message: Dictionary) -> void:
 	else:
 		world.show_bubble(speaker_id, text)
 
+func _on_direct_message(message: Dictionary) -> void:
+	var outgoing := bool(message.get("outgoing", false))
+	var peer_id := str(message.get("toId", "")) if outgoing else str(message.get("fromId", ""))
+	var peer_name := (
+		str(message.get("toName", "")) if outgoing else str(message.get("fromName", ""))
+	)
+	chat_ui.add_social_message(peer_id, peer_name, str(message.get("text", "")), outgoing)
+	if auto_social and peer_id == auto_social_peer_id:
+		if outgoing:
+			auto_social_dm_out = true
+		else:
+			auto_social_dm_in = true
+			auto_social_dm_text = str(message.get("text", ""))
+
+func _on_social_state(message: Dictionary) -> void:
+	hud.set_social_state(message)
+
+func _on_journal(message: Dictionary) -> void:
+	var entry: Variant = message.get("entry", {})
+	if entry is Dictionary and not (entry as Dictionary).is_empty():
+		chat_ui.add_journal(entry)
+		_play_journal_sfx(str((entry as Dictionary).get("kind", "")))
+
+# The server already classifies every event it journals; reuse that instead of
+# guessing from localized text.
+func _play_journal_sfx(kind: String) -> void:
+	match kind:
+		"heal":
+			Audio.play_sfx("heal")
+		"level_up", "evolution":
+			Audio.play_sfx("levelup")
+		"catch":
+			Audio.play_sfx("capture")
+		"item_used", "shop_buy", "shop_sell":
+			Audio.play_sfx("item")
+		"learn_move", "forget_move":
+			Audio.play_sfx("decide")
+		"pc_deposit", "pc_withdraw", "pc_swap", "release":
+			Audio.play_sfx("pc")
+		"gate":
+			Audio.play_sfx("door")
+		"faint", "blackout":
+			Audio.play_sfx("faint")
+
 func _on_dialogue(message: Dictionary) -> void:
 	if state == GameState.BATTLE or state == GameState.RECONNECTING:
 		return
+	if str(message.get("kind", "npc")) == "story":
+		story_active = true
+		story_scene_id = str(message.get("sceneId", story_scene_id))
+		story_step_index = int(message.get("step", story_step_index))
+		_close_choice_uis()
 	state = GameState.DIALOGUE
 	touch_dir = ""
 	touch_ui.visible = false
@@ -1019,6 +1370,7 @@ func _on_shop_state(message: Dictionary) -> void:
 	hud.set_nearby_npc({})
 	hud.set_hint("")
 	shop_ui.show_shop(message)
+	Audio.play_sfx("open")
 
 func _on_pc_state(message: Dictionary) -> void:
 	if message.has("party"):
@@ -1043,6 +1395,7 @@ func _on_pc_state(message: Dictionary) -> void:
 	hud.set_nearby_npc({})
 	hud.set_hint("")
 	pc_ui.show_pc(message)
+	Audio.play_sfx("pc")
 
 func _on_shop_requested(message: Dictionary) -> void:
 	if net.is_open():
@@ -1055,11 +1408,138 @@ func _on_pc_requested(message: Dictionary) -> void:
 func _on_hud_item_use(item_id: String, party_index: int) -> void:
 	if state != GameState.WORLD or not net.is_open():
 		return
+	var category := ""
+	for entry in item_catalog:
+		if entry is Dictionary and str((entry as Dictionary).get("id", "")) == item_id:
+			category = str((entry as Dictionary).get("category", ""))
+			break
+	# The learn prompt cannot open behind an open bag, so close it first.
+	if category == "tm":
+		hud.close_menu()
 	net.send_message({
 		"type": "use_item",
 		"itemId": item_id,
 		"partyIndex": party_index
 	})
+
+func _on_move_service(message: Dictionary) -> void:
+	if move_service_ui.visible and state == GameState.MOVE_SERVICE:
+		move_service_ui.update_state(message)
+		return
+	var was_dialogue := state == GameState.DIALOGUE
+	state = GameState.MOVE_SERVICE
+	if was_dialogue:
+		dialogue_ui.close()
+	_move_service_npc_id = str(message.get("npcId", ""))
+	touch_dir = ""
+	touch_ui.visible = false
+	chat_ui.close_input()
+	chat_ui.visible = false
+	hud.close_menu()
+	hud.set_dialogue_mode(false)
+	hud.set_nearby_npc({})
+	hud.set_hint("")
+	move_service_ui.show_state(message)
+
+func _on_trade_service(message: Dictionary) -> void:
+	if trade_service_ui.visible and state == GameState.TRADE_SERVICE:
+		trade_service_ui.update_state(message)
+		return
+	var was_dialogue := state == GameState.DIALOGUE
+	state = GameState.TRADE_SERVICE
+	if was_dialogue:
+		dialogue_ui.close()
+	_trade_service_npc_id = str(message.get("npcId", ""))
+	touch_dir = ""
+	touch_ui.visible = false
+	chat_ui.close_input()
+	chat_ui.visible = false
+	hud.close_menu()
+	hud.set_dialogue_mode(false)
+	hud.set_nearby_npc({})
+	hud.set_hint("")
+	trade_service_ui.show_state(message)
+
+func _on_ability_service(message: Dictionary) -> void:
+	if ability_service_ui.visible and state == GameState.ABILITY_SERVICE:
+		ability_service_ui.update_state(message)
+		return
+	var was_dialogue := state == GameState.DIALOGUE
+	state = GameState.ABILITY_SERVICE
+	if was_dialogue:
+		dialogue_ui.close()
+	_ability_service_npc_id = str(message.get("npcId", ""))
+	touch_dir = ""
+	touch_ui.visible = false
+	chat_ui.close_input()
+	chat_ui.visible = false
+	hud.close_menu()
+	hud.set_dialogue_mode(false)
+	hud.set_nearby_npc({})
+	hud.set_hint("")
+	ability_service_ui.show_state(message)
+
+func _on_move_service_teach(party_index: int, move_id: String) -> void:
+	if state != GameState.WORLD or not net.is_open():
+		return
+	net.send_message({
+		"type": "teach_move",
+		"npcId": _move_service_npc_id,
+		"partyIndex": party_index,
+		"moveId": move_id
+	})
+
+func _on_trade_service_trade(party_index: int) -> void:
+	if state != GameState.WORLD or not net.is_open():
+		return
+	net.send_message({
+		"type": "trade_evolve",
+		"npcId": _trade_service_npc_id,
+		"partyIndex": party_index
+	})
+
+func _on_ability_service_requested(party_index: int, ability_id: String) -> void:
+	if state != GameState.ABILITY_SERVICE or not net.is_open():
+		return
+	net.send_message({
+		"type": "set_ability",
+		"npcId": _ability_service_npc_id,
+		"partyIndex": party_index,
+		"abilityId": ability_id
+	})
+
+func _on_move_service_closed() -> void:
+	if state != GameState.MOVE_SERVICE:
+		return
+	state = GameState.WORLD
+	touch_ui.visible = _touch_enabled()
+	chat_ui.visible = true
+	hud.set_hint(_default_hint())
+	_show_pending_learn_if_ready()
+
+func _on_trade_service_closed() -> void:
+	if state != GameState.TRADE_SERVICE:
+		return
+	state = GameState.WORLD
+	touch_ui.visible = _touch_enabled()
+	chat_ui.visible = true
+	hud.set_hint(_default_hint())
+	_show_pending_learn_if_ready()
+
+func _on_ability_service_closed() -> void:
+	if state != GameState.ABILITY_SERVICE:
+		return
+	state = GameState.WORLD
+	touch_ui.visible = _touch_enabled()
+	chat_ui.visible = true
+	hud.set_hint(_default_hint())
+	_show_pending_learn_if_ready()
+
+func _on_evolution_event(_message: Dictionary) -> void:
+	# The server also sends a notice and the updated party; the event exists so
+	# an out-of-battle evolution animation can be layered on later without
+	# changing the protocol.
+	pass
 
 func _on_shop_closed() -> void:
 	if state != GameState.SHOP:
@@ -1082,6 +1562,8 @@ func _on_pc_closed() -> void:
 func _on_battle_start(message: Dictionary) -> void:
 	current_battle = message["battle"]
 	max_party = int(current_battle.get("maxParty", max_party))
+	hud.close_duel_request()
+	hud.set_duel_outgoing("")
 	var battle_season := "autumn"
 	if world3d != null and str(world3d.season) != "":
 		battle_season = str(world3d.season)
@@ -1105,6 +1587,14 @@ func _on_battle_start(message: Dictionary) -> void:
 		shop_ui.close()
 	if pc_ui != null and pc_ui.visible:
 		pc_ui.close()
+	if move_service_ui != null and move_service_ui.visible:
+		move_service_ui.close()
+	if trade_service_ui != null and trade_service_ui.visible:
+		trade_service_ui.close()
+	if ability_service_ui != null and ability_service_ui.visible:
+		ability_service_ui.close()
+	Audio.battle_bgm(str(current_battle.get("mode", "wild")))
+	Audio.play_sfx("throw")
 
 func _on_battle_turn(message: Dictionary) -> void:
 	current_battle = message["battle"]
@@ -1119,6 +1609,9 @@ func _on_battle_end(message: Dictionary) -> void:
 		var pokedex: Dictionary = player_info["pokedex"]
 		hud.set_pokedex(pokedex.get("seen", []), pokedex.get("caught", []))
 	var result := str(message.get("result", ""))
+	if auto_duel:
+		auto_duel_end = result
+		auto_duel_end_at = Time.get_ticks_msec() + 1800
 	if result == "caught":
 		var snapshot: Dictionary = (
 			message.get("battle", {})
@@ -1132,13 +1625,25 @@ func _on_battle_end(message: Dictionary) -> void:
 		)
 		pending_capture = wild.duplicate(true)
 		_refresh_progress()
-		battle_ui.finish_caught()
+		Audio.play_sfx("capture")
+		battle_ui.finish_caught(_evolution_payload(message))
 		return
 	if message.has("battle"):
 		current_battle = message["battle"]
 		battle_ui.update_battle(current_battle)
 	_refresh_progress()
-	battle_ui.show_result(result, str(message.get("message", "")))
+	if result == "win":
+		Audio.play_victory()
+	elif result == "loss":
+		Audio.play_sfx("faint")
+		Audio.stop_bgm(0.6)
+	else:
+		Audio.play_sfx("cancel")
+	battle_ui.show_result(result, str(message.get("message", "")), _evolution_payload(message))
+
+func _evolution_payload(message: Dictionary) -> Dictionary:
+	var value: Variant = message.get("evolution", {})
+	return value if value is Dictionary else {}
 
 func _on_battle_closed() -> void:
 	current_battle.clear()
@@ -1147,6 +1652,11 @@ func _on_battle_closed() -> void:
 	chat_ui.visible = true
 	touch_ui.visible = _touch_enabled()
 	hud.set_hint(_default_hint())
+	# Tell the server the result box is gone. A scripted (story) battle only
+	# resumes its scene now, so the next dialogue page is not dropped while the
+	# client still thinks it is in battle.
+	if net.is_open():
+		net.send_message({"type": "battle_closed"})
 	if not pending_capture.is_empty():
 		var caught := pending_capture
 		pending_capture = {}
@@ -1154,10 +1664,12 @@ func _on_battle_closed() -> void:
 		hud.show_capture_card(caught)
 		return
 	state = GameState.WORLD
+	_update_map_bgm()
 	_show_pending_learn_if_ready()
 
 func _on_capture_card_closed() -> void:
 	state = GameState.WORLD
+	_update_map_bgm()
 	hud.set_hint(_default_hint())
 	_show_pending_learn_if_ready()
 
@@ -1165,6 +1677,7 @@ func _on_notice(message: Dictionary) -> void:
 	var text := str(message.get("message", message.get("text", "")))
 	if text == "":
 		return
+	hud.add_log_line(text, "info")
 	hud.show_notice(text)
 	if auto_mode:
 		print("[auto] notice: %s" % text)
@@ -1175,21 +1688,97 @@ func _on_pong(message: Dictionary) -> void:
 		var now := Time.get_ticks_msec()
 		hud.set_ping(maxi(0, now - sent))
 
+func _on_logout_requested() -> void:
+	if state == GameState.LOGIN or logging_out:
+		return
+	logging_out = true
+	# Tell the server so it can revoke the saved session token; the close frame
+	# follows this message in the same WebSocket stream.
+	if net != null and net.is_open():
+		net.send_message({"type": "logout"})
+	_clear_session()
+	_return_to_login(Loc.t("Logged out."))
+	if net != null:
+		net.close_socket()
+
+# Tear the world down and show the login screen without touching the character.
+func _return_to_login(status_text: String) -> void:
+	state = GameState.LOGIN
+	pending_auth.clear()
+	has_world = false
+	welcome_sent = false
+	reconnect_succeeded = false
+	story_active = false
+	story_scene_id = ""
+	story_step_index = -1
+	pending_learn_request = {}
+	pending_capture = {}
+	current_battle = {}
+	self_data = {}
+	self_name = ""
+	self_id = ""
+	current_map_name = ""
+	current_location = ""
+	current_map_id = ""
+	_cancel_transition()
+	loading_overlay.visible = false
+	reconnect_overlay.visible = false
+	battle_ui.visible = false
+	dialogue_ui.close()
+	_close_choice_uis()
+	if shop_ui != null:
+		shop_ui.visible = false
+	if pc_ui != null:
+		pc_ui.visible = false
+	if move_service_ui != null:
+		move_service_ui.visible = false
+	if trade_service_ui != null:
+		trade_service_ui.visible = false
+	if ability_service_ui != null:
+		ability_service_ui.visible = false
+	hud.reset_session()
+	chat_ui.reset_session()
+	world.visible = false
+	world.set_active(false)
+	if world3d != null:
+		world3d.visible = false
+		world3d.set_active(false)
+	hud.close_menu()
+	hud.visible = false
+	chat_ui.visible = false
+	touch_ui.visible = false
+	create_ui.visible = false
+	login_ui.visible = true
+	login_ui.set_busy(false)
+	login_ui.set_username(account_username)
+	login_ui.set_server_url(server_url)
+	login_ui.set_status(status_text, false)
+	login_ui.focus_username()
+	Audio.play_title()
+
 func _on_error(message: Dictionary) -> void:
 	var error_text := str(message.get("message", "Server error."))
 	print("[net] error: %s" % error_text)
+	hud.add_log_line(error_text, "error")
 
 	if error_text.contains("Signed in from another connection"):
 		_clear_session()
 		state = GameState.LOGIN
 		net.close_socket()
 		battle_ui.visible = false
+		_cancel_transition()
 		loading_overlay.visible = false
 		reconnect_overlay.visible = false
 		if shop_ui != null:
 			shop_ui.visible = false
 		if pc_ui != null:
 			pc_ui.visible = false
+		if move_service_ui != null:
+			move_service_ui.visible = false
+		if trade_service_ui != null:
+			trade_service_ui.visible = false
+		if ability_service_ui != null:
+			ability_service_ui.visible = false
 		world.visible = false
 		hud.visible = false
 		chat_ui.visible = false
@@ -1199,6 +1788,7 @@ func _on_error(message: Dictionary) -> void:
 		login_ui.set_busy(false)
 		login_ui.set_status(error_text, true)
 		login_ui.set_server_url(server_url)
+		Audio.play_title()
 		return
 
 	if auto_mode:
@@ -1231,21 +1821,38 @@ func _on_error(message: Dictionary) -> void:
 			create_ui.set_busy(false)
 			create_ui.set_status(error_text, true)
 		GameState.ENTERING:
+			_cancel_transition()
 			loading_overlay.visible = false
 			state = GameState.LOGIN
 			login_ui.visible = true
 			login_ui.set_busy(false)
 			login_ui.set_status(error_text, true)
+			Audio.play_title()
 		_:
 			if state == GameState.SHOP and shop_ui != null:
 				shop_ui.show_error(error_text)
 			elif state == GameState.PC and pc_ui != null:
 				pc_ui.show_error(error_text)
+			elif state == GameState.MOVE_SERVICE and move_service_ui != null:
+				move_service_ui.show_error(error_text)
+			elif state == GameState.TRADE_SERVICE and trade_service_ui != null:
+				trade_service_ui.show_error(error_text)
+			elif state == GameState.ABILITY_SERVICE and ability_service_ui != null:
+				ability_service_ui.show_error(error_text)
 			hud.show_notice(error_text)
-			chat_ui.add_system(error_text)
 
 func _on_dialogue_closed() -> void:
+	if story_active and net.is_open():
+		# The server holds the scene at this page until we acknowledge it.
+		net.send_message({
+			"type": "story_advance",
+			"sceneId": story_scene_id,
+			"step": story_step_index
+		})
 	if state != GameState.DIALOGUE:
+		return
+	if story_active:
+		# Stay in DIALOGUE until story_end: the next page or choice is coming.
 		return
 	state = GameState.WORLD
 	touch_ui.visible = _touch_enabled()
@@ -1254,9 +1861,191 @@ func _on_dialogue_closed() -> void:
 	hud.set_hint(_default_hint())
 	_show_pending_learn_if_ready()
 
+func _on_story_begin(message: Dictionary) -> void:
+	story_active = true
+	story_scene_id = str(message.get("sceneId", ""))
+	story_step_index = -1
+	touch_dir = ""
+
+func _close_choice_uis() -> void:
+	if story_choice_ui != null:
+		story_choice_ui.close()
+	if starter_choice_ui != null:
+		starter_choice_ui.close()
+
+func _on_story_choice(message: Dictionary) -> void:
+	story_active = true
+	story_scene_id = str(message.get("sceneId", story_scene_id))
+	story_step_index = int(message.get("step", -1))
+	state = GameState.DIALOGUE
+	touch_dir = ""
+	touch_ui.visible = false
+	hud.close_menu()
+	hud.set_dialogue_mode(true)
+	hud.set_nearby_npc({})
+	hud.set_hint("")
+	chat_ui.visible = false
+	var prompt: Array = message.get("prompt", [])
+	var options: Array = message.get("options", [])
+	if str(message.get("kind", "")) == "starter" and starter_choice_ui != null:
+		story_choice_ui.close()
+		starter_choice_ui.show_choice(prompt, options)
+	else:
+		if starter_choice_ui != null:
+			starter_choice_ui.close()
+		story_choice_ui.show_choice(prompt, options)
+
+func _on_story_choice_picked(option_id: String) -> void:
+	if not net.is_open():
+		return
+	net.send_message({
+		"type": "story_choice",
+		"sceneId": story_scene_id,
+		"step": story_step_index,
+		"optionId": option_id
+	})
+
+func _on_npc_move(message: Dictionary) -> void:
+	# A cutscene walk is pure presentation: the server keeps no new NPC tile and
+	# resumes the scene once the path has played (the map_state after story_end
+	# puts everyone back), so this only animates the sprite and its map data.
+	var npc_id := str(message.get("npcId", ""))
+	var path: Array = message.get("path", [])
+	if npc_id == "" or path.is_empty():
+		return
+	var ms_per_tile := int(message.get("msPerTile", 500))
+	var face := str(message.get("face", ""))
+	var vanish := bool(message.get("vanish", false))
+	if _is_rom_map(current_map_id):
+		world3d.move_npc(npc_id, path, ms_per_tile, face, vanish)
+	else:
+		world.move_npc(npc_id, path, ms_per_tile, face, vanish)
+
+func _on_npc_face(message: Dictionary) -> void:
+	# A turn in place: the port's counterpart of the ROM's standalone turn
+	# actions. No movement, so nothing is awaited.
+	var npc_id := str(message.get("npcId", ""))
+	var dir := str(message.get("dir", ""))
+	if npc_id == "" or dir == "":
+		return
+	if _is_rom_map(current_map_id):
+		world3d.face_npc(npc_id, dir)
+	else:
+		world.face_npc(npc_id, dir)
+
+func _on_story_end(_message: Dictionary) -> void:
+	story_active = false
+	story_scene_id = ""
+	story_step_index = -1
+	_close_choice_uis()
+	if state == GameState.DIALOGUE:
+		state = GameState.WORLD
+		touch_ui.visible = _touch_enabled()
+		chat_ui.visible = true
+		hud.set_dialogue_mode(false)
+		hud.set_hint(_default_hint())
+		_show_pending_learn_if_ready()
+
 func _on_chat_submitted(text: String) -> void:
 	if state == GameState.WORLD and net.is_open():
 		net.send_message({"type": "chat", "text": text})
+
+func _on_social_message_submitted(text: String, target_id: String) -> void:
+	if state == GameState.WORLD and net.is_open():
+		net.send_message({"type": "direct_message", "toId": target_id, "text": text})
+
+func _request_social_state() -> void:
+	if not net.is_open() or state != GameState.WORLD:
+		return
+	next_social_poll_at = Time.get_ticks_msec() + 4000
+	net.send_message({"type": "social_state"})
+
+func _on_social_chat_requested(player_id: String, player_name: String) -> void:
+	if player_id == "":
+		return
+	hud.close_menu()
+	chat_ui.visible = true
+	chat_ui.open_social_conversation(player_id, player_name)
+
+func _on_friend_requested(player_id: String) -> void:
+	if state != GameState.WORLD or not net.is_open() or player_id == "":
+		return
+	net.send_message({"type": "friend_request", "playerId": player_id})
+
+func _on_friend_accept_requested(player_id: String) -> void:
+	if state != GameState.WORLD or not net.is_open() or player_id == "":
+		return
+	net.send_message({"type": "friend_accept", "playerId": player_id})
+
+func _on_friend_decline_requested(player_id: String) -> void:
+	if state != GameState.WORLD or not net.is_open() or player_id == "":
+		return
+	net.send_message({"type": "friend_decline", "playerId": player_id})
+
+func _on_friend_cancel_requested(player_id: String) -> void:
+	if state != GameState.WORLD or not net.is_open() or player_id == "":
+		return
+	net.send_message({"type": "friend_cancel", "playerId": player_id})
+
+func _on_friend_remove_requested(player_id: String) -> void:
+	if state != GameState.WORLD or not net.is_open() or player_id == "":
+		return
+	net.send_message({"type": "friend_remove", "playerId": player_id})
+
+func _on_duel_requested(player_id: String) -> void:
+	if state != GameState.WORLD or not net.is_open() or player_id == "":
+		return
+	net.send_message({"type": "duel_request", "playerId": player_id})
+
+func _on_duel_accept_requested(player_id: String) -> void:
+	if not net.is_open() or player_id == "":
+		return
+	net.send_message({"type": "duel_accept", "playerId": player_id})
+
+func _on_duel_decline_requested(player_id: String) -> void:
+	if not net.is_open() or player_id == "":
+		return
+	net.send_message({"type": "duel_decline", "playerId": player_id})
+	if state == GameState.WORLD and _touch_enabled():
+		touch_ui.visible = true
+
+func _on_duel_request(message: Dictionary) -> void:
+	var from_id := str(message.get("fromId", ""))
+	if from_id == "":
+		return
+	if state == GameState.BATTLE or state == GameState.RECONNECTING:
+		net.send_message({"type": "duel_decline", "playerId": from_id})
+		return
+	if auto_duel:
+		auto_duel_incoming = true
+		auto_duel_peer_id = from_id
+		auto_duel_peer_name = str(message.get("fromName", ""))
+	chat_ui.close_input()
+	hud.show_duel_request(message)
+	touch_ui.visible = false
+
+func _on_duel_request_sent(message: Dictionary) -> void:
+	var to_id := str(message.get("toId", ""))
+	if to_id != "":
+		hud.set_duel_outgoing(to_id)
+
+func _on_duel_request_cancelled(message: Dictionary) -> void:
+	if str(message.get("fromId", "")) != "":
+		hud.close_duel_request()
+		if state == GameState.WORLD and _touch_enabled():
+			touch_ui.visible = true
+	if str(message.get("toId", "")) != "":
+		hud.set_duel_outgoing("")
+
+func _on_duel_request_expired(message: Dictionary) -> void:
+	_on_duel_request_cancelled(message)
+
+func _on_duel_declined(_message: Dictionary) -> void:
+	hud.set_duel_outgoing("")
+
+func _on_chat_tab_changed(tab: String) -> void:
+	if tab == "social":
+		_request_social_state()
 
 func _on_touch_dir(direction: String) -> void:
 	touch_dir = direction
@@ -1264,14 +2053,61 @@ func _on_touch_dir(direction: String) -> void:
 func _on_touch_interact() -> void:
 	if state == GameState.DIALOGUE:
 		dialogue_ui.advance()
-	elif state == GameState.WORLD:
+	elif state == GameState.WORLD and _can_control():
 		_interact()
 
-func _on_touch_chat() -> void:
-	if state == GameState.WORLD and not chat_ui.is_input_open():
-		chat_ui.open_input()
+func _on_touch_cancel() -> void:
+	_cancel_action()
+
+func _on_touch_b_held(held: bool) -> void:
+	touch_b_held = held
+
+func _on_touch_extra(_button: String) -> void:
+	# X/Y are reserved for later features, mirroring U/I on the keyboard.
+	pass
+
+func _update_map_bgm() -> void:
+	if current_map_id == "":
+		return
+	var grid := Vector2i.ZERO
+	if _is_rom_map(current_map_id):
+		grid = world3d.self_grid
+	else:
+		grid = Vector2i(int(self_data.get("x", 0)), int(self_data.get("y", 0)))
+	Audio.play_map_bgm(
+		current_map_id, current_location_key, current_location, grid.x, grid.y
+	)
+
+# Keeps the touch layout in step with the current screen. The scattered
+# `touch_ui.visible` assignments in the state handlers still run, but this is
+# the single source of truth: it knows which screens accept movement and
+# which only need the confirm/cancel pair (dialogue).
+func _update_touch_mode() -> void:
+	if touch_ui == null:
+		return
+	if not _touch_enabled():
+		touch_ui.set_mode("hidden")
+		return
+	if state == GameState.WORLD and _can_control():
+		touch_ui.set_mode("world")
+		return
+	if (
+		state == GameState.DIALOGUE
+		and dialogue_ui.visible
+		and not (story_choice_ui != null and story_choice_ui.visible)
+		and not (starter_choice_ui != null and starter_choice_ui.visible)
+	):
+		touch_ui.set_mode("dialogue")
+		return
+	touch_ui.set_mode("hidden")
+
+func _attach_minimap_texture() -> void:
+	if hud != null and world3d != null:
+		hud.set_minimap_texture(world3d.minimap_texture())
 
 func _on_hud_menu_state(open: bool) -> void:
+	if world3d != null:
+		world3d.set_minimap_large(open and hud != null and hud.current_menu() == "map")
 	if open:
 		touch_dir = ""
 		chat_ui.close_input()
@@ -1313,6 +2149,7 @@ func _on_battle_item(item_id: String, party_index: int) -> void:
 
 func _process(_delta: float) -> void:
 	var now := Time.get_ticks_msec()
+	_update_touch_mode()
 
 	var ui_create_ready := auto_ui_create and state == GameState.CREATE
 	if ui_create_ready and auto_ui_submit_at > 0 and now >= auto_ui_submit_at:
@@ -1326,6 +2163,7 @@ func _process(_delta: float) -> void:
 				return
 			reconnect_attempts += 1
 			Loc.bind(reconnect_label, "Reconnecting... (attempt %d)", [reconnect_attempts])
+			hud.add_log_line("Reconnect attempt %d..." % reconnect_attempts, "net")
 			_begin_auth("resume", "", "", server_url)
 			next_reconnect_at = now + 2000
 
@@ -1341,7 +2179,11 @@ func _process(_delta: float) -> void:
 			# press is the one that moves.
 			next_step_at = now + TURN_CONFIRM_MS
 		elif action == "move":
-			var running := _is_rom_map(current_map_id) and Input.is_key_pressed(KEY_SHIFT)
+			var running := _is_rom_map(current_map_id) and (
+				Input.is_key_pressed(KEY_SHIFT)
+				or Input.is_key_pressed(KEY_K)
+				or touch_b_held
+			)
 			var moved := _try_move(direction, running)
 			if not moved:
 				# A held direction should not wait a full movement interval
@@ -1359,10 +2201,20 @@ func _process(_delta: float) -> void:
 		if now >= next_ping_at:
 			next_ping_at = now + PING_INTERVAL_MS
 			net.send_message({"type": "ping", "t": now})
+		if state == GameState.WORLD:
+			var watching_social: bool = (
+				chat_ui.active_tab() == "social"
+				or (hud.menu_open and hud.current_menu() == "social")
+			)
+			if watching_social and now >= next_social_poll_at:
+				next_social_poll_at = now + 4000
+				net.send_message({"type": "social_state"})
 
 	_update_hud_context(now)
 	_update_world_time(now)
 	_process_auto(now)
+	_process_auto_social(now)
+	_process_auto_duel(now)
 	_process_auto_battle(now)
 	_process_auto_reconnect(now)
 	_process_auto_sequence(now)
@@ -1427,12 +2279,16 @@ func _can_control() -> bool:
 	return (
 		state == GameState.WORLD
 		and not loading_overlay.visible
+		and not _transitioning
 		and not chat_ui.is_input_open()
 		and not dialogue_ui.visible
 		and not battle_ui.visible
 		and not (shop_ui != null and shop_ui.visible)
 		and not (pc_ui != null and pc_ui.visible)
-		and not (hud != null and hud.menu_open)
+		and not (move_service_ui != null and move_service_ui.visible)
+		and not (trade_service_ui != null and trade_service_ui.visible)
+		and not (ability_service_ui != null and ability_service_ui.visible)
+		and not (hud != null and (hud.menu_open or hud.duel_request_open()))
 	)
 
 func _read_direction() -> String:
@@ -1502,6 +2358,10 @@ func _try_move(direction: String, running: bool = false) -> bool:
 		else:
 			can_push = world.try_portal_push(direction)
 		if not can_push:
+			var bump_now := Time.get_ticks_msec()
+			if bump_now >= _next_bump_sfx_at:
+				_next_bump_sfx_at = bump_now + 420
+				Audio.play_sfx("wall", -8.0)
 			return false
 		var now := Time.get_ticks_msec()
 		if now < next_portal_push_at:
@@ -1518,38 +2378,38 @@ func _try_move(direction: String, running: bool = false) -> bool:
 
 func _interact() -> void:
 	var npc: Dictionary = {}
+	var object: Dictionary = {}
 	if _is_rom_map(current_map_id):
 		npc = world3d.nearest_npc(2)
+		if npc.is_empty():
+			object = world3d.facing_interactable()
 	else:
 		npc = world.nearest_npc(2)
-	if npc.is_empty():
-		hud.show_notice("Nobody is close enough to talk to.")
+	if not npc.is_empty():
+		net.send_message({"type": "interact", "npcId": str(npc.get("id", ""))})
+		Audio.play_sfx("decide")
 		return
-	net.send_message({"type": "interact", "npcId": str(npc.get("id", ""))})
+	if not object.is_empty():
+		net.send_message({
+			"type": "interact",
+			"objectX": int(object.get("x", 0)),
+			"objectY": int(object.get("y", 0))
+		})
+		Audio.play_sfx("decide")
+		return
+	Audio.play_sfx("cancel")
+	hud.show_notice("Nothing close enough to talk to or examine.")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not (event is InputEventKey and event.pressed and not event.echo):
 		return
+	if _transitioning:
+		return
 	var key := (event as InputEventKey).keycode
 
-	if key == KEY_ESCAPE:
-		if state == GameState.CAPTURE_CARD and hud != null:
-			hud.close_capture_card()
-			get_viewport().set_input_as_handled()
-			return
-		if shop_ui != null and shop_ui.visible:
-			shop_ui.close()
-			get_viewport().set_input_as_handled()
-		elif pc_ui != null and pc_ui.visible:
-			pc_ui.close()
-			get_viewport().set_input_as_handled()
-		elif hud != null and hud.close_menu():
-			get_viewport().set_input_as_handled()
-		elif chat_ui.is_input_open():
-			chat_ui.close_input()
-			get_viewport().set_input_as_handled()
-		elif dialogue_ui.visible:
-			dialogue_ui.advance()
+	# Esc, F and K (the NDS B button) all cancel the topmost layer.
+	if key == KEY_ESCAPE or key == KEY_F or key == KEY_K:
+		if _cancel_action():
 			get_viewport().set_input_as_handled()
 		return
 
@@ -1557,7 +2417,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 
 	if state == GameState.DIALOGUE:
-		if key == KEY_E or key == KEY_SPACE or key == KEY_ENTER:
+		if story_choice_ui != null and story_choice_ui.visible:
+			# Leave Enter/Space to the focused option button.
+			return
+		if starter_choice_ui != null and starter_choice_ui.visible:
+			return
+		if key == KEY_J or key == KEY_E or key == KEY_SPACE or key == KEY_ENTER:
 			dialogue_ui.advance()
 			get_viewport().set_input_as_handled()
 		return
@@ -1571,15 +2436,51 @@ func _unhandled_input(event: InputEvent) -> void:
 	if key == KEY_T or key == KEY_ENTER:
 		chat_ui.open_input()
 		get_viewport().set_input_as_handled()
-	elif key == KEY_E or key == KEY_SPACE:
+	elif key == KEY_J or key == KEY_E or key == KEY_SPACE:
 		_interact()
 		get_viewport().set_input_as_handled()
 
+# Closes the topmost interactive layer. Shared by Esc, F and the touch B
+# button; returns true when something was closed.
+func _cancel_action() -> bool:
+	if _transitioning:
+		return false
+	if state == GameState.CAPTURE_CARD and hud != null:
+		hud.close_capture_card()
+		return true
+	if shop_ui != null and shop_ui.visible:
+		shop_ui.close()
+		return true
+	if pc_ui != null and pc_ui.visible:
+		pc_ui.close()
+		return true
+	if move_service_ui != null and move_service_ui.visible:
+		move_service_ui.close()
+		return true
+	if trade_service_ui != null and trade_service_ui.visible:
+		trade_service_ui.close()
+		return true
+	if ability_service_ui != null and ability_service_ui.visible:
+		ability_service_ui.close()
+		return true
+	if hud != null and hud.close_menu():
+		return true
+	if chat_ui.is_input_open():
+		chat_ui.close_input()
+		return true
+	if dialogue_ui.visible:
+		dialogue_ui.advance()
+		return true
+	return false
+
 func _give_up_reconnect(message: String) -> void:
+	if hud != null:
+		hud.add_log_line(message, "error")
 	_clear_session()
 	state = GameState.LOGIN
 	has_world = false
 	reconnect_succeeded = false
+	_cancel_transition()
 	reconnect_overlay.visible = false
 	loading_overlay.visible = false
 	battle_ui.visible = false
@@ -1587,6 +2488,12 @@ func _give_up_reconnect(message: String) -> void:
 		shop_ui.visible = false
 	if pc_ui != null:
 		pc_ui.visible = false
+	if move_service_ui != null:
+		move_service_ui.visible = false
+	if trade_service_ui != null:
+		trade_service_ui.visible = false
+	if ability_service_ui != null:
+		ability_service_ui.visible = false
 	world.visible = false
 	if hud != null:
 		hud.close_menu()
@@ -1601,6 +2508,7 @@ func _give_up_reconnect(message: String) -> void:
 	login_ui.set_server_url(server_url)
 	if account_username != "":
 		login_ui.set_username(account_username)
+	Audio.play_title()
 	pending_auth.clear()
 
 func _process_auto_reconnect(now: int) -> void:
@@ -1655,8 +2563,250 @@ func _process_auto_sequence(now: int) -> void:
 	auto_sequence_index += 1
 	auto_sequence_next_at = now + auto_sequence_interval
 
+# Headless two-client duel driver: A befriends B, sends the duel invite and
+# both sides pick their first damaging move until the server settles the duel.
+func _process_auto_duel(now: int) -> void:
+	if not auto_duel or auto_done:
+		return
+	if auto_duel_phase == 4:
+		_process_auto_duel_battle(now)
+		return
+	if state != GameState.WORLD and state != GameState.BATTLE:
+		return
+	if auto_duel_at == 0:
+		auto_duel_at = now + 25000
+		auto_duel_next_poll = now
+		print("[auto-duel] role %s %s ready" % [auto_role, auto_character])
+	if now >= auto_duel_at:
+		auto_done = true
+		print("[auto-duel] FAILED role %s phase %d" % [auto_role, auto_duel_phase])
+		get_tree().quit(1)
+		return
+	if state == GameState.BATTLE and not current_battle.is_empty():
+		auto_duel_phase = 4
+		auto_duel_battle_turn = -1
+		auto_duel_at = now + 30000
+		print("[auto-duel] role %s entered the battle" % auto_role)
+		return
+	if net.is_open() and now >= auto_duel_next_poll:
+		auto_duel_next_poll = now + 500
+		net.send_message({"type": "social_state"})
+	if auto_role == "A":
+		_process_auto_duel_a(now)
+	else:
+		_process_auto_duel_b(now)
+
+func _process_auto_duel_a(now: int) -> void:
+	match auto_duel_phase:
+		0:
+			for raw in hud._social_nearby:
+				if not (raw is Dictionary):
+					continue
+				var row: Dictionary = raw
+				var row_name := str(row.get("name", ""))
+				if not row_name.begins_with("ScoutB"):
+					continue
+				auto_duel_peer_id = str(row.get("id", ""))
+				auto_duel_peer_name = row_name
+				auto_duel_phase = 1
+				auto_duel_at = now + 15000
+				print("[auto-duel] A befriends %s" % row_name)
+				_on_friend_requested(auto_duel_peer_id)
+				return
+		1:
+			if _auto_social_has_friend(auto_duel_peer_id):
+				auto_duel_phase = 2
+				auto_duel_at = now + 15000
+				print("[auto-duel] A sends a duel request to %s" % auto_duel_peer_name)
+				_on_duel_requested(auto_duel_peer_id)
+
+func _process_auto_duel_b(now: int) -> void:
+	match auto_duel_phase:
+		0:
+			for raw in hud._social_incoming:
+				if not (raw is Dictionary):
+					continue
+				var row: Dictionary = raw
+				var row_name := str(row.get("name", ""))
+				if not row_name.begins_with("ScoutA"):
+					continue
+				auto_duel_peer_id = str(row.get("id", ""))
+				auto_duel_peer_name = row_name
+				auto_duel_phase = 1
+				auto_duel_at = now + 15000
+				print("[auto-duel] B befriends %s" % row_name)
+				_on_friend_accept_requested(auto_duel_peer_id)
+				return
+		1:
+			if _auto_social_has_friend(auto_duel_peer_id):
+				auto_duel_phase = 2
+				auto_duel_at = now + 15000
+				print("[auto-duel] B waits for the duel request")
+		2:
+			if auto_duel_incoming:
+				auto_duel_phase = 3
+				auto_duel_at = now + 15000
+				print("[auto-duel] B accepts the duel")
+				if hud.duel_request_open():
+					hud._on_duel_accept_pressed()
+				else:
+					net.send_message({
+						"type": "duel_accept",
+						"playerId": auto_duel_peer_id
+					})
+
+func _process_auto_duel_battle(now: int) -> void:
+	if auto_duel_end != "":
+		if now < auto_duel_end_at:
+			return
+		auto_done = true
+		if auto_duel_end == "won" or auto_duel_end == "lost":
+			print("[auto-duel] PASSED role %s result %s" % [auto_role, auto_duel_end])
+			get_tree().quit(0)
+		else:
+			print("[auto-duel] FAILED role %s result %s" % [auto_role, auto_duel_end])
+			get_tree().quit(1)
+		return
+	if now >= auto_duel_at:
+		auto_done = true
+		print("[auto-duel] FAILED role %s battle timeout" % auto_role)
+		get_tree().quit(1)
+		return
+	if state != GameState.BATTLE or current_battle.is_empty():
+		return
+	var turn := int(current_battle.get("turn", 0))
+	if not bool(current_battle.get("awaitingAction", false)):
+		return
+	if turn == auto_duel_battle_turn:
+		return
+	auto_duel_battle_turn = turn
+	var move_index := _auto_duel_move_index(current_battle)
+	print("[auto-duel] %s turn %d uses move %d" % [auto_character, turn, move_index])
+	_on_battle_action("move", move_index, "")
+
+func _auto_duel_move_index(battle: Dictionary) -> int:
+	var moves: Array = []
+	var player_value: Variant = battle.get("player", {})
+	if player_value is Dictionary:
+		var moves_value: Variant = (player_value as Dictionary).get("moves", [])
+		if moves_value is Array:
+			moves = moves_value
+	var fallback := 0
+	for index in range(moves.size()):
+		var move_value: Variant = moves[index]
+		if not (move_value is Dictionary):
+			continue
+		var move: Dictionary = move_value
+		if int(move.get("currentPp", 1)) <= 0:
+			continue
+		fallback = index
+		if int(move.get("power", 0)) > 0:
+			return index
+	return fallback
+
+# Headless two-client friend-flow driver: A requests, DMs and removes; B
+# accepts and replies. Both sides exit non-zero on timeout.
+func _process_auto_social(now: int) -> void:
+	if not auto_social or auto_done or state != GameState.WORLD:
+		return
+	if auto_social_at == 0:
+		auto_social_at = now + 20000
+		auto_social_next_poll = now
+		print("[auto-social] role %s %s ready" % [auto_role, auto_character])
+	if now >= auto_social_at:
+		auto_done = true
+		print("[auto-social] FAILED role %s phase %d" % [auto_role, auto_social_phase])
+		get_tree().quit(1)
+		return
+	if net.is_open() and now >= auto_social_next_poll:
+		auto_social_next_poll = now + 500
+		net.send_message({"type": "social_state"})
+	if auto_role == "A":
+		_process_auto_social_a(now)
+	else:
+		_process_auto_social_b(now)
+
+func _process_auto_social_a(now: int) -> void:
+	match auto_social_phase:
+		0:
+			for raw in hud._social_nearby:
+				if not (raw is Dictionary):
+					continue
+				var row: Dictionary = raw
+				var row_name := str(row.get("name", ""))
+				if not row_name.begins_with("ScoutB"):
+					continue
+				auto_social_peer_id = str(row.get("id", ""))
+				auto_social_peer_name = row_name
+				auto_social_phase = 1
+				auto_social_at = now + 10000
+				print("[auto-social] A sends a request to %s" % row_name)
+				_on_friend_requested(auto_social_peer_id)
+				return
+		1:
+			if _auto_social_has_friend(auto_social_peer_id):
+				auto_social_phase = 2
+				auto_social_at = now + 10000
+				print("[auto-social] A accepted %s; sending a DM" % auto_social_peer_name)
+				_on_social_message_submitted("auto social hello", auto_social_peer_id)
+		2:
+			if (
+				auto_social_dm_out
+				and auto_social_dm_in
+				and auto_social_dm_text == "auto social reply"
+			):
+				auto_social_phase = 3
+				auto_social_at = now + 10000
+				print("[auto-social] A got the reply; removing the friend")
+				_on_friend_remove_requested(auto_social_peer_id)
+		3:
+			if not _auto_social_has_friend(auto_social_peer_id):
+				auto_done = true
+				print("[auto-social] PASSED role A (%s)" % auto_social_peer_name)
+				get_tree().quit(0)
+
+func _process_auto_social_b(now: int) -> void:
+	match auto_social_phase:
+		0:
+			for raw in hud._social_incoming:
+				if not (raw is Dictionary):
+					continue
+				var row: Dictionary = raw
+				var row_name := str(row.get("name", ""))
+				if not row_name.begins_with("ScoutA"):
+					continue
+				auto_social_peer_id = str(row.get("id", ""))
+				auto_social_peer_name = row_name
+				auto_social_phase = 1
+				auto_social_at = now + 10000
+				print("[auto-social] B accepts %s" % row_name)
+				_on_friend_accept_requested(auto_social_peer_id)
+				return
+		1:
+			if _auto_social_has_friend(auto_social_peer_id):
+				auto_social_phase = 2
+				auto_social_at = now + 10000
+				print("[auto-social] B is friends with %s" % auto_social_peer_name)
+		2:
+			if auto_social_dm_in and auto_social_dm_text == "auto social hello":
+				auto_social_phase = 3
+				auto_social_at = now + 10000
+				print("[auto-social] B replies to the DM")
+				_on_social_message_submitted("auto social reply", auto_social_peer_id)
+		3:
+			if not _auto_social_has_friend(auto_social_peer_id):
+				auto_done = true
+				print("[auto-social] PASSED role B (%s)" % auto_social_peer_name)
+				get_tree().quit(0)
+
+func _auto_social_has_friend(player_id: String) -> bool:
+	for raw in hud._social_friends:
+		if raw is Dictionary and str((raw as Dictionary).get("id", "")) == player_id:
+			return true
+	return false
+
 func _process_auto(now: int) -> void:
-	if not auto_mode or not auto_moving or auto_done:
+	if not auto_mode or auto_social or auto_duel or not auto_moving or auto_done:
 		return
 	if (
 		state != GameState.WORLD

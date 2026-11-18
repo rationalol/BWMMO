@@ -1,0 +1,733 @@
+{
+  "version": 1,
+  "startMap": "unova_in_391",
+  "initialFlags": {
+    "prologue.started": 1,
+    "prologue.starter": -1,
+    "prologue.starterChosen": 0,
+    "prologue.bedroomDone": 0,
+    "prologue.momDone": 0,
+    "prologue.pokedex": 0,
+    "prologue.routeUnlocked": 0,
+    "8010": 0
+  },
+  "scenes": {
+    "prologue_bedroom_intro": {
+      "id": "prologue_bedroom_intro",
+      "steps": [
+        {
+          "type": "face",
+          "npcId": "prologue_cheren_bedroom",
+          "facing": "player"
+        },
+        {
+          "type": "face",
+          "npcId": "prologue_bianca_bedroom",
+          "facing": "player"
+        },
+        {
+          "type": "say",
+          "speaker": "Cheren",
+          "lines": [
+            "Would you get a move on\nand open the gift box already?",
+            "I'm sure the Pokémon are just as\nexcited to meet us!"
+          ],
+          "when": {
+            "prologue.starterChosen": 0
+          }
+        },
+        {
+          "type": "say",
+          "speaker": "Bianca",
+          "lines": [
+            "Ooh!\nWhat kind of Pokémon could they be?"
+          ],
+          "when": {
+            "prologue.starterChosen": 0
+          }
+        },
+        {
+          "type": "say",
+          "speaker": "Bianca",
+          "lines": [
+            "The gift box is on the desk.\nGo on, {name}—open it!"
+          ],
+          "when": {
+            "prologue.starterChosen": 0
+          }
+        },
+        {
+          "type": "say",
+          "speaker": "Gift Box",
+          "lines": [
+            "Three Poké Balls sit inside the box,\none for each of you."
+          ],
+          "when": {
+            "prologue.starterChosen": 0
+          }
+        },
+        {
+          "type": "chooseStarter",
+          "prompt": [
+            "Which Pokémon will you choose?"
+          ],
+          "flag": "prologue.starter",
+          "options": [
+            {
+              "id": "snivy",
+              "species": "snivy",
+              "level": 5,
+              "value": 2,
+              "lines": [
+                "The Snivy looks up at you\nand gives a confident nod."
+              ]
+            },
+            {
+              "id": "tepig",
+              "species": "tepig",
+              "level": 5,
+              "value": 0,
+              "lines": [
+                "The Tepig snorts happily\nand bumps your hand."
+              ]
+            },
+            {
+              "id": "oshawott",
+              "species": "oshawott",
+              "level": 5,
+              "value": 1,
+              "lines": [
+                "The Oshawott grins and\nwaves its scalchop."
+              ]
+            }
+          ],
+          "when": {
+            "prologue.starterChosen": 0
+          }
+        },
+        {
+          "type": "setFlag",
+          "flag": "2402",
+          "value": 1,
+          "when": {
+            "prologue.starterChosen": 0
+          }
+        },
+        {
+          "type": "setFlag",
+          "flag": "prologue.starterChosen",
+          "value": 1,
+          "when": {
+            "prologue.starterChosen": 0
+          }
+        },
+        {
+          "type": "say",
+          "speaker": "Bianca",
+          "lines": [
+            "Everyone has chosen a Pokémon!\n...So that's that!",
+            "Hey, I know!\nLet's have a Pokémon battle!"
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Cheren",
+          "lines": [
+            "Honestly, Bianca...",
+            "Even though they're still weak Pokémon,\nyou shouldn't have Pokémon battles\ninside a house."
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Bianca",
+          "lines": [
+            "Don't be a worrywart!\nThese little ones are weak, like you said.",
+            "We have to let them battle so they'll get\nstronger. It's settled, {name}!\nGet ready for a Pokémon battle!"
+          ]
+        },
+        {
+          "type": "battle",
+          "speaker": "Bianca",
+          "variants": [
+            {
+              "when": {
+                "prologue.starter": 0
+              },
+              "trainer": "bianca_oshawott"
+            },
+            {
+              "when": {
+                "prologue.starter": 1
+              },
+              "trainer": "bianca_snivy"
+            },
+            {
+              "when": {
+                "prologue.starter": 2
+              },
+              "trainer": "bianca_tepig"
+            },
+            {
+              "trainer": "bianca_oshawott"
+            }
+          ],
+          "resultFlag": "8010",
+          "win": [
+            "Wow...",
+            "{name}, you're gonna be\nan awesome Trainer someday, I can tell!",
+            "No doubt!"
+          ],
+          "lose": [
+            "Wha...?",
+            "I got so absorbed in having my Pokémon\nuse moves, I won before even realizing..."
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Cheren",
+          "lines": [
+            "Uh...\n...",
+            "Bianca, would you take a look around?"
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Bianca",
+          "lines": [
+            "Wh-whoa!\nWhat happened?!"
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Bianca",
+          "lines": [
+            "Wow! Pokémon are amaaaaazing!!\nSo little, but so strong!",
+            "I'm so glad that I get to have a Pokémon!",
+            "...Oh.\nUm, sorry about your room, {name}."
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Cheren",
+          "lines": [
+            "You...are completely hopeless.",
+            "Here!\nI'll restore your Pokémon for you."
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "",
+          "lines": [
+            "Cheren healed Bianca's Pokémon!"
+          ]
+        },
+        {
+          "type": "heal"
+        },
+        {
+          "type": "say",
+          "speaker": "Cheren",
+          "when": {
+            "8010": 1
+          },
+          "lines": [
+            "It's amazing that you won\nwithout your Pokémon's losing any\nenergy, which is called HP.",
+            "But you used some of the moves'\nPower Points, or PP, though."
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "",
+          "when": {
+            "8010": 0
+          },
+          "lines": [
+            "{name}'s Pokémon needs\nto be fixed up, too."
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "",
+          "lines": [
+            "Cheren healed {name}'s Pokémon!"
+          ]
+        },
+        {
+          "type": "heal"
+        },
+        {
+          "type": "say",
+          "speaker": "Bianca",
+          "lines": [
+            "Hey, Cheren!\nHow about you battle, too?",
+            "With all you know, I'm sure you can\nbattle without turning the room into\na disaster area like I did!"
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Cheren",
+          "lines": [
+            "I believe you're right!",
+            "It'll be no problem for me to keep\nthe room from getting any messier.",
+            "Besides, it's not fair if you two are the\nonly ones who get to have fun battling!"
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Cheren",
+          "lines": [
+            "It's decided. You'll be my opponent...\nin our first Pokémon battle!",
+            "Let's see what you can do, {name}!"
+          ]
+        },
+        {
+          "type": "battle",
+          "speaker": "Cheren",
+          "variants": [
+            {
+              "when": {
+                "prologue.starter": 0
+              },
+              "trainer": "cheren_tepig"
+            },
+            {
+              "when": {
+                "prologue.starter": 1
+              },
+              "trainer": "cheren_oshawott"
+            },
+            {
+              "when": {
+                "prologue.starter": 2
+              },
+              "trainer": "cheren_snivy"
+            },
+            {
+              "trainer": "cheren_tepig"
+            }
+          ],
+          "resultFlag": "8010",
+          "win": [
+            "I made a strange blunder\nin my first battle, but\nthis feeling I have...",
+            "...I'm finally a Trainer.",
+            "But first, we'd better go apologize to\nyour mother about this messed-up room."
+          ],
+          "lose": [
+            "This feeling...\nFinally, I'm a Trainer.",
+            "On top of that, we'd better go apologize\nto your mother about this room."
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Bianca",
+          "lines": [
+            "Oh!\nI'd better come, too!"
+          ]
+        },
+        {
+          "type": "walk",
+          "npcId": "prologue_bianca_bedroom",
+          "path": [
+            { "x": 6, "y": 4 },
+            { "x": 7, "y": 4 },
+            { "x": 7, "y": 3 },
+            { "x": 8, "y": 3 },
+            { "x": 8, "y": 2 }
+          ],
+          "vanish": true
+        },
+        {
+          "type": "walk",
+          "npcId": "prologue_cheren_bedroom",
+          "path": [
+            { "x": 7, "y": 5 },
+            { "x": 8, "y": 5 },
+            { "x": 8, "y": 4 },
+            { "x": 8, "y": 3 },
+            { "x": 8, "y": 2 }
+          ],
+          "vanish": true
+        },
+        {
+          "type": "setFlag",
+          "flag": "prologue.bedroomDone",
+          "value": 1
+        },
+        {
+          "type": "notice",
+          "text": "Go downstairs and apologize to Mom about the room."
+        }
+      ]
+    },
+    "prologue_mom": {
+      "id": "prologue_mom",
+      "steps": [
+        {
+          "type": "face",
+          "npcId": "z390_n0",
+          "facing": "player"
+        },
+        {
+          "type": "say",
+          "speaker": "Mom",
+          "lines": [
+            "You're going to thank the\nprofessor too, right?",
+            "Better get going, honey!"
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Mom",
+          "lines": [
+            "Oh! Look at that—your very\nown Pokémon!",
+            "Everyone looks a little tired.\nLet me patch them up."
+          ]
+        },
+        {
+          "type": "heal"
+        },
+        {
+          "type": "setFlag",
+          "flag": "prologue.momDone",
+          "value": 1
+        },
+        {
+          "type": "notice",
+          "text": "Mom healed your team. Professor Juniper's lab is just north of town."
+        }
+      ]
+    },
+    "prologue_juniper_pokedex": {
+      "id": "prologue_juniper_pokedex",
+      "steps": [
+        {
+          "type": "face",
+          "npcId": "prologue_juniper_lab",
+          "facing": "player"
+        },
+        {
+          "type": "face",
+          "npcId": "prologue_bianca_lab",
+          "facing": "player"
+        },
+        {
+          "type": "face",
+          "npcId": "prologue_cheren_lab",
+          "facing": "player"
+        },
+        {
+          "type": "say",
+          "speaker": "Professor Juniper",
+          "lines": [
+            "Why, hello,\n{name}! How have you been lately?"
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Professor Juniper",
+          "lines": [
+            "Your mother called ahead.\nSo you've finally chosen a partner!",
+            "Then it's time for this."
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Bianca",
+          "lines": [
+            "For some reason,\nmy heart is pounding, {name}.",
+            "What are you and {rival} going to do?"
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Cheren",
+          "lines": [
+            "Finally, I can become\na Pokémon Trainer.",
+            "I'll have real battles with other\nTrainers and get stronger. Wait and see!"
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Professor Juniper",
+          "lines": [
+            "These are Pokédexes—one for each\nof you.",
+            "Fill them with every Pokémon\nyou meet. That's your first task!"
+          ]
+        },
+        {
+          "type": "setFlag",
+          "flag": "prologue.pokedex",
+          "value": 1
+        },
+        {
+          "type": "setFlag",
+          "flag": "prologue.routeUnlocked",
+          "value": 1
+        },
+        {
+          "type": "notice",
+          "text": "You received a Pokédex! Route 1 is now open."
+        }
+      ]
+    }
+  },
+  "npcs": [
+    {
+      "id": "prologue_cheren_bedroom",
+      "mapId": "unova_in_391",
+      "name": "Cheren",
+      "x": 6,
+      "y": 5,
+      "color": "#7fb3d5",
+      "kind": "npc",
+      "sprite": 12,
+      "visibleWhen": {
+        "prologue.bedroomDone": 0
+      },
+      "dialogue": [
+        "Would you get a move on\nand open the gift box already?"
+      ]
+    },
+    {
+      "id": "prologue_bianca_bedroom",
+      "mapId": "unova_in_391",
+      "name": "Bianca",
+      "x": 5,
+      "y": 4,
+      "color": "#f5cba7",
+      "kind": "npc",
+      "sprite": 135,
+      "visibleWhen": {
+        "prologue.bedroomDone": 0
+      },
+      "dialogue": [
+        "Ooh!\nWhat kind of Pokémon could they be?"
+      ]
+    },
+    {
+      "id": "prologue_juniper_lab",
+      "mapId": "unova_in_396",
+      "name": "Professor Juniper",
+      "x": 4,
+      "y": 5,
+      "color": "#c9b6e4",
+      "kind": "npc",
+      "sprite": 110,
+      "scene": "prologue_juniper_pokedex",
+      "sceneWhen": {
+        "prologue.momDone": 1,
+        "prologue.pokedex": 0
+      },
+      "dialogue": [
+        "Why, hello,\n{name}! How have you been lately?",
+        "Come back after you've spoken\nwith your mother."
+      ]
+    },
+    {
+      "id": "prologue_bianca_lab",
+      "mapId": "unova_in_396",
+      "name": "Bianca",
+      "x": 3,
+      "y": 9,
+      "color": "#f5cba7",
+      "kind": "npc",
+      "sprite": 135,
+      "dialogue": [
+        "For some reason,\nmy heart is pounding, {name}.",
+        "What are you and {rival} going to do?"
+      ]
+    },
+    {
+      "id": "prologue_cheren_lab",
+      "mapId": "unova_in_396",
+      "name": "Cheren",
+      "x": 5,
+      "y": 9,
+      "color": "#7fb3d5",
+      "kind": "npc",
+      "sprite": 12,
+      "dialogue": [
+        "Finally, I can become\na Pokémon Trainer.",
+        "I'll have real battles with other\nTrainers and get stronger. Wait and see!"
+      ]
+    },
+    {
+      "id": "prologue_cedric_lab",
+      "mapId": "unova_in_396",
+      "name": "Cedric",
+      "x": 12,
+      "y": 7,
+      "color": "#d5d8dc",
+      "kind": "npc",
+      "sprite": 109,
+      "dialogue": [
+        "Hey, {name}!\nAre you meeting lots of Pokémon?",
+        "There really are lots of Pokémon\nin the Unova region and the",
+        "rest of the world!"
+      ]
+    },
+    {
+      "id": "prologue_route1_bianca",
+      "mapId": "unova_full",
+      "name": "Bianca",
+      "x": 788,
+      "y": 739,
+      "color": "#f5cba7",
+      "kind": "npc",
+      "sprite": 135,
+      "visibleWhen": {
+        "prologue.starterChosen": 0
+      },
+      "dialogue": [
+        "Wait, {name}!",
+        "You don't have a Pokémon yet.\nGo back and open the gift box!"
+      ]
+    },
+    {
+      "id": "prologue_route1_cheren",
+      "mapId": "unova_full",
+      "name": "Cheren",
+      "x": 788,
+      "y": 739,
+      "color": "#7fb3d5",
+      "kind": "npc",
+      "sprite": 12,
+      "visibleWhen": {
+        "prologue.starterChosen": 1,
+        "prologue.routeUnlocked": 0
+      },
+      "dialogue": [
+        "Hold on.",
+        "Professor Juniper is waiting for us\nat the lab before we leave town."
+      ]
+    }
+  ],
+  "interactions": [
+    {
+      "mapId": "unova_in_390",
+      "npcId": "z390_n0",
+      "scene": "prologue_mom",
+      "when": {
+        "prologue.starterChosen": 1,
+        "prologue.momDone": 0
+      }
+    }
+  ],
+  "triggers": [],
+  "gates": [
+    {
+      "id": "route1_no_starter",
+      "mapId": "unova_full",
+      "x": 786,
+      "y": 736,
+      "width": 6,
+      "height": 5,
+      "when": {
+        "prologue.starterChosen": 0
+      },
+      "speaker": "Bianca",
+      "lines": [
+        "Wait, {name}!",
+        "You don't have a Pokémon yet.\nGo back and open the gift box!"
+      ]
+    },
+    {
+      "id": "route1_no_pokedex",
+      "mapId": "unova_full",
+      "x": 786,
+      "y": 736,
+      "width": 6,
+      "height": 5,
+      "when": {
+        "prologue.starterChosen": 1,
+        "prologue.routeUnlocked": 0
+      },
+      "speaker": "Cheren",
+      "lines": [
+        "Hold on.",
+        "Professor Juniper is waiting for us\nat the lab before we leave town."
+      ]
+    }
+  ],
+  "onEnter": [
+    {
+      "id": "prologue_bedroom_start",
+      "mapId": "unova_in_391",
+      "scene": "prologue_bedroom_intro",
+      "when": {
+        "prologue.bedroomDone": 0
+      }
+    },
+    {
+      "id": "prologue_lab_pokedex",
+      "mapId": "unova_in_396",
+      "scene": "prologue_juniper_pokedex",
+      "when": {
+        "prologue.momDone": 1,
+        "prologue.pokedex": 0
+      }
+    }
+  ],
+  "trainers": {
+    "bianca_oshawott": {
+      "name": "Bianca",
+      "sprite": 135,
+      "party": [
+        {
+          "species": "oshawott",
+          "level": 5
+        }
+      ]
+    },
+    "bianca_snivy": {
+      "name": "Bianca",
+      "sprite": 135,
+      "party": [
+        {
+          "species": "snivy",
+          "level": 5
+        }
+      ]
+    },
+    "bianca_tepig": {
+      "name": "Bianca",
+      "sprite": 135,
+      "party": [
+        {
+          "species": "tepig",
+          "level": 5
+        }
+      ]
+    },
+    "cheren_tepig": {
+      "name": "Cheren",
+      "sprite": 12,
+      "party": [
+        {
+          "species": "tepig",
+          "level": 5
+        }
+      ]
+    },
+    "cheren_oshawott": {
+      "name": "Cheren",
+      "sprite": 12,
+      "party": [
+        {
+          "species": "oshawott",
+          "level": 5
+        }
+      ]
+    },
+    "cheren_snivy": {
+      "name": "Cheren",
+      "sprite": 12,
+      "party": [
+        {
+          "species": "snivy",
+          "level": 5
+        }
+      ]
+    }
+  }
+}

@@ -3,6 +3,24 @@ extends SceneTree
 const ViewScript = preload("res://scripts/nuvema_online.gd")
 const FoliageShader = preload("res://shaders/foliage_wind.gdshader")
 
+# Imported textures may shift RGB values while keeping the silhouette, so
+# compare the alpha mask: enough to tell a standing frame from a walk stride.
+func _same_alpha_mask(texture: Texture2D, path: String) -> bool:
+	if texture == null or not FileAccess.file_exists(path):
+		return false
+	var expected := Image.load_from_file(path)
+	var actual := texture.get_image()
+	if expected == null or actual == null or expected.get_size() != actual.get_size():
+		return false
+	var actual_data := actual.get_data()
+	var expected_data := expected.get_data()
+	if actual_data.size() != expected_data.size():
+		return false
+	for index in range(3, actual_data.size(), 4):
+		if actual_data[index] != expected_data[index]:
+			return false
+	return true
+
 func _init() -> void:
 	var failures := 0
 	var world: Node3D = ViewScript.new()
@@ -74,6 +92,37 @@ func _init() -> void:
 		failures += 1
 	elif not is_equal_approx(actor_frames.get_animation_speed("walk_down"), 4.0):
 		push_error("walk cycle should play at 4 fps (two tiles per cycle)")
+		failures += 1
+
+	if actor_frames != null:
+		# Player actor tables are 1-based: idle_down 4 is the standing frame.
+		# A stray +1 used to make the default pose the first walk stride.
+		if not _same_alpha_mask(
+			actor_frames.get_frame_texture("idle_down", 0),
+			"res://assets/bw/nuvema/actors/hero/frames/frame_04.png"
+		):
+			push_error("idle_down must use the standing frame_04, not a walk stride")
+			failures += 1
+		elif not _same_alpha_mask(
+			actor_frames.get_frame_texture("walk_down", 1),
+			"res://assets/bw/nuvema/actors/hero/frames/frame_05.png"
+		):
+			push_error("walk_down's first step must be frame_05")
+			failures += 1
+	# Overworld NPC tables are 0-based, so idle_down 3 must still resolve to
+	# frame_04 there. Only run this when the local NPC sheet was extracted.
+	if FileAccess.file_exists("res://assets/bw/overworld/npc_104/actor.json"):
+		var npc_frames: SpriteFrames = world._frames_for("npc_104")
+		if not _same_alpha_mask(
+			npc_frames.get_frame_texture("idle_down", 0),
+			"res://assets/bw/overworld/npc_104/frames/frame_04.png"
+		):
+			push_error("NPC 0-based idle_down must resolve to frame_04")
+			failures += 1
+
+	var self_sprite: AnimatedSprite3D = world.self_actor["sprite"]
+	if self_sprite.alpha_cut != SpriteBase3D.ALPHA_CUT_DISCARD:
+		push_error("actor sprites must write depth so transparent water stays behind them")
 		failures += 1
 
 	var mesh_count := 0

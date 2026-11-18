@@ -213,11 +213,12 @@ def encode_terrain_heights(rows: list[list[float]]) -> str:
     return encode_heights(values)
 
 
-def encounter_table(rom, zone_header, content_species_by_dex):
+def encounter_table(rom, zone_header, content_species_by_dex, tables=None):
     encounter_id = zone_header[11]
     if encounter_id == 0xFFFF:
         return None
-    tables = read_narc(rom, "a/1/2/6")
+    if tables is None:
+        tables = read_narc(rom, "a/1/2/6")
     if encounter_id >= len(tables):
         return None
     entry = tables[encounter_id]

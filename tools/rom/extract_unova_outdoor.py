@@ -100,7 +100,13 @@ def main() -> int:
             header = ZONE_HEADER.unpack_from(zone_data, zone_id * ZONE_HEADER.size)
             area_id = header[2]
             area = AREA_RECORD.unpack_from(area_data, area_id * AREA_RECORD.size)
-            bundle_id, texture_set = area[0], area[1]
+            # area[1] is the map texture set. The ROM groups four texture sets
+            # per prop bundle, so the bundle index is it divided by four.
+            # area[0] is only the overworld fallback (always 5) and using it as
+            # the bundle silently dropped every city-specific building
+            # (Nacrene, Nimbasa, Driftveil, ...).
+            texture_set = area[1]
+            bundle_id = texture_set // 4
             cells.append({
                 "x": x,
                 "y": y,
@@ -154,6 +160,7 @@ def main() -> int:
             prop_texture_path.write_bytes(prop_textures[bundle_id])
 
         cell_props = []
+        cell_prop_files: dict[str, str] = {}
         for placement in placements:
             res_id = placement["prop"]
             key = (bundle_id, res_id)
@@ -211,6 +218,25 @@ def main() -> int:
                 "rotation": placement["rotation"],
                 "file": prop_info["file"]
             })
+            cell_prop_files[str(res_id)] = prop_info["file"]
+
+        # The runtime resolves manifest paths from res://assets/bw, so prefix
+        # the asset root. The library keeps paths relative to this directory.
+        manifest_props = [
+            {**prop, "file": f"unova_outdoor/{prop['file']}"}
+            for prop in cell_props
+        ]
+        manifest = {
+            "mapFile": f"{name}.glb",
+            "props": manifest_props,
+            "propFiles": {
+                res_id: f"unova_outdoor/{path}"
+                for res_id, path in cell_prop_files.items()
+            }
+        }
+        (cell_dir / "placements.json").write_text(
+            json.dumps(manifest, indent=2) + "\n", encoding="utf-8"
+        )
 
         cells[index - 1] = {
             **cell,

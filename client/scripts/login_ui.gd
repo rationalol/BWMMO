@@ -4,9 +4,9 @@ signal login_requested(username: String, password: String, server_url: String)
 signal register_requested(username: String, password: String, server_url: String)
 
 const UI = preload("res://scripts/ui_theme.gd")
-const DEFAULT_URL := "ws://127.0.0.1:2567"
+const DEFAULT_URL := "ws://122.51.98.40:2567"
 
-var server_input: LineEdit
+var server_url := DEFAULT_URL
 var user_input: LineEdit
 var pass_input: LineEdit
 var status_label: Label
@@ -73,13 +73,6 @@ func _ready() -> void:
 	divider.color = UI.BORDER
 	divider.custom_minimum_size = Vector2(0, 1)
 	box.add_child(divider)
-
-	box.add_child(Loc.make_label("Server", 12, UI.MUTED))
-	server_input = LineEdit.new()
-	server_input.text = DEFAULT_URL
-	server_input.placeholder_text = "ws://127.0.0.1:2567"
-	UI.style_line_edit(server_input)
-	box.add_child(server_input)
 
 	box.add_child(Loc.make_label("Username", 12, UI.MUTED))
 	user_input = LineEdit.new()
@@ -170,7 +163,7 @@ func _on_password_submitted(_text: String) -> void:
 	_submit(false)
 
 func _submit(register: bool) -> void:
-	var url := server_input.text.strip_edges()
+	var url := server_url.strip_edges()
 	var username := user_input.text.strip_edges()
 	var password := pass_input.text
 	if not (url.begins_with("ws://") or url.begins_with("wss://")):
@@ -194,7 +187,6 @@ func set_status(text: String, is_error: bool = true) -> void:
 func set_busy(busy: bool) -> void:
 	login_button.disabled = busy
 	register_button.disabled = busy
-	server_input.editable = not busy
 	user_input.editable = not busy
 	pass_input.editable = not busy
 
@@ -203,7 +195,7 @@ func show_connecting(text: String = "") -> void:
 	set_status(Loc.t("Connecting...") if text == "" else text, false)
 
 func set_server_url(url: String) -> void:
-	server_input.text = url
+	server_url = url
 
 func set_username(username: String) -> void:
 	user_input.text = username

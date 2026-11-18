@@ -13,6 +13,7 @@ var effects: Node
 var actor_fx: Node
 var message_label: Label
 var should_continue: Callable
+var ability_popup: Callable
 
 func setup(
 	p_player_plate: Control,
@@ -22,7 +23,8 @@ func setup(
 	p_effects: Node,
 	p_actor_fx: Node,
 	p_message_label: Label,
-	p_should_continue: Callable
+	p_should_continue: Callable,
+	p_ability_popup: Callable = Callable()
 ) -> void:
 	player_plate = p_player_plate
 	enemy_plate = p_enemy_plate
@@ -32,6 +34,7 @@ func setup(
 	actor_fx = p_actor_fx
 	message_label = p_message_label
 	should_continue = p_should_continue
+	ability_popup = p_ability_popup
 
 func play(events: Array) -> void:
 	for value in events:
@@ -41,6 +44,8 @@ func play(events: Array) -> void:
 			continue
 		var event: Dictionary = value
 		match str(event.get("type", "")):
+			"ability":
+				await _play_ability(event)
 			"move":
 				await _play_move(event)
 			"damage":
@@ -111,6 +116,18 @@ func play(events: Array) -> void:
 				_set_message("Used %s." % str(event.get("itemId", "item")).capitalize())
 				await _wait(0.12)
 
+func _play_ability(event: Dictionary) -> void:
+	var ability_name := str(event.get("abilityName", ""))
+	if ability_name == "":
+		return
+	_set_message("%s!" % ability_name)
+	if ability_popup.is_valid():
+		ability_popup.call(
+			ability_name,
+			str(event.get("description", ""))
+		)
+	await _wait(0.85)
+
 func _play_move(event: Dictionary) -> void:
 	var side := str(event.get("side", "player"))
 	_set_message("%s used %s!" % [
@@ -151,6 +168,17 @@ func _apply_hp(event: Dictionary) -> void:
 func _side_name(side: String) -> String:
 	if side == "wild":
 		var wild: Dictionary = battle.get("wild", {})
+		var mode := str(battle.get("mode", "wild"))
+		if mode == "duel":
+			return "%s's %s" % [
+				str(battle.get("opponentName", "Opponent")),
+				str(wild.get("name", "Pokémon"))
+			]
+		# A trainer's creature is never wild. The server log already drops the
+		# prefix; the event narration used to add it back and read
+		# "Wild Snivy used Tackle!" in the Bianca/Cheren battles.
+		if mode == "trainer":
+			return "Foe %s" % str(wild.get("name", "Pokémon"))
 		return "Wild %s" % str(wild.get("name", "Pokémon"))
 	var player: Dictionary = battle.get("player", {})
 	return str(player.get("name", "Pokémon"))

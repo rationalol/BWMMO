@@ -30,12 +30,25 @@ const CJK_FONT_PATH := "res://assets/fonts/NotoSansSC-Regular.ttf"
 const BW_FRAME_PATH := "res://assets/bw/ui/window_frame.png"
 const BW_FRAME_OVERLAY_PATH := "res://assets/bw/ui/window_frame_overlay.png"
 
+# The exploratory HUD is drawn at this fraction of its authored size so the
+# world stays dominant. Controls keep their layout rect and shrink toward the
+# screen edge they are anchored to, which leaves the anchored edge in place.
+const HUD_SCALE := 0.8
+
 static var _bw_font: Font = null
 static var _bw_checked := false
 static var _bw_available := false
 static var _cjk_font: Font = null
 static var _cjk_checked := false
 static var _cjk_available := false
+
+static func reset_font_cache() -> void:
+	_bw_font = null
+	_bw_checked = false
+	_bw_available = false
+	_cjk_font = null
+	_cjk_checked = false
+	_cjk_available = false
 
 static func has_bw_font() -> bool:
 	if not _bw_checked:
@@ -125,6 +138,24 @@ static func add_bw_frame_overlay(panel: PanelContainer) -> void:
 	overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	panel.add_child(overlay)
+
+# `corner` selects the rect corner that must stay put: (0,0) for a top-left
+# widget, (1,0) top-right, (0,1) bottom-left, (1,1) bottom-right and (0.5, 1)
+# for a bottom-centred dialogue box. The pivot is refreshed whenever the
+# control resizes (party collapse, chat collapse, viewport changes).
+static func scale_hud(control: Control, corner: Vector2) -> void:
+	control.set_meta("hud_scale_corner", corner)
+	control.scale = Vector2(HUD_SCALE, HUD_SCALE)
+	control.pivot_offset = control.size * corner
+	control.resized.connect(_refresh_hud_pivot.bind(control))
+
+static func set_hud_corner(control: Control, corner: Vector2) -> void:
+	control.set_meta("hud_scale_corner", corner)
+	control.pivot_offset = control.size * corner
+
+static func _refresh_hud_pivot(control: Control) -> void:
+	var corner: Vector2 = control.get_meta("hud_scale_corner", Vector2.ZERO)
+	control.pivot_offset = control.size * corner
 
 static func add_panel_content(
 	panel: PanelContainer,

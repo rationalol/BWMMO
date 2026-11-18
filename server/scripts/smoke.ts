@@ -2,7 +2,7 @@
  * End-to-end smoke test against a running server.
  *
  * Terminal 1:
- *   PORT=3567 DATA_DIR=./data-smoke npm start
+ *   PORT=3567 DATA_DIR=./data-smoke DEBUG_SKIP_STORY=1 ENCOUNTER_RATE=1 npm start
  * Terminal 2:
  *   SMOKE_URL=ws://127.0.0.1:3567 npm run smoke
  */
@@ -218,15 +218,86 @@ async function walk(
   }
 }
 
-async function moveUntilBattle(client: Client, dirs: string[]): Promise<Dict> {
-  for (const dir of dirs) {
+/** Nearest reachable tile of a kind ('g' for tall grass), by walking distance. */
+function nearestTileOfKind(
+  mapId: string,
+  start: [number, number],
+  kind: string
+): [number, number] | null {
+  const map = maps[mapId];
+  if (!map) throw new Error(`unknown map ${mapId}`);
+  const candidates: Array<[number, number, number]> = [];
+  for (let y = 0; y < map.height; y++) {
+    for (let x = 0; x < map.width; x++) {
+      if (map.tiles[y][x] === kind) {
+        candidates.push([x, y, Math.abs(x - start[0]) + Math.abs(y - start[1])]);
+      }
+    }
+  }
+  candidates.sort((left, right) => left[2] - right[2]);
+  for (const [x, y] of candidates) {
+    if (findPath(mapId, start, [x, y])) return [x, y];
+  }
+  return null;
+}
+
+/** Steps off a tile and back; every return step re-enters it and rolls the encounter table. */
+function stepOffAndBack(mapId: string, tile: [number, number]): [string, string] {
+  const map = maps[mapId];
+  if (!map) throw new Error(`unknown map ${mapId}`);
+  const npcs = new Set(map.npcs.map((npc) => `${npc.x},${npc.y}`));
+  const portals = new Set(map.portals.map((portal) => `${portal.x},${portal.y}`));
+  const neighbors = [
+    ["up", 0, -1],
+    ["down", 0, 1],
+    ["left", -1, 0],
+    ["right", 1, 0]
+  ] as const;
+  // Prefer a neighbouring grass tile so both legs of the bounce can spawn.
+  const ordered = [
+    ...neighbors.filter(([, dx, dy]) => map.tiles[tile[1] + dy]?.[tile[0] + dx] === "g"),
+    ...neighbors
+  ];
+  for (const [dir, dx, dy] of ordered) {
+    const nx = tile[0] + dx;
+    const ny = tile[1] + dy;
+    if (!isWalkable(map, nx, ny) || !canStep(map, tile[0], tile[1], nx, ny)) continue;
+    if (npcs.has(`${nx},${ny}`) || portals.has(`${nx},${ny}`)) continue;
+    const opposite = { up: "down", down: "up", left: "right", right: "left" } as const;
+    return [dir, opposite[dir]];
+  }
+  throw new Error(`${mapId}: no walkable tile to step off (${tile[0]},${tile[1]})`);
+}
+
+/**
+ * Walks to `grass` and then keeps re-entering it until a wild battle starts.
+ * The first step into grass already rolls the encounter table; the bounce only
+ * exists so a test server started without `ENCOUNTER_RATE=1` still converges.
+ */
+async function moveUntilBattle(
+  client: Client,
+  mapId: string,
+  start: [number, number],
+  grass: [number, number]
+): Promise<Dict> {
+  const path = findPath(mapId, start, grass);
+  assert.ok(path, `${client.name}: no path from ${start} to grass ${grass} on ${mapId}`);
+  for (const dir of path) {
     const battle = client.take("battle_start");
     if (battle) return battle;
     await move(client, dir);
   }
+  const [out, back] = stepOffAndBack(mapId, grass);
+  for (let step = 0; step < 120; step++) {
+    const battle = client.take("battle_start");
+    if (battle) return battle;
+    await move(client, step % 2 === 0 ? out : back);
+  }
   const battle = client.take("battle_start");
   if (battle) return battle;
-  return client.waitFor("battle_start", () => true, 8000);
+  throw new Error(
+    `${client.name}: no wild encounter after 120 steps in tall grass; start the test server with ENCOUNTER_RATE=1`
+  );
 }
 
 const suffix = Math.random().toString(36).slice(2, 8).toUpperCase();
@@ -265,6 +336,16 @@ async function main(): Promise<void> {
   assert.equal(stateA.map.tiles[0].length, 65);
   assert.equal(stateA.map.tiles[32][32], maps.unova_full.tiles[753][784]);
   assert.ok(stateA.map.tiles.length < stateA.map.height, "map_state should not carry the full grid");
+  assert.ok(stateA.worldMap, "map_state should carry the Unova marker list");
+  assert.equal(stateA.worldMap.width, 256);
+  assert.equal(stateA.worldMap.height, 168);
+  assert.equal(stateA.worldMap.places.length, 40);
+  assert.ok(
+    stateA.worldMap.places.some(
+      (place: Dict) => place.name === "Nuvema Town" && place.kind === "town"
+    ),
+    "the world map should mark Nuvema Town"
+  );
   assert.deepEqual(stateA.self.pokedex, { seen: [495], caught: [495] });
   a.send({ type: "pokedex_request" });
   const dexState = await a.waitFor("pokedex_state", (message) => Boolean(message.entries));
@@ -433,7 +514,9 @@ async function main(): Promise<void> {
   assert.equal(crossedSeam.mapId, "unova_full");
   console.log("  [ok] crossed the Nuvema/Route 1 seam without a map transition");
 
-  const battleStart = await moveUntilBattle(a, Array(20).fill("up"));
+  const grass = nearestTileOfKind("unova_full", [788, 736], "g");
+  assert.ok(grass, "Route 1 should have tall grass reachable from the seam");
+  const battleStart = await moveUntilBattle(a, "unova_full", [788, 736], grass);
   assert.ok(battleStart.battle.id);
   assert.ok(battleStart.battle.wild.species);
   assert.ok(

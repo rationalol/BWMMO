@@ -1,7 +1,8 @@
 {
   "id": "unova_in_351",
-  "name": "Interior",
+  "name": "Shopping Mall",
   "zone": 351,
+  "outdoor": false,
   "spawn": {
     "x": 5,
     "y": 9,
@@ -9,14 +10,14 @@
   },
   "tiles": [
     "################################",
-    "######.##..#..##################",
+    "######.#########################",
     "##.##...###.####################",
-    "##..........####################",
+    "####........####################",
     "####.........###################",
     "####....########################",
     "####.....#######################",
     "##.......#######################",
-    "###........##.##################",
+    "###........#####################",
     "#####PPP########################",
     "################################",
     "################################",
@@ -88,9 +89,376 @@
         "offsetX": 0,
         "offsetZ": 0,
         "mapFile": "unova_indoor/mapsets/tex_254/m_mall02_00_00.glb",
-        "heights": "AAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/EB4P8AAAAA4P/g/+D/4P/g/+D/4P/g/+D/AAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPxAeD/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/wADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD8QHg/+D/4P/g/+D/4P/g/+D/4P/g/+D/4P8AAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAA4P/g/+D/4P/g/+D/AAAAAAAAAADxAfEBAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPg/+D/4P/g/wAAAAAAAOD/4P/g/+D/8QHxAQADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4P/g/+D/4P8AAAAAAADg/+D/4P/g//EB8QEAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+D/4P/g/+D/4P/g/+D/4P/g/+D/4P/g/+D/AAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
-        "props": []
+        "heights": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        "props": [
+          {
+            "x": -216.0,
+            "y": 0.0,
+            "z": -120.0,
+            "rotation": 270.0,
+            "file": "unova_indoor/propsets/b63/chair01.glb"
+          },
+          {
+            "x": -56.0,
+            "y": 0.0,
+            "z": -120.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/plant01.glb"
+          },
+          {
+            "x": -72.0,
+            "y": 0.0,
+            "z": -120.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/plant01.glb"
+          },
+          {
+            "x": -40.0,
+            "y": 0.0,
+            "z": -120.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/dust01.glb"
+          },
+          {
+            "x": -232.0,
+            "y": 16.0,
+            "z": -120.0,
+            "rotation": 270.0,
+            "file": "unova_indoor/propsets/b63/cashier01.glb"
+          },
+          {
+            "x": -232.0,
+            "y": 0.0,
+            "z": -120.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/desk02.glb"
+          },
+          {
+            "x": -232.0,
+            "y": 0.0,
+            "z": -152.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -72.0,
+            "y": 0.0,
+            "z": -136.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -88.0,
+            "y": 0.0,
+            "z": -136.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -40.0,
+            "y": 0.0,
+            "z": -200.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -56.0,
+            "y": 0.0,
+            "z": -200.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -40.0,
+            "y": 8.0,
+            "z": -216.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -72.0,
+            "y": 0.0,
+            "z": -152.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -88.0,
+            "y": 8.0,
+            "z": -152.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -88.0,
+            "y": 0.0,
+            "z": -216.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -40.0,
+            "y": 0.0,
+            "z": -184.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -88.0,
+            "y": 0.0,
+            "z": -152.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -104.0,
+            "y": 0.0,
+            "z": -136.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -104.0,
+            "y": 0.0,
+            "z": -152.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -216.0,
+            "y": 0.0,
+            "z": -168.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -200.0,
+            "y": 0.0,
+            "z": -184.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -216.0,
+            "y": 0.0,
+            "z": -184.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -200.0,
+            "y": 0.0,
+            "z": -152.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -216.0,
+            "y": 0.0,
+            "z": -152.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -200.0,
+            "y": 0.0,
+            "z": -168.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -216.0,
+            "y": 8.0,
+            "z": -168.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -104.0,
+            "y": 0.0,
+            "z": -216.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -40.0,
+            "y": 0.0,
+            "z": -216.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -56.0,
+            "y": 0.0,
+            "z": -216.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -232.0,
+            "y": 0.0,
+            "z": -136.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -216.0,
+            "y": 8.0,
+            "z": -184.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          },
+          {
+            "x": -120.0,
+            "y": 0.0,
+            "z": -216.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b63/box01.glb"
+          }
+        ]
       }
     ]
-  }
+  },
+  "interactables": [
+    {
+      "id": "z351_o0",
+      "x": 2,
+      "y": 6,
+      "script": 10315,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z351_o1",
+      "x": 3,
+      "y": 6,
+      "script": 10315,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z351_o2",
+      "x": 3,
+      "y": 5,
+      "script": 10315,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z351_o3",
+      "x": 3,
+      "y": 4,
+      "script": 10315,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z351_o4",
+      "x": 8,
+      "y": 2,
+      "script": 10315,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z351_o5",
+      "x": 9,
+      "y": 2,
+      "script": 10315,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z351_o6",
+      "x": 10,
+      "y": 2,
+      "script": 10315,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z351_o7",
+      "x": 12,
+      "y": 2,
+      "script": 10315,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z351_o8",
+      "x": 12,
+      "y": 3,
+      "script": 10315,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z351_o9",
+      "x": 13,
+      "y": 4,
+      "script": 10315,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z351_o10",
+      "x": 9,
+      "y": 6,
+      "script": 10315,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z351_o11",
+      "x": 9,
+      "y": 7,
+      "script": 10315,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z351_o12",
+      "x": 10,
+      "y": 7,
+      "script": 10315,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z351_o13",
+      "x": 1,
+      "y": 7,
+      "script": 10315,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    }
+  ]
 }

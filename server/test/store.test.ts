@@ -52,6 +52,27 @@ test("tokens can be resumed and survive a reload", () => {
   }
 });
 
+test("logging out revokes every token for the account only", () => {
+  const { store, dir } = tempStore();
+  try {
+    const ash = store.register("Ash", "pikachu");
+    const gary = store.register("Gary", "eevee");
+    assert.equal(ash.ok, true);
+    assert.equal(gary.ok, true);
+    if (!ash.ok || !gary.ok) return;
+    const first = store.issueToken(ash.account.id);
+    const second = store.issueToken(ash.account.id);
+    const other = store.issueToken(gary.account.id);
+    store.revokeTokens(ash.account.id);
+    assert.equal(store.resume(first), null);
+    assert.equal(store.resume(second), null);
+    assert.equal(store.resume(other)?.username, "Gary");
+  } finally {
+    store.close();
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
 test("characters are saved and name uniqueness is enforced", () => {
   const { store, dir } = tempStore();
   try {

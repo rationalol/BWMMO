@@ -1,22 +1,29 @@
-extends SceneTree
+extends Node
+
+# Headless HUD layout test. Run with:
+#   godot --headless --path client res://tests/HudLayoutTest.tscn
 
 const HudScript = preload("res://scripts/hud.gd")
 const ChatUIScript = preload("res://scripts/chat_ui.gd")
+const UI = preload("res://scripts/ui_theme.gd")
 
 var failures := 0
+var _original_locale := "en"
 
-func _init() -> void:
+func _ready() -> void:
+	_original_locale = Loc.locale
+	Loc.set_locale("en")
 	call_deferred("_run")
 
 func _run() -> void:
-	root.size = Vector2i(960, 540)
-	await process_frame
-	var viewport_size := root.size
+	get_tree().root.size = Vector2i(960, 540)
+	await get_tree().process_frame
+	var viewport_size := get_tree().root.size
 	print("[hud] viewport %s" % str(viewport_size))
 
 	var chat = ChatUIScript.new()
 	chat.visible = true
-	root.add_child(chat)
+	add_child(chat)
 	var speaker_color := Color(0.961, 0.769, 0.318)
 	chat.add_message("Hilbert", "Anyone found a wild Roggenrola here?", speaker_color)
 	chat.add_message("Bianca", "I just caught a Lillipup! So cute!", speaker_color)
@@ -25,7 +32,7 @@ func _run() -> void:
 	chat.add_message("Bianca", "Let's go to the next town soon!", speaker_color)
 
 	var hud = HudScript.new()
-	root.add_child(hud)
+	add_child(hud)
 	hud.set_items([
 		{"id": "poke_ball", "name": "Poké Ball", "category": "ball", "price": 200,
 			"description": "A device for catching wild Pokémon.", "icon": "poke_ball", "ballBonus": 1.0},
@@ -88,23 +95,25 @@ func _run() -> void:
 	hud.set_hint("WASD move  ·  Shift run  ·  E talk  ·  T chat")
 	hud.set_nearby_npc(_nearby_bianca())
 
-	await process_frame
-	await process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
 
 	var card: Control = _find(hud, "TrainerCard")
 	var party_panel: Control = _find(hud, "PartyPanel")
 	var chat_panel: Control = _find(chat, "ChatPanel")
-	var minimap_panel: Control = _find(hud, "MinimapPanel")
 	var prompt: Control = _find(hud, "InteractPrompt")
 	var nav: Control = _find(hud, "NavButtons")
 
 	_expect(card != null, "trainer card missing")
 	_expect(party_panel != null, "party panel missing")
 	_expect(chat_panel != null, "chat panel missing")
-	_expect(minimap_panel != null, "minimap panel missing")
+	_expect(_find(hud, "MinimapPanel") == null, "minimap panel should be removed")
 	_expect(prompt != null, "interact prompt missing")
-	_expect(nav != null and nav.get_child_count() == 5, "five navigation buttons expected")
+	_expect(nav != null and nav.get_child_count() == 7, "seven navigation buttons expected")
 	_expect(_find(hud, "NavDex") != null, "Dex navigation button missing")
+	_expect(_find(hud, "NavMap") != null, "Map navigation button missing")
+	_expect(_find(hud, "NavWorld") != null, "World navigation button missing")
+	_expect(_find(hud, "NavSocial") != null, "Social navigation button missing")
 
 	if party_panel != null:
 		var stack: Control = _find(party_panel, "PartySlots")
@@ -139,7 +148,7 @@ func _run() -> void:
 	if party_slots != null and party_panel != null:
 		var party_rail: Control = _find(hud, "PartyRail")
 		hud._toggle_party_collapsed()
-		await process_frame
+		await get_tree().process_frame
 		_expect(not party_slots.visible, "party list should hide when collapsed")
 		_expect(party_rail != null and party_rail.visible, "avatar rail should show when collapsed")
 		_expect(
@@ -148,19 +157,27 @@ func _run() -> void:
 		)
 		_expect(party_rail != null and party_rail.get_child_count() == party.size(), "one avatar per party member")
 		hud._toggle_party_collapsed()
-		await process_frame
+		await get_tree().process_frame
 		_expect(party_slots.visible, "party list should return when expanded")
 		_expect(party_rail != null and not party_rail.visible, "avatar rail should hide when expanded")
 		_expect(
-			party_panel.get_global_rect().size.x > 200.0,
+			party_panel.size.x > 200.0,
 			"expanded party panel should show the full list"
 		)
 
-	for raw_control in [card, party_panel, chat_panel, minimap_panel, nav]:
+	for raw_control in [card, party_panel, chat_panel, nav]:
 		if raw_control == null:
 			continue
 		var control: Control = raw_control
 		var rect := control.get_global_rect()
+		_expect(
+			is_equal_approx(control.scale.x, UI.HUD_SCALE),
+			"%s should use the compact HUD scale" % control.name
+		)
+		_expect(
+			absf(rect.size.x - control.size.x * UI.HUD_SCALE) < 0.5,
+			"%s visual width should shrink with the HUD scale" % control.name
+		)
 		_expect(
 			rect.position.x >= -0.5 and rect.position.y >= -0.5
 			and rect.end.x <= viewport_size.x + 0.5 and rect.end.y <= viewport_size.y + 0.5,
@@ -181,7 +198,7 @@ func _run() -> void:
 		map_file.close()
 
 	hud._toggle_menu("party")
-	await process_frame
+	await get_tree().process_frame
 	var menu_panel: Control = _find(hud, "MenuPanel")
 	_expect(hud.menu_open, "party menu should open")
 	_expect(menu_panel != null and menu_panel.is_visible_in_tree(), "party menu panel hidden")
@@ -202,15 +219,44 @@ func _run() -> void:
 			menu_body.get_global_rect().end.y <= menu_panel.get_global_rect().end.y + 0.5,
 			"party menu body overflows the menu panel"
 		)
+	_expect(_find_label(hud, "ABILITY") != null, "party detail should label the ability row")
+	_expect(_find_label(hud, "Overgrow") != null, "party detail should show the ability name")
+	_expect(
+		_find_label(hud, "Powers up Grass-type moves in a pinch.") != null,
+		"party detail should show the ability description"
+	)
+	for stat_key in ["hp", "atk", "def", "spAtk", "spDef", "speed"]:
+		var stat_header: Control = _find(hud, "StatHeader_" + stat_key)
+		_expect(stat_header != null, "stat header %s missing" % stat_key)
+	var speed_header: Label = _find(hud, "StatHeader_speed") as Label
+	_expect(
+		speed_header != null and speed_header.text == "SPEED",
+		"speed column should be labelled SPEED"
+	)
+	var special_attack_header: Label = _find(hud, "StatHeader_spAtk") as Label
+	var base_title: Label = _find_label(hud, "BASE")
+	_expect(
+		special_attack_header != null and base_title != null
+		and special_attack_header.get_global_rect().position.y < base_title.get_global_rect().position.y,
+		"stat headers should sit above the BASE row"
+	)
+	Loc.set_locale("zh_CN")
+	await get_tree().process_frame
+	var zh_attack: Label = _find(hud, "StatHeader_atk") as Label
+	var zh_speed: Label = _find(hud, "StatHeader_speed") as Label
+	_expect(zh_attack != null and zh_attack.text == "攻击", "Chinese attack header")
+	_expect(zh_speed != null and zh_speed.text == "速度", "Chinese speed header")
+	Loc.set_locale("en")
+	await get_tree().process_frame
 	hud.close_menu()
 	_expect(not hud.menu_open, "party menu should close")
 
 	hud._open_menu("bag")
-	await process_frame
+	await get_tree().process_frame
 	var ball_items: Array = hud._bag_items()
 	_expect(ball_items.size() == 2, "ball pocket should list Poké and Great Balls")
 	hud._select_bag_pocket("medicine")
-	await process_frame
+	await get_tree().process_frame
 	var medicine_items: Array = hud._bag_items()
 	_expect(medicine_items.size() == 2, "medicine pocket should list Potion and Revive")
 	var use_label: Label = _find_label(hud, "USE ON")
@@ -232,9 +278,9 @@ func _run() -> void:
 		)
 	hud.close_menu()
 
-	for kind in ["bag", "dex", "map", "settings"]:
+	for kind in ["bag", "dex", "map", "world", "settings", "social", "logs"]:
 		hud._open_menu(kind)
-		await process_frame
+		await get_tree().process_frame
 		var panel: Control = _find(hud, "MenuPanel")
 		if panel != null:
 			var rect := panel.get_global_rect()
@@ -244,6 +290,14 @@ func _run() -> void:
 				"%s menu larger than viewport" % kind
 			)
 		_expect(hud.menu_open, "%s menu should open" % kind)
+		if kind == "world":
+			_expect(_find(hud, "WorldMap") != null, "world map view missing")
+			var world_body: Control = _find(hud, "MenuBody")
+			if world_body != null and panel != null:
+				_expect(
+					world_body.get_global_rect().end.y <= panel.get_global_rect().end.y + 0.5,
+					"world menu body overflows the menu panel"
+				)
 		if kind == "dex":
 			_expect(_find(hud, "DexEntry495") != null, "dex entry 495 should be on the first page")
 			_expect(_find_label(hud, "Snivy") != null, "dex detail should name the selected species")
@@ -255,7 +309,7 @@ func _run() -> void:
 				)
 		_dump_tree(hud, "res://.tmp_hud_menu_%s.json" % kind)
 		hud.close_menu()
-		await process_frame
+		await get_tree().process_frame
 
 	hud.show_move_learn({
 		"source": "party",
@@ -266,7 +320,7 @@ func _run() -> void:
 		"creatureName": "Snivy",
 		"creatureLevel": 13
 	})
-	await process_frame
+	await get_tree().process_frame
 	_expect(hud.menu_open and hud._menu_kind == "learn_move", "move learn menu should open")
 	_expect(not hud.close_menu(), "move learn menu should require a decision")
 	var learn_buttons: Array = []
@@ -285,11 +339,15 @@ func _run() -> void:
 			"move learn body overflows the menu panel"
 		)
 	hud._choose_move_learn(-1)
-	await process_frame
+	await get_tree().process_frame
 	_expect(not hud.menu_open, "move learn menu should close after a decision")
 
 	print("[hud] %s" % ("FAILED" if failures > 0 else "PASSED"))
-	quit(1 if failures > 0 else 0)
+	Loc.set_locale(_original_locale)
+	hud.queue_free()
+	chat.queue_free()
+	await get_tree().process_frame
+	get_tree().quit(1 if failures > 0 else 0)
 
 func _make_creature(
 	species: String,
@@ -315,6 +373,10 @@ func _make_creature(
 		"spDef": 21,
 		"speed": 20,
 		"xpToNext": 20 + level * 12,
+		"ability": "overgrow",
+		"abilitySlot": 0,
+		"abilityName": "Overgrow",
+		"abilityDescription": "Powers up Grass-type moves in a pinch.",
 		"ivs": {"hp": 31, "atk": 24, "def": 18, "spAtk": 29, "spDef": 20, "speed": 27},
 		"evs": {"hp": 0, "atk": 4, "def": 0, "spAtk": 12, "spDef": 0, "speed": 8},
 		"nature": "Timid",
@@ -438,7 +500,7 @@ func _dump_tree(node: Node, path: String) -> void:
 	if file == null:
 		push_error("could not write %s" % path)
 		return
-	file.store_string(JSON.stringify({"viewport": [root.size.x, root.size.y], "nodes": entries}, "  "))
+	file.store_string(JSON.stringify({"viewport": [get_tree().root.size.x, get_tree().root.size.y], "nodes": entries}, "  "))
 	file.close()
 	print("[hud] dumped %s (%d nodes)" % [path, entries.size()])
 

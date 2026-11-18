@@ -8,10 +8,22 @@ signal pokedex_requested
 signal move_learn_choice(source: String, index: int, move_id: String, replace_index: int)
 signal forget_move_requested(party_index: int, move_index: int)
 signal capture_card_closed
+signal social_chat_requested(player_id: String, player_name: String)
+signal friend_requested(player_id: String)
+signal friend_accept_requested(player_id: String)
+signal friend_decline_requested(player_id: String)
+signal friend_cancel_requested(player_id: String)
+signal friend_remove_requested(player_id: String)
+signal duel_requested(player_id: String)
+signal duel_accept_requested(player_id: String)
+signal duel_decline_requested(player_id: String)
+signal social_refresh_requested
+signal logout_requested
 
 const WorldTimeScript = preload("res://scripts/world_time.gd")
 const UI = preload("res://scripts/ui_theme.gd")
 const MinimapScript = preload("res://scripts/minimap_ui.gd")
+const WorldMapScript = preload("res://scripts/world_map_ui.gd")
 const DashedSlotScript = preload("res://scripts/ui_dashed_slot.gd")
 const AVATAR_SHADER = preload("res://shaders/ui_circle_mask.gdshader")
 
@@ -24,9 +36,12 @@ const NAV_DEFS := [
 	{"kind": "bag", "label": "Bag", "icon": "bag.svg"},
 	{"kind": "dex", "label": "Dex", "icon": "dex.svg"},
 	{"kind": "map", "label": "Map", "icon": "map.svg"},
+	{"kind": "world", "label": "World", "icon": "world.svg"},
 	{"kind": "party", "label": "Party", "icon": "party.svg"},
+	{"kind": "social", "label": "Social", "icon": "social.svg"},
 	{"kind": "settings", "label": "Settings", "icon": "settings.svg"}
 ]
+const MAX_LOG_LINES := 300
 const BAG_POCKETS := [
 	{"id": "items", "label": "Items"},
 	{"id": "medicine", "label": "Medicine"},
@@ -70,10 +85,11 @@ var _status_container: HBoxContainer
 var _status_dot: PanelContainer
 var _status_label: Label
 
-var _minimap_panel: PanelContainer
-var _minimap_title: Label
-var _minimap
 var _big_minimap
+var _minimap_texture: Texture2D = null
+var _world_map_view
+var _world_map_info: Dictionary = {}
+var _world_map_last_place := ""
 
 var _prompt_center: CenterContainer
 var _prompt_button: Button
@@ -126,9 +142,22 @@ var _connection := "ONLINE"
 var _connected := true
 var _hint_text := ""
 var _nearby_npc: Dictionary = {}
+var _social_friends: Array = []
+var _social_incoming: Array = []
+var _social_outgoing: Array = []
+var _social_nearby: Array = []
+var _social_signature := ""
+var _max_friends := 50
+var _log_lines: Array = []
+var _duel_overlay: Control
+var _duel_title: Label
+var _duel_body: Label
+var _duel_accept: Button
+var _duel_decline: Button
+var _duel_from_id := ""
+var _duel_from_name := ""
+var _duel_outgoing_id := ""
 
-var _touch_layout := false
-var _show_minimap := true
 var _dialogue_mode := false
 var _show_hints := true
 var _chat_timestamps := false
@@ -145,22 +174,33 @@ func _ready() -> void:
 	_build_trainer_card()
 	_build_party()
 	_build_nav()
-	_build_minimap()
 	_build_prompt()
 	_build_notice()
 	_build_menu()
+	_build_duel_request()
+	_apply_hud_scale()
 	_refresh_trainer()
 	_refresh_avatar()
 	_refresh_status()
-	_sync_minimap()
 	_update_prompt_visibility()
+
+func _apply_hud_scale() -> void:
+	# Each widget shrinks toward the screen edge it is anchored to, so the
+	# authored offsets keep working and the world gets the reclaimed space.
+	UI.scale_hud(_trainer_card, Vector2(0.0, 0.0))
+	UI.scale_hud(_party_panel, Vector2(0.0, 0.0))
+	UI.scale_hud(_nav_container, Vector2(1.0, 1.0))
+	UI.scale_hud(_status_container, Vector2(1.0, 1.0))
+	UI.scale_hud(_prompt_center, Vector2(0.5, 1.0))
+	UI.scale_hud(_hint_center, Vector2(0.5, 1.0))
+	UI.scale_hud(_notice_center, Vector2(0.5, 0.0))
 
 func _on_locale_changed(_code: String) -> void:
 	Loc.refresh_all(self)
 	_refresh_trainer()
 	_rebuild_party()
 	_refresh_status()
-	_sync_minimap()
+	_sync_area_map()
 	_update_prompt_visibility()
 	set_world_time(_world_hours)
 	_refresh_nav()
@@ -731,7 +771,7 @@ func _build_nav() -> void:
 	nav.anchor_right = 1.0
 	nav.anchor_top = 1.0
 	nav.anchor_bottom = 1.0
-	nav.offset_left = -282
+	nav.offset_left = -390
 	nav.offset_right = -10
 	nav.offset_top = -68
 	nav.offset_bottom = -10
@@ -783,7 +823,7 @@ func _build_nav() -> void:
 	status.anchor_right = 1.0
 	status.anchor_top = 1.0
 	status.anchor_bottom = 1.0
-	status.offset_left = -282
+	status.offset_left = -338
 	status.offset_right = -10
 	status.offset_top = -88
 	status.offset_bottom = -74
@@ -828,49 +868,13 @@ func _refresh_nav() -> void:
 		var icon: TextureRect = _nav_icons[kind]
 		var label: Label = _nav_labels[kind]
 		icon.modulate = UI.ACCENT if active else Color(1, 1, 1, 0.88)
-		label.add_theme_color_override("font_color", UI.ACCENT if active else UI.MUTED)
-
-func _build_minimap() -> void:
-	_minimap_panel = PanelContainer.new()
-	_minimap_panel.name = "MinimapPanel"
-	_minimap_panel.anchor_left = 1.0
-	_minimap_panel.anchor_right = 1.0
-	_minimap_panel.anchor_top = 0.0
-	_minimap_panel.anchor_bottom = 0.0
-	_minimap_panel.offset_left = -198
-	_minimap_panel.offset_right = -10
-	_minimap_panel.offset_top = 10
-	_minimap_panel.offset_bottom = 180
-	_minimap_panel.add_theme_stylebox_override(
-		"panel", UI.glass_style(UI.INK, 10, UI.BORDER, 1, 0)
-	)
-	_minimap_panel.mouse_filter = MOUSE_FILTER_STOP
-	add_child(_minimap_panel)
-	UI.add_bw_frame_overlay(_minimap_panel)
-	var minimap_margin := UI.add_panel_content(_minimap_panel, 8, 7)
-
-	var box := VBoxContainer.new()
-	box.add_theme_constant_override("separation", 4)
-	minimap_margin.add_child(box)
-
-	var header := HBoxContainer.new()
-	box.add_child(header)
-	var tag := Loc.make_label("AREA", 8, Color(UI.ACCENT.r, UI.ACCENT.g, UI.ACCENT.b, 0.7))
-	header.add_child(tag)
-	var spacer := Control.new()
-	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	spacer.mouse_filter = MOUSE_FILTER_IGNORE
-	header.add_child(spacer)
-	_minimap_title = Loc.make_label("UNKNOWN", 9, UI.MUTED)
-	_minimap_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	header.add_child(_minimap_title)
-
-	_minimap = MinimapScript.new()
-	_minimap.name = "Minimap"
-	_minimap.custom_minimum_size = Vector2(0, 132)
-	_minimap.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	_minimap.map_pressed.connect(_open_menu.bind("map"))
-	box.add_child(_minimap)
+		var label_color := UI.ACCENT if active else UI.MUTED
+		if kind == "social":
+			var pending := _social_incoming.size()
+			label.text = Loc.t("Social") + (" *" if pending > 0 else "")
+			if not active and pending > 0:
+				label_color = UI.GOLD
+		label.add_theme_color_override("font_color", label_color)
 
 func _build_prompt() -> void:
 	_prompt_center = CenterContainer.new()
@@ -1085,6 +1089,113 @@ func _build_menu() -> void:
 	footer.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	box.add_child(footer)
 
+func _build_duel_request() -> void:
+	_duel_overlay = Control.new()
+	_duel_overlay.name = "DuelRequestOverlay"
+	_duel_overlay.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+	_duel_overlay.mouse_filter = MOUSE_FILTER_STOP
+	_duel_overlay.visible = false
+	add_child(_duel_overlay)
+
+	var dim := ColorRect.new()
+	dim.color = Color(0.008, 0.024, 0.043, 0.68)
+	dim.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+	dim.mouse_filter = MOUSE_FILTER_STOP
+	_duel_overlay.add_child(dim)
+
+	var center := CenterContainer.new()
+	center.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+	center.mouse_filter = MOUSE_FILTER_IGNORE
+	_duel_overlay.add_child(center)
+
+	var panel := PanelContainer.new()
+	panel.name = "DuelRequestPanel"
+	panel.custom_minimum_size = Vector2(460, 0)
+	panel.add_theme_stylebox_override(
+		"panel", UI.glass_style(UI.INK, 14, UI.ACCENT, 2, 0)
+	)
+	panel.mouse_filter = MOUSE_FILTER_STOP
+	center.add_child(panel)
+	UI.add_bw_frame_overlay(panel)
+	var margin := UI.add_panel_content(panel, 20, 18)
+
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 10)
+	margin.add_child(box)
+
+	_duel_title = Loc.make_bold_label("Duel request", 18, UI.GOLD)
+	_duel_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	box.add_child(_duel_title)
+
+	_duel_body = Loc.make_label("", 12, UI.TEXT)
+	_duel_body.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_duel_body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_duel_body.custom_minimum_size = Vector2(0, 40)
+	box.add_child(_duel_body)
+
+	var actions := HBoxContainer.new()
+	actions.add_theme_constant_override("separation", 10)
+	box.add_child(actions)
+
+	_duel_accept = Button.new()
+	_duel_accept.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_duel_accept.custom_minimum_size = Vector2(0, 44)
+	_duel_accept.focus_mode = Control.FOCUS_ALL
+	Loc.bind(_duel_accept, "ACCEPT")
+	UI.style_button(_duel_accept, true)
+	_duel_accept.pressed.connect(_on_duel_accept_pressed)
+	actions.add_child(_duel_accept)
+
+	_duel_decline = Button.new()
+	_duel_decline.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_duel_decline.custom_minimum_size = Vector2(0, 44)
+	Loc.bind(_duel_decline, "DECLINE")
+	UI.style_button(_duel_decline)
+	_duel_decline.pressed.connect(_on_duel_decline_pressed)
+	actions.add_child(_duel_decline)
+
+func show_duel_request(data: Dictionary) -> void:
+	var from_id := str(data.get("fromId", ""))
+	if from_id == "":
+		return
+	if menu_open:
+		close_menu()
+	_duel_from_id = from_id
+	_duel_from_name = str(data.get("fromName", Loc.t("Trainer")))
+	Loc.bind(_duel_body, "%s wants to duel!", [_duel_from_name])
+	_duel_overlay.visible = true
+	_duel_accept.grab_focus()
+
+func close_duel_request() -> void:
+	if _duel_overlay != null:
+		_duel_overlay.visible = false
+	_duel_from_id = ""
+	_duel_from_name = ""
+
+func duel_request_open() -> bool:
+	return _duel_overlay != null and _duel_overlay.visible
+
+func set_duel_outgoing(player_id: String) -> void:
+	if _duel_outgoing_id == player_id:
+		return
+	_duel_outgoing_id = player_id
+	if menu_open and _menu_kind == "social":
+		_build_menu_content()
+
+func _on_duel_accept_pressed() -> void:
+	if _duel_from_id == "":
+		return
+	var player_id := _duel_from_id
+	close_duel_request()
+	duel_accept_requested.emit(player_id)
+
+func _on_duel_decline_pressed() -> void:
+	if _duel_from_id == "":
+		return
+	var player_id := _duel_from_id
+	close_duel_request()
+	duel_decline_requested.emit(player_id)
+
 func _toggle_menu(kind: String) -> void:
 	if menu_open and _menu_kind == kind:
 		close_menu()
@@ -1096,11 +1207,17 @@ func _open_menu(kind: String) -> void:
 		return
 	_menu_kind = kind
 	_menu_overlay.visible = true
+	Audio.play_sfx("open")
 	_build_menu_content()
 	_refresh_nav()
 	menu_state_changed.emit(true)
 	if kind == "dex" and _pokedex_entries.is_empty():
 		pokedex_requested.emit()
+	if kind == "social":
+		social_refresh_requested.emit()
+
+func current_menu() -> String:
+	return _menu_kind if menu_open else ""
 
 func close_menu() -> bool:
 	if not menu_open:
@@ -1109,6 +1226,7 @@ func close_menu() -> bool:
 		return false
 	_menu_overlay.visible = false
 	_menu_kind = ""
+	Audio.play_sfx("close")
 	_refresh_nav()
 	menu_state_changed.emit(false)
 	return true
@@ -1121,6 +1239,7 @@ func _build_menu_content() -> void:
 		_menu_body.remove_child(child)
 		child.queue_free()
 	_big_minimap = null
+	_world_map_view = null
 	match _menu_kind:
 		"bag":
 			_menu_title.text = Loc.t("Bag")
@@ -1131,9 +1250,13 @@ func _build_menu_content() -> void:
 			_menu_panel.custom_minimum_size = Vector2(740, 468)
 			_build_dex_menu()
 		"map":
-			_menu_title.text = Loc.t("Map")
+			_menu_title.text = Loc.t("Area map")
 			_menu_panel.custom_minimum_size = Vector2(620, 430)
 			_build_map_menu()
+		"world":
+			_menu_title.text = Loc.t("World map")
+			_menu_panel.custom_minimum_size = Vector2(620, 520)
+			_build_world_menu()
 		"party":
 			_menu_title.text = Loc.t("Party")
 			_menu_panel.custom_minimum_size = Vector2(660, 450)
@@ -1142,6 +1265,14 @@ func _build_menu_content() -> void:
 			_menu_title.text = Loc.t("Settings")
 			_menu_panel.custom_minimum_size = Vector2(560, 420)
 			_build_settings_menu()
+		"social":
+			_menu_title.text = Loc.t("Social")
+			_menu_panel.custom_minimum_size = Vector2(620, 460)
+			_build_social_menu()
+		"logs":
+			_menu_title.text = Loc.t("Connection log")
+			_menu_panel.custom_minimum_size = Vector2(660, 450)
+			_build_logs_menu()
 		"learn_move":
 			_menu_title.text = Loc.t("Learn Move")
 			_menu_panel.custom_minimum_size = Vector2(620, 430)
@@ -1444,19 +1575,17 @@ func _make_party_info(creature: Dictionary, creature_index: int = 0, read_only: 
 	xp_bar.add_theme_stylebox_override("fill", xp_fill)
 	content.add_child(xp_bar)
 
-	var stats := [
-		["HP", "ATK", "DEF", "SPA", "SPD", "SPE"],
-		[
-			str(int(creature.get("maxHp", 0))),
-			str(int(creature.get("atk", 0))),
-			str(int(creature.get("def", 0))),
-			str(int(creature.get("spAtk", 0))) if creature.has("spAtk") else "-",
-			str(int(creature.get("spDef", 0))) if creature.has("spDef") else "-",
-			str(int(creature.get("speed", 0)))
-		]
+	var battle_stats := [
+		str(int(creature.get("maxHp", 0))),
+		str(int(creature.get("atk", 0))),
+		str(int(creature.get("def", 0))),
+		str(int(creature.get("spAtk", 0))) if creature.has("spAtk") else "-",
+		str(int(creature.get("spDef", 0))) if creature.has("spDef") else "-",
+		str(int(creature.get("speed", 0)))
 	]
 	content.add_child(_section_label("Stats"))
-	content.add_child(_make_stat_line("BASE", stats[1], UI.TEXT))
+	content.add_child(_make_stat_header())
+	content.add_child(_make_stat_line("BASE", battle_stats, UI.TEXT))
 	var ivs: Dictionary = creature.get("ivs", {}) if creature.get("ivs") is Dictionary else {}
 	var evs: Dictionary = creature.get("evs", {}) if creature.get("evs") is Dictionary else {}
 	content.add_child(_make_stat_line("IV", [
@@ -1480,6 +1609,25 @@ func _make_party_info(creature: Dictionary, creature_index: int = 0, read_only: 
 	nature_row.add_child(Loc.make_label("HELD ITEM", 9, UI.MUTED))
 	var held := str(creature.get("heldItem", "")).strip_edges()
 	nature_row.add_child(UI.make_label(held if held != "" else Loc.t("None"), 12, UI.TEXT))
+
+	var ability_name := str(creature.get("abilityName", creature.get("ability", "")))
+	if ability_name != "":
+		var ability_row := HBoxContainer.new()
+		ability_row.add_theme_constant_override("separation", 6)
+		content.add_child(ability_row)
+		ability_row.add_child(Loc.make_label("ABILITY", 9, UI.MUTED))
+		var ability_label := UI.make_bold_label(ability_name, 12, UI.TEXT)
+		ability_label.clip_text = true
+		ability_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		ability_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		ability_row.add_child(ability_label)
+		if int(creature.get("abilitySlot", 0)) == 2:
+			ability_row.add_child(Loc.make_label("HIDDEN", 8, UI.GOLD))
+		var ability_description := str(creature.get("abilityDescription", ""))
+		if ability_description != "":
+			var ability_desc := UI.make_label(ability_description, 8, UI.MUTED)
+			ability_desc.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			content.add_child(ability_desc)
 
 	content.add_child(_section_label("Moves"))
 	var moves: Array = creature.get("moves", [])
@@ -1583,6 +1731,37 @@ func _stat_value(block: Dictionary, key_name: String) -> String:
 	if block.is_empty() or not block.has(key_name):
 		return "-"
 	return str(int(block.get(key_name, 0)))
+
+# The six stat columns are meaningless without names, so every table starts
+# with this aligned header. The fallbacks are spelled out because the bitmap
+# font only has one size and "SPA"/"SPD" reads like Speed to a lot of players.
+func _make_stat_header() -> HBoxContainer:
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 2)
+	var spacer := Control.new()
+	spacer.custom_minimum_size = Vector2(34, 0)
+	spacer.mouse_filter = MOUSE_FILTER_IGNORE
+	row.add_child(spacer)
+	var headers := [
+		["hp", "HP"],
+		["atk", "ATK"],
+		["def", "DEF"],
+		["spAtk", "SP.ATK"],
+		["spDef", "SP.DEF"],
+		["speed", "SPEED"]
+	]
+	for entry in headers:
+		var key := str(entry[0])
+		var label := UI.make_label(
+			UI.translate_or("stat", key, str(entry[1])),
+			8,
+			UI.MUTED
+		)
+		label.name = "StatHeader_" + key
+		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		row.add_child(label)
+	return row
 
 func _make_stat_line(title: String, values: Array, color: Color) -> HBoxContainer:
 	var row := HBoxContainer.new()
@@ -2128,8 +2307,10 @@ func _bag_items() -> Array:
 			category = "ball"
 		"medicine":
 			category = "medicine"
+		"tm":
+			category = "tm"
 		"items", "key":
-			category = "key"
+			category = "evolution" if _bag_pocket == "items" else "key"
 	var result: Array = []
 	for item_value in _inventory_items.keys():
 		var item_id := str(item_value)
@@ -2154,6 +2335,7 @@ func _bag_items() -> Array:
 			"heal": int(definition.get("heal", 0)),
 			"cureStatus": bool(definition.get("cureStatus", false)),
 			"revive": bool(definition.get("revive", false)),
+			"moveId": str(definition.get("moveId", "")),
 			"price": int(definition.get("price", 0))
 		})
 	result.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
@@ -2298,7 +2480,7 @@ func _make_bag_detail(item: Dictionary) -> VBoxContainer:
 		var qty := UI.make_bold_label(Loc.tf("Quantity: %d", [int(item.get("qty", 1))]), 12, UI.GOLD)
 		qty.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		box.add_child(qty)
-		if str(item.get("category", "")) == "medicine":
+		if str(item.get("category", "")) in ["medicine", "tm", "evolution"]:
 			box.add_child(_make_item_use_section(item))
 	var detail_spacer := Control.new()
 	detail_spacer.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -2394,6 +2576,19 @@ func _make_item_use_section(item: Dictionary) -> Control:
 	return section
 
 func _can_use_item_on(item: Dictionary, creature: Dictionary) -> bool:
+	var category := str(item.get("category", ""))
+	if category == "evolution":
+		return true
+	if category == "tm":
+		var move_id := str(item.get("moveId", ""))
+		if move_id == "":
+			return false
+		var moves_value: Variant = creature.get("moves", [])
+		if moves_value is Array:
+			for value in moves_value:
+				if value is Dictionary and str((value as Dictionary).get("id", "")) == move_id:
+					return false
+		return true
 	var hp := int(creature.get("hp", 0))
 	var max_hp := maxi(1, int(creature.get("maxHp", 1)))
 	var status := str(creature.get("status", "")).strip_edges()
@@ -2408,12 +2603,13 @@ func _can_use_item_on(item: Dictionary, creature: Dictionary) -> bool:
 	return false
 
 func _build_map_menu() -> void:
-	_menu_body.add_child(_section_label("World map"))
+	_menu_body.add_child(_section_label("Current area"))
 	_big_minimap = MinimapScript.new()
 	_big_minimap.large = true
 	_big_minimap.custom_minimum_size = Vector2(536, 292)
 	_big_minimap.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_big_minimap.map_pressed.connect(close_menu)
+	_big_minimap.set_preview_texture(_minimap_texture)
 	_big_minimap.configure(
 		_map_info, _map_name, _self_grid, _self_dir, str(_nearby_npc.get("id", ""))
 	)
@@ -2422,10 +2618,16 @@ func _build_map_menu() -> void:
 	var footer := HBoxContainer.new()
 	footer.add_theme_constant_override("separation", 12)
 	_menu_body.add_child(footer)
-	footer.add_child(_legend_item(Color(0.596, 0.518, 0.341), "Path"))
-	footer.add_child(_legend_item(Color(0.169, 0.322, 0.165), "Grass"))
-	footer.add_child(_legend_item(Color(0.078, 0.176, 0.133), "Forest"))
-	footer.add_child(_legend_item(Color(0.145, 0.380, 0.553), "Water"))
+	var map_id := str(_map_info.get("id", ""))
+	var live_view := (
+		_minimap_texture != null
+		and (map_id == "unova_full" or map_id.begins_with("unova_in_"))
+	)
+	if not live_view:
+		footer.add_child(_legend_item(Color(0.596, 0.518, 0.341), "Path"))
+		footer.add_child(_legend_item(Color(0.169, 0.322, 0.165), "Grass"))
+		footer.add_child(_legend_item(Color(0.078, 0.176, 0.133), "Forest"))
+		footer.add_child(_legend_item(Color(0.145, 0.380, 0.553), "Water"))
 	var spacer := Control.new()
 	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	spacer.mouse_filter = MOUSE_FILTER_IGNORE
@@ -2435,11 +2637,43 @@ func _build_map_menu() -> void:
 		if _local_count == 1
 		else "%s  -  %d trainers here"
 	)
-	footer.add_child(UI.make_label(Loc.tf(here_key, [
-		_location_name if _location_name != "" else Loc.t("Unknown area"),
-		_local_count
-	]), 8, UI.FAINT))
+	var here_args := [_location_name if _location_name != "" else Loc.t("Unknown area")]
+	if _local_count != 1:
+		here_args.append(_local_count)
+	footer.add_child(UI.make_label(Loc.tf(here_key, here_args), 8, UI.FAINT))
 
+func _build_world_menu() -> void:
+	_menu_body.add_child(_section_label("Unova"))
+	_world_map_view = WorldMapScript.new()
+	_world_map_view.name = "WorldMap"
+	_world_map_view.custom_minimum_size = Vector2(536, 352)
+	_world_map_view.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_world_map_view.map_pressed.connect(close_menu)
+	_world_map_view.configure(_world_map_info, _world_map_place_name())
+	_menu_body.add_child(_world_map_view)
+
+	var footer := HBoxContainer.new()
+	footer.add_theme_constant_override("separation", 12)
+	_menu_body.add_child(footer)
+	footer.add_child(_legend_item(UI.GOLD, "Town"))
+	footer.add_child(_legend_item(Color(0.820, 0.902, 0.973), "Route"))
+	footer.add_child(_legend_item(UI.ACCENT, "Landmark"))
+	footer.add_child(_legend_item(UI.DANGER, "You are here"))
+	var spacer := Control.new()
+	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	spacer.mouse_filter = MOUSE_FILTER_IGNORE
+	footer.add_child(spacer)
+	var current: String = _world_map_view.current_place_name()
+	if current == "":
+		current = _location_name if _location_name != "" else Loc.t("Unknown area")
+	var here_key := (
+		"%s  -  1 trainer here" if _local_count == 1 else "%s  -  %d trainers here"
+	)
+	footer.add_child(UI.make_label(
+		Loc.tf(here_key, [current] if _local_count == 1 else [current, _local_count]),
+		8,
+		UI.FAINT
+	))
 func _legend_item(color: Color, text: String) -> Control:
 	var box := HBoxContainer.new()
 	box.add_theme_constant_override("separation", 4)
@@ -2455,7 +2689,6 @@ func _legend_item(color: Color, text: String) -> Control:
 
 func _build_settings_menu() -> void:
 	_menu_body.add_child(_section_label("Display"))
-	_add_setting_toggle("Minimap", _show_minimap, "minimap")
 	_add_setting_toggle("Control hints", _show_hints, "hints")
 	_add_setting_toggle("Chat timestamps", _chat_timestamps, "timestamps")
 	_menu_body.add_child(_section_label("Language"))
@@ -2467,6 +2700,8 @@ func _build_settings_menu() -> void:
 	_menu_body.add_child(
 		Loc.make_label("E  talk    -    T / Enter  chat    -    Esc  close", 9, UI.MUTED)
 	)
+	_menu_body.add_child(_section_label("Diagnostics"))
+	_add_action_row("Connection log", "OPEN", _open_logs_menu)
 	_menu_body.add_child(_section_label("Connection"))
 	var ping_text := Loc.tf("Ping %d ms", [_ping]) if _ping > 0 else Loc.t("Ping --")
 	var conn_text := (
@@ -2477,6 +2712,15 @@ func _build_settings_menu() -> void:
 		])
 	)
 	_menu_body.add_child(UI.make_label(conn_text, 9, UI.MUTED))
+	_menu_body.add_child(_section_label("Account"))
+	_menu_body.add_child(
+		Loc.make_label("Return to the login screen. Your progress is saved.", 9, UI.MUTED)
+	)
+	_add_action_row("Log out", "LOG OUT", _on_logout_pressed, true)
+
+func _on_logout_pressed() -> void:
+	close_menu()
+	logout_requested.emit()
 
 func _add_language_setting() -> void:
 	var row := PanelContainer.new()
@@ -2521,6 +2765,62 @@ func _add_language_setting() -> void:
 func _on_locale_picker_selected(index: int) -> void:
 	Loc.set_locale(str(_locale_picker.get_item_metadata(index)))
 
+func _open_logs_menu() -> void:
+	_open_menu("logs")
+
+func _add_action_row(
+	text: String, button_text: String, callback: Callable, danger := false
+) -> void:
+	var row := PanelContainer.new()
+	row.custom_minimum_size = Vector2(0, 34)
+	var style := StyleBoxFlat.new()
+	style.bg_color = UI.CARD
+	style.corner_radius_top_left = 7
+	style.corner_radius_top_right = 7
+	style.corner_radius_bottom_left = 7
+	style.corner_radius_bottom_right = 7
+	style.border_width_left = 1
+	style.border_width_top = 1
+	style.border_width_right = 1
+	style.border_width_bottom = 1
+	style.border_color = Color(1, 1, 1, 0.05)
+	style.content_margin_left = 9
+	style.content_margin_top = 5
+	style.content_margin_right = 7
+	style.content_margin_bottom = 5
+	row.add_theme_stylebox_override("panel", style)
+	_menu_body.add_child(row)
+
+	var line := HBoxContainer.new()
+	line.add_theme_constant_override("separation", 8)
+	row.add_child(line)
+	var label := Loc.make_label(text, 11, UI.TEXT)
+	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	line.add_child(label)
+	var button := Button.new()
+	button.text = Loc.t(button_text)
+	button.custom_minimum_size = Vector2(54, 22)
+	button.focus_mode = Control.FOCUS_NONE
+	button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	var normal := UI.button_style(Color(1.0, 1.0, 1.0, 0.055), 6)
+	var hover := UI.button_style(Color(1.0, 1.0, 1.0, 0.11), 6)
+	var pressed := UI.button_style(Color(1.0, 1.0, 1.0, 0.16), 6)
+	for button_style in [normal, hover, pressed]:
+		button_style.content_margin_left = 6
+		button_style.content_margin_right = 6
+		button_style.content_margin_top = 2
+		button_style.content_margin_bottom = 2
+	button.add_theme_stylebox_override("normal", normal)
+	button.add_theme_stylebox_override("hover", hover)
+	button.add_theme_stylebox_override("pressed", pressed)
+	button.add_theme_stylebox_override("focus", StyleBoxEmpty.new())
+	button.add_theme_color_override("font_color", UI.DANGER if danger else UI.MUTED)
+	button.add_theme_color_override("font_hover_color", UI.DANGER if danger else UI.ACCENT)
+	button.add_theme_color_override("font_pressed_color", UI.DANGER if danger else UI.ACCENT)
+	UI.apply_font(button, 9)
+	button.pressed.connect(callback)
+	line.add_child(button)
+
 func _add_setting_toggle(text: String, value: bool, key: String) -> void:
 	var row := PanelContainer.new()
 	row.custom_minimum_size = Vector2(0, 34)
@@ -2558,8 +2858,6 @@ func _add_setting_toggle(text: String, value: bool, key: String) -> void:
 
 func _setting_value(key: String) -> bool:
 	match key:
-		"minimap":
-			return _show_minimap
 		"hints":
 			return _show_hints
 		"timestamps":
@@ -2610,15 +2908,360 @@ func _refresh_toggle_button(button: Button, value: bool) -> void:
 
 func _on_setting_toggled(value: bool, key: String) -> void:
 	match key:
-		"minimap":
-			_show_minimap = value
-			_minimap_panel.visible = value and not _dialogue_mode
 		"hints":
 			_show_hints = value
 			_update_prompt_visibility()
 		"timestamps":
 			_chat_timestamps = value
 			chat_timestamps_requested.emit(value)
+
+func _build_social_menu() -> void:
+	var hint := Loc.make_label(
+		"Add friends, see who is nearby, and open a private chat.", 9, UI.MUTED
+	)
+	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_menu_body.add_child(hint)
+
+	var scroll := ScrollContainer.new()
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	_menu_body.add_child(scroll)
+	var box := VBoxContainer.new()
+	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	box.add_theme_constant_override("separation", 4)
+	scroll.add_child(box)
+
+	if not _social_incoming.is_empty():
+		box.add_child(
+			_section_label("Friend requests %d", [_social_incoming.size()])
+		)
+		for raw in _social_incoming:
+			if raw is Dictionary:
+				box.add_child(_make_request_row(raw, false))
+	if not _social_outgoing.is_empty():
+		box.add_child(
+			_section_label("Sent requests %d", [_social_outgoing.size()])
+		)
+		for raw in _social_outgoing:
+			if raw is Dictionary:
+				box.add_child(_make_request_row(raw, true))
+
+	box.add_child(_section_label("Friends %d/%d", [_social_friends.size(), _max_friends]))
+	if _social_friends.is_empty():
+		box.add_child(_social_empty_row("No friends yet. Add a trainer from the nearby list."))
+	else:
+		for raw in _social_friends:
+			if raw is Dictionary:
+				box.add_child(_make_social_row(raw, true))
+
+	box.add_child(_section_label("Nearby trainers"))
+	if _social_nearby.is_empty():
+		box.add_child(_social_empty_row("Nobody nearby."))
+	else:
+		for raw in _social_nearby:
+			if raw is Dictionary:
+				box.add_child(_make_social_row(raw, false))
+
+func _make_request_row(data: Dictionary, outgoing: bool) -> PanelContainer:
+	var row := PanelContainer.new()
+	row.custom_minimum_size = Vector2(0, 40)
+	var style := StyleBoxFlat.new()
+	style.bg_color = UI.CARD
+	style.corner_radius_top_left = 7
+	style.corner_radius_top_right = 7
+	style.corner_radius_bottom_left = 7
+	style.corner_radius_bottom_right = 7
+	style.border_width_left = 1
+	style.border_width_top = 1
+	style.border_width_right = 1
+	style.border_width_bottom = 1
+	style.border_color = Color(1, 1, 1, 0.05)
+	style.content_margin_left = 9
+	style.content_margin_top = 4
+	style.content_margin_right = 7
+	style.content_margin_bottom = 4
+	row.add_theme_stylebox_override("panel", style)
+
+	var line := HBoxContainer.new()
+	line.add_theme_constant_override("separation", 6)
+	row.add_child(line)
+	var info := VBoxContainer.new()
+	info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	info.add_theme_constant_override("separation", 1)
+	line.add_child(info)
+	var player_id := str(data.get("id", ""))
+	var player_name := str(data.get("name", "?"))
+	info.add_child(UI.make_label(player_name, 11, UI.TEXT))
+	var status := (
+		Loc.t("Waiting for a response.") if outgoing else Loc.t("Wants to be your friend.")
+	)
+	info.add_child(UI.make_label(status, 8, UI.MUTED))
+
+	var actions := HBoxContainer.new()
+	actions.add_theme_constant_override("separation", 4)
+	line.add_child(actions)
+	if outgoing:
+		var cancel := _social_small_button("CANCEL")
+		cancel.pressed.connect(func() -> void: friend_cancel_requested.emit(player_id))
+		actions.add_child(cancel)
+	else:
+		var accept := _social_small_button("ACCEPT", true)
+		accept.pressed.connect(func() -> void: friend_accept_requested.emit(player_id))
+		actions.add_child(accept)
+		var decline := _social_small_button("DECLINE")
+		decline.pressed.connect(func() -> void: friend_decline_requested.emit(player_id))
+		actions.add_child(decline)
+	return row
+
+func _make_social_row(data: Dictionary, is_friend: bool) -> PanelContainer:
+	var row := PanelContainer.new()
+	row.custom_minimum_size = Vector2(0, 40)
+	var style := StyleBoxFlat.new()
+	style.bg_color = UI.CARD
+	style.corner_radius_top_left = 7
+	style.corner_radius_top_right = 7
+	style.corner_radius_bottom_left = 7
+	style.corner_radius_bottom_right = 7
+	style.border_width_left = 1
+	style.border_width_top = 1
+	style.border_width_right = 1
+	style.border_width_bottom = 1
+	style.border_color = Color(1, 1, 1, 0.05)
+	style.content_margin_left = 9
+	style.content_margin_top = 4
+	style.content_margin_right = 7
+	style.content_margin_bottom = 4
+	row.add_theme_stylebox_override("panel", style)
+
+	var line := HBoxContainer.new()
+	line.add_theme_constant_override("separation", 6)
+	row.add_child(line)
+
+	var info := VBoxContainer.new()
+	info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	info.add_theme_constant_override("separation", 1)
+	line.add_child(info)
+	var player_id := str(data.get("id", ""))
+	var player_name := str(data.get("name", "?"))
+	var online := true if not is_friend else bool(data.get("online", false))
+	info.add_child(UI.make_label(player_name, 11, UI.TEXT))
+	var status := ""
+	if is_friend:
+		var location := str(data.get("location", ""))
+		if not online:
+			status = Loc.t("Offline")
+		elif location != "":
+			status = Loc.tf("Online - %s", [location])
+		else:
+			status = Loc.t("Online")
+	else:
+		var distance := int(data.get("distance", 0))
+		var location := str(data.get("location", ""))
+		if location != "":
+			status = Loc.tf("%d steps away - %s", [distance, location])
+		else:
+			status = Loc.tf("%d steps away", [distance])
+	info.add_child(UI.make_label(status, 8, UI.MUTED if online else UI.FAINT))
+
+	var actions := HBoxContainer.new()
+	actions.add_theme_constant_override("separation", 4)
+	line.add_child(actions)
+	if online:
+		var chat := _social_small_button("CHAT")
+		chat.pressed.connect(func() -> void: social_chat_requested.emit(player_id, player_name))
+		actions.add_child(chat)
+	if is_friend and online:
+		if player_id == _duel_outgoing_id:
+			var sent := _social_small_button("DUEL SENT")
+			sent.disabled = true
+			actions.add_child(sent)
+		else:
+			var duel := _social_small_button("DUEL", true)
+			duel.pressed.connect(func() -> void: duel_requested.emit(player_id))
+			actions.add_child(duel)
+	if is_friend:
+		var remove := _social_small_button("REMOVE")
+		remove.pressed.connect(func() -> void: friend_remove_requested.emit(player_id))
+		actions.add_child(remove)
+	elif bool(data.get("friend", false)):
+		var already := _social_small_button("FRIEND")
+		already.disabled = true
+		actions.add_child(already)
+	elif bool(data.get("requested", false)):
+		var requested := _social_small_button("REQUESTED")
+		requested.disabled = true
+		actions.add_child(requested)
+	elif bool(data.get("incoming", false)):
+		var pending := _social_small_button("PENDING")
+		pending.disabled = true
+		actions.add_child(pending)
+	else:
+		var add := _social_small_button("ADD")
+		add.pressed.connect(func() -> void: friend_requested.emit(player_id))
+		actions.add_child(add)
+	return row
+
+func _social_small_button(text: String, primary: bool = false) -> Button:
+	var button := Button.new()
+	button.text = Loc.t(text)
+	button.custom_minimum_size = Vector2(58, 24)
+	button.focus_mode = Control.FOCUS_NONE
+	button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	var base := UI.ACCENT_SOFT if primary else Color(1.0, 1.0, 1.0, 0.055)
+	var normal := UI.button_style(base, 6)
+	var hover := UI.button_style(
+		Color(UI.ACCENT.r, UI.ACCENT.g, UI.ACCENT.b, 0.22)
+		if primary
+		else Color(1.0, 1.0, 1.0, 0.11),
+		6
+	)
+	var pressed := UI.button_style(
+		Color(UI.ACCENT.r, UI.ACCENT.g, UI.ACCENT.b, 0.30)
+		if primary
+		else Color(1.0, 1.0, 1.0, 0.16),
+		6
+	)
+	for button_style in [normal, hover, pressed]:
+		button_style.content_margin_left = 6
+		button_style.content_margin_right = 6
+		button_style.content_margin_top = 2
+		button_style.content_margin_bottom = 2
+	button.add_theme_stylebox_override("normal", normal)
+	button.add_theme_stylebox_override("hover", hover)
+	button.add_theme_stylebox_override("pressed", pressed)
+	button.add_theme_stylebox_override("focus", StyleBoxEmpty.new())
+	button.add_theme_color_override("font_color", UI.ACCENT if primary else UI.MUTED)
+	button.add_theme_color_override("font_hover_color", UI.ACCENT)
+	button.add_theme_color_override("font_pressed_color", UI.ACCENT)
+	button.add_theme_color_override("font_disabled_color", UI.FAINT)
+	UI.apply_font(button, 9)
+	return button
+
+func _social_empty_row(text: String) -> PanelContainer:
+	var row := PanelContainer.new()
+	row.custom_minimum_size = Vector2(0, 30)
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color(1, 1, 1, 0.02)
+	style.corner_radius_top_left = 7
+	style.corner_radius_top_right = 7
+	style.corner_radius_bottom_left = 7
+	style.corner_radius_bottom_right = 7
+	style.content_margin_left = 9
+	style.content_margin_top = 5
+	style.content_margin_right = 7
+	style.content_margin_bottom = 5
+	row.add_theme_stylebox_override("panel", style)
+	row.add_child(Loc.make_label(text, 9, UI.MUTED))
+	return row
+
+func set_social_state(state: Dictionary) -> void:
+	var friends: Variant = state.get("friends", [])
+	var incoming: Variant = state.get("incomingRequests", [])
+	var outgoing: Variant = state.get("outgoingRequests", [])
+	var nearby: Variant = state.get("nearby", [])
+	var max_friends := int(state.get("maxFriends", _max_friends))
+	var signature := JSON.stringify([friends, incoming, outgoing, nearby, max_friends])
+	if signature == _social_signature:
+		return
+	_social_signature = signature
+	_social_friends = friends if friends is Array else []
+	_social_incoming = incoming if incoming is Array else []
+	_social_outgoing = outgoing if outgoing is Array else []
+	_social_nearby = nearby if nearby is Array else []
+	_max_friends = max_friends
+	_refresh_nav()
+	if menu_open and _menu_kind == "social":
+		_build_menu_content()
+
+func _build_logs_menu() -> void:
+	var hint := Loc.make_label(
+		"Connection, reconnection and server error events. Times are local.", 9, UI.MUTED
+	)
+	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_menu_body.add_child(hint)
+
+	var log := RichTextLabel.new()
+	log.bbcode_enabled = true
+	log.scroll_following = true
+	log.scroll_active = true
+	log.custom_minimum_size = Vector2(0, 316)
+	log.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	log.add_theme_font_size_override("normal_font_size", UI.font_size(10))
+	log.add_theme_font_override("normal_font", ThemeDB.fallback_font)
+	log.add_theme_stylebox_override(
+		"normal", UI.glass_style(Color(0.012, 0.031, 0.055, 0.96), 8, UI.BORDER, 1, 8)
+	)
+	_menu_body.add_child(log)
+	if _log_lines.is_empty():
+		log.append_text(
+			"[color=#7f94ad][i]%s[/i][/color]\n" % Loc.t("No log entries yet.")
+		)
+	else:
+		for entry in _log_lines:
+			log.append_text(_log_line(entry))
+
+	var footer := HBoxContainer.new()
+	footer.add_theme_constant_override("separation", 6)
+	_menu_body.add_child(footer)
+	var spacer := Control.new()
+	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	footer.add_child(spacer)
+	var clear := _social_small_button("CLEAR")
+	clear.pressed.connect(_clear_logs)
+	footer.add_child(clear)
+
+func add_log_line(text: String, level: String = "info") -> void:
+	if text.strip_edges() == "":
+		return
+	var now := Time.get_time_dict_from_system()
+	var stamp := "%02d:%02d:%02d" % [
+		int(now.get("hour", 0)), int(now.get("minute", 0)), int(now.get("second", 0))
+	]
+	_log_lines.append({"time": stamp, "level": level, "text": text})
+	if _log_lines.size() > MAX_LOG_LINES:
+		_log_lines.pop_front()
+	if menu_open and _menu_kind == "logs":
+		_build_menu_content()
+
+func _log_line(entry: Dictionary) -> String:
+	var level := str(entry.get("level", "info"))
+	var color := "#c9d6e3"
+	var tag := "INFO"
+	match level:
+		"error":
+			color = "#ff6b7a"
+			tag = "ERROR"
+		"warn":
+			color = "#ffd166"
+			tag = "WARN"
+		"net":
+			color = "#8aa0b2"
+			tag = "NET"
+	return "[color=#6f839b]%s[/color] [color=%s]%-5s[/color] %s\n" % [
+		str(entry.get("time", "")),
+		color,
+		tag,
+		_escape_log(str(entry.get("text", "")))
+	]
+
+func _escape_log(text: String) -> String:
+	return text.replace("[", "[lb]")
+
+func _clear_logs() -> void:
+	_log_lines.clear()
+	_build_menu_content()
+
+# Forget per-account UI state when the local session ends. Party, dex and
+# inventory are refilled by the next login's map_state; chat logs and the
+# social roster are not, so they must not leak into another account.
+func reset_session() -> void:
+	_log_lines.clear()
+	_social_signature = ""
+	_social_friends = []
+	_social_incoming = []
+	_social_outgoing = []
+	_social_nearby = []
+	_nearby_npc = {}
 
 func _on_dim_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -2687,13 +3330,25 @@ func _refresh_status() -> void:
 	dot.corner_radius_bottom_right = 3
 	_status_dot.add_theme_stylebox_override("panel", dot)
 
-func _sync_minimap() -> void:
-	if _minimap_title != null:
-		_minimap_title.text = _location_name if _location_name != "" else Loc.t("Unknown")
-	if _minimap != null:
-		_minimap.configure(
+func _sync_area_map() -> void:
+	if _big_minimap != null:
+		_big_minimap.configure(
 			_map_info, _map_name, _self_grid, _self_dir, str(_nearby_npc.get("id", ""))
 		)
+
+func _sync_world_map() -> void:
+	if _world_map_view != null:
+		_world_map_view.set_current(_world_map_place_name())
+
+func _world_map_place_name() -> String:
+	if _location_name != "":
+		var places: Variant = _world_map_info.get("places", [])
+		if places is Array:
+			for place in places:
+				if place is Dictionary and str(place.get("name", "")) == _location_name:
+					_world_map_last_place = _location_name
+					return _location_name
+	return _world_map_last_place
 
 func _update_prompt_visibility() -> void:
 	if _prompt_center == null:
@@ -2814,14 +3469,16 @@ func set_map(map_name: String, local_count: int = 1, location_name: String = "")
 	_location_name = location_name if location_name != "" else map_name
 	_local_count = local_count
 	_refresh_trainer()
-	_sync_minimap()
+	_sync_area_map()
+	_sync_world_map()
 
 func set_location(location_name: String) -> void:
 	if location_name == "" or location_name == _location_name:
 		return
 	_location_name = location_name
 	_refresh_trainer()
-	_sync_minimap()
+	_sync_area_map()
+	_sync_world_map()
 
 func set_map_data(map_info: Dictionary, self_info: Dictionary) -> void:
 	_map_info = map_info
@@ -2832,13 +3489,25 @@ func set_map_data(map_info: Dictionary, self_info: Dictionary) -> void:
 	_self_dir = str(self_info.get("dir", _self_dir))
 	_apply_self_info(self_info)
 	_refresh_trainer()
-	_sync_minimap()
+	_sync_area_map()
+	_sync_world_map()
+
+func set_minimap_texture(texture: Texture2D) -> void:
+	_minimap_texture = texture
+	if _big_minimap != null:
+		_big_minimap.set_preview_texture(texture)
+
+func set_world_map(world_map: Dictionary) -> void:
+	_world_map_info = world_map if world_map is Dictionary else {}
+	_sync_world_map()
+	if menu_open and _menu_kind == "world":
+		_build_menu_content()
 
 func update_map_window(message: Dictionary) -> void:
 	for key in ["tiles", "tileX", "tileY", "tileWidth", "tileHeight", "windowed"]:
 		if message.has(key):
 			_map_info[key] = message[key]
-	_sync_minimap()
+	_sync_area_map()
 
 func update_self_position(x: int, y: int, direction: String) -> void:
 	var grid := Vector2i(x, y)
@@ -2846,7 +3515,7 @@ func update_self_position(x: int, y: int, direction: String) -> void:
 		return
 	_self_grid = grid
 	_self_dir = direction
-	_sync_minimap()
+	_sync_area_map()
 
 func set_season(season: String) -> void:
 	_season = season
@@ -2867,7 +3536,7 @@ func set_nearby_npc(npc: Dictionary) -> void:
 	var changed := previous != str(_nearby_npc.get("id", ""))
 	_update_prompt_visibility()
 	if changed:
-		_sync_minimap()
+		_sync_area_map()
 
 func set_ping(milliseconds: int) -> void:
 	_ping = milliseconds
@@ -2884,19 +3553,13 @@ func set_hint(text: String) -> void:
 
 func set_dialogue_mode(active: bool) -> void:
 	_dialogue_mode = active
-	_minimap_panel.visible = _show_minimap and not active
 
 func set_touch_layout(enabled: bool) -> void:
-	_touch_layout = enabled
-	if _minimap_panel == null or _nav_container == null or _status_container == null:
+	if _nav_container == null or _status_container == null:
 		return
 	if enabled:
-		# Touch controls occupy the bottom-right; keep the old top-right stack
-		# there so the D-pad has room.
-		_minimap_panel.anchor_top = 0.0
-		_minimap_panel.anchor_bottom = 0.0
-		_minimap_panel.offset_top = 92
-		_minimap_panel.offset_bottom = 262
+		# Touch controls occupy the bottom-right; keep the navigation stack at
+		# the top-right so the D-pad has room.
 		_nav_container.anchor_top = 0.0
 		_nav_container.anchor_bottom = 0.0
 		_nav_container.offset_top = 10
@@ -2905,12 +3568,15 @@ func set_touch_layout(enabled: bool) -> void:
 		_status_container.anchor_bottom = 0.0
 		_status_container.offset_top = 72
 		_status_container.offset_bottom = 86
+		UI.set_hud_corner(_nav_container, Vector2(1.0, 0.0))
+		UI.set_hud_corner(_status_container, Vector2(1.0, 0.0))
+		if _hint_center != null:
+			# The action buttons sit at the bottom-centre-right; lift the hint
+			# so its right end is not hidden behind the Run button.
+			_hint_center.offset_top = -152
+			_hint_center.offset_bottom = -122
 	else:
-		# Desktop: minimap on top, navigation at the bottom-right.
-		_minimap_panel.anchor_top = 0.0
-		_minimap_panel.anchor_bottom = 0.0
-		_minimap_panel.offset_top = 10
-		_minimap_panel.offset_bottom = 180
+		# Desktop: navigation at the bottom-right.
 		_nav_container.anchor_top = 1.0
 		_nav_container.anchor_bottom = 1.0
 		_nav_container.offset_top = -68
@@ -2919,6 +3585,11 @@ func set_touch_layout(enabled: bool) -> void:
 		_status_container.anchor_bottom = 1.0
 		_status_container.offset_top = -88
 		_status_container.offset_bottom = -74
+		UI.set_hud_corner(_nav_container, Vector2(1.0, 1.0))
+		UI.set_hud_corner(_status_container, Vector2(1.0, 1.0))
+		if _hint_center != null:
+			_hint_center.offset_top = -64
+			_hint_center.offset_bottom = -34
 
 func show_notice(text: String) -> void:
 	_notice_label.text = text

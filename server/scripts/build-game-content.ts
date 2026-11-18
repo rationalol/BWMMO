@@ -38,6 +38,14 @@ interface RomSpecies {
     speed: number;
   };
   catchRate255: number;
+  evYield: {
+    hp: number;
+    atk: number;
+    def: number;
+    spAtk: number;
+    spDef: number;
+    speed: number;
+  };
   learnset: Array<{ moveId: number; level: number }>;
 }
 
@@ -180,6 +188,7 @@ for (let dex = 1; dex <= 649; dex++) {
     baseSpeed: rom.baseStats.speed,
     baseXp: Math.max(10, Math.round(total / 20)),
     catchRate: Number((rom.catchRate255 / 255).toFixed(3)),
+    evYield: rom.evYield,
     learnset,
     evolutions: evolutionsFor(showdown)
   };

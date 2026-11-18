@@ -1,0 +1,525 @@
+{
+  "_generated": {
+    "tool": "tools/rom/compile_story.py",
+    "note": "ROM 脚本编译出的场景片段：say/setFlag/battle 由回放事件生成，选择御三家、训练家队伍、地图放置和触发器不在编译范围内。",
+    "sources": [
+      "rom_prologue_bedroom_intro",
+      "rom_prologue_mom",
+      "rom_prologue_juniper_pokedex"
+    ]
+  },
+  "scenes": {
+    "rom_prologue_bedroom_intro": {
+      "id": "rom_prologue_bedroom_intro",
+      "label": "卧室开场（区域 391 · npc 2）",
+      "steps": [
+        {
+          "type": "setFlag",
+          "flag": "2401",
+          "value": 1
+        },
+        {
+          "type": "say",
+          "speaker": "Bianca",
+          "lines": [
+            "OK, I'll take this Pokémon!\nCheren, that one's yours!"
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Cheren",
+          "lines": [
+            "Hey, how come you get to pick\nout my Pokémon?",
+            "Oh, never mind. I wanted {rival}\nfrom the start, anyway."
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Bianca",
+          "lines": [
+            "Everyone has chosen a Pokémon!\n...So that's that!",
+            "Hey, I know!\nLet's have a Pokémon battle!"
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Cheren",
+          "lines": [
+            "Honestly, Bianca...",
+            "Even though they're still weak Pokémon,\nyou shouldn't have Pokémon battles",
+            "inside a house."
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Bianca",
+          "lines": [
+            "Don't be a worrywart!\nThese little ones are weak, like you said.",
+            "We have to let them battle so they'll get\nstronger. It's settled, {name}!",
+            "Get ready for a Pokémon battle!"
+          ]
+        },
+        {
+          "type": "battle",
+          "trainer": "rom_59",
+          "resultFlag": "8010"
+        },
+        {
+          "type": "say",
+          "speaker": "Bianca",
+          "lines": [
+            "Wow...",
+            "{name}, you're gonna be\nan awesome Trainer someday, I can tell!",
+            "No doubt!"
+          ],
+          "when": {
+            "8010": 1
+          }
+        },
+        {
+          "type": "say",
+          "speaker": "Bianca",
+          "lines": [
+            "Wha...?",
+            "I got so absorbed in having my Pokémon\nuse moves, I won before even realizing..."
+          ],
+          "when": {
+            "8010": 0
+          }
+        },
+        {
+          "type": "say",
+          "speaker": "Cheren",
+          "lines": [
+            "Uh...\n...",
+            "Bianca, would you take a look around?"
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Bianca",
+          "lines": [
+            "Wh-whoa!\nWhat happened?!"
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "",
+          "lines": [
+            "Wow! Pokémon are amaaaaazing!!\nSo little, but so strong!",
+            "I'm so glad that I get to have a Pokémon!",
+            "...Oh.\nUm, sorry about your room, {name}."
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Cheren",
+          "lines": [
+            "You...are completely hopeless.",
+            "Here!\nI'll restore your Pokémon for you."
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Cheren",
+          "lines": [
+            "It's amazing that you won\nwithout your Pokémon's losing any",
+            "energy, which is called HP.",
+            "But you used some of the moves'\nPower Points, or PP, though."
+          ],
+          "when": {
+            "8010": 1
+          }
+        },
+        {
+          "type": "say",
+          "speaker": "",
+          "lines": [
+            "{name}'s Pokémon needs\nto be fixed up, too."
+          ],
+          "when": {
+            "8010": 0
+          }
+        },
+        {
+          "type": "say",
+          "speaker": "Bianca",
+          "lines": [
+            "Hey, Cheren!\nHow about you battle, too?",
+            "With all you know, I'm sure you can\nbattle without turning the room into",
+            "a disaster area like I did!"
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Cheren",
+          "lines": [
+            "I believe you're right!",
+            "It'll be no problem for me to keep\nthe room from getting any messier.",
+            "Besides, it's not fair if you two are the\nonly ones who get to have fun battling!"
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "",
+          "lines": [
+            "It's decided. You'll be my opponent...\nin our first Pokémon battle!",
+            "Let's see what you can do, {rival}!"
+          ]
+        },
+        {
+          "type": "battle",
+          "trainer": "rom_53",
+          "resultFlag": "8010"
+        },
+        {
+          "type": "say",
+          "speaker": "Cheren",
+          "lines": [
+            "I made a strange blunder\nin my first battle, but",
+            "this feeling I have...",
+            "...I'm finally a Trainer.",
+            "But first, we'd better go apologize to\nyour mother about this messed-up room."
+          ],
+          "when": {
+            "8010": 1
+          }
+        },
+        {
+          "type": "say",
+          "speaker": "Cheren",
+          "lines": [
+            "This feeling...\nFinally, I'm a Trainer.",
+            "On top of that, we'd better go apologize\nto your mother about this room."
+          ],
+          "when": {
+            "8010": 0
+          }
+        },
+        {
+          "type": "say",
+          "speaker": "Bianca",
+          "lines": [
+            "Oh!\nI'd better come, too!"
+          ]
+        },
+        {
+          "type": "setFlag",
+          "flag": "2434",
+          "value": 0
+        },
+        {
+          "type": "setFlag",
+          "flag": "500",
+          "value": 1
+        },
+        {
+          "type": "setFlag",
+          "flag": "501",
+          "value": 1
+        },
+        {
+          "type": "setFlag",
+          "flag": "680",
+          "value": 1
+        }
+      ],
+      "source": {
+        "zone": 391,
+        "scriptId": 9,
+        "entry": "0x025a",
+        "entryResolved": "scanned",
+        "flags": {},
+        "range": [
+          "0x01e8",
+          "0x0778"
+        ]
+      },
+      "verify": {
+        "1": {
+          "expected": 38,
+          "actual": 38,
+          "match": true
+        },
+        "0": {
+          "expected": 33,
+          "actual": 33,
+          "match": true
+        }
+      },
+      "warnings": []
+    },
+    "rom_prologue_mom": {
+      "id": "rom_prologue_mom",
+      "label": "妈妈（区域 390 · npc 0 · 已选御三家）",
+      "steps": [
+        {
+          "type": "say",
+          "speaker": "Mom",
+          "lines": [
+            "Phew! I'm taking a little break\nfrom cleaning up.",
+            "You and your Pokémon should take\na break, too.",
+            "Good Trainers don't push their\nPokémon too hard.",
+            "You and your Pokémon should all be\nfilled with energy again!",
+            "Now, you can go anywhere!"
+          ]
+        }
+      ],
+      "source": {
+        "zone": 390,
+        "scriptId": 2,
+        "entry": "0x02d0",
+        "entryResolved": "table",
+        "flags": {
+          "2402": 1
+        },
+        "range": [
+          "0x02d0",
+          "0x0430"
+        ]
+      },
+      "verify": {
+        "1": {
+          "expected": 5,
+          "actual": 5,
+          "match": true
+        },
+        "0": {
+          "expected": 5,
+          "actual": 5,
+          "match": true
+        }
+      },
+      "warnings": []
+    },
+    "rom_prologue_juniper_pokedex": {
+      "id": "rom_prologue_juniper_pokedex",
+      "label": "研究所图鉴（区域 396 · script 1）",
+      "steps": [
+        {
+          "type": "say",
+          "speaker": "",
+          "lines": [
+            "Hi there!\nI've been waiting for you young people!",
+            "Let me introduce myself again.\nMy name is..."
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Cheren",
+          "lines": [
+            "Professor Juniper?\nWe know your name."
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Professor Juniper",
+          "lines": [
+            "Come, come, Cheren!\nThis is not a time to take things lightly.",
+            "Today is a day to remember always, so\nit's best to behave with some formality.",
+            "That being so, once again, my name is\nProfessor Juniper, and I am researching",
+            "when and how the creatures called",
+            "Pokémon came into existence."
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "",
+          "lines": [
+            "Oh, that's unusual!\nYou've already had a Pokémon battle!",
+            "So maybe that's why...",
+            "It feels as though your Pokémon have\nalready begun to trust you!",
+            "By the way, would you like to give your\nPokémon a nickname?"
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Professor Juniper",
+          "lines": [
+            "You aren't planning\nto use a nickname? Well, that's fine, too.",
+            "As for why I gave all\nof you Pokémon..."
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Cheren",
+          "lines": [
+            "It's for the Pokédex, right?"
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Bianca",
+          "lines": [
+            "Pokédex?"
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Professor Juniper",
+          "lines": [
+            "I am astonished.\nNice work, Cheren!",
+            "You have already studied Pokémon\nextensively, haven't you?",
+            "Still, let me explain everything from the\nbeginning, for everyone's sake."
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "",
+          "lines": [
+            "The Pokédex is a high-tech device that\nautomatically records the Pokémon",
+            "you encounter!",
+            "So, I want you three to visit many\nplaces and meet all of the Pokémon",
+            "in the Unova region!",
+            "This is my request.",
+            "{name}!\nCheren! Bianca!",
+            "You'll go on an adventure to\ncomplete the Pokédex, will you not?"
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Bianca",
+          "lines": [
+            "OK!",
+            "I mean... Yes, professor!"
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Cheren",
+          "lines": [
+            "Thank you very much.",
+            "Because of you, I can become a Pokémon\nTrainer, exactly as I've always wished."
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Professor Juniper",
+          "lines": [
+            "All of you, thanks!",
+            "You have given me the best\npossible answer!"
+          ]
+        },
+        {
+          "type": "setFlag",
+          "flag": "2402",
+          "value": 1
+        },
+        {
+          "type": "say",
+          "speaker": "Professor Juniper",
+          "lines": [
+            "Next, I need to teach\nyou how to meet Pokémon.",
+            "Please meet me at Route 1, OK?"
+          ]
+        },
+        {
+          "type": "setFlag",
+          "flag": "2430",
+          "value": 0
+        },
+        {
+          "type": "say",
+          "speaker": "Bianca",
+          "lines": [
+            "S-since the professor asked us,\nit's OK to go on an adventure, right?",
+            "I can explore and maybe find out what\nI want to do in life. I think I'd like that."
+          ]
+        },
+        {
+          "type": "say",
+          "speaker": "Cheren",
+          "lines": [
+            "Of course.",
+            "We can travel however we want\nwhile we complete the Pokédex."
+          ]
+        },
+        {
+          "type": "setFlag",
+          "flag": "505",
+          "value": 1
+        },
+        {
+          "type": "setFlag",
+          "flag": "506",
+          "value": 1
+        },
+        {
+          "type": "setFlag",
+          "flag": "507",
+          "value": 1
+        },
+        {
+          "type": "setFlag",
+          "flag": "679",
+          "value": 0
+        }
+      ],
+      "source": {
+        "zone": 396,
+        "scriptId": 1,
+        "entry": "0x0119",
+        "entryResolved": "forced",
+        "flags": {
+          "2402": 1
+        },
+        "range": [
+          "0x0119",
+          "0x0540"
+        ]
+      },
+      "verify": {
+        "1": {
+          "expected": 38,
+          "actual": 38,
+          "match": true
+        },
+        "0": {
+          "expected": 38,
+          "actual": 38,
+          "match": true
+        }
+      },
+      "warnings": []
+    }
+  },
+  "trainers": {
+    "rom_59": {
+      "name": "ROM trainer 59",
+      "sprite": 0,
+      "party": [
+        {
+          "species": "oshawott",
+          "level": 5
+        }
+      ],
+      "romParams": [
+        0,
+        1
+      ],
+      "romClass": 38,
+      "romBattleType": 0
+    },
+    "rom_53": {
+      "name": "ROM trainer 53",
+      "sprite": 0,
+      "party": [
+        {
+          "species": "tepig",
+          "level": 5
+        }
+      ],
+      "romParams": [
+        0,
+        1
+      ],
+      "romClass": 37,
+      "romBattleType": 0
+    }
+  },
+  "todo": [
+    "battle 的 trainer 是 ROM 训练家 id，party 为空：队伍数据在别的档案里，需要从手写剧情（bianca_*/cheren_*）里挑或者另外抽取。",
+    "chooseStarter 是菜单不是脚本，编译器不会生成这一步。"
+  ],
+  "warnings": []
+}

@@ -1,0 +1,323 @@
+{
+  "source": "BW1 field script global range table",
+  "romLocation": {
+    "overlayFile": 10,
+    "fileOffset": 86534,
+    "record": "5 x u16: start, end, scriptFileId, msgArc, msgFile"
+  },
+  "note": "Handler kinds are inferred from each range's decoded text bank. No ROM text is stored here. scriptFileId is a member index into the field script archive, but most members are 4-24 byte stubs: the behaviour is native. Member 632 is the only range with real bytecode (the elevator menu).",
+  "coverage": {
+    "npcsTotal": 2257,
+    "localScriptNpcs": 1123,
+    "globalScriptNpcs": 1134,
+    "globalNpcsInsideDecodedRanges": 30,
+    "decodedDialogueProfiles": 969
+  },
+  "ranges": [
+    {
+      "start": 10405,
+      "end": 10424,
+      "textBank": 261,
+      "kind": "elevator",
+      "summary": "Floor selection menu for buildings with several floors.",
+      "npcs": 0,
+      "scriptIds": [],
+      "scriptFile": {
+        "member": 632,
+        "inArchive": true,
+        "size": 84,
+        "scripts": 4,
+        "textHits": 2,
+        "bytecode": "real"
+      }
+    },
+    {
+      "start": 10400,
+      "end": 10404,
+      "textBank": 464,
+      "kind": "vending_machine",
+      "summary": "Drink vending machine: buy, pay, receive item.",
+      "npcs": 0,
+      "scriptIds": [],
+      "scriptFile": {
+        "member": 375,
+        "inArchive": true,
+        "size": 4,
+        "scripts": 1,
+        "textHits": 0,
+        "bytecode": "stub"
+      }
+    },
+    {
+      "start": 10395,
+      "end": 10399,
+      "textBank": 348,
+      "kind": "mystery_gift",
+      "summary": "Mystery Gift delivery NPC, present in every Pokemon Center.",
+      "npcs": 14,
+      "scriptIds": [
+        10397
+      ],
+      "scriptFile": {
+        "member": 374,
+        "inArchive": true,
+        "size": 8,
+        "scripts": 1,
+        "textHits": 0,
+        "bytecode": "stub"
+      }
+    },
+    {
+      "start": 10390,
+      "end": 10394,
+      "textBank": 315,
+      "kind": "dream_remnant",
+      "summary": "Dream Remnant NPC: hands over an item after a dream.",
+      "npcs": 1,
+      "scriptIds": [
+        10391
+      ],
+      "scriptFile": {
+        "member": 373,
+        "inArchive": true,
+        "size": 4,
+        "scripts": 1,
+        "textHits": 0,
+        "bytecode": "stub"
+      }
+    },
+    {
+      "start": 10380,
+      "end": 10389,
+      "textBank": 281,
+      "kind": "pokedex_evaluator",
+      "summary": "Pokedex completion evaluator.",
+      "npcs": 0,
+      "scriptIds": [],
+      "scriptFile": {
+        "member": 372,
+        "inArchive": true,
+        "size": 8,
+        "scripts": 1,
+        "textHits": 0,
+        "bytecode": "stub"
+      }
+    },
+    {
+      "start": 10350,
+      "end": 10379,
+      "textBank": 159,
+      "kind": "ambient_passersby",
+      "summary": "Shared ambient passerby lines for background NPCs.",
+      "npcs": 0,
+      "scriptIds": [],
+      "scriptFile": {
+        "member": 371,
+        "inArchive": true,
+        "size": 4,
+        "scripts": 1,
+        "textHits": 0,
+        "bytecode": "stub"
+      }
+    },
+    {
+      "start": 10330,
+      "end": 10349,
+      "textBank": 9,
+      "kind": "battle_subway",
+      "summary": "Battle Subway guide and challenge entry.",
+      "npcs": 8,
+      "scriptIds": [
+        10333,
+        10340
+      ],
+      "scriptFile": {
+        "member": 370,
+        "inArchive": true,
+        "size": 24,
+        "scripts": 1,
+        "textHits": 0,
+        "bytecode": "stub"
+      }
+    },
+    {
+      "start": 10325,
+      "end": 10329,
+      "textBank": 282,
+      "kind": "trade_npc",
+      "summary": "Trade-promotion NPC.",
+      "npcs": 1,
+      "scriptIds": [
+        10325
+      ],
+      "scriptFile": {
+        "member": 369,
+        "inArchive": true,
+        "size": 4,
+        "scripts": 1,
+        "textHits": 0,
+        "bytecode": "stub"
+      }
+    },
+    {
+      "start": 10315,
+      "end": 10324,
+      "textBank": 421,
+      "kind": "rotom_room",
+      "summary": "Rotom appliance room interaction.",
+      "npcs": 0,
+      "scriptIds": [],
+      "scriptFile": {
+        "member": 368,
+        "inArchive": true,
+        "size": 8,
+        "scripts": 1,
+        "textHits": 0,
+        "bytecode": "stub"
+      }
+    },
+    {
+      "start": 10310,
+      "end": 10314,
+      "textBank": 284,
+      "kind": "stat_judge",
+      "summary": "Individual-value judge.",
+      "npcs": 1,
+      "scriptIds": [
+        10310
+      ],
+      "scriptFile": {
+        "member": 367,
+        "inArchive": true,
+        "size": 4,
+        "scripts": 1,
+        "textHits": 0,
+        "bytecode": "stub"
+      }
+    },
+    {
+      "start": 10290,
+      "end": 10309,
+      "textBank": 313,
+      "kind": "poke_transfer",
+      "summary": "Poké Transfer lab (requires a second DS).",
+      "npcs": 4,
+      "scriptIds": [
+        10290,
+        10292,
+        10293,
+        10294
+      ],
+      "scriptFile": {
+        "member": 366,
+        "inArchive": true,
+        "size": 8,
+        "scripts": 1,
+        "textHits": 0,
+        "bytecode": "stub"
+      }
+    },
+    {
+      "start": 10280,
+      "end": 10289,
+      "textBank": 3819,
+      "kind": "unknown_3819",
+      "summary": "Range decoded, text bank 3819 is missing from this ROM extraction.",
+      "npcs": 1,
+      "scriptIds": [
+        10280
+      ],
+      "scriptFile": {
+        "member": 365,
+        "inArchive": true,
+        "size": 4,
+        "scripts": 1,
+        "textHits": 0,
+        "bytecode": "stub"
+      }
+    },
+    {
+      "start": 10270,
+      "end": 10279,
+      "textBank": 367,
+      "kind": "rock_climb",
+      "summary": "Special field event: a Pokemon climbs a rock wall.",
+      "npcs": 0,
+      "scriptIds": [],
+      "scriptFile": {
+        "member": 1132,
+        "inArchive": false,
+        "bytecode": "out_of_range"
+      }
+    },
+    {
+      "start": 10260,
+      "end": 10269,
+      "textBank": 10,
+      "kind": "battle_entry",
+      "summary": "Battle facility entry condition messages.",
+      "npcs": 0,
+      "scriptIds": [],
+      "scriptFile": {
+        "member": 1131,
+        "inArchive": false,
+        "bytecode": "out_of_range"
+      }
+    },
+    {
+      "start": 10250,
+      "end": 10259,
+      "textBank": 10200,
+      "kind": "unknown_10200",
+      "summary": "Range decoded, text bank 10200 is missing from this ROM extraction.",
+      "npcs": 0,
+      "scriptIds": [],
+      "scriptFile": {
+        "member": 362,
+        "inArchive": true,
+        "size": 1796,
+        "scripts": 1,
+        "textHits": 0,
+        "bytecode": "unverified_missing_text_bank"
+      }
+    }
+  ],
+  "uncoveredNamespaces": [
+    {
+      "bucket": "10250-10999 (above table ranges)",
+      "npcs": 26,
+      "uniqueIds": 22
+    },
+    {
+      "bucket": "2000",
+      "npcs": 355,
+      "uniqueIds": 1
+    },
+    {
+      "bucket": "2100-2199",
+      "npcs": 27,
+      "uniqueIds": 2
+    },
+    {
+      "bucket": "2200-2999",
+      "npcs": 7,
+      "uniqueIds": 7
+    },
+    {
+      "bucket": "3000-3999",
+      "npcs": 341,
+      "uniqueIds": 327
+    },
+    {
+      "bucket": "5000-10249",
+      "npcs": 348,
+      "uniqueIds": 294
+    }
+  ],
+  "caveats": [
+    "The decoded table stops at start=10250; ids above 10424 are not covered by it.",
+    "Most scriptFileId members are stubs; only 632 carries a real script.",
+    "Trainer ids (3000-3999) belong to trainer data, not NPC dialogue.",
+    "The 2000 id is a shared object handler used by 355 NPCs."
+  ]
+}

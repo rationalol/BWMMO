@@ -45,6 +45,15 @@ export interface CreatureState {
   evs?: StatBlock;
   nature?: string;
   heldItem?: string | null;
+  /** Stored Showdown ability id, e.g. "overgrow". */
+  ability?: string;
+  /** 0/1 normal ability slot, 2 hidden ability. */
+  abilitySlot?: number;
+  /** Localized outbound view fields; never persisted. */
+  abilityName?: string;
+  abilityDescription?: string;
+  /** Gen 5 friendship (0-255); friendship evolutions need 220. */
+  friendship?: number;
   xpToNext?: number;
   moves: CreatureMove[];
   /** Level-up moves that could not be learned because all four slots are full. */
@@ -79,4 +88,6 @@ export interface CharacterState {
   pokedex?: PokedexState;
   /** Persisted ROM event-work flags used by conditional NPC dialogue. */
   storyFlags?: Record<string, number>;
+  /** Character ids of mutual friends. Older saves omit the field. */
+  friends?: string[];
 }

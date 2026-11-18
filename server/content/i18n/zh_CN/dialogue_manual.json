@@ -1,0 +1,230 @@
+{
+  "locale": "zh_CN",
+  "source": "Hand-written translations for project-authored service and story dialogue",
+  "dialogues": {
+    "Welcome to Whispering Grove.\nThe Pokemon here are tougher than they look.\nLet me tend to your team before you go deeper.\nThere! All patched up.": [
+      "欢迎来到低语林。",
+      "这里的宝可梦\n比外表看起来要强得多。",
+      "在继续深入之前，\n让我照顾一下你的队伍吧。",
+      "好了！\n全都恢复健康了。"
+    ],
+    "Welcome to Willow Town!\nYour partner looks tired. Let me patch you up.\nThere! Your team is fighting fit again.": [
+      "欢迎来到柳镇！",
+      "你的搭档看起来有点累了。\n让我来帮你恢复吧。",
+      "好了！\n你的队伍又生龙活虎了。"
+    ],
+    "This PC is linked to the Pokémon Storage System.\nDeposit or withdraw Pokémon without changing their condition.": [
+      "这台电脑已连接\n宝可梦寄放系统。",
+      "存放或取出宝可梦，\n不会改变它们的身体状况。"
+    ],
+    "Welcome to the Nuvema Pokémon Center corner!\nLet me take care of your Pokémon.\nThere! Your team is fighting fit again.": [
+      "欢迎来到唐草宝可梦中心！",
+      "让我来照顾你的宝可梦吧。",
+      "好了！\n你的队伍又生龙活虎了。"
+    ],
+    "Welcome to the Nuvema Mart!\nWe stock Poké Balls and medicine for trainers heading up Route 1.": [
+      "欢迎来到唐草友好商店！",
+      "我们为前往1号道路的训练家\n准备了精灵球和药品。"
+    ],
+    "Welcome to the Pokémon Center!\nLet me take care of your Pokémon.\nThere! Your team is fighting fit again.": [
+      "欢迎来到宝可梦中心！",
+      "让我来照顾你的宝可梦吧。",
+      "好了！\n你的队伍又生龙活虎了。"
+    ],
+    "Professor Juniper asked me to hand\nyou a field-test kit.\nTMs, evolution stones, and a few\nother supplies are inside.": [
+      "红豆杉博士让我把这个\n实地测试套装交给你。",
+      "里面有技能机、进化石，\n还有一些其他补给。"
+    ],
+    "Talk to me again if you need more.\nThe tutors next to me can help too.": [
+      "如果还需要，再来找我。\n旁边的教学家也能帮你。"
+    ],
+    "I can teach your Pokémon a move.\nPick a partner and a technique.": [
+      "我可以教你的宝可梦招式。\n选一只宝可梦和一项招式吧。"
+    ],
+    "A Pokémon remembers every move\nit has grown into. Let me remind it.": [
+      "宝可梦会记住它成长过程中\n学会的每一个招式。\n让我来帮它回忆吧。"
+    ],
+    "This station simulates a link trade.\nChoose a Pokémon that evolves by trade.": [
+      "这台装置可以模拟通信交换。\n选一只通过交换进化的宝可梦吧。"
+    ],
+    "I can see how much your Pokémon\ntrust you. Let me top it up for testing.": [
+      "我能看出你的宝可梦\n有多信任你。\n让我为测试提升一下亲密度。"
+    ],
+    "I can awaken the potential inside\nyour Pokémon. Choose an ability.": [
+      "我可以唤醒宝可梦\n内在的潜力。\n来选择特性吧。"
+    ],
+    "Take whatever you need for field\ntesting. TMs and stones are on the shelf.": [
+      "实地测试需要什么就拿吧。\n架子上的技能机和进化石都可以用。"
+    ],
+    "This terminal is linked to the\nPokémon Storage System.": [
+      "这台终端已连接\n宝可梦寄放系统。"
+    ],
+    "The gift box is on the desk.\nGo on, {name}—open it!": [
+      "礼物盒在书桌上。\n来吧，{name}——打开它！"
+    ],
+    "Three Poké Balls sit inside the box,\none for each of you.": [
+      "盒子里放着三个精灵球，\n你们每人一个。"
+    ],
+    "Which Pokémon will you choose?": [
+      "你要选哪只宝可梦？"
+    ],
+    "Everyone has chosen a Pokémon!\n...So that's that!\nHey, I know!\nLet's have a Pokémon battle!": [
+      "大家都选好宝可梦了！\n……那就这样吧！",
+      "嘿，我知道了！\n我们来一场宝可梦对战吧！"
+    ],
+    "Honestly, Bianca...\nEven though they're still weak Pokémon,\nyou shouldn't have Pokémon battles\ninside a house.": [
+      "说真的，白露……",
+      "就算它们还是很弱的宝可梦，\n也不该在屋子里\n进行宝可梦对战啊。"
+    ],
+    "Don't be a worrywart!\nThese little ones are weak, like you said.\nWe have to let them battle so they'll get\nstronger. It's settled, {name}!\nGet ready for a Pokémon battle!": [
+      "别这么紧张嘛！\n你也说了，这些小家伙很弱。",
+      "得让它们对战才能变强啊。\n就这么定了，{name}！\n准备进行宝可梦对战吧！"
+    ],
+    "Uh...\n...\nBianca, would you take a look around?": [
+      "呃……\n……",
+      "白露，你能帮忙看看周围吗？"
+    ],
+    "Wh-whoa!\nWhat happened?!": [
+      "哇、哇！\n发生什么了？！"
+    ],
+    "Wow! Pokémon are amaaaaazing!!\nSo little, but so strong!\nI'm so glad that I get to have a Pokémon!\n...Oh.\nUm, sorry about your room, {name}.": [
+      "哇！宝可梦真是太厉害了！！\n这么小，却这么强！",
+      "能有自己的宝可梦，我太高兴了！",
+      "……哦。\n那个，{name}，\n对不起，把你的房间弄乱了。"
+    ],
+    "You...are completely hopeless.\nHere!\nI'll restore your Pokémon for you.": [
+      "你……真是完全没救了。",
+      "给！\n我来帮你恢复宝可梦。"
+    ],
+    "Cheren healed Bianca's Pokémon!": [
+      "黑连恢复了白露的宝可梦！"
+    ],
+    "It's amazing that you won\nwithout your Pokémon's losing any\nenergy, which is called HP.\nBut you used some of the moves'\nPower Points, or PP, though.": [
+      "你的宝可梦一点HP都没损失\n就赢了，真厉害。",
+      "不过，招式的\nPP（招式点数）倒是用掉了一些。"
+    ],
+    "{name}'s Pokémon needs\nto be fixed up, too.": [
+      "{name}的宝可梦\n也需要恢复。"
+    ],
+    "Cheren healed {name}'s Pokémon!": [
+      "黑连恢复了{name}的宝可梦！"
+    ],
+    "Hey, Cheren!\nHow about you battle, too?\nWith all you know, I'm sure you can\nbattle without turning the room into\na disaster area like I did!": [
+      "嘿，黑连！\n你也来对战一场怎么样？",
+      "以你的实力，肯定不会\n像我一样把房间弄得一团糟！"
+    ],
+    "I believe you're right!\nIt'll be no problem for me to keep\nthe room from getting any messier.\nBesides, it's not fair if you two are the\nonly ones who get to have fun battling!": [
+      "你说得对！",
+      "对我来说，不让房间\n变得更乱根本不成问题。",
+      "而且，只有你们俩玩得开心\n也太不公平了！"
+    ],
+    "It's decided. You'll be my opponent...\nin our first Pokémon battle!\nLet's see what you can do, {name}!": [
+      "就这么定了。\n你来当我的对手……\n在我们的第一次宝可梦对战中！",
+      "让我看看你的实力吧，{name}！"
+    ],
+    "Oh!\nI'd better come, too!": [
+      "哦！\n我也得跟上去！"
+    ],
+    "Oh! Look at that—your very\nown Pokémon!\nEveryone looks a little tired.\nLet me patch them up.": [
+      "哦！你看——那是你自己的\n宝可梦啊！",
+      "大家看起来都有点累了。\n让我来帮它们恢复吧。"
+    ],
+    "Your mother called ahead.\nSo you've finally chosen a partner!\nThen it's time for this.": [
+      "你妈妈已经打电话告诉我了。\n你终于选好自己的搭档了！",
+      "那么，是时候给你这个了。"
+    ],
+    "These are Pokédexes—one for each\nof you.\nFill them with every Pokémon\nyou meet. That's your first task!": [
+      "这是宝可梦图鉴——\n你们每人一本。",
+      "把你们遇到的每只宝可梦\n都记录进去。\n这就是你们的第一个任务！"
+    ],
+    "Wait, {name}!\nYou don't have a Pokémon yet.\nGo back and open the gift box!": [
+      "等等，{name}！",
+      "你还没有宝可梦呢。\n回去把礼物盒打开吧！"
+    ],
+    "Hold on.\nProfessor Juniper is waiting for us\nat the lab before we leave town.": [
+      "等一下。",
+      "离开小镇之前，红豆杉博士\n还在研究所等我们呢。"
+    ],
+    "Would you get a move on\nand open the gift box already?": [
+      "动作快一点，\n把礼物盒打开吧！"
+    ],
+    "Why, hello,\n{name}! How have you been lately?\nCome back after you've spoken\nwith your mother.": [
+      "哎呀，你好，\n{name}！最近过得怎么样？",
+      "等你和妈妈谈过之后，\n再来找我吧。"
+    ],
+    "Why, hello,\n{name}! How have you been lately?": [
+      "哎呀，你好，\n{name}！最近过得怎么样？"
+    ],
+    "For some reason,\nmy heart is pounding, {name}.\nWhat are you and {rival} going to do?": [
+      "不知道为什么，\n我的心跳得好快，{name}。",
+      "你和{rival}打算怎么做？"
+    ],
+    "Finally, I can become\na Pokémon Trainer.\nI'll have real battles with other\nTrainers and get stronger. Wait and see!": [
+      "我终于能成为\n宝可梦训练家了。",
+      "我要和其他训练家\n真正对战，变得更强。\n等着看吧！"
+    ],
+    "Hey, {name}!\nAre you meeting lots of Pokémon?\nThere really are lots of Pokémon\nin the Unova region and the\nrest of the world!": [
+      "嘿，{name}！\n遇到很多宝可梦了吗？",
+      "合众地区，\n还有世界上其他地方，",
+      "都有很多宝可梦呢！"
+    ],
+    "It's a TV.": [
+      "是一台电视。"
+    ],
+    "It's a PC.": [
+      "是一台电脑。"
+    ],
+    "It's a machine.": [
+      "是一台机器。"
+    ],
+    "It's a counter.": [
+      "是一个柜台。"
+    ],
+    "It's a chair.": [
+      "是一把椅子。"
+    ],
+    "It's a bookshelf.": [
+      "是一个书架。"
+    ],
+    "It's a desk.": [
+      "是一张书桌。"
+    ],
+    "It's a table.": [
+      "是一张桌子。"
+    ],
+    "It's a bed.": [
+      "是一张床。"
+    ],
+    "It's a potted plant.": [
+      "是一盆植物。"
+    ],
+    "It's a vase.": [
+      "是一个花瓶。"
+    ],
+    "It's a globe.": [
+      "是一个地球仪。"
+    ],
+    "It's a staircase.": [
+      "是一段楼梯。"
+    ],
+    "It's furniture.": [
+      "是一件家具。"
+    ],
+    "What a pretty sound.\n{name}, you are\na kind and strong person.\nIt's that kind of sound.\nWhat a pretty sound.\n{name}, you are\na kind and strong person.\nIt's that kind of sound.\nI'd like to introduce myself again!\nI'm Skyla, the Leader of\nMistralton's Pokémon Gym.\nI use Flying-type Pokémon.\nWhen you are ready, please\ncome to the Gym.\nI'll give you a big welcome!": [
+      "多么美妙的声音啊。",
+      "{name}，你是个\n温柔而坚强的人。",
+      "就是这样的声音。",
+      "多么美妙的声音啊。",
+      "{name}，你是个\n温柔而坚强的人。",
+      "就是这样的声音。",
+      "请允许我再次自我介绍！",
+      "我是吹寄道馆的\n馆主风露。",
+      "我使用飞行属性的宝可梦。",
+      "等你准备好了，\n请来道馆一趟吧。",
+      "我会热情地欢迎你的！"
+    ],
+    "Return to the entrance?": [
+      "要返回入口吗？"
+    ]
+  }
+}

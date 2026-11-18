@@ -1,0 +1,2768 @@
+{
+  "version": 1,
+  "accounts": {
+    "smokeazp7vpq": {
+      "id": "2492388b-67ae-49ba-b7a6-a59325d518ba",
+      "username": "SmokeAZP7VPQ",
+      "salt": "e708133d4b7a065a97dafd2f8ee86fe2",
+      "hash": "cec1c0ebd49323c19e9e1b50febddce85b30870a9ef7780dabed17394d56608befd6bbd17d4c716b0e5f2365b63b5acf36bb7f79693a2485d71b3b3a3079f6fe",
+      "createdAt": 1792978902644
+    },
+    "smokebzp7vpq": {
+      "id": "f08e2337-6d80-4f7d-b680-2d9e89fe5ee3",
+      "username": "SmokeBZP7VPQ",
+      "salt": "f310537ecbb8503408ce78eb5a84e7ed",
+      "hash": "ebb61762aaa30aec464169a948e49721e83a92ec287372d00219ca36669502e0ed0333d0f547c3018e7ecd91d9148694b9bf7f7e80f04a78ca50b56b6bcd1f3c",
+      "createdAt": 1792978902700
+    },
+    "storynfcwvk": {
+      "id": "413370ce-703c-4bdb-bee5-383a220acb8a",
+      "username": "StoryNFCWVK",
+      "salt": "e9bd340bbe56617e3f1d0125e9dff6ee",
+      "hash": "000f45e50253e9a9d39bd86eac261e219086cd45658fe75c88bab3a1e68ea22b4ad2d61cab3bbf54f4ec440427890c015facafbe2df5299106f1395732436032",
+      "createdAt": 1792978938498
+    },
+    "smokeaqagb4u": {
+      "id": "216f548a-7510-4d29-82a4-0da18cfd2d71",
+      "username": "SmokeAQAGB4U",
+      "salt": "de0119c7b5f07a1acf6eb98b5ec0e22e",
+      "hash": "3f2fa3319193e18e76a5325ffff3e4a7e376a0127c2934b42c0f6b9cddb5dca19cd6a09c5cda1a91d63b7ea1197bf1c230e99cb8fc93974c663bde674071281b",
+      "createdAt": 1793012522931
+    },
+    "smokebqagb4u": {
+      "id": "2aefd3e2-9ce6-464b-b258-0bf9aacfb30a",
+      "username": "SmokeBQAGB4U",
+      "salt": "9d4e7395d0bed1b4f8de98ce5e83a574",
+      "hash": "68e4c86edb91de5a095575fea73c316dea9733f1bd623a24f00ff0aa4600b711edb12d34960cca6f95dd3d3069055deb774501c9beb35c60f057318a9d7bedaa",
+      "createdAt": 1793012523038
+    },
+    "smokeaoifypb": {
+      "id": "4b9f8a3e-c340-4f26-9502-b81d2de31f1c",
+      "username": "SmokeAOIFYPB",
+      "salt": "af08c993aa3425bc3361cc09794196e5",
+      "hash": "2b7cfd922f3cf0b80a86745c4f57ed46dab299e12c60fe368cddccf9b1cb1a97d278961525bcfa9dc47891d2a871643fd6aaa8b7917ec7c11e3236e2a517410b",
+      "createdAt": 1793013732769
+    },
+    "smokeboifypb": {
+      "id": "3dad5b81-f6d6-4b89-970b-acf6391330c6",
+      "username": "SmokeBOIFYPB",
+      "salt": "83e7594ae2a4ff43acac67ed93e56ee8",
+      "hash": "7e388c211463037f084eacd1009bbfbceda1edf44f546591363e93a91e324890d1ecbd27113c9500e33b5d74d935f5460356059f92dc6bf0e329f195de9cc6c6",
+      "createdAt": 1793013732848
+    },
+    "smokea570r9o": {
+      "id": "8bbd3119-848b-4490-9f6d-affb0b4cee30",
+      "username": "SmokeA570R9O",
+      "salt": "e6904b1c05bfa40e103bc01387108df0",
+      "hash": "6e9f412d3b04965ca3c2b554615999475921acc8f69a142d87d6782c4c8224fa34da55394285c348b703052e598c80d6fa23df44ab6a7d60cbd2ef2b2c203869",
+      "createdAt": 1793013769031
+    },
+    "smokeb570r9o": {
+      "id": "fe689cc0-2655-4ec2-bd80-554cf7904b1d",
+      "username": "SmokeB570R9O",
+      "salt": "79d9ffa719067439dfd016b366621a62",
+      "hash": "9271d9f0d2ecb19e7256a738e3a2d7891254da5cd0786087987b57727af5a97ddbdd413494ec5c4446e72e9ec4f6e75c02139419d8553ef5494a65b2f813b427",
+      "createdAt": 1793013769094
+    },
+    "smokeaiehyfb": {
+      "id": "b163b0fa-9d49-472a-9284-da7923ead16c",
+      "username": "SmokeAIEHYFB",
+      "salt": "b2755dc375eb94c95cd13af1b9111e6f",
+      "hash": "5f062cd2eeb8c423772446474ed138feaae923870830d45d7a42a20e631fd3b29070b27ce9f1d513953b7072f37e1151ba06dca92ab65f840805093b5aeb092a",
+      "createdAt": 1793013819790
+    },
+    "smokebiehyfb": {
+      "id": "c5fdc34f-0386-437a-8480-973408dab258",
+      "username": "SmokeBIEHYFB",
+      "salt": "ffc6f7c2038bad32b3051ad74a1a82a4",
+      "hash": "f6570ec9b12411aa824cb5a46779c011af13205c8ba4d6e12f152ef6603852858964c01ff96d5848280bf2cd6f5909b0d624595eff2cda7edbb5df32d25bb8d0",
+      "createdAt": 1793013819851
+    },
+    "smokeam26gox": {
+      "id": "ce7f9f5a-fcfe-4221-b10e-9f373bf381d8",
+      "username": "SmokeAM26GOX",
+      "salt": "caaebcb6131762e1632478432be7b7f6",
+      "hash": "4bc92a26d440ad634be6df8a159b879f6427c113b35ad1653251fbfa211099a1708cb763ab01c79b237717a4678f9484ca1aaefdf3f61b35f4f7278b39ad95dd",
+      "createdAt": 1793013846463
+    },
+    "smokebm26gox": {
+      "id": "d4e08522-3d14-4c3e-9dee-713551b2f3ee",
+      "username": "SmokeBM26GOX",
+      "salt": "229743ffa041cdf6e826909fbbab984b",
+      "hash": "acf2bc5c0f6c954eeb1e76e1dbd6d36d20b82cca496f5e060c75062bbe738af88e649037170f2499631ec4c3171e9b1942056b6251f258bc5afcd040a4c282b7",
+      "createdAt": 1793013846519
+    },
+    "smokea04797o": {
+      "id": "33af0fc8-981c-4958-91b2-9fec2b4ecb2d",
+      "username": "SmokeA04797O",
+      "salt": "a71549b49910a0cd421e296a984cca5d",
+      "hash": "073c9edc0fb2f8a6ae46fcf7255bf1626adc0e8707c81c083175ddf3b565ecf95118a9f9d8aceddb3fd55ee027811d3da12387811577298882180a3f97501e58",
+      "createdAt": 1793013889440
+    },
+    "smokeb04797o": {
+      "id": "0d690021-5a80-417c-a20a-68993e35a594",
+      "username": "SmokeB04797O",
+      "salt": "004835737bc76570e853f8e76d3beee1",
+      "hash": "68a6f7ad0381f12787e376414f07d94215b0c648260cfff5dc516e19582349724b1473c4ffbd66a7d9f5239991c697132625d1c579de52d01a8944be9241b384",
+      "createdAt": 1793013889500
+    },
+    "smokeawd7kke": {
+      "id": "88840c08-44c8-400a-8c6e-c654dee1ccd7",
+      "username": "SmokeAWD7KKE",
+      "salt": "9d907755f43b9c4887b432d127c21e5a",
+      "hash": "49ac8f9159db2b74258a11a3e5b3b0a0fe7a857828ddf7e5be7de66a165257456cd35bb8a945762061fe17aa23479ef5c153e6be5f8342dbf50d1d21e9dae11a",
+      "createdAt": 1793014331013
+    },
+    "smokebwd7kke": {
+      "id": "1d8cf081-42b5-4389-9df3-871d751db4d6",
+      "username": "SmokeBWD7KKE",
+      "salt": "9e416393931d686455f7a2f95c9f243f",
+      "hash": "7746cce12ce4e5f1e524daf87ecde82450e465d13f20027558cf8868ad87f8a9a1c3d13e9082ac6d4c186cc232e90724749b8c964f3b93c9166abe3f5af635c8",
+      "createdAt": 1793014331086
+    },
+    "smokeavp9h54": {
+      "id": "34ed39be-9f2f-4f70-b104-23da0e9225ec",
+      "username": "SmokeAVP9H54",
+      "salt": "f203dda6edae0f540ae6916575f8cd0d",
+      "hash": "aba2dee779c51b5114542370289c447358dacb97b5b3d8aab8f17d06c5bfbbf50a6bc43ea772383816be1a12e1d9945fdedd130c63c29cfdfb2eae676dff88a8",
+      "createdAt": 1793014354502
+    },
+    "smokebvp9h54": {
+      "id": "be00d554-77e4-4a61-b4e9-a5e72cc68258",
+      "username": "SmokeBVP9H54",
+      "salt": "06d1a4bca6941b8e48cc95c10717a8e0",
+      "hash": "8c9ce3748bb44fc2009ab41670e78256e78abe4314a0b9d53a5672da71047c14e981bde15c8ffc184423f3f95c7c5147d31e9a77494ff3d6b68c48609b144c12",
+      "createdAt": 1793014354567
+    },
+    "smokea0gs9z7": {
+      "id": "f256bd31-b8b8-46a4-a4a3-0033b34337db",
+      "username": "SmokeA0GS9Z7",
+      "salt": "e7196ea23525464cebd74bed4157ff87",
+      "hash": "8854fc54c33a552d9683d157443434c49acda52e0207963261ffbdcd288644fd80df6340abbf241ae7a27c54c7eb8e3b064f163282870f76d527f261eb0ab2e5",
+      "createdAt": 1793014378645
+    },
+    "smokeb0gs9z7": {
+      "id": "1fc0f989-154a-468b-957a-edef8b1b2e34",
+      "username": "SmokeB0GS9Z7",
+      "salt": "b022e93022a90133118aeba6751c6a2a",
+      "hash": "67d2a370dabb5d826b9ebdbdbd076e11ca33e609033d530ba813cc55f79fad60670dd5ea5c45393067ba180ec5e3f613c755b778747f86960a383f294100d5ae",
+      "createdAt": 1793014378714
+    },
+    "smokeaibtwmo": {
+      "id": "2a06ad68-82eb-482a-9ba5-1bfd74750db4",
+      "username": "SmokeAIBTWMO",
+      "salt": "f9da4af3d2af0d733faef0f013b93c52",
+      "hash": "1a047752cc2328d1996cebb9d06e2264a55a366e82266561ceefc6419f7f2493b7f34f99f67bd644d07f8f0620373a706573a49e077be84b9cbe08970034a272",
+      "createdAt": 1793014459124
+    },
+    "smokebibtwmo": {
+      "id": "ece530aa-e7f0-43d8-a48d-9ad4586eeba7",
+      "username": "SmokeBIBTWMO",
+      "salt": "bd332783edd99d802dab143fe5249ac5",
+      "hash": "6640118e541b9bfc3029d6d38fdd6e39d737e4d8170396a3b681d1b5693b743262288ca8a9d5926bad18d1830cd2604c2cb56a580a296f1067b545cfb744c4fc",
+      "createdAt": 1793014459204
+    }
+  },
+  "tokens": {
+    "5EUdZSq24Ia5gzTrUiniBqGx3hBj-D8FfHZyGrJ0XZg": {
+      "accountId": "2492388b-67ae-49ba-b7a6-a59325d518ba",
+      "expiresAt": 1793583702645
+    },
+    "oeNV-s7S6mLMxgwiNZCnvNArRD_8tIbZm6ytIyNWGJk": {
+      "accountId": "f08e2337-6d80-4f7d-b680-2d9e89fe5ee3",
+      "expiresAt": 1793583702700
+    },
+    "j_EBfU98ydWMkS8nftDHPsqa3fFXqfEb0wO0rzBAY30": {
+      "accountId": "413370ce-703c-4bdb-bee5-383a220acb8a",
+      "expiresAt": 1793583738498
+    },
+    "WbRgNK1uQgVQ1eJoKq-LSCppgb8JlTReStiads3jQ1k": {
+      "accountId": "216f548a-7510-4d29-82a4-0da18cfd2d71",
+      "expiresAt": 1793617322933
+    },
+    "nl14rHmx1N97N3be-2N-Q9C-LzEea9h7gs_M5kKxPcg": {
+      "accountId": "2aefd3e2-9ce6-464b-b258-0bf9aacfb30a",
+      "expiresAt": 1793617323038
+    },
+    "DNShnw5e0JfgJOF_bIpSsKn0PD6GahWVd97ny5cEwUU": {
+      "accountId": "4b9f8a3e-c340-4f26-9502-b81d2de31f1c",
+      "expiresAt": 1793618532769
+    },
+    "xAKER_srn-X5nWrRG3miWeZwp-g0ijlH_LvMEjeVkxE": {
+      "accountId": "3dad5b81-f6d6-4b89-970b-acf6391330c6",
+      "expiresAt": 1793618532848
+    },
+    "uwvvgYpK2ZYVp7L8vP81QVl8v60z27jhrPsdtXWjq78": {
+      "accountId": "8bbd3119-848b-4490-9f6d-affb0b4cee30",
+      "expiresAt": 1793618569031
+    },
+    "ZU9hcwkDTpziXQyMQq1PcM6o8Rr_9j4OzZck8lFyIkk": {
+      "accountId": "fe689cc0-2655-4ec2-bd80-554cf7904b1d",
+      "expiresAt": 1793618569094
+    },
+    "vs3htZjY9kL9t9rv0fv53GQCm4xZbgD3VonHxNPYpD4": {
+      "accountId": "b163b0fa-9d49-472a-9284-da7923ead16c",
+      "expiresAt": 1793618619790
+    },
+    "YSD3nqAfCUk2WjXllenw6eqmojDRCCOGtu9dAorqwt0": {
+      "accountId": "c5fdc34f-0386-437a-8480-973408dab258",
+      "expiresAt": 1793618619851
+    },
+    "AJAYubiYus9ulWPj-lTahlbXZ2Wu_K5XHl72XaO08d4": {
+      "accountId": "ce7f9f5a-fcfe-4221-b10e-9f373bf381d8",
+      "expiresAt": 1793618646463
+    },
+    "_ysLPwa63DUFNC1t52y4QKR9Y-jXEul0cRLYqiPZzRY": {
+      "accountId": "d4e08522-3d14-4c3e-9dee-713551b2f3ee",
+      "expiresAt": 1793618646519
+    },
+    "jxhLsX8FBc9i9ycu2sAjpgH9QNP3QNsVV0pCIkVSSU0": {
+      "accountId": "33af0fc8-981c-4958-91b2-9fec2b4ecb2d",
+      "expiresAt": 1793618689440
+    },
+    "jSdlJbVW9HdazIdSBJxI9mfZCKaHP0XlSVoRnBpjGuk": {
+      "accountId": "0d690021-5a80-417c-a20a-68993e35a594",
+      "expiresAt": 1793618689500
+    },
+    "uXxILb6J94dnNAgN_weCkFSiZ2hNjul9ibpxqknCX0U": {
+      "accountId": "88840c08-44c8-400a-8c6e-c654dee1ccd7",
+      "expiresAt": 1793619131013
+    },
+    "E74PZXSEgA_vQLVQauWQnW3n2LQSR5_UwyvTQAptdzU": {
+      "accountId": "1d8cf081-42b5-4389-9df3-871d751db4d6",
+      "expiresAt": 1793619131086
+    },
+    "dAsSz8IRIQiIqqs1V64ve41Q4ARBE1jwDw7-pPX7Wpk": {
+      "accountId": "34ed39be-9f2f-4f70-b104-23da0e9225ec",
+      "expiresAt": 1793619154503
+    },
+    "ccX5q3vIYGsouJ1__jQamaWhE_cPv_2BPzfT_f7Ihzs": {
+      "accountId": "be00d554-77e4-4a61-b4e9-a5e72cc68258",
+      "expiresAt": 1793619154567
+    },
+    "St2HgykKm4QvZjL0t2xHDkwtPnDB4Lvgfhl2dZuayeg": {
+      "accountId": "f256bd31-b8b8-46a4-a4a3-0033b34337db",
+      "expiresAt": 1793619178646
+    },
+    "bjGia3Dy8v6wm8AxndYa4PCZ_zdWjUZHZ0ZKusyIWTk": {
+      "accountId": "1fc0f989-154a-468b-957a-edef8b1b2e34",
+      "expiresAt": 1793619178714
+    },
+    "nD7Aq2c_q4FBq_FAyIzey__SUhFShDgGJXwNpgEXc8Y": {
+      "accountId": "2a06ad68-82eb-482a-9ba5-1bfd74750db4",
+      "expiresAt": 1793619259124
+    },
+    "1ODIxKP-cUiCiHhZKDKIfEpIXY1dgzC0c5xJrfL_Jgw": {
+      "accountId": "ece530aa-e7f0-43d8-a48d-9ad4586eeba7",
+      "expiresAt": 1793619259204
+    }
+  },
+  "characters": {
+    "2492388b-67ae-49ba-b7a6-a59325d518ba": {
+      "id": "36175acf-ccb4-43bb-a3fb-b9ab88270b56",
+      "name": "SmokeAZP7VPQ",
+      "color": "#e76f51",
+      "mapId": "unova_full",
+      "x": 788,
+      "y": 716,
+      "dir": "up",
+      "sprite": 0,
+      "money": 350,
+      "wins": 0,
+      "party": [
+        {
+          "species": "snivy",
+          "name": "Snivy",
+          "level": 5,
+          "gender": "female",
+          "types": [
+            "Grass"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 20,
+          "atk": 9,
+          "def": 11,
+          "spAtk": 9,
+          "spDef": 11,
+          "speed": 12,
+          "hp": 20,
+          "ivs": {
+            "hp": 25,
+            "atk": 11,
+            "def": 26,
+            "spAtk": 6,
+            "spDef": 13,
+            "speed": 18
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Modest",
+          "heldItem": null,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 34,
+              "maxPp": 35
+            },
+            {
+              "id": "leer",
+              "name": "Leer",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 43,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 2
+        }
+      },
+      "pokedex": {
+        "seen": [
+          495,
+          506
+        ],
+        "caught": [
+          495
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    },
+    "f08e2337-6d80-4f7d-b680-2d9e89fe5ee3": {
+      "id": "f976847c-8322-4035-a07f-a3f0570e60fb",
+      "name": "SmokeBZP7VPQ",
+      "color": "#2a9d8f",
+      "mapId": "unova_full",
+      "x": 784,
+      "y": 753,
+      "dir": "down",
+      "sprite": 0,
+      "money": 500,
+      "wins": 0,
+      "party": [
+        {
+          "species": "tepig",
+          "name": "Tepig",
+          "level": 5,
+          "gender": "female",
+          "types": [
+            "Fire"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 22,
+          "atk": 12,
+          "def": 11,
+          "spAtk": 9,
+          "spDef": 10,
+          "speed": 8,
+          "hp": 22,
+          "ivs": {
+            "hp": 19,
+            "atk": 30,
+            "def": 20,
+            "spAtk": 1,
+            "spDef": 19,
+            "speed": 0
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Relaxed",
+          "heldItem": null,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 35,
+              "maxPp": 35
+            },
+            {
+              "id": "tailwhip",
+              "name": "Tail Whip",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 39,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 3
+        }
+      },
+      "pokedex": {
+        "seen": [
+          498
+        ],
+        "caught": [
+          498
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    },
+    "413370ce-703c-4bdb-bee5-383a220acb8a": {
+      "id": "af48822d-a373-4e56-98da-3d1cd8728ccc",
+      "name": "StoryNFCWVK",
+      "color": "#e76f51",
+      "mapId": "unova_full",
+      "x": 784,
+      "y": 753,
+      "dir": "down",
+      "sprite": 0,
+      "money": 500,
+      "wins": 0,
+      "party": [
+        {
+          "species": "snivy",
+          "name": "Snivy",
+          "level": 5,
+          "gender": "male",
+          "types": [
+            "Grass"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 19,
+          "atk": 11,
+          "def": 11,
+          "spAtk": 10,
+          "spDef": 11,
+          "speed": 10,
+          "hp": 19,
+          "ivs": {
+            "hp": 6,
+            "atk": 24,
+            "def": 10,
+            "spAtk": 19,
+            "spDef": 11,
+            "speed": 28
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Brave",
+          "heldItem": null,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 35,
+              "maxPp": 35
+            },
+            {
+              "id": "leer",
+              "name": "Leer",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 43,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 3
+        }
+      },
+      "pokedex": {
+        "seen": [
+          495
+        ],
+        "caught": [
+          495
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    },
+    "216f548a-7510-4d29-82a4-0da18cfd2d71": {
+      "id": "0b7b92b3-dd24-4d2d-af3e-4b05ff981399",
+      "name": "SmokeAQAGB4U",
+      "color": "#e76f51",
+      "mapId": "unova_full",
+      "x": 788,
+      "y": 719,
+      "dir": "up",
+      "sprite": 0,
+      "money": 350,
+      "wins": 0,
+      "party": [
+        {
+          "species": "snivy",
+          "name": "Snivy",
+          "level": 5,
+          "gender": "female",
+          "types": [
+            "Grass"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 20,
+          "atk": 11,
+          "def": 10,
+          "spAtk": 10,
+          "spDef": 12,
+          "speed": 12,
+          "hp": 20,
+          "ivs": {
+            "hp": 28,
+            "atk": 27,
+            "def": 30,
+            "spAtk": 13,
+            "spDef": 31,
+            "speed": 21
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Lonely",
+          "heldItem": null,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 34,
+              "maxPp": 35
+            },
+            {
+              "id": "leer",
+              "name": "Leer",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 43,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 2
+        }
+      },
+      "pokedex": {
+        "seen": [
+          495,
+          504
+        ],
+        "caught": [
+          495
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    },
+    "2aefd3e2-9ce6-464b-b258-0bf9aacfb30a": {
+      "id": "3ec24ffc-c959-4f5e-8346-aa5f920e18f9",
+      "name": "SmokeBQAGB4U",
+      "color": "#2a9d8f",
+      "mapId": "unova_full",
+      "x": 784,
+      "y": 753,
+      "dir": "down",
+      "sprite": 0,
+      "money": 500,
+      "wins": 0,
+      "party": [
+        {
+          "species": "tepig",
+          "name": "Tepig",
+          "level": 5,
+          "gender": "female",
+          "types": [
+            "Fire"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 21,
+          "atk": 12,
+          "def": 10,
+          "spAtk": 10,
+          "spDef": 8,
+          "speed": 11,
+          "hp": 21,
+          "ivs": {
+            "hp": 1,
+            "atk": 24,
+            "def": 11,
+            "spAtk": 28,
+            "spDef": 4,
+            "speed": 10
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Naive",
+          "heldItem": null,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 35,
+              "maxPp": 35
+            },
+            {
+              "id": "tailwhip",
+              "name": "Tail Whip",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 39,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 3
+        }
+      },
+      "pokedex": {
+        "seen": [
+          498
+        ],
+        "caught": [
+          498
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    },
+    "4b9f8a3e-c340-4f26-9502-b81d2de31f1c": {
+      "id": "1d64476e-b727-4aaf-9252-e65eb7a4ce81",
+      "name": "SmokeAOIFYPB",
+      "color": "#e76f51",
+      "mapId": "unova_full",
+      "x": 788,
+      "y": 716,
+      "dir": "up",
+      "sprite": 0,
+      "money": 350,
+      "wins": 0,
+      "party": [
+        {
+          "species": "snivy",
+          "name": "Snivy",
+          "level": 5,
+          "gender": "female",
+          "types": [
+            "Grass"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 20,
+          "atk": 10,
+          "def": 10,
+          "spAtk": 10,
+          "spDef": 10,
+          "speed": 12,
+          "hp": 20,
+          "ivs": {
+            "hp": 17,
+            "atk": 22,
+            "def": 0,
+            "spAtk": 26,
+            "spDef": 1,
+            "speed": 29
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Serious",
+          "heldItem": null,
+          "ability": "overgrow",
+          "abilitySlot": 0,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 35,
+              "maxPp": 35
+            },
+            {
+              "id": "leer",
+              "name": "Leer",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 43,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 3
+        }
+      },
+      "pokedex": {
+        "seen": [
+          495
+        ],
+        "caught": [
+          495
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    },
+    "3dad5b81-f6d6-4b89-970b-acf6391330c6": {
+      "id": "b1919d57-b749-4655-8d8f-ce8a877e2c4a",
+      "name": "SmokeBOIFYPB",
+      "color": "#2a9d8f",
+      "mapId": "unova_full",
+      "x": 784,
+      "y": 753,
+      "dir": "down",
+      "sprite": 0,
+      "money": 500,
+      "wins": 0,
+      "party": [
+        {
+          "species": "tepig",
+          "name": "Tepig",
+          "level": 5,
+          "gender": "female",
+          "types": [
+            "Fire"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 22,
+          "atk": 13,
+          "def": 10,
+          "spAtk": 10,
+          "spDef": 9,
+          "speed": 10,
+          "hp": 22,
+          "ivs": {
+            "hp": 29,
+            "atk": 20,
+            "def": 26,
+            "spAtk": 19,
+            "spDef": 13,
+            "speed": 12
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Naughty",
+          "heldItem": null,
+          "ability": "blaze",
+          "abilitySlot": 0,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 35,
+              "maxPp": 35
+            },
+            {
+              "id": "tailwhip",
+              "name": "Tail Whip",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 39,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 3
+        }
+      },
+      "pokedex": {
+        "seen": [
+          498
+        ],
+        "caught": [
+          498
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    },
+    "8bbd3119-848b-4490-9f6d-affb0b4cee30": {
+      "id": "33de374d-d5a0-4952-bc7f-7a94acedf9cb",
+      "name": "SmokeA570R9O",
+      "color": "#e76f51",
+      "mapId": "unova_full",
+      "x": 788,
+      "y": 716,
+      "dir": "up",
+      "sprite": 0,
+      "money": 350,
+      "wins": 0,
+      "party": [
+        {
+          "species": "snivy",
+          "name": "Snivy",
+          "level": 5,
+          "gender": "female",
+          "types": [
+            "Grass"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 20,
+          "atk": 11,
+          "def": 11,
+          "spAtk": 9,
+          "spDef": 9,
+          "speed": 11,
+          "hp": 20,
+          "ivs": {
+            "hp": 27,
+            "atk": 22,
+            "def": 18,
+            "spAtk": 6,
+            "spDef": 18,
+            "speed": 0
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Naughty",
+          "heldItem": null,
+          "ability": "overgrow",
+          "abilitySlot": 0,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 35,
+              "maxPp": 35
+            },
+            {
+              "id": "leer",
+              "name": "Leer",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 43,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 3
+        }
+      },
+      "pokedex": {
+        "seen": [
+          495
+        ],
+        "caught": [
+          495
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    },
+    "fe689cc0-2655-4ec2-bd80-554cf7904b1d": {
+      "id": "4949ff8d-f6f9-4a2e-959e-989d360c9add",
+      "name": "SmokeB570R9O",
+      "color": "#2a9d8f",
+      "mapId": "unova_full",
+      "x": 784,
+      "y": 753,
+      "dir": "down",
+      "sprite": 0,
+      "money": 500,
+      "wins": 0,
+      "party": [
+        {
+          "species": "tepig",
+          "name": "Tepig",
+          "level": 5,
+          "gender": "male",
+          "types": [
+            "Fire"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 22,
+          "atk": 12,
+          "def": 11,
+          "spAtk": 9,
+          "spDef": 9,
+          "speed": 11,
+          "hp": 22,
+          "ivs": {
+            "hp": 10,
+            "atk": 17,
+            "def": 31,
+            "spAtk": 6,
+            "spDef": 12,
+            "speed": 15
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Naive",
+          "heldItem": null,
+          "ability": "blaze",
+          "abilitySlot": 0,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 35,
+              "maxPp": 35
+            },
+            {
+              "id": "tailwhip",
+              "name": "Tail Whip",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 39,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 3
+        }
+      },
+      "pokedex": {
+        "seen": [
+          498
+        ],
+        "caught": [
+          498
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    },
+    "b163b0fa-9d49-472a-9284-da7923ead16c": {
+      "id": "4db75325-4e92-4ee0-b5f2-faa2f5d1b77a",
+      "name": "SmokeAIEHYFB",
+      "color": "#e76f51",
+      "mapId": "unova_full",
+      "x": 784,
+      "y": 753,
+      "dir": "down",
+      "sprite": 0,
+      "money": 350,
+      "wins": 0,
+      "party": [
+        {
+          "species": "snivy",
+          "name": "Snivy",
+          "level": 5,
+          "gender": "male",
+          "types": [
+            "Grass"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 19,
+          "atk": 10,
+          "def": 11,
+          "spAtk": 8,
+          "spDef": 12,
+          "speed": 12,
+          "hp": 19,
+          "ivs": {
+            "hp": 8,
+            "atk": 27,
+            "def": 21,
+            "spAtk": 2,
+            "spDef": 20,
+            "speed": 24
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Careful",
+          "heldItem": null,
+          "ability": "overgrow",
+          "abilitySlot": 0,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 35,
+              "maxPp": 35
+            },
+            {
+              "id": "leer",
+              "name": "Leer",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 43,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 3
+        }
+      },
+      "pokedex": {
+        "seen": [
+          495,
+          504
+        ],
+        "caught": [
+          495
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    },
+    "c5fdc34f-0386-437a-8480-973408dab258": {
+      "id": "58c25c90-b8f8-463e-8b39-c86f190aeaf8",
+      "name": "SmokeBIEHYFB",
+      "color": "#2a9d8f",
+      "mapId": "unova_full",
+      "x": 784,
+      "y": 753,
+      "dir": "down",
+      "sprite": 0,
+      "money": 500,
+      "wins": 0,
+      "party": [
+        {
+          "species": "tepig",
+          "name": "Tepig",
+          "level": 5,
+          "gender": "male",
+          "types": [
+            "Fire"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 23,
+          "atk": 9,
+          "def": 10,
+          "spAtk": 11,
+          "spDef": 10,
+          "speed": 10,
+          "hp": 23,
+          "ivs": {
+            "hp": 30,
+            "atk": 5,
+            "def": 25,
+            "spAtk": 12,
+            "spDef": 24,
+            "speed": 14
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Modest",
+          "heldItem": null,
+          "ability": "blaze",
+          "abilitySlot": 0,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 35,
+              "maxPp": 35
+            },
+            {
+              "id": "tailwhip",
+              "name": "Tail Whip",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 39,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 3
+        }
+      },
+      "pokedex": {
+        "seen": [
+          498
+        ],
+        "caught": [
+          498
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    },
+    "ce7f9f5a-fcfe-4221-b10e-9f373bf381d8": {
+      "id": "b0758c44-0003-472b-afe6-7cac24db451a",
+      "name": "SmokeAM26GOX",
+      "color": "#e76f51",
+      "mapId": "unova_full",
+      "x": 788,
+      "y": 716,
+      "dir": "up",
+      "sprite": 0,
+      "money": 350,
+      "wins": 0,
+      "party": [
+        {
+          "species": "snivy",
+          "name": "Snivy",
+          "level": 5,
+          "gender": "female",
+          "types": [
+            "Grass"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 20,
+          "atk": 8,
+          "def": 10,
+          "spAtk": 12,
+          "spDef": 11,
+          "speed": 12,
+          "hp": 20,
+          "ivs": {
+            "hp": 19,
+            "atk": 0,
+            "def": 2,
+            "spAtk": 30,
+            "spDef": 29,
+            "speed": 23
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Modest",
+          "heldItem": null,
+          "ability": "overgrow",
+          "abilitySlot": 0,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 35,
+              "maxPp": 35
+            },
+            {
+              "id": "leer",
+              "name": "Leer",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 43,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 3
+        }
+      },
+      "pokedex": {
+        "seen": [
+          495
+        ],
+        "caught": [
+          495
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    },
+    "d4e08522-3d14-4c3e-9dee-713551b2f3ee": {
+      "id": "02a42450-df67-4928-9b1f-7f284e24594d",
+      "name": "SmokeBM26GOX",
+      "color": "#2a9d8f",
+      "mapId": "unova_full",
+      "x": 784,
+      "y": 753,
+      "dir": "down",
+      "sprite": 0,
+      "money": 500,
+      "wins": 0,
+      "party": [
+        {
+          "species": "tepig",
+          "name": "Tepig",
+          "level": 5,
+          "gender": "male",
+          "types": [
+            "Fire"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 22,
+          "atk": 10,
+          "def": 11,
+          "spAtk": 9,
+          "spDef": 10,
+          "speed": 9,
+          "hp": 22,
+          "ivs": {
+            "hp": 19,
+            "atk": 23,
+            "def": 24,
+            "spAtk": 8,
+            "spDef": 22,
+            "speed": 2
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Bold",
+          "heldItem": null,
+          "ability": "blaze",
+          "abilitySlot": 0,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 35,
+              "maxPp": 35
+            },
+            {
+              "id": "tailwhip",
+              "name": "Tail Whip",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 39,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 3
+        }
+      },
+      "pokedex": {
+        "seen": [
+          498
+        ],
+        "caught": [
+          498
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    },
+    "33af0fc8-981c-4958-91b2-9fec2b4ecb2d": {
+      "id": "a6876704-469f-47d5-b93d-99d2c91b591c",
+      "name": "SmokeA04797O",
+      "color": "#e76f51",
+      "mapId": "unova_full",
+      "x": 788,
+      "y": 720,
+      "dir": "up",
+      "sprite": 0,
+      "money": 350,
+      "wins": 0,
+      "party": [
+        {
+          "species": "snivy",
+          "name": "Snivy",
+          "level": 5,
+          "gender": "female",
+          "types": [
+            "Grass"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 19,
+          "atk": 9,
+          "def": 12,
+          "spAtk": 10,
+          "spDef": 11,
+          "speed": 9,
+          "hp": 19,
+          "ivs": {
+            "hp": 4,
+            "atk": 5,
+            "def": 16,
+            "spAtk": 16,
+            "spDef": 11,
+            "speed": 7
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Relaxed",
+          "heldItem": null,
+          "ability": "overgrow",
+          "abilitySlot": 0,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 34,
+              "maxPp": 35
+            },
+            {
+              "id": "leer",
+              "name": "Leer",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 43,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 2
+        }
+      },
+      "pokedex": {
+        "seen": [
+          495,
+          506
+        ],
+        "caught": [
+          495
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    },
+    "0d690021-5a80-417c-a20a-68993e35a594": {
+      "id": "14f3ec27-3245-4e14-b8f1-f9b6ea1d60cf",
+      "name": "SmokeB04797O",
+      "color": "#2a9d8f",
+      "mapId": "unova_full",
+      "x": 784,
+      "y": 753,
+      "dir": "down",
+      "sprite": 0,
+      "money": 500,
+      "wins": 0,
+      "party": [
+        {
+          "species": "tepig",
+          "name": "Tepig",
+          "level": 5,
+          "gender": "female",
+          "types": [
+            "Fire"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 21,
+          "atk": 12,
+          "def": 9,
+          "spAtk": 9,
+          "spDef": 10,
+          "speed": 10,
+          "hp": 21,
+          "ivs": {
+            "hp": 9,
+            "atk": 17,
+            "def": 9,
+            "spAtk": 8,
+            "spDef": 19,
+            "speed": 27
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Docile",
+          "heldItem": null,
+          "ability": "blaze",
+          "abilitySlot": 0,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 35,
+              "maxPp": 35
+            },
+            {
+              "id": "tailwhip",
+              "name": "Tail Whip",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 39,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 3
+        }
+      },
+      "pokedex": {
+        "seen": [
+          498
+        ],
+        "caught": [
+          498
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    },
+    "88840c08-44c8-400a-8c6e-c654dee1ccd7": {
+      "id": "7e8bf55f-0524-4fbc-b5b7-3c17f7fc14cd",
+      "name": "SmokeAWD7KKE",
+      "color": "#e76f51",
+      "mapId": "unova_full",
+      "x": 788,
+      "y": 722,
+      "dir": "up",
+      "sprite": 0,
+      "money": 350,
+      "wins": 0,
+      "party": [
+        {
+          "species": "snivy",
+          "name": "Snivy",
+          "level": 5,
+          "gender": "female",
+          "types": [
+            "Grass"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 21,
+          "atk": 10,
+          "def": 11,
+          "spAtk": 9,
+          "spDef": 12,
+          "speed": 12,
+          "hp": 21,
+          "ivs": {
+            "hp": 30,
+            "atk": 24,
+            "def": 23,
+            "spAtk": 25,
+            "spDef": 11,
+            "speed": 31
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Careful",
+          "heldItem": null,
+          "ability": "overgrow",
+          "abilitySlot": 0,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 34,
+              "maxPp": 35
+            },
+            {
+              "id": "leer",
+              "name": "Leer",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 43,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 2
+        }
+      },
+      "pokedex": {
+        "seen": [
+          495,
+          506
+        ],
+        "caught": [
+          495
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    },
+    "1d8cf081-42b5-4389-9df3-871d751db4d6": {
+      "id": "dab6ea88-7fc2-4031-ac7a-f2bda3ee5582",
+      "name": "SmokeBWD7KKE",
+      "color": "#2a9d8f",
+      "mapId": "unova_full",
+      "x": 784,
+      "y": 753,
+      "dir": "down",
+      "sprite": 0,
+      "money": 500,
+      "wins": 0,
+      "party": [
+        {
+          "species": "tepig",
+          "name": "Tepig",
+          "level": 5,
+          "gender": "male",
+          "types": [
+            "Fire"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 22,
+          "atk": 13,
+          "def": 9,
+          "spAtk": 11,
+          "spDef": 9,
+          "speed": 9,
+          "hp": 22,
+          "ivs": {
+            "hp": 25,
+            "atk": 19,
+            "def": 7,
+            "spAtk": 30,
+            "spDef": 27,
+            "speed": 5
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Naughty",
+          "heldItem": null,
+          "ability": "blaze",
+          "abilitySlot": 0,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 35,
+              "maxPp": 35
+            },
+            {
+              "id": "tailwhip",
+              "name": "Tail Whip",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 39,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 3
+        }
+      },
+      "pokedex": {
+        "seen": [
+          498
+        ],
+        "caught": [
+          498
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    },
+    "34ed39be-9f2f-4f70-b104-23da0e9225ec": {
+      "id": "9220bcfc-6c14-4874-ba07-3f61796007b0",
+      "name": "SmokeAVP9H54",
+      "color": "#e76f51",
+      "mapId": "unova_full",
+      "x": 788,
+      "y": 722,
+      "dir": "down",
+      "sprite": 0,
+      "money": 350,
+      "wins": 0,
+      "party": [
+        {
+          "species": "snivy",
+          "name": "Snivy",
+          "level": 5,
+          "gender": "male",
+          "types": [
+            "Grass"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 19,
+          "atk": 9,
+          "def": 13,
+          "spAtk": 9,
+          "spDef": 12,
+          "speed": 12,
+          "hp": 19,
+          "ivs": {
+            "hp": 5,
+            "atk": 0,
+            "def": 31,
+            "spAtk": 26,
+            "spDef": 31,
+            "speed": 16
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Impish",
+          "heldItem": null,
+          "ability": "overgrow",
+          "abilitySlot": 0,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 34,
+              "maxPp": 35
+            },
+            {
+              "id": "leer",
+              "name": "Leer",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 43,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 2
+        }
+      },
+      "pokedex": {
+        "seen": [
+          495,
+          504
+        ],
+        "caught": [
+          495
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    },
+    "be00d554-77e4-4a61-b4e9-a5e72cc68258": {
+      "id": "32f4191d-65f4-48d0-a7fc-a9abe72a44c8",
+      "name": "SmokeBVP9H54",
+      "color": "#2a9d8f",
+      "mapId": "unova_full",
+      "x": 784,
+      "y": 753,
+      "dir": "down",
+      "sprite": 0,
+      "money": 500,
+      "wins": 0,
+      "party": [
+        {
+          "species": "tepig",
+          "name": "Tepig",
+          "level": 5,
+          "gender": "male",
+          "types": [
+            "Fire"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 21,
+          "atk": 13,
+          "def": 9,
+          "spAtk": 8,
+          "spDef": 10,
+          "speed": 11,
+          "hp": 21,
+          "ivs": {
+            "hp": 3,
+            "atk": 27,
+            "def": 4,
+            "spAtk": 7,
+            "spDef": 26,
+            "speed": 30
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Adamant",
+          "heldItem": null,
+          "ability": "blaze",
+          "abilitySlot": 0,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 35,
+              "maxPp": 35
+            },
+            {
+              "id": "tailwhip",
+              "name": "Tail Whip",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 39,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 3
+        }
+      },
+      "pokedex": {
+        "seen": [
+          498
+        ],
+        "caught": [
+          498
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    },
+    "f256bd31-b8b8-46a4-a4a3-0033b34337db": {
+      "id": "23dd5236-0622-4968-90b5-3a027250a1c9",
+      "name": "SmokeA0GS9Z7",
+      "color": "#e76f51",
+      "mapId": "unova_full",
+      "x": 788,
+      "y": 722,
+      "dir": "down",
+      "sprite": 0,
+      "money": 350,
+      "wins": 0,
+      "party": [
+        {
+          "species": "snivy",
+          "name": "Snivy",
+          "level": 5,
+          "gender": "female",
+          "types": [
+            "Grass"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 19,
+          "atk": 10,
+          "def": 9,
+          "spAtk": 9,
+          "spDef": 12,
+          "speed": 12,
+          "hp": 19,
+          "ivs": {
+            "hp": 7,
+            "atk": 12,
+            "def": 22,
+            "spAtk": 7,
+            "spDef": 29,
+            "speed": 16
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Gentle",
+          "heldItem": null,
+          "ability": "overgrow",
+          "abilitySlot": 0,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 34,
+              "maxPp": 35
+            },
+            {
+              "id": "leer",
+              "name": "Leer",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 43,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 2
+        }
+      },
+      "pokedex": {
+        "seen": [
+          495,
+          506
+        ],
+        "caught": [
+          495
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    },
+    "1fc0f989-154a-468b-957a-edef8b1b2e34": {
+      "id": "382a6e3f-5958-460f-88ed-a972a78689d9",
+      "name": "SmokeB0GS9Z7",
+      "color": "#2a9d8f",
+      "mapId": "unova_full",
+      "x": 784,
+      "y": 753,
+      "dir": "down",
+      "sprite": 0,
+      "money": 500,
+      "wins": 0,
+      "party": [
+        {
+          "species": "tepig",
+          "name": "Tepig",
+          "level": 5,
+          "gender": "female",
+          "types": [
+            "Fire"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 22,
+          "atk": 13,
+          "def": 10,
+          "spAtk": 10,
+          "spDef": 9,
+          "speed": 10,
+          "hp": 22,
+          "ivs": {
+            "hp": 29,
+            "atk": 30,
+            "def": 16,
+            "spAtk": 23,
+            "spDef": 10,
+            "speed": 14
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Naughty",
+          "heldItem": null,
+          "ability": "blaze",
+          "abilitySlot": 0,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 35,
+              "maxPp": 35
+            },
+            {
+              "id": "tailwhip",
+              "name": "Tail Whip",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 39,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 3
+        }
+      },
+      "pokedex": {
+        "seen": [
+          498
+        ],
+        "caught": [
+          498
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    },
+    "2a06ad68-82eb-482a-9ba5-1bfd74750db4": {
+      "id": "cde2b7cf-2b5b-497b-94c0-0ff2db59fc77",
+      "name": "SmokeAIBTWMO",
+      "color": "#e76f51",
+      "mapId": "unova_full",
+      "x": 788,
+      "y": 722,
+      "dir": "up",
+      "sprite": 0,
+      "money": 350,
+      "wins": 0,
+      "party": [
+        {
+          "species": "snivy",
+          "name": "Snivy",
+          "level": 5,
+          "gender": "female",
+          "types": [
+            "Grass"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 20,
+          "atk": 9,
+          "def": 10,
+          "spAtk": 11,
+          "spDef": 11,
+          "speed": 9,
+          "hp": 20,
+          "ivs": {
+            "hp": 16,
+            "atk": 7,
+            "def": 9,
+            "spAtk": 21,
+            "spDef": 24,
+            "speed": 13
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Quiet",
+          "heldItem": null,
+          "ability": "overgrow",
+          "abilitySlot": 0,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 34,
+              "maxPp": 35
+            },
+            {
+              "id": "leer",
+              "name": "Leer",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 43,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 2
+        }
+      },
+      "pokedex": {
+        "seen": [
+          495,
+          504
+        ],
+        "caught": [
+          495
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    },
+    "ece530aa-e7f0-43d8-a48d-9ad4586eeba7": {
+      "id": "f7567585-0af4-4ff2-bc96-4e05116e7596",
+      "name": "SmokeBIBTWMO",
+      "color": "#2a9d8f",
+      "mapId": "unova_full",
+      "x": 784,
+      "y": 753,
+      "dir": "down",
+      "sprite": 0,
+      "money": 500,
+      "wins": 0,
+      "party": [
+        {
+          "species": "tepig",
+          "name": "Tepig",
+          "level": 5,
+          "gender": "male",
+          "types": [
+            "Fire"
+          ],
+          "xp": 0,
+          "xpToNext": 80,
+          "maxHp": 23,
+          "atk": 12,
+          "def": 10,
+          "spAtk": 11,
+          "spDef": 11,
+          "speed": 8,
+          "hp": 23,
+          "ivs": {
+            "hp": 31,
+            "atk": 28,
+            "def": 28,
+            "spAtk": 14,
+            "spDef": 31,
+            "speed": 4
+          },
+          "evs": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0,
+            "spAtk": 0,
+            "spDef": 0,
+            "speed": 0
+          },
+          "nature": "Quiet",
+          "heldItem": null,
+          "ability": "blaze",
+          "abilitySlot": 0,
+          "friendship": 70,
+          "moves": [
+            {
+              "id": "tackle",
+              "name": "Tackle",
+              "type": "Normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 35,
+              "priority": 0,
+              "romMoveId": 33,
+              "currentPp": 35,
+              "maxPp": 35
+            },
+            {
+              "id": "tailwhip",
+              "name": "Tail Whip",
+              "type": "Normal",
+              "category": "status",
+              "power": 0,
+              "accuracy": 100,
+              "pp": 30,
+              "priority": 0,
+              "romMoveId": 39,
+              "currentPp": 30,
+              "maxPp": 30
+            }
+          ],
+          "baseXp": 15,
+          "catchRate": 0.176
+        }
+      ],
+      "box": [],
+      "inventory": {
+        "items": {
+          "poke_ball": 10,
+          "potion": 3
+        }
+      },
+      "pokedex": {
+        "seen": [
+          498
+        ],
+        "caught": [
+          498
+        ]
+      },
+      "storyFlags": {
+        "8010": 0,
+        "prologue.started": 1,
+        "prologue.starter": -1,
+        "prologue.starterChosen": 1,
+        "prologue.bedroomDone": 0,
+        "prologue.momDone": 1,
+        "prologue.pokedex": 1,
+        "prologue.routeUnlocked": 1
+      },
+      "friends": []
+    }
+  },
+  "friendRequests": []
+}

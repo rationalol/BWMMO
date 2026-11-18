@@ -27,14 +27,31 @@ import subprocess
 import sys
 from pathlib import Path
 
+# The chunk / LZ11 / AB-bundle readers below are plain `struct` code and stay
+# importable without these packages, so headless tools (tools/rom/audit_assets.py)
+# can reuse them. Only the ROM/PNG entry points require the dependencies, and
+# they say so when asked to run without them.
 try:
     import ndspy.model
     import ndspy.narc
     import ndspy.rom
+except ImportError:  # pragma: no cover - environment guard
+    ndspy = None  # type: ignore[assignment]
+
+try:
     from PIL import Image
-except ImportError:
-    print("Missing dependency: pip install ndspy pillow", file=sys.stderr)
-    raise
+except ImportError:  # pragma: no cover - environment guard
+    Image = None  # type: ignore[assignment]
+
+
+def require_ndspy() -> None:
+    if ndspy is None:
+        raise SystemExit("This step needs ndspy: pip install ndspy")
+
+
+def require_pillow() -> None:
+    if Image is None:
+        raise SystemExit("This step needs Pillow: pip install pillow")
 
 NUVEMA_CELL = (24, 23)
 NUVEMA_FLY = (782, 0, 750)
@@ -110,6 +127,7 @@ def lz11_decompress(data: bytes) -> bytes:
 
 
 def read_narc(rom: ndspy.rom.NintendoDSRom, path: str) -> list[bytes]:
+    require_ndspy()
     return [bytes(entry) for entry in ndspy.narc.NARC(rom.getFileByName(path)).files]
 
 
@@ -179,10 +197,12 @@ def permission_tile(entry: bytes) -> tuple[str, int, int]:
         return "#", behavior, flags
     if behavior == 1 and flags & 1:
         return "#", behavior, flags
-    if flags & 0x0004:
-        return "g", behavior, flags
+    # Surfable water also carries the wild-encounter flag, so the surf bit has
+    # to win: checking 0x0004 first turned every ocean tile into walkable grass.
     if flags & 0x0002:
         return "~", behavior, flags
+    if flags & 0x0004:
+        return "g", behavior, flags
     return ".", behavior, flags
 
 
@@ -372,6 +392,7 @@ def find_apicula(root: Path, value: str | None) -> Path | None:
 
 def render_texture(tex, palette) -> Image.Image:
     """Render one 4bpp NSBMD texture with a 16-color palette."""
+    require_pillow()
     width, height = tex.size
     data = tex.data1
     image = Image.new("RGBA", (width, height), (0, 0, 0, 0))
@@ -492,6 +513,8 @@ def extract_actor_frames(
     available = len(model.textures)
     animations = {}
     for animation_name, frames in ACTOR_ANIMATIONS[key].items():
+        # The animation tables use 1-based frame numbers that match the PNG
+        # names (frame_01.png onward), so the last valid id is `available`.
         usable = [frame for frame in frames if frame <= available]
         if usable:
             animations[animation_name] = usable
@@ -499,6 +522,8 @@ def extract_actor_frames(
         "source": f"{model_name} (a/1/6/0)",
         "key": key,
         "frameSize": 32,
+        # Table ids are already file numbers; readers must not shift them.
+        "frameOffset": 0,
         "animations": animations,
     }
     (out / "actors" / key / "actor.json").write_text(
@@ -523,6 +548,8 @@ def run_apicula(apicula: Path, inputs: list[Path], output: Path) -> None:
 
 
 def main() -> int:
+    require_ndspy()
+    require_pillow()
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--rom", default=".", help="ROM file or directory")
     parser.add_argument("--out", default="client/assets/bw/nuvema", help="output directory")

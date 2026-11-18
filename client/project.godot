@@ -7,13 +7,22 @@ config_version=5
 
 config/name="BWMMO Prototype"
 config/description="A minimal online Pokemon-style prototype: shared world, chat, NPCs, and server-authoritative battles."
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://scenes/Boot.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+# The splash PNG is shown by the Loading autoload (raw file, loaded with
+# Image.load_from_file) rather than by the engine: the Android export keeps
+# .godot/imported out of the main pack, so the engine-side imported texture
+# would be missing there.
+boot_splash/bg_color=Color(0.023529, 0.05098, 0.082353, 1)
+boot_splash/show_image=false
+boot_splash/minimum_display_time=0
 
 [autoload]
 
 Loc="*res://scripts/loc.gd"
+Audio="*res://scripts/audio.gd"
+Loading="*res://scripts/loading_screen.gd"
 
 [display]
 
@@ -32,7 +41,6 @@ locale/fallback="en"
 
 [gui]
 
-theme/custom_font="res://assets/fonts/NotoSansSC-Regular.ttf"
 
 [rendering]
 
@@ -42,3 +50,4 @@ environment/defaults/default_clear_color=Color(0.043137, 0.066667, 0.090196, 1)
 anti_aliasing/quality/msaa_3d=0
 anti_aliasing/quality/screen_space_aa=1
 textures/default_filters/anisotropic_filtering_level=2
+textures/vram_compression/import_etc2_astc=true

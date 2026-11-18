@@ -17,15 +17,23 @@ interface TokenRecord {
   expiresAt: number;
 }
 
+/** A pending friend request; friendships themselves live on the character. */
+export interface FriendRequestRecord {
+  from: string;
+  to: string;
+  at: number;
+}
+
 interface StoreData {
   version: 1;
   accounts: Record<string, AccountRecord>;
   tokens: Record<string, TokenRecord>;
   characters: Record<string, CharacterState>;
+  friendRequests: FriendRequestRecord[];
 }
 
 function emptyData(): StoreData {
-  return { version: 1, accounts: {}, tokens: {}, characters: {} };
+  return { version: 1, accounts: {}, tokens: {}, characters: {}, friendRequests: [] };
 }
 
 function hashPassword(password: string, salt: string): string {
@@ -60,7 +68,8 @@ export class Store {
       version: 1,
       accounts: parsed.accounts ?? {},
       tokens: parsed.tokens ?? {},
-      characters: parsed.characters ?? {}
+      characters: parsed.characters ?? {},
+      friendRequests: Array.isArray(parsed.friendRequests) ? parsed.friendRequests : []
     };
   }
 
@@ -122,6 +131,21 @@ export class Store {
     return token;
   }
 
+  /**
+   * Invalidate every token issued for an account. Logging out is account-wide:
+   * a second device holding an older token must not silently resume the same
+   * trainer after the player asked to sign out.
+   */
+  revokeTokens(accountId: string): void {
+    let changed = false;
+    for (const [token, record] of Object.entries(this.data.tokens)) {
+      if (record.accountId !== accountId) continue;
+      delete this.data.tokens[token];
+      changed = true;
+    }
+    if (changed) this.scheduleSave();
+  }
+
   resume(token: string): AccountRecord | null {
     const record = this.data.tokens[token];
     if (!record || record.expiresAt <= Date.now()) {
@@ -138,6 +162,26 @@ export class Store {
   getCharacter(accountId: string): CharacterState | null {
     const character = this.data.characters[accountId];
     return character ? structuredClone(character) : null;
+  }
+
+  /** Character id is the stable public identity used by friends and DMs. */
+  characterById(characterId: string): { accountId: string; character: CharacterState } | null {
+    for (const [accountId, character] of Object.entries(this.data.characters)) {
+      if (character.id === characterId) {
+        return { accountId, character: structuredClone(character) };
+      }
+    }
+    return null;
+  }
+
+  characterByName(name: string): { accountId: string; character: CharacterState } | null {
+    const needle = name.toLowerCase();
+    for (const [accountId, character] of Object.entries(this.data.characters)) {
+      if (character.name.toLowerCase() === needle) {
+        return { accountId, character: structuredClone(character) };
+      }
+    }
+    return null;
   }
 
   saveCharacter(accountId: string, character: CharacterState): void {
@@ -158,6 +202,42 @@ export class Store {
 
   characterCount(): number {
     return Object.keys(this.data.characters).length;
+  }
+
+  /** Returns false when the request already exists. */
+  addFriendRequest(from: string, to: string): boolean {
+    if (this.hasFriendRequest(from, to)) return false;
+    this.data.friendRequests.push({ from, to, at: Date.now() });
+    this.scheduleSave();
+    return true;
+  }
+
+  removeFriendRequest(from: string, to: string): boolean {
+    const remaining = this.data.friendRequests.filter(
+      (request) => !(request.from === from && request.to === to)
+    );
+    if (remaining.length === this.data.friendRequests.length) return false;
+    this.data.friendRequests = remaining;
+    this.scheduleSave();
+    return true;
+  }
+
+  hasFriendRequest(from: string, to: string): boolean {
+    return this.data.friendRequests.some(
+      (request) => request.from === from && request.to === to
+    );
+  }
+
+  friendRequestsFrom(characterId: string): FriendRequestRecord[] {
+    return this.data.friendRequests
+      .filter((request) => request.from === characterId)
+      .map((request) => ({ ...request }));
+  }
+
+  friendRequestsTo(characterId: string): FriendRequestRecord[] {
+    return this.data.friendRequests
+      .filter((request) => request.to === characterId)
+      .map((request) => ({ ...request }));
   }
 
   allCharacters(): Array<{ accountId: string; character: CharacterState }> {

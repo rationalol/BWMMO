@@ -4,6 +4,7 @@ const UI = preload("res://scripts/ui_theme.gd")
 
 const ANIM_ROOT := "res://assets/bw/pokemon_anim"
 const ANIM_MANIFEST := "res://assets/bw/pokemon_anim/manifest.json"
+const SILHOUETTE_SHADER = preload("res://shaders/creature_silhouette.gdshader")
 
 static var _anim_manifest: Dictionary = {}
 static var _anim_manifest_loaded := false
@@ -21,6 +22,8 @@ var anim_durations: Array = []
 var anim_index := 0
 var anim_elapsed := 0.0
 var _frozen := false
+var _fx_material: ShaderMaterial = null
+var _fx_active := false
 
 func _ready() -> void:
 	mouse_filter = MOUSE_FILTER_IGNORE
@@ -108,6 +111,36 @@ func set_frozen(frozen: bool) -> void:
 func is_frozen() -> bool:
 	return _frozen
 
+# Evolution playback drives these two values: 1.0 silhouette paints the
+# battler as a flat dark shape, 1.0 flash overwrites it with white. Clearing
+# both restores the normal sprite and the drop shadow.
+func set_evolution_effect(silhouette: float, flash: float) -> void:
+	var sil := clampf(silhouette, 0.0, 1.0)
+	var fla := clampf(flash, 0.0, 1.0)
+	if sil <= 0.001 and fla <= 0.001:
+		clear_evolution_effect()
+		return
+	if _fx_material == null:
+		_fx_material = ShaderMaterial.new()
+		_fx_material.shader = SILHOUETTE_SHADER
+	if material != _fx_material:
+		material = _fx_material
+	_fx_material.set_shader_parameter("silhouette", sil)
+	_fx_material.set_shader_parameter("flash", fla)
+	if not _fx_active:
+		_fx_active = true
+		queue_redraw()
+
+func clear_evolution_effect() -> void:
+	if _fx_material != null:
+		_fx_material.set_shader_parameter("silhouette", 0.0)
+		_fx_material.set_shader_parameter("flash", 0.0)
+	if material == _fx_material:
+		material = null
+	if _fx_active:
+		_fx_active = false
+		queue_redraw()
+
 func _draw() -> void:
 	var center := Vector2(size.x * 0.5, size.y * 0.5 + 16)
 	if anim_sheet != null or sprite_texture != null:
@@ -120,14 +153,15 @@ func _draw() -> void:
 			var draw_size := tex_size * scale_factor
 			var feet := Vector2(size.x * 0.5, size.y - 6.0)
 			var top_left := feet - Vector2(draw_size.x * 0.5, draw_size.y)
-			var shadow := Vector2(feet.x, feet.y - 3.0)
-			draw_set_transform(
-				shadow,
-				0.0,
-				Vector2(1.0, maxf(0.14, draw_size.y * 0.045 / maxf(1.0, draw_size.x * 0.24)))
-			)
-			draw_circle(Vector2.ZERO, draw_size.x * 0.24, Color(0.01, 0.06, 0.03, 0.24))
-			draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+			if not _fx_active:
+				var shadow := Vector2(feet.x, feet.y - 3.0)
+				draw_set_transform(
+					shadow,
+					0.0,
+					Vector2(1.0, maxf(0.14, draw_size.y * 0.045 / maxf(1.0, draw_size.x * 0.24)))
+				)
+				draw_circle(Vector2.ZERO, draw_size.x * 0.24, Color(0.01, 0.06, 0.03, 0.24))
+				draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 			if anim_sheet != null:
 				var source := Rect2(
 					anim_index * anim_frame_width,
@@ -152,9 +186,10 @@ func _draw() -> void:
 	var light := body_color.lightened(0.18)
 	var dark := body_color.darkened(0.25)
 
-	draw_set_transform(center + Vector2(0, 54), 0.0, Vector2(1.0, 0.30))
-	draw_circle(Vector2.ZERO, 54, Color(0, 0, 0, 0.30))
-	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	if not _fx_active:
+		draw_set_transform(center + Vector2(0, 54), 0.0, Vector2(1.0, 0.30))
+		draw_circle(Vector2.ZERO, 54, Color(0, 0, 0, 0.30))
+		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 	if type_name == "Electric":
 		draw_colored_polygon(

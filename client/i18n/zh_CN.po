@@ -24,6 +24,12 @@ msgstr "%d 个招式等待学习"
 msgid "%d moves waiting to be learned"
 msgstr "%d 个招式等待学习"
 
+msgid "%d steps away"
+msgstr "距离 %d 步"
+
+msgid "%d steps away - %s"
+msgstr "距离 %d 步 - %s"
+
 msgid "%d win"
 msgstr "%d 胜"
 
@@ -36,6 +42,9 @@ msgstr "%d/%d PP"
 msgid "%s  -  %d ms"
 msgstr "%s  -  %d ms"
 
+msgid "%s  -  %d trainers here"
+msgstr "%s  -  此处有 %d 位训练家"
+
 msgid "%s  -  %s"
 msgstr "%s  -  %s"
 
@@ -45,14 +54,77 @@ msgstr "%s  -  %s  -  此处有 %d 位训练家"
 msgid "%s  -  %s  -  1 trainer here"
 msgstr "%s  -  %s  -  此处有 1 位训练家"
 
+msgid "%s  -  1 trainer here"
+msgstr "%s  -  此处有 1 位训练家"
+
 msgid "%s POCKET"
 msgstr "%s口袋"
 
 msgid "%s Retrying..."
 msgstr "%s 正在重试..."
 
+msgid "%s and %s were swapped."
+msgstr "%s 与 %s 交换了位置。"
+
+msgid "%s blacked out..."
+msgstr "%s 眼前一黑……"
+
+msgid "%s caught %s!"
+msgstr "%s 抓到了 %s！"
+
+msgid "%s couldn't escape!"
+msgstr "%s 没能逃走！"
+
+msgid "%s defeated wild %s!"
+msgstr "%s 击败了野生的 %s！"
+
+msgid "%s defeated wild %s! (+%d coins)"
+msgstr "%s 击败了野生的 %s！（+%d 金币）"
+
+msgid "%s evolved into %s!"
+msgstr "%s 进化为了 %s！"
+
+msgid "%s fainted!"
+msgstr "%s 倒下了！"
+
+msgid "%s forgot %s."
+msgstr "%s 忘记了 %s。"
+
+msgid "%s got away safely."
+msgstr "%s 成功逃走了。"
+
+msgid "%s learned %s!"
+msgstr "%s 学会了 %s！"
+
+msgid "%s ran into a wild %s!"
+msgstr "%s 遇到了野生的 %s！"
+
+msgid "%s reached Lv.%d!"
+msgstr "%s 升级到了 %d 级！"
+
+msgid "%s threw a %s!"
+msgstr "%s 扔出了 %s！"
+
+msgid "%s used %s!"
+msgstr "%s 使用了 %s！"
+
+msgid "%s used %s."
+msgstr "%s 使用了 %s。"
+
+msgid "%s wants to battle!"
+msgstr "%s 想和你对战！"
+
+msgid "%s wants to duel!"
+msgstr "%s 想和你决斗！"
+
 msgid "%s wants to learn %s!"
 msgstr "%s 想学会 %s！"
+
+msgid "%s was stored in the PC."
+msgstr "%s 被存入电脑。"
+
+msgid "%s was withdrawn from the PC."
+msgstr "%s 从电脑中取出。"
 
 msgid "(active)"
 msgstr "（出战）"
@@ -66,8 +138,23 @@ msgstr "2-16 个字母、数字或下划线"
 msgid "3-20 letters, numbers, or underscores"
 msgstr "3-20 个字母、数字或下划线"
 
+msgid "A / Tap to close"
+msgstr "A / 点按关闭"
+
+msgid "A / Tap to continue"
+msgstr "A / 点按继续"
+
 msgid "A wild %s appeared!"
 msgstr "野生的 %s 出现了！"
+
+msgid "ABILITY"
+msgstr "特性"
+
+msgid "ACCEPT"
+msgstr "同意"
+
+msgid "ADD"
+msgstr "添加"
 
 msgid "ALL"
 msgstr "全部"
@@ -75,11 +162,26 @@ msgstr "全部"
 msgid "AREA"
 msgstr "区域"
 
+msgid "Ability"
+msgstr "特性"
+
+msgid "Ability Expert"
+msgstr "特性专家"
+
+msgid "Add friends, see who is nearby, and open a private chat."
+msgstr "添加好友、查看附近玩家并开启私聊。"
+
 msgid "Added to your party."
 msgstr "已加入队伍。"
 
+msgid "Area map"
+msgstr "区域地图"
+
 msgid "Auto-connecting..."
 msgstr "正在自动连接..."
+
+msgid "Available abilities"
+msgstr "可选特性"
 
 msgid "BACK"
 msgstr "返回"
@@ -105,6 +207,9 @@ msgstr "购买"
 msgid "BUY 1"
 msgstr "买 1"
 
+msgid "Back"
+msgstr "返回"
+
 msgid "Bag"
 msgstr "背包"
 
@@ -116,6 +221,9 @@ msgstr "树果"
 
 msgid "Blacked out..."
 msgstr "眼前一黑……"
+
+msgid "Bought %dx %s for %d coins."
+msgstr "购买了 %d 个 %s，花费 %d 金币。"
 
 msgid "Buy and sell items. ESC to close."
 msgstr "买卖道具。按 ESC 关闭。"
@@ -129,14 +237,41 @@ msgstr "已捕获"
 msgid "CAUGHT  %d"
 msgstr "已捕获  %d"
 
+msgid "CHAT"
+msgstr "私聊"
+
+msgid "CLEAR"
+msgstr "清空"
+
 msgid "CONTINUE"
 msgstr "继续"
+
+msgid "CURRENT"
+msgstr "当前"
 
 msgid "Chat"
 msgstr "聊天"
 
 msgid "Chat timestamps"
 msgstr "聊天时间戳"
+
+msgid "Choose"
+msgstr "选择"
+
+msgid "Choose %s"
+msgstr "选择%s"
+
+msgid "Choose a Pokémon and a move it can remember."
+msgstr "选择一只宝可梦和一个可以回忆的招式。"
+
+msgid "Choose a Pokémon and a move to teach."
+msgstr "选择一只宝可梦和一个要教授的招式。"
+
+msgid "Choose a Pokémon and the ability it should have."
+msgstr "选择宝可梦和它的特性。"
+
+msgid "Choose a Pokémon that evolves by trading."
+msgstr "选择一只通过交换进化的宝可梦。"
 
 msgid "Choose a move."
 msgstr "选择招式。"
@@ -147,6 +282,15 @@ msgstr "请选择伙伴宝可梦。"
 msgid "Choose a party member"
 msgstr "选择队伍成员"
 
+msgid "Choose a trainer in the Social panel to start chatting."
+msgstr "在社交面板中选择一位训练家开始聊天。"
+
+msgid "Choose a trainer to message"
+msgstr "选择要私聊的训练家"
+
+msgid "Choose a trainer to message."
+msgstr "选择要私聊的训练家。"
+
 msgid "Choose an item"
 msgstr "选择道具"
 
@@ -155,6 +299,9 @@ msgstr "选择道具。"
 
 msgid "Choose your partner"
 msgstr "选择伙伴"
+
+msgid "Choosing an ability saves it immediately. Hidden abilities are marked."
+msgstr "选择特性后会立即保存。隐藏特性会有标记。"
 
 msgid "Close"
 msgstr "关闭"
@@ -168,14 +315,23 @@ msgstr "收起聊天"
 msgid "Collapse party"
 msgstr "收起队伍"
 
+msgid "Congratulations! %s evolved into %s!"
+msgstr "恭喜！%s 进化成了 %s！"
+
 msgid "Connecting..."
 msgstr "正在连接..."
 
 msgid "Connection"
 msgstr "连接"
 
+msgid "Connection log"
+msgstr "连接日志"
+
 msgid "Connection lost. Reconnecting..."
 msgstr "连接中断，正在重连..."
+
+msgid "Connection, reconnection and server error events. Times are local."
+msgstr "连接、重连和服务器错误事件，时间为本地时间。"
 
 msgid "Control hints"
 msgstr "操作提示"
@@ -195,11 +351,29 @@ msgstr "创建你的训练家"
 msgid "Creating trainer..."
 msgstr "正在创建训练家..."
 
+msgid "Current area"
+msgstr "当前区域"
+
+msgid "D-pad move  -  A talk  -  B back  -  Run  -  Chat"
+msgstr "方向键移动  -  A 对话  -  B 返回  -  跑步  -  聊天"
+
+msgid "D-pad move  -  A talk  -  B back (hold B to run)"
+msgstr "方向键移动  -  A 对话  -  B 返回（按住 B 跑步）"
+
 msgid "D-pad move  -  Talk  -  Chat"
 msgstr "方向键移动  -  对话  -  聊天"
 
+msgid "DECLINE"
+msgstr "拒绝"
+
 msgid "DON'T LEARN"
 msgstr "不学习"
+
+msgid "DUEL"
+msgstr "决斗"
+
+msgid "DUEL SENT"
+msgstr "已发送决斗"
 
 msgid "Dawn"
 msgstr "黎明"
@@ -207,8 +381,14 @@ msgstr "黎明"
 msgid "Day"
 msgstr "白天"
 
+msgid "Defeated..."
+msgstr "战败……"
+
 msgid "Dex"
 msgstr "图鉴"
+
+msgid "Diagnostics"
+msgstr "诊断"
 
 msgid "Disconnected from server."
 msgstr "已断开与服务器的连接。"
@@ -216,11 +396,20 @@ msgstr "已断开与服务器的连接。"
 msgid "Display"
 msgstr "显示"
 
+msgid "Duel request"
+msgstr "决斗请求"
+
 msgid "Dusk"
 msgstr "黄昏"
 
 msgid "E  talk    -    T / Enter  chat    -    Esc  close"
 msgstr "E 对话    -    T / Enter 聊天    -    Esc 关闭"
+
+msgid "E / A / Tap to close"
+msgstr "E / A / 点按关闭"
+
+msgid "E / A / Tap to continue"
+msgstr "E / A / 点按继续"
 
 msgid "E / Space / Tap to close"
 msgstr "E / 空格 / 点击关闭"
@@ -242,6 +431,15 @@ msgstr "遇到该物种后即可\n登记到图鉴。"
 
 msgid "Enter Unova"
 msgstr "进入合众"
+
+msgid "Enter a nickname of 1-12 characters."
+msgstr "输入 1-12 个字符的昵称。"
+
+msgid "Enter a nickname."
+msgstr "请输入昵称。"
+
+msgid "Enter or Choose to confirm  ·  Esc to look again"
+msgstr "回车或点击“选择”确认 · Esc 重新查看"
 
 msgid "Entering %s..."
 msgstr "正在进入 %s..."
@@ -270,6 +468,12 @@ msgstr "濒死"
 msgid "FORGET"
 msgstr "遗忘"
 
+msgid "FREE"
+msgstr "放生"
+
+msgid "FRIEND"
+msgstr "已好友"
+
 msgid "FRZ"
 msgstr "冰冻"
 
@@ -279,6 +483,18 @@ msgstr "森林"
 msgid "Forget a move to make room"
 msgstr "遗忘一个招式腾出位置"
 
+msgid "Friend requests %d"
+msgstr "好友申请 %d"
+
+msgid "Friends %d/%d"
+msgstr "好友 %d/%d"
+
+msgid "GIFT BOX"
+msgstr "礼物盒"
+
+msgid "Go, %s!"
+msgstr "上吧，%s！"
+
 msgid "Gotcha!"
 msgstr "捕获成功！"
 
@@ -287,6 +503,9 @@ msgstr "草地"
 
 msgid "HELD ITEM"
 msgstr "携带道具"
+
+msgid "HIDDEN"
+msgstr "隐藏"
 
 msgid "HP"
 msgstr "HP"
@@ -309,11 +528,20 @@ msgstr "道具"
 msgid "Items"
 msgstr "道具"
 
+msgid "KNOWN"
+msgstr "已学会"
+
 msgid "Key Items"
 msgstr "重要道具"
 
 msgid "LEARN %s"
 msgstr "学习 %s"
+
+msgid "LINK TRADE"
+msgstr "连接交换"
+
+msgid "Landmark"
+msgstr "地标"
 
 msgid "Language"
 msgstr "语言"
@@ -326,6 +554,12 @@ msgstr "携带道具升级  ->  %s"
 
 msgid "Level up knowing a move  ->  %s"
 msgstr "掌握指定招式升级  ->  %s"
+
+msgid "Link Trade"
+msgstr "连接交换台"
+
+msgid "Loading Unova..."
+msgstr "正在载入合众地区…"
 
 msgid "Loading entries..."
 msgstr "正在加载条目..."
@@ -341,6 +575,15 @@ msgstr "Lv %d"
 
 msgid "Lv %d   %d/%d HP"
 msgstr "Lv %d   %d/%d HP"
+
+msgid "Lv %d   %d/%d HP   -   %s"
+msgstr "Lv %d   %d/%d HP   -   %s"
+
+msgid "Lv %d   -   %d moves"
+msgstr "Lv %d   -   %d 个招式"
+
+msgid "Lv %d   -   %s"
+msgstr "Lv %d   -   %s"
 
 msgid "Lv --"
 msgstr "Lv --"
@@ -366,11 +609,23 @@ msgstr "药品只能对一名队伍成员使用，并会消耗本回合。"
 msgid "Menu"
 msgstr "菜单"
 
+msgid "Message %s..."
+msgstr "发送给 %s..."
+
 msgid "Minimap"
 msgstr "小地图"
 
+msgid "Move Reminder"
+msgstr "招式回忆家"
+
+msgid "Move Tutor"
+msgstr "招式教学家"
+
 msgid "Moves"
 msgstr "招式"
+
+msgid "NAME"
+msgstr "改名"
 
 msgid "NATURE"
 msgstr "性格"
@@ -390,8 +645,14 @@ msgstr "没有招式"
 msgid "NUVEMA TOWN  -  BW ROM MAP TEST"
 msgstr "诺文镇  -  BW ROM 地图测试"
 
+msgid "Nearby trainers"
+msgstr "附近的训练家"
+
 msgid "New Pokémon"
 msgstr "新捕获的宝可梦"
+
+msgid "Nickname"
+msgstr "昵称"
 
 msgid "Night"
 msgstr "夜晚"
@@ -399,14 +660,35 @@ msgstr "夜晚"
 msgid "No PP left"
 msgstr "PP 已耗尽"
 
+msgid "No Pokémon"
+msgstr "没有宝可梦"
+
+msgid "No Pokémon in your party evolves through a link trade yet."
+msgstr "队伍中暂时没有通过连接交换进化的宝可梦。"
+
+msgid "No Pokémon is available."
+msgstr "没有可用的宝可梦。"
+
 msgid "No Pokémon selected"
 msgstr "未选择宝可梦"
+
+msgid "No friends yet. Add a trainer from the nearby list."
+msgstr "还没有好友，可以从附近训练家中添加。"
 
 msgid "No items"
 msgstr "没有道具"
 
+msgid "No log entries yet."
+msgstr "暂无日志。"
+
+msgid "No move is available for this Pokémon."
+msgstr "这只宝可梦没有可用的招式。"
+
 msgid "No move is waiting to be learned."
 msgstr "没有等待学习的招式。"
+
+msgid "Nobody nearby."
+msgstr "附近没有其他玩家。"
 
 msgid "None"
 msgstr "无"
@@ -432,6 +714,24 @@ msgstr "开"
 msgid "ONLINE"
 msgstr "在线"
 
+msgid "OPEN"
+msgstr "打开"
+
+msgid "Offline"
+msgstr "离线"
+
+msgid "Online"
+msgstr "在线"
+
+msgid "Online - %s"
+msgstr "在线 - %s"
+
+msgid "Only moves this Pokémon could already learn are listed."
+msgstr "这里只列出该宝可梦本来就能学会的招式。"
+
+msgid "Opponent"
+msgstr "对手"
+
 msgid "PAGE %d / %d   -   %d entries"
 msgstr "第 %d / %d 页   -   %d 条"
 
@@ -441,6 +741,12 @@ msgstr "麻痹"
 msgid "PARTY"
 msgstr "队伍"
 
+msgid "PARTY  -  choose a Pokémon to trade"
+msgstr "队伍  -  选择要交换的宝可梦"
+
+msgid "PARTY  -  click a row to choose"
+msgstr "队伍  -  点击一行选择"
+
 msgid "PARTY  -  click a row to select for swapping"
 msgstr "队伍  -  点击一行选择交换"
 
@@ -449,6 +755,9 @@ msgstr "队伍 %d/%d   -   盒子 %d/%d"
 
 msgid "PC Storage"
 msgstr "PC 存储"
+
+msgid "PENDING"
+msgstr "待处理"
 
 msgid "POKéMON"
 msgstr "宝可梦"
@@ -498,11 +807,29 @@ msgstr "按 Enter 聊天..."
 msgid "Quantity: %d"
 msgstr "数量：%d"
 
+msgid "READY"
+msgstr "可交换"
+
+msgid "RELEASE"
+msgstr "放生"
+
+msgid "REMEMBER"
+msgstr "回忆"
+
+msgid "REMOVE"
+msgstr "删除"
+
 msgid "REPLACE"
 msgstr "替换"
 
+msgid "REQUESTED"
+msgstr "已申请"
+
 msgid "RUN"
 msgstr "逃跑"
+
+msgid "Ready to evolve by trade."
+msgstr "已满足交换进化条件。"
 
 msgid "Reconnecting... (attempt %d)"
 msgstr "正在重连...（第 %d 次尝试）"
@@ -510,8 +837,26 @@ msgstr "正在重连...（第 %d 次尝试）"
 msgid "Registered by capture or evolution."
 msgstr "通过捕获或进化登记。"
 
+msgid "Release %s?"
+msgstr "要放生 %s 吗？"
+
+msgid "Remember"
+msgstr "回忆"
+
+msgid "Rename %s"
+msgstr "将 %s 改名"
+
 msgid "Restoring session..."
 msgstr "正在恢复会话..."
+
+msgid "Route"
+msgstr "道路"
+
+msgid "Run"
+msgstr "跑步"
+
+msgid "SAVE"
+msgstr "保存"
 
 msgid "SEEN"
 msgstr "已发现"
@@ -537,14 +882,23 @@ msgstr "确定？"
 msgid "SWAP"
 msgstr "交换"
 
+msgid "SWITCH"
+msgstr "切换"
+
 msgid "Say something..."
 msgstr "说点什么..."
+
+msgid "Select a chat"
+msgstr "选择会话"
 
 msgid "Send (Enter)"
 msgstr "发送（Enter）"
 
 msgid "Send out a healthy party member to continue."
-msgstr "派出一名健康的队伍成员继续战斗。"
+msgstr "派出一只健康的宝可梦继续战斗。"
+
+msgid "Sent requests %d"
+msgstr "已发送的申请 %d"
 
 msgid "Server"
 msgstr "服务器"
@@ -558,6 +912,12 @@ msgstr "设置"
 msgid "Shop"
 msgstr "商店"
 
+msgid "Social"
+msgstr "社交"
+
+msgid "Sold %dx %s for %d coins."
+msgstr "卖出了 %d 个 %s，获得 %d 金币。"
+
 msgid "Special condition  ->  %s"
 msgstr "特殊条件  ->  %s"
 
@@ -570,8 +930,11 @@ msgstr "变化"
 msgid "Stored Pokémon keep their HP and status. ESC to close."
 msgstr "存入的宝可梦会保留 HP 和状态。按 ESC 关闭。"
 
+msgid "Switching uses your turn."
+msgstr "替换会消耗本回合。"
+
 msgid "Switching uses your turn. The wild Pokémon will attack."
-msgstr "换人会消耗本回合，野生宝可梦会发动攻击。"
+msgstr "替换会消耗本回合，野生宝可梦会攻击。"
 
 msgid "System"
 msgstr "系统"
@@ -579,14 +942,26 @@ msgstr "系统"
 msgid "TAKE"
 msgstr "取出"
 
+msgid "TEACH"
+msgstr "教授"
+
 msgid "TMs"
 msgstr "学习器"
 
 msgid "TMs & HMs"
 msgstr "招式学习器"
 
+msgid "TMs and tutors share the normal learn/replace prompt."
+msgstr "招式学习器和教学家都会进入正常的“学习/替换”流程。"
+
+msgid "TO"
+msgstr "至"
+
 msgid "TOX"
 msgstr "剧毒"
+
+msgid "TRADE"
+msgstr "交换"
 
 msgid "Talk"
 msgstr "对话"
@@ -594,11 +969,29 @@ msgstr "对话"
 msgid "Talk to %s"
 msgstr "与 %s 对话"
 
+msgid "Tap to chat..."
+msgstr "点按输入框聊天..."
+
+msgid "Teach"
+msgstr "教授"
+
 msgid "The box is empty."
 msgstr "盒子是空的。"
 
 msgid "The learned move starts with full PP."
 msgstr "学会的招式以满 PP 开始。"
+
+msgid "The trade is simulated and happens instantly. Holding a required item is respected."
+msgstr "这里模拟即时交换，并会检查所需的携带道具。"
+
+msgid "This Pokémon has no trade evolution."
+msgstr "这只宝可梦没有交换进化。"
+
+msgid "This Pokémon has only one ability."
+msgstr "这只宝可梦只有一个特性。"
+
+msgid "This cannot be undone. The Pokémon will be gone forever."
+msgstr "此操作无法撤销，这只宝可梦将永远消失。"
 
 msgid "This pocket is empty."
 msgstr "这个口袋是空的。"
@@ -606,8 +999,17 @@ msgstr "这个口袋是空的。"
 msgid "This shop has nothing in stock."
 msgstr "这家商店没有库存。"
 
+msgid "Three Poké Balls rest inside the gift box."
+msgstr "礼物盒里放着三个精灵球。"
+
+msgid "Town"
+msgstr "城镇"
+
 msgid "Trade  ->  %s"
 msgstr "交换  ->  %s"
+
+msgid "Trainer"
+msgstr "训练家"
 
 msgid "Trainer color"
 msgstr "训练家颜色"
@@ -666,8 +1068,23 @@ msgstr "WASD / 方向键移动\n下一步是多人同步"
 msgid "WASD / arrows  move    -    Shift  run"
 msgstr "WASD / 方向键  移动    -    Shift  跑步"
 
+msgid "WASD move  -  J talk  -  K back / hold to run  -  T chat"
+msgstr "WASD 移动  -  J 对话  -  K 返回/按住跑步  -  T 聊天"
+
 msgid "WASD move  -  Shift run  -  E talk  -  T chat"
 msgstr "WASD 移动  -  Shift 跑步  -  E 对话  -  T 聊天"
+
+msgid "Waiting for a response."
+msgstr "等待对方回应。"
+
+msgid "Waiting for opponent..."
+msgstr "等待对手……"
+
+msgid "Waiting..."
+msgstr "请稍候……"
+
+msgid "Wants to be your friend."
+msgstr "想要添加你为好友。"
 
 msgid "Water"
 msgstr "水面"
@@ -678,6 +1095,12 @@ msgstr "欢迎来到合众。按 Enter 开始聊天。"
 msgid "What will %s do?"
 msgstr "%s 要做什么？"
 
+msgid "What? %s is evolving!"
+msgstr "咦？%s 开始进化了！"
+
+msgid "Wild %s broke free!"
+msgstr "野生的 %s 挣脱了！"
+
 msgid "World"
 msgstr "世界"
 
@@ -687,6 +1110,12 @@ msgstr "世界地图"
 msgid "XP"
 msgstr "经验"
 
+msgid "You"
+msgstr "你"
+
+msgid "You are here"
+msgstr "你在这里"
+
 msgid "You have nothing to sell."
 msgstr "你没有可出售的道具。"
 
@@ -695,6 +1124,9 @@ msgstr "你的伙伴倒下了"
 
 msgid "Your party is empty."
 msgstr "你的队伍是空的。"
+
+msgid "Your team was fully healed."
+msgstr "队伍完全恢复了。"
 
 msgid "a new move"
 msgstr "新招式"
@@ -920,3 +1352,6 @@ msgstr "×%d"
 
 msgid "x5"
 msgstr "×5"
+
+msgid "← → to look  ·  Enter or click to choose"
+msgstr "← → 查看 · 回车或点击选择"

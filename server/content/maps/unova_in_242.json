@@ -1,0 +1,66 @@
+{
+  "id": "unova_in_242",
+  "name": "Abyssal Ruins",
+  "zone": 242,
+  "outdoor": false,
+  "spawn": {
+    "x": 2,
+    "y": 0,
+    "dir": "down"
+  },
+  "tiles": [
+    "##..###############.#...........",
+    "##..###############.#...........",
+    "#.....###########...#...........",
+    "#.....###########...#...........",
+    "#.....###########............##.",
+    "....###############..........##.",
+    "....###############..........##.",
+    "#.....###########...#........##.",
+    "#.....###########...#........##.",
+    "#.....###########...#........##.",
+    "##........###.......#....##..##.",
+    "##.####...###..####.#....##..##.",
+    "##.####...###..####.#....#...##.",
+    "#..####...###..####.#........##.",
+    "#..####...###..####.............",
+    "#...................#...........",
+    "#...................#...........",
+    "#......##.....#.....#...........",
+    ".......##.....#.....#...........",
+    ".......##.....#.................",
+    "##..................#...........",
+    "##..................#...........",
+    "##..................#...........",
+    "##..................#...........",
+    "###.............#####...........",
+    "#####...........#####...........",
+    "................................",
+    ".........................##.....",
+    ".........................##.....",
+    ".........................##.....",
+    ".........................##.....",
+    ".....#####...........######....."
+  ],
+  "npcs": [],
+  "portals": [],
+  "visual": {
+    "originX": -248,
+    "originZ": -248,
+    "tile": 16,
+    "cellSize": 32,
+    "heightScale": 16,
+    "chunks": [
+      {
+        "asset": "unova_indoor/zone_242/0_0",
+        "cellX": 0,
+        "cellY": 0,
+        "offsetX": 0,
+        "offsetZ": 0,
+        "mapFile": "unova_indoor/mapsets/tex_268/m_dun2002_00_00.glb",
+        "heights": "cwEYALz/vP8ADAAMAAwADAAMAAwACgAKAAwADAAMAAwADAAMAAy8/wkBvP+8/7z/vP+8/7z/vP+8/7z/vP+8/9cBGAC8/7z/AAwADAAMAAwADAAMAAoACgAMAAwADAAMAAwADAAMvP+7ALz/vP+8/7z/vP+8/7z/vP+8/7z/vP/XAbz/vP+8/7z/vP8ACgAKAAoACgAKAAoACgAKAAoACgAKvP+8/7z/TQC8/7z/vP+8/7z/vP+8/7z/vP+8/7z/BAG8/7z/vP+8/7z/AAoACgAKAAoACgAKAAoACgAKAAoACrz/vP+8/xQAvP+8/7z/vP+8/7z/vP+8/7z/vP+8/y4AvP+8/7z/vP+8/wAKAAoACgAKAAoACgAKAAoACgAKAAq8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP8xABQAvP+8/7z/vP+8/wAMAAwADAAMAAwADAAKAAoADAAMAAwADAAMAAwADLz/vP+8/7z/vP+8/7z/vP+8/7z/UgAsALz/vP+8/7z/vP8ADAAMAAwADAAMAAwACgAKAAwADAAMAAwADAAMAAy8/7z/vP+8/7z/vP+8/7z/vP+8/1IARQC8/w8AvP+8/7z/vP+8/wAKAAoACgAKAAoACgAKAAoACgAKAAq8/7z/vP87ALz/vP+8/7z/vP+8/7z/vP9SAFIAvP9IALz/vP+8/7z/vP8ACgAKAAoACgAKAAoACgAKAAoACgAKvP+8/7z/FwG8/7z/vP+8/7z/vP+8/7z/UgBSALz/sQC8/7z/vP+8/7z/AAoACgAKAAoACgAKAAoACgAKAAoACrz/vP+8/9cBvP+8/7z/vP+8/7z/vP+8/zQAUgC8/wcBCAC8/7z/vP+8/7z/vP+8/7z/AAQABAAEvP+8/7z/vP+8/7z/vP/XAbz/vP+8/7z/rgAeALz/vP8uADQAvP9cAQoAvP9OAU0BTgFOAbz/vP+8/4ADgAOAA7z/vP9OAU0BTgFOAbz/QwG8/7z/vP+8//IALgC8/7z/HgAxALz/XAEKALz/TgFOAU4BTgG8/7z/vP+AAoACgAK8/7z/TgFOAU4BTgG8/14AvP+8/7z/vP9jALz/vP+8/w8AGAC8/1wBvP+8/04BTgFOAU4BvP+8/7z/gAGAAYABvP+8/04BTgFOAU4BvP8CALz/vP+8/7z/vP+8/7z/vP8QAP//vP8CAbz/vP9OAU4BTgFOAbz/vP+8/4AAgACAALz/vP9OAU4BTgFOAbz/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/tQC8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/1AAvP+8/7z/vP+8/7z/vP+8/7z/vP+8/0oAvP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP/yALz/vP+8/7z/vP+8/7z/vP+8/7z/vP8QALz/vP+8/7z/vP+8/wkAfQC8/7z/vP+8/7z/fQC8/7z/vP+8/7z/zgC8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP88APIAvP+8/7z/vP+8//IAvP+8/7z/vP+8/wEAvP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/FwB9ALz/vP+8/7z/vP99ALz/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP8yACoAvP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/GgC8/7z/vP+8/7z/vP+8/7z/vP+8/7z//wAqALz/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7wAvP+8/7z/vP+8/7z/vP+8/7z/vP+8/4QBKgC8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+MAbz/vP+8/7z/vP+8/7z/vP+8/7z/vP9IASoAvP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/1wG8/7z/vP+8/7z/vP+8/7z/vP+8/7z/QAE+AD4AvP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP92AHYAdgCBAMIBvP+8/7z/vP+8/7z/vP+8/7z/vP+8/0sB1wHXATsBVwC8/7z/vP+8/7z/vP+8/7z/vP+8/7z/WgBaAFoAWgBbALz/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP8FAAMAvP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/LQAcALz/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/zQANAC8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP+8/7z/vP9SAFIAvP+8/7z/vP+8/7z/vP+8/7z/vP9OAU4BTgFOAU4BvP+8/7z/vP+8/7z/vP+8/7z/vP+8/10AiwCLAIsAoABSALz/vP+8/7z/vP8=",
+        "props": []
+      }
+    ]
+  }
+}

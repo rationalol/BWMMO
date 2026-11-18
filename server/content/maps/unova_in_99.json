@@ -1,7 +1,8 @@
 {
   "id": "unova_in_99",
-  "name": "Pokémon Center",
+  "name": "Pok\u00e9mon Center",
   "zone": 99,
+  "outdoor": false,
   "spawn": {
     "x": 6,
     "y": 19,
@@ -9,11 +10,11 @@
   },
   "tiles": [
     "################################",
+    "#..##.##.##...##################",
     "#.............##################",
     "#.............##################",
-    "#.............##################",
-    "#.............##################",
-    "#...........####################",
+    "#...........#.##################",
+    "#..........#####################",
     "#...........####################",
     "#.....###.....##################",
     "#..#########..##################",
@@ -23,10 +24,10 @@
     "#.............##################",
     "#.............##################",
     "#.............##################",
-    "#.........#...##################",
-    "#.............##################",
-    "####..........##################",
-    "#####.........##################",
+    "##........#.#.##################",
+    "##..........#.##################",
+    "#####.......#.##################",
+    "#####.......#.##################",
     "######PPP#######################",
     "################################",
     "################################",
@@ -49,12 +50,13 @@
       "y": 10,
       "color": "#f2b8c6",
       "kind": "healer",
-      "sprite": 2,
+      "sprite": 83,
       "dialogue": [
-        "Welcome to the Pokémon Center!",
-        "Let me take care of your Pokémon.",
+        "Welcome to the Pok\u00e9mon Center!",
+        "Let me take care of your Pok\u00e9mon.",
         "There! Your team is fighting fit again."
-      ]
+      ],
+      "movement": 0
     }
   ],
   "portals": [
@@ -103,31 +105,137 @@
         "offsetX": 0,
         "offsetZ": 0,
         "mapFile": "unova_indoor/mapsets/tex_211/m_pc01_00_00.glb",
-        "heights": "wAXgA8ACwAIAAMACwAIAAMACwAIAAMACwALgA8AFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAF4APAAsACAADAAsACAADAAsACAADAAsAC4APABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADABeADwALAAsACwALAAsACwALAAsACwALAAuADwAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAXgA8ACwALAAsACwALAAsACwALAAsACwALgA8AFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAF4APAAsACwALAAsACwALAAsACwALAAsAC4APABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADABcACwALAAtACvwK/AtACwALAAtACvwK/AsACwAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAXAAsACvgK9Ar0CvwLAAsACvgK9Ar4CvwLAAsAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAFwAK/Ar4CvgLw/8D/wP/A//D/vwLAAsACwALABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADABUACQAIOA44A8P/A/8D/wP/A/44ADgNAAkACwAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAVAAUABCAKMAMD/wP/A/8D/wP+MAAgCQAFAAcAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAFQABAAAMBdwCPAMD/wP/A/48AcgADAUAAQADABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADABfD/wP/A/8D/AwCKAIsAigAAANb/wP/A/8D/wAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAXw/8D/wP/A/8D/wP/W/9b/wP/A/8D/wP/A/8AFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAF8P/g/+D/4P/A/+D/4P/g/8D/4P/g/+D/4P/ABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADABfD/4P/g/+D/4P/g/+D/4P/g/7IAhwCSALoDwAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAXw/+D/4P/g/+D/4P/g/+D/4P+SAJIAAwADAMAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAF8P/g/+D/4P/g/8D/wP/A//D/kgD8/+D/4P/ABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADABfD/4P/g/+D/4P/A/8D/wP/w/woB9//g/+D/wAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAXw/+D/4P/g/+D/wP/A/8D/8P+SAPf/4P+6A8AFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOD/4P/g/+D/4P/g/8D/wP/A/+D/4P/g/+D/4P/g/+D/4P8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADg/+D/4P/g/+D/4P8AAMD/AADg/+D/4P/g/+D/4P/g/+D/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        "heights": "AAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAMAAwADAAMAAAAAAAAAAAAAAAMAAwADAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwADAAMAAwADAAAAAAAAAAAAAAADAAMAAwADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAoACgAIAAAAAAAAAAAAAAAAAAIACgAKAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAGAAYABAAAAAAAAAAAAAAAAAACAAYABgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAgACAAAAAAAAAAAAAAAAAAAAAgACAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
         "props": [
           {
             "x": -184.0,
             "y": 0.0,
             "z": -72.0,
             "rotation": 0.0,
-            "file": "unova_indoor/propsets/b6/pc_01.glb"
+            "file": "unova_indoor/propsets/b1/pc01.glb"
+          },
+          {
+            "x": -184.0,
+            "y": 0.0,
+            "z": 40.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b1/plant01.glb"
+          },
+          {
+            "x": -48.0,
+            "y": 0.0,
+            "z": 40.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b1/shelf03.glb"
+          },
+          {
+            "x": -48.0,
+            "y": 0.0,
+            "z": 8.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b1/shelf03.glb"
+          },
+          {
+            "x": -136.0,
+            "y": 0.0,
+            "z": -120.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b1/pcmachine01.glb"
+          },
+          {
+            "x": -232.0,
+            "y": 0.0,
+            "z": 24.0,
+            "rotation": 90.0,
+            "file": "unova_indoor/propsets/b1/pcchair01.glb"
+          },
+          {
+            "x": -200.0,
+            "y": 0.0,
+            "z": 40.0,
+            "rotation": 270.0,
+            "file": "unova_indoor/propsets/b1/pcchair01.glb"
+          },
+          {
+            "x": -232.0,
+            "y": 0.0,
+            "z": 40.0,
+            "rotation": 90.0,
+            "file": "unova_indoor/propsets/b1/pcchair01.glb"
+          },
+          {
+            "x": -200.0,
+            "y": 0.0,
+            "z": 24.0,
+            "rotation": 270.0,
+            "file": "unova_indoor/propsets/b1/pcchair01.glb"
+          },
+          {
+            "x": -216.0,
+            "y": 0.0,
+            "z": 32.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b1/pctable01.glb"
           },
           {
             "x": -232.0,
             "y": 0.0,
             "z": 0.0,
             "rotation": 90.0,
-            "file": "unova_indoor/propsets/b6/searock_01.glb"
+            "file": "unova_indoor/propsets/b1/pcshelf01.glb"
+          },
+          {
+            "x": -184.0,
+            "y": 8.0,
+            "z": -232.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b1/pcev01.glb"
+          },
+          {
+            "x": -136.0,
+            "y": 8.0,
+            "z": -232.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b1/pcev01.glb"
+          },
+          {
+            "x": -88.0,
+            "y": 8.0,
+            "z": -232.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b1/pcev01.glb"
           },
           {
             "x": -48.0,
             "y": 48.0,
             "z": -160.0,
             "rotation": 0.0,
-            "file": "unova_indoor/propsets/b6/c04_football_01.glb"
+            "file": "unova_indoor/propsets/b1/globe01s.glb"
           }
         ]
       }
     ]
-  }
+  },
+  "interactables": [
+    {
+      "id": "z99_o0",
+      "x": 12,
+      "y": 6,
+      "script": 2108,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z99_o1",
+      "x": 13,
+      "y": 6,
+      "script": 2108,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    }
+  ]
 }

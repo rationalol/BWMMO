@@ -1,6 +1,7 @@
 extends Node3D
 
 const ACTOR_ROOT := "res://assets/bw/nuvema/actors"
+const NPC_ACTOR_ROOT := "res://assets/bw/overworld"
 const ASSET_ROOT := "res://assets/bw"
 const TILE := 16.0
 const CELL_SIZE := 32
@@ -22,6 +23,10 @@ const MAX_STEP_DOWN := 128.0
 const CHAIN_SNAP_DISTANCE := 3.0
 const NAME_HEIGHT := 46.0
 const BUBBLE_HEIGHT := 74.0
+# Tall-grass tiles are ROM overlay cards raised 2-10 units above the terrain.
+# Characters stand on that surface instead of the terrain below it, otherwise
+# the card's own tile clips through the sprite's legs.
+const GRASS_LIFT_LIMIT := 24.0
 # Building meshes are shells; their doors live in separate ROM props authored
 # at the building origin, so they are instantiated alongside the building.
 const BUILDING_DOORS := {
@@ -32,6 +37,13 @@ const BUILDING_DOORS := {
 const BUILDING_DOOR_OFFSETS := {
 	"pc_01.glb": Vector3(0, 0, 18),
 }
+# Runtime chunk/prop trees are plain instances; copying them with the default
+# DUPLICATE_USE_INSTANTIATION flag makes Godot re-instantiate their PackedScene
+# and log "child node disappeared" for every prop. A plain deep copy shares the
+# meshes/materials and is all the minimap mirror needs.
+const MIRROR_DUPLICATE_FLAGS := (
+	Node.DUPLICATE_SIGNALS | Node.DUPLICATE_GROUPS | Node.DUPLICATE_SCRIPTS
+)
 const FOLIAGE_SHADER = preload("res://shaders/foliage_wind.gdshader")
 const MAP_LIT_SHADER = preload("res://shaders/map_lit.gdshader")
 const WATER_SHADER = preload("res://shaders/water_flow.gdshader")
@@ -62,6 +74,7 @@ var world_chunk_radius := CHUNK_RADIUS
 var loaded_chunks: Dictionary = {}
 var pending_chunks: Dictionary = {}
 var chunk_heights: Dictionary = {}
+var chunk_grass_lift: Dictionary = {}
 var height_scale := 16.0
 var season := "autumn"
 var seasonal_props: Dictionary = {}
@@ -70,6 +83,17 @@ var indoor_room_fixed := false
 var indoor_room_center := Vector3.ZERO
 var self_cell := Vector2i(-1, -1)
 var _frame_cache: Dictionary = {}
+# Live 3D minimap: a small SubViewport renders a mirrored copy of the loaded
+# chunk scenes and actors, so the HUD shows the real town/route instead of an
+# abstract tile grid. Meshes and materials are shared with the main world.
+var minimap_viewport: SubViewport
+var minimap_camera: Camera3D
+var minimap_root: Node3D
+var minimap_actor_root: Node3D
+var minimap_chunks: Dictionary = {}
+var minimap_large := false
+var _minimap_sun: DirectionalLight3D = null
+var _minimap_fill: DirectionalLight3D = null
 
 func _ready() -> void:
 	for argument in OS.get_cmdline_user_args():
@@ -80,6 +104,7 @@ func _ready() -> void:
 	_load_seasonal_props()
 	_build_environment()
 	_build_camera()
+	_build_minimap_viewport()
 
 func _season_index() -> int:
 	match season:
@@ -176,6 +201,13 @@ func set_world_time(hours: float, indoor: bool = false) -> void:
 	if _fill_light != null and not indoor:
 		_fill_light.light_color = sky["fill"]
 		_fill_light.light_energy = sky["fill_energy"]
+	if _minimap_sun != null and not indoor:
+		_minimap_sun.light_color = sky["sun"]
+		_minimap_sun.light_energy = sky["sun_energy"]
+		_minimap_sun.rotation_degrees = Vector3(sky["pitch"], sky["yaw"], 0.0)
+	if _minimap_fill != null and not indoor:
+		_minimap_fill.light_color = sky["fill"]
+		_minimap_fill.light_energy = sky["fill_energy"]
 
 func _clear_map_scene() -> void:
 	if map_root != null and is_instance_valid(map_root):
@@ -183,8 +215,12 @@ func _clear_map_scene() -> void:
 		map_root.queue_free()
 	map_root = null
 	loaded_chunks.clear()
+	for asset in minimap_chunks.keys():
+		_unmirror_chunk(asset)
+	minimap_chunks.clear()
 	pending_chunks.clear()
 	chunk_heights.clear()
+	chunk_grass_lift.clear()
 	indoor_room_fixed = false
 	indoor_room_center = Vector3.ZERO
 	world_chunks.clear()
@@ -500,9 +536,12 @@ func _instantiate_chunk(asset: String, chunk: Dictionary, placements: Dictionary
 		heights.resize(raw.size() / 2)
 		for index in range(heights.size()):
 			heights[index] = raw.decode_s16(index * 2)
-		chunk_heights[_chunk_coords(chunk)] = heights
+		var cell := _chunk_coords(chunk)
+		chunk_heights[cell] = heights
+		_collect_grass_lift(root, cell)
 		_reheight_actors()
 
+	_mirror_chunk(asset, root)
 	loaded_chunks[asset] = {"root": root, "cell": int(chunk.get("cell", 0))}
 
 func _fix_mesh_tree(node: Node) -> void:
@@ -534,6 +573,7 @@ func _fix_mesh_instance(mesh_instance: MeshInstance3D) -> void:
 	var mesh: Mesh = mesh_instance.mesh
 	if mesh == null:
 		return
+	var tall_grass: Array = []
 	for surface in range(mesh.get_surface_count()):
 		var source := mesh_instance.get_active_material(surface) as BaseMaterial3D
 		if source == null:
@@ -541,6 +581,8 @@ func _fix_mesh_instance(mesh_instance: MeshInstance3D) -> void:
 		var material_name := source.resource_name.to_lower()
 		if material_name == "" and source.albedo_texture != null:
 			material_name = source.albedo_texture.resource_path.get_file().get_basename().to_lower()
+		if material_name.begins_with("kusa"):
+			tall_grass.append(surface)
 		if (
 			(
 				material_name.begins_with("kisetu_hana")
@@ -608,6 +650,125 @@ func _fix_mesh_instance(mesh_instance: MeshInstance3D) -> void:
 	# The map uses baked vertex shading like the original DS renderer; real
 	# shadow maps made trees and building sides much harsher than BW.
 	mesh_instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	if not tall_grass.is_empty():
+		mesh_instance.set_meta("tall_grass_surfaces", tall_grass)
+
+# The ROM keeps tall grass in a separate overlay layer that is drawn over the
+# player. Its cards sit a few units above the floor, so a depth-tested sprite
+# standing on the ROM height gets its legs cut off by its own tile. Sample the
+# card height once per chunk and let actors stand on that surface instead.
+func _collect_grass_lift(node: Node, cell: Vector2i) -> void:
+	var heights: PackedInt32Array = chunk_heights.get(cell, PackedInt32Array())
+	if heights.is_empty():
+		return
+	var cell_size := maxi(1, world_cell_size)
+	var tiles := cell_size * cell_size
+	if heights.size() < tiles:
+		return
+	var lift := PackedFloat32Array()
+	lift.resize(tiles)
+	var found := false
+	# Walk transforms relative to the map root instead of using global transforms:
+	# headless tests build the world before it enters the tree, and the map root
+	# itself never moves off the world origin.
+	var stack: Array = [[node, Transform3D.IDENTITY]]
+	while not stack.is_empty():
+		var entry: Array = stack.pop_back()
+		var current: Node = entry[0]
+		var to_world: Transform3D = entry[1]
+		if current is Node3D:
+			to_world = to_world * (current as Node3D).transform
+		if current is MeshInstance3D and current.has_meta("tall_grass_surfaces"):
+			var mesh_instance := current as MeshInstance3D
+			var mesh: Mesh = mesh_instance.mesh
+			for surface in mesh_instance.get_meta("tall_grass_surfaces"):
+				var arrays := mesh.surface_get_arrays(int(surface))
+				if arrays.is_empty():
+					continue
+				var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+				var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
+				var indexed := indices.size() > 0
+				var triangle_count := indices.size() / 3 if indexed else vertices.size() / 3
+				for triangle in range(triangle_count):
+					var a: Vector3
+					var b: Vector3
+					var c: Vector3
+					if indexed:
+						a = vertices[indices[triangle * 3]]
+						b = vertices[indices[triangle * 3 + 1]]
+						c = vertices[indices[triangle * 3 + 2]]
+					else:
+						a = vertices[triangle * 3]
+						b = vertices[triangle * 3 + 1]
+						c = vertices[triangle * 3 + 2]
+					var wa := to_world * a
+					var wb := to_world * b
+					var wc := to_world * c
+					# ROM grass cards are large layered quads, not one card per
+					# tile, so every tile centre covered by the triangle gets the
+					# card height. This matches the height-grid sampling convention
+					# used by _height_at (map_origin + tile * world_tile).
+					var min_tx := int(floor((minf(wa.x, minf(wb.x, wc.x)) - map_origin.x) / world_tile))
+					var max_tx := int(floor((maxf(wa.x, maxf(wb.x, wc.x)) - map_origin.x) / world_tile))
+					var min_tz := int(floor((minf(wa.z, minf(wb.z, wc.z)) - map_origin.y) / world_tile))
+					var max_tz := int(floor((maxf(wa.z, maxf(wb.z, wc.z)) - map_origin.y) / world_tile))
+					var den := (wb.z - wc.z) * (wa.x - wc.x) + (wc.x - wb.x) * (wa.z - wc.z)
+					if absf(den) < 0.000001:
+						continue
+					for tile_z in range(min_tz, max_tz + 1):
+						for tile_x in range(min_tx, max_tx + 1):
+							var local_x := tile_x - cell.x * cell_size
+							var local_z := tile_z - cell.y * cell_size
+							if local_x < 0 or local_z < 0 or local_x >= cell_size or local_z >= cell_size:
+								continue
+							var center_x := map_origin.x + float(tile_x) * world_tile
+							var center_z := map_origin.y + float(tile_z) * world_tile
+							var ba := (
+								(wb.z - wc.z) * (center_x - wc.x)
+								+ (wc.x - wb.x) * (center_z - wc.z)
+							) / den
+							var bb := (
+								(wc.z - wa.z) * (center_x - wc.x)
+								+ (wa.x - wc.x) * (center_z - wc.z)
+							) / den
+							var bc := 1.0 - ba - bb
+							if ba < -0.01 or bb < -0.01 or bc < -0.01:
+								continue
+							var surface_y := ba * wa.y + bb * wb.y + bc * wc.y
+							var index := local_z * cell_size + local_x
+							var card := surface_y - float(heights[index]) / height_scale
+							if card <= 0.01:
+								continue
+							card = minf(card, GRASS_LIFT_LIMIT)
+							# The three kusa_ec variants are stacked layers of the
+							# same tuft; stand on the tallest one so no layer cuts
+							# through the sprite.
+							if card > lift[index]:
+								lift[index] = card
+							found = true
+		for child in current.get_children():
+			stack.append([child, to_world])
+	if found:
+		chunk_grass_lift[cell] = lift
+	else:
+		chunk_grass_lift.erase(cell)
+
+func _stand_height(grid: Vector2i) -> float:
+	var ground := _height_at(grid)
+	var cell_size := maxi(1, world_cell_size)
+	var cell := Vector2i(
+		int(floor(float(grid.x) / float(cell_size))),
+		int(floor(float(grid.y) / float(cell_size)))
+	)
+	var lift: PackedFloat32Array = chunk_grass_lift.get(cell, PackedFloat32Array())
+	if lift.is_empty():
+		return ground
+	var local_x := grid.x - cell.x * cell_size
+	var local_y := grid.y - cell.y * cell_size
+	var index := local_y * cell_size + local_x
+	if index < 0 or index >= lift.size():
+		return ground
+	return ground + lift[index]
 
 func _unload_chunk(asset: String) -> void:
 	if loaded_chunks.has(asset):
@@ -616,6 +777,7 @@ func _unload_chunk(asset: String) -> void:
 			map_root.remove_child(root)
 			root.queue_free()
 		loaded_chunks.erase(asset)
+	_unmirror_chunk(asset)
 	pending_chunks.erase(asset)
 
 func _build_camera() -> void:
@@ -626,7 +788,128 @@ func _build_camera() -> void:
 	camera.far = 4000.0
 	add_child(camera)
 
+func _build_minimap_viewport() -> void:
+	minimap_viewport = SubViewport.new()
+	minimap_viewport.name = "MinimapViewport"
+	minimap_viewport.size = Vector2i(512, 384)
+	minimap_viewport.own_world_3d = true
+	minimap_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	minimap_viewport.transparent_bg = false
+	minimap_viewport.msaa_3d = Viewport.MSAA_DISABLED
+	minimap_viewport.screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
+	minimap_viewport.use_taa = false
+	add_child(minimap_viewport)
+
+	var minimap_env := WorldEnvironment.new()
+	# A private copy with a solid backdrop keeps unloaded edges from showing
+	# the sky strip; the main world's sky/time changes stay independent.
+	var minimap_environment: Environment = null
+	if world_environment != null:
+		minimap_environment = world_environment.duplicate() as Environment
+		minimap_environment.background_mode = Environment.BG_COLOR
+		minimap_environment.background_color = Color(0.015, 0.043, 0.075)
+	minimap_env.environment = minimap_environment
+	minimap_viewport.add_child(minimap_env)
+	_minimap_sun = DirectionalLight3D.new()
+	_minimap_sun.rotation_degrees = _sun_light.rotation_degrees if _sun_light != null else Vector3(-52, 105, 0)
+	_minimap_sun.light_energy = _sun_light.light_energy if _sun_light != null else 0.65
+	_minimap_sun.light_color = _sun_light.light_color if _sun_light != null else Color.WHITE
+	_minimap_sun.shadow_enabled = false
+	minimap_viewport.add_child(_minimap_sun)
+	_minimap_fill = DirectionalLight3D.new()
+	_minimap_fill.rotation_degrees = _fill_light.rotation_degrees if _fill_light != null else Vector3(-22, 150, 0)
+	_minimap_fill.light_energy = _fill_light.light_energy if _fill_light != null else 0.18
+	_minimap_fill.light_color = _fill_light.light_color if _fill_light != null else Color.WHITE
+	_minimap_fill.shadow_enabled = false
+	minimap_viewport.add_child(_minimap_fill)
+
+	minimap_camera = Camera3D.new()
+	minimap_camera.fov = 50.0
+	minimap_camera.near = 1.0
+	minimap_camera.far = 4000.0
+	minimap_camera.cull_mask = 1
+	minimap_viewport.add_child(minimap_camera)
+	minimap_camera.current = true
+
+	minimap_root = Node3D.new()
+	minimap_root.name = "MinimapMap"
+	minimap_viewport.add_child(minimap_root)
+	minimap_actor_root = Node3D.new()
+	minimap_actor_root.name = "MinimapActors"
+	minimap_viewport.add_child(minimap_actor_root)
+
+func minimap_texture() -> Texture2D:
+	if minimap_viewport == null:
+		return null
+	return minimap_viewport.get_texture()
+
+func set_minimap_large(large: bool) -> void:
+	minimap_large = large
+
+func _update_minimap_camera() -> void:
+	if minimap_camera == null or self_actor.is_empty():
+		return
+	var focus: Vector3 = self_actor["root"].position
+	# 60° keeps the view inside the 5x5 streamed area while still showing
+	# facades and roofs; a shallower angle reaches unloaded cells at the top.
+	var offset := Vector3(0, 360, 208) if indoor_view else Vector3(0, 520, 300)
+	if minimap_large:
+		offset *= 1.35
+	minimap_camera.position = focus + offset
+	minimap_camera.look_at(focus, Vector3.UP)
+
+func _mirror_chunk(asset: String, root: Node3D) -> void:
+	if minimap_root == null or minimap_chunks.has(asset):
+		return
+	var mirror := root.duplicate(MIRROR_DUPLICATE_FLAGS) as Node3D
+	if mirror == null:
+		return
+	mirror.name = "mirror_%s" % asset.get_file()
+	minimap_root.add_child(mirror)
+	minimap_chunks[asset] = mirror
+
+func _unmirror_chunk(asset: String) -> void:
+	if not minimap_chunks.has(asset):
+		return
+	var mirror: Node3D = minimap_chunks[asset]
+	minimap_chunks.erase(asset)
+	if mirror != null and is_instance_valid(mirror):
+		if minimap_root != null:
+			minimap_root.remove_child(mirror)
+		mirror.queue_free()
+
+func _mirror_actor(root: Node3D, display_name: String) -> Dictionary:
+	if minimap_actor_root == null:
+		return {}
+	var mirror := root.duplicate(MIRROR_DUPLICATE_FLAGS) as Node3D
+	if mirror == null:
+		return {}
+	mirror.name = "mirror_%s" % display_name
+	for node in mirror.find_children("*", "Label3D", true, false):
+		node.visible = false
+	minimap_actor_root.add_child(mirror)
+	var sprite: AnimatedSprite3D = null
+	var sprites := mirror.find_children("*", "AnimatedSprite3D", true, false)
+	if not sprites.is_empty():
+		sprite = sprites[0] as AnimatedSprite3D
+	return {"root": mirror, "sprite": sprite}
+
+func _unmirror_actor(actor: Dictionary) -> void:
+	var mirror: Node3D = actor.get("minimap_root", null)
+	if mirror != null and is_instance_valid(mirror):
+		if minimap_actor_root != null:
+			minimap_actor_root.remove_child(mirror)
+		mirror.queue_free()
+	actor.erase("minimap_root")
+	actor.erase("minimap_sprite")
+
 func _actor_key(sprite_id: int) -> String:
+	# NPC sprite ids come from the ROM's map-model archive (via the object
+	# code table); player characters still use the four field actors below.
+	if sprite_id > 3 and FileAccess.file_exists(
+		"%s/npc_%d/actor.json" % [NPC_ACTOR_ROOT, sprite_id]
+	):
+		return "npc_%d" % sprite_id
 	match sprite_id:
 		1:
 			return "heroine"
@@ -637,10 +920,27 @@ func _actor_key(sprite_id: int) -> String:
 		_:
 			return "hero"
 
+func _frame_texture(path: String) -> Texture2D:
+	# ROM assets extracted after the last editor import have no .import entry,
+	# so ResourceLoader.exists() reports false even though the PNG is on disk.
+	# Running from source can still decode the raw file; do that rather than
+	# dropping the frame (which used to leave NPCs as floating name labels).
+	if ResourceLoader.exists(path):
+		var imported_texture := load(path) as Texture2D
+		if imported_texture != null:
+			return imported_texture
+	if not FileAccess.file_exists(path):
+		return null
+	var image := Image.load_from_file(path)
+	if image == null or image.is_empty():
+		return null
+	return ImageTexture.create_from_image(image)
+
 func _frames_for(key: String) -> SpriteFrames:
 	if _frame_cache.has(key):
 		return _frame_cache[key]
-	var path := "%s/%s/actor.json" % [ACTOR_ROOT, key]
+	var actor_root := NPC_ACTOR_ROOT if key.begins_with("npc_") else ACTOR_ROOT
+	var path := "%s/%s/actor.json" % [actor_root, key]
 	if not FileAccess.file_exists(path):
 		path = "%s/hero/actor.json" % ACTOR_ROOT
 	if not FileAccess.file_exists(path):
@@ -651,6 +951,16 @@ func _frames_for(key: String) -> SpriteFrames:
 	frames.remove_animation("default")
 	var animations: Dictionary = data.get("animations", {})
 	var folder := path.get_base_dir()
+	# The two extraction pipelines use different index bases. Nuvema player
+	# actor tables store 1-based file numbers (idle_down 4 -> frame_04.png);
+	# overworld NPC tables store 0-based texture indices. Newer actor.json
+	# files declare `frameOffset`; the per-table default keeps assets that
+	# were extracted before that field existed working.
+	var player_table := path.begins_with(ACTOR_ROOT)
+	var frame_offset := int(data.get("frameOffset", 0 if player_table else 1))
+	var imported := ResourceLoader.exists("%s/frames/frame_01.png" % folder)
+	var textures := 0
+	var first_texture: Texture2D = null
 	for animation_name in animations.keys():
 		frames.add_animation(str(animation_name))
 		frames.set_animation_loop(str(animation_name), true)
@@ -660,12 +970,39 @@ func _frames_for(key: String) -> SpriteFrames:
 			RUN_ANIM_FPS if str(animation_name).begins_with("run_") else WALK_ANIM_FPS
 		)
 		for frame_number in frame_ids:
-			var frame_path := "%s/frames/frame_%02d.png" % [folder, int(frame_number)]
-			if ResourceLoader.exists(frame_path):
-				frames.add_frame(str(animation_name), load(frame_path))
-	if frames.get_animation_names().is_empty():
-		push_error("No frames loaded for actor %s" % key)
+			var frame_path := "%s/frames/frame_%02d.png" % [folder, int(frame_number) + frame_offset]
+			var texture := _frame_texture(frame_path)
+			if texture == null:
+				continue
+			frames.add_frame(str(animation_name), texture)
+			textures += 1
+			if first_texture == null:
+				first_texture = texture
+	if textures > 0:
+		# A short sheet can leave one direction with no usable frame (the
+		# extractor used to allow an index equal to the frame count). Reuse the
+		# first texture so the actor never disappears when facing that way.
+		for animation_name in frames.get_animation_names():
+			if frames.get_frame_count(animation_name) == 0:
+				frames.add_frame(animation_name, first_texture)
+	if textures == 0:
+		# Animations are registered before their frames, so the old
+		# get_animation_names() check never caught an all-missing sheet. Let the
+		# hero stand in so the character is at least visible, and say why.
+		if key != "hero":
+			push_error("No frames loaded for actor %s (%s/frames)" % [key, folder])
+			var fallback := _frames_for("hero")
+			if fallback != null:
+				_frame_cache[key] = fallback
+				return fallback
+		else:
+			push_error("No frames loaded for hero (%s/frames)" % folder)
 		return null
+	if not imported:
+		push_warning(
+			"Actor %s loaded from raw PNGs (no .import); run `godot --headless --import` to cache them"
+			% key
+		)
 	_frame_cache[key] = frames
 	return frames
 
@@ -674,18 +1011,28 @@ func _create_actor(key: String, display_name: String, color: Color, is_self: boo
 	add_child(root)
 	var sprite := AnimatedSprite3D.new()
 	var frames := _frames_for(key)
+	if frames == null:
+		# Keep the scene running even when both the requested sheet and the
+		# hero fallback are unreadable; the label still identifies the actor.
+		push_error("Actor %s has no usable frames; drawing an empty sprite" % key)
+		frames = SpriteFrames.new()
 	sprite.sprite_frames = frames
-	sprite.animation = (
-		"idle_down"
-		if frames.has_animation("idle_down")
-		else str(frames.get_animation_names()[0])
-	)
+	if frames.has_animation("idle_down"):
+		sprite.animation = "idle_down"
+	elif not frames.get_animation_names().is_empty():
+		sprite.animation = str(frames.get_animation_names()[0])
 	sprite.pixel_size = 1.0
 	sprite.position = Vector3(0, 15, 0)
 	sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	sprite.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
+	# The 32x32 frames only contain fully opaque/transparent pixels. Alpha
+	# scissor makes the sprite write depth, so semi-transparent overlays such as
+	# pond water (ike01) or the shallow-sea layer no longer blend over the
+	# character when their quads are sorted after the sprite.
+	sprite.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
 	sprite.no_depth_test = false
-	sprite.play()
+	if sprite.animation != "":
+		sprite.play()
 	root.add_child(sprite)
 
 	var label := Label3D.new()
@@ -730,8 +1077,10 @@ func _create_actor(key: String, display_name: String, color: Color, is_self: boo
 	shadow.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	root.add_child(shadow)
 
+	var mirror_info := _mirror_actor(root, display_name)
 	return {
 		"sprite": sprite,
+		"shadow": shadow,
 		"label": label,
 		"bubble": bubble,
 		"grid": Vector2i.ZERO,
@@ -743,6 +1092,8 @@ func _create_actor(key: String, display_name: String, color: Color, is_self: boo
 		"stop_anim_at": 0,
 		"bubble_until": 0,
 		"root": root,
+		"minimap_root": mirror_info.get("root", null),
+		"minimap_sprite": mirror_info.get("sprite", null),
 		"key": key
 	}
 
@@ -781,7 +1132,7 @@ func _can_step(from: Vector2i, to: Vector2i) -> bool:
 func _reheight_actors() -> void:
 	for actor in _all_actors():
 		var target: Vector3 = actor["target"]
-		var height := _height_at(actor["grid"])
+		var height := _stand_height(actor["grid"])
 		target.y = height
 		actor["target"] = target
 		if not actor["moving"]:
@@ -791,7 +1142,7 @@ func _reheight_actors() -> void:
 func _grid_position(grid: Vector2i) -> Vector3:
 	return Vector3(
 		map_origin.x + grid.x * world_tile,
-		_height_at(grid),
+		_stand_height(grid),
 		map_origin.y + grid.y * world_tile
 	)
 
@@ -799,6 +1150,9 @@ func _place_actor(actor: Dictionary, grid: Vector2i, snap: bool = true) -> void:
 	actor["grid"] = grid
 	actor["target"] = _grid_position(grid)
 	var root: Node3D = actor["root"]
+	var mirror: Node3D = actor.get("minimap_root", null)
+	if mirror != null:
+		mirror.position = actor["target"]
 	if snap:
 		root.position = actor["target"]
 		actor["moving"] = false
@@ -827,11 +1181,19 @@ func _set_animation(actor: Dictionary, moving: bool, direction: String, running:
 		actor["stop_anim_at"] = 0
 	if sprite.animation != anim:
 		sprite.play(anim)
+	var mirror_sprite: AnimatedSprite3D = actor.get("minimap_sprite", null)
+	if mirror_sprite != null and mirror_sprite.animation != anim:
+		mirror_sprite.play(anim)
 
 func setup_map(map_info: Dictionary, self_info: Dictionary, players: Array) -> void:
 	_clear_actors()
+	if minimap_viewport == null:
+		_build_minimap_viewport()
 	map_data = map_info
-	indoor_view = str(map_info.get("id", "")).begins_with("unova_in_")
+	indoor_view = (
+		str(map_info.get("id", "")).begins_with("unova_in_")
+		and not bool(map_info.get("outdoor", false))
+	)
 	if world_environment != null:
 		world_environment.ambient_light_energy = 0.72 if indoor_view else 0.4
 		world_environment.ambient_light_color = (
@@ -873,7 +1235,27 @@ func setup_map(map_info: Dictionary, self_info: Dictionary, players: Array) -> v
 			false
 		)
 		_place_actor(npc_actor, Vector2i(int(npc.get("x", 0)), int(npc.get("y", 0))), true)
-		npcs[npc_id] = {"actor": npc_actor, "data": npc}
+		# ROM NPCs with a movement type idle in place instead of standing frozen.
+		# Only the facing changes, so the server's collision stays valid.
+		var idle_move := int(npc.get("movement", 0)) != 0
+		npcs[npc_id] = {
+			"actor": npc_actor,
+			"data": npc,
+			"next_idle": (
+				Time.get_ticks_msec() + randi_range(2400, 5600) if idle_move else 0
+			)
+		}
+		# The PC is an interactable terminal, not a person: keep its label and
+		# interaction radius, but do not draw a character or its shadow.
+		if str(npc.get("kind", "npc")) == "pc":
+			var pc_sprite: AnimatedSprite3D = npc_actor["sprite"]
+			pc_sprite.visible = false
+			var pc_shadow: MeshInstance3D = npc_actor.get("shadow", null)
+			if pc_shadow != null:
+				pc_shadow.visible = false
+			var pc_mirror: Node3D = npc_actor.get("minimap_root", null)
+			if pc_mirror != null:
+				pc_mirror.visible = false
 		# NPC labels are muted unless they're a healer/guide.
 		var label: Label3D = npc_actor["label"]
 		label.modulate = Color(0.72, 0.82, 0.88)
@@ -896,6 +1278,7 @@ func _clear_actors() -> void:
 	self_actor = {}
 
 func _free_actor(actor: Dictionary) -> void:
+	_unmirror_actor(actor)
 	var root: Node3D = actor.get("root")
 	if root != null and is_instance_valid(root):
 		remove_child(root)
@@ -996,6 +1379,74 @@ func move_player(id: String, x: int, y: int, direction: String, running: bool = 
 	actor["moving"] = true
 	actor["stop_anim_at"] = 0
 	_set_animation(actor, true, direction, running)
+
+func move_npc(
+	id: String,
+	path: Array,
+	ms_per_tile: int = 500,
+	face: String = "",
+	vanish: bool = false
+) -> void:
+	if not npcs.has(id):
+		return
+	var entry: Dictionary = npcs[id]
+	var actor: Dictionary = entry["actor"]
+	var data: Dictionary = entry["data"]
+	# The server sends the same tile time it used to schedule the scene, so the
+	# NPC arrives exactly when the story resumes. The original does the same:
+	# apply a movement sequence, then wait for the object to reach its tile.
+	var tile_time := clampf(float(ms_per_tile) / 1000.0, 0.08, 2.0)
+	var speed := world_tile / tile_time
+	for point in path:
+		if not (point is Dictionary):
+			continue
+		if not is_instance_valid(actor.get("root", null)):
+			return
+		var target := Vector2i(int(point.get("x", 0)), int(point.get("y", 0)))
+		var direction := str(point.get("dir", "down"))
+		if target == actor["grid"]:
+			actor["facing"] = direction
+			if not actor["moving"]:
+				_set_animation(actor, false, direction)
+			continue
+		actor["grid"] = target
+		actor["target"] = _grid_position(target)
+		actor["speed"] = speed
+		actor["moving"] = true
+		actor["running"] = false
+		actor["stop_anim_at"] = 0
+		_set_animation(actor, true, direction)
+		# Keep the map data in step with the actor: label distance and any later
+		# proximity check read the tile coordinates from this dictionary.
+		data["x"] = target.x
+		data["y"] = target.y
+		var deadline := Time.get_ticks_msec() + ms_per_tile * 3 + 400
+		while actor["moving"] and Time.get_ticks_msec() < deadline:
+			await get_tree().process_frame
+	# Optional final turn, the port's version of the ROM appending a turn action
+	# to the end of a movement sequence (e.g. walk to the stairs, turn around).
+	if face != "" and is_instance_valid(actor.get("root", null)):
+		actor["facing"] = face
+		if not actor["moving"]:
+			_set_animation(actor, false, face)
+	# 0x45 "end and disappear": the character left the room, so the sprite goes
+	# with it. The map data keeps the NPC; story_end's map_state decides whether
+	# it comes back.
+	if vanish and npcs.has(id):
+		var gone: Dictionary = npcs[id]["actor"]
+		npcs.erase(id)
+		_free_actor(gone)
+
+func face_npc(id: String, direction: String) -> void:
+	if not npcs.has(id):
+		return
+	var actor: Dictionary = npcs[id]["actor"]
+	if not is_instance_valid(actor.get("root", null)):
+		return
+	# A turn in place: no walk animation, just the idle frame for that side.
+	actor["facing"] = direction
+	if not actor["moving"]:
+		_set_animation(actor, false, direction)
 
 func remove_player(id: String) -> void:
 	if not peers.has(id):
@@ -1143,6 +1594,34 @@ func try_portal_push(direction: String) -> bool:
 	var target: Vector2i = self_actor["grid"] + _direction_delta(direction)
 	return not _is_walkable(target.x, target.y)
 
+## The furniture the player is facing, else the piece they stand on.
+func facing_interactable() -> Dictionary:
+	var objects: Array = map_data.get("interactables", [])
+	if objects.is_empty():
+		return {}
+	var offset := Vector2i.ZERO
+	match self_facing:
+		"up":
+			offset = Vector2i(0, -1)
+		"down":
+			offset = Vector2i(0, 1)
+		"left":
+			offset = Vector2i(-1, 0)
+		"right":
+			offset = Vector2i(1, 0)
+	var facing_cell := self_grid + offset
+	for obj in objects:
+		if not obj is Dictionary:
+			continue
+		if Vector2i(int(obj.get("x", -1)), int(obj.get("y", -1))) == facing_cell:
+			return obj
+	for obj in objects:
+		if not obj is Dictionary:
+			continue
+		if Vector2i(int(obj.get("x", -1)), int(obj.get("y", -1))) == self_grid:
+			return obj
+	return {}
+
 func nearest_npc(max_distance: int) -> Dictionary:
 	var best: Dictionary = {}
 	var best_distance := 999
@@ -1204,9 +1683,14 @@ func _process(delta: float) -> void:
 		var bubble: Label3D = actor["bubble"]
 		if bubble.visible and now >= int(actor["bubble_until"]):
 			bubble.visible = false
+		var mirror_root: Node3D = actor.get("minimap_root", null)
+		if mirror_root != null:
+			mirror_root.position = (actor["root"] as Node3D).position
 	if not self_actor.is_empty():
 		var origin: Vector2i = self_actor["grid"]
 		for npc in npcs.values():
+			if int(npc.get("next_idle", 0)) != 0 and now >= int(npc["next_idle"]):
+				_tick_npc_idle(npc)
 			var data: Dictionary = npc["data"]
 			var distance := maxi(
 				absi(int(data.get("x", 0)) - origin.x),
@@ -1228,6 +1712,25 @@ func _process(delta: float) -> void:
 		var desired := focus + _current_camera_offset()
 		camera.position = camera.position.lerp(desired, clampf(delta * 6.0, 0.0, 1.0))
 		camera.look_at(focus + _current_camera_target(), Vector3.UP)
+	_update_minimap_camera()
+
+func _tick_npc_idle(npc: Dictionary) -> void:
+	# The ROM drives idle movement with a per-NPC behaviour update: type 0 never
+	# moves, the rest turn around every so often. Walking idle types would need
+	# matching server collision, so this only re-aims the sprite.
+	npc["next_idle"] = Time.get_ticks_msec() + randi_range(2400, 5600)
+	if int(npc["data"].get("movement", 0)) == 0:
+		npc["next_idle"] = 0
+		return
+	var actor: Dictionary = npc["actor"]
+	if actor["moving"]:
+		return
+	var directions := ["down", "left", "right", "up"]
+	var current := str(actor["facing"])
+	var pick := current
+	while pick == current:
+		pick = str(directions[randi() % directions.size()])
+	_set_animation(actor, false, pick)
 
 func _all_actors() -> Array:
 	var result: Array = []

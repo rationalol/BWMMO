@@ -40,6 +40,12 @@ export const CONFIG = {
   encounterRateOverride: optionalEncounterRate(),
   debugStartX: optionalNumber("DEBUG_START_X"),
   debugStartY: optionalNumber("DEBUG_START_Y"),
+  /**
+   * Test-only: new characters start where the pre-story server put them with
+   * the prologue already finished. Automation (`npm run smoke`, client
+   * screenshot runs) uses this; normal play must leave it unset.
+   */
+  debugSkipStory: process.env.DEBUG_SKIP_STORY === "1",
   encounterGraceMs: 1500,
   saveDebounceMs: 500,
   autosaveMs: 10_000,

@@ -20,6 +20,14 @@
         "speed": 45
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -95,6 +103,14 @@
         "speed": 60
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -178,6 +194,14 @@
         "speed": 80
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -268,6 +292,14 @@
         "speed": 65
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -334,6 +366,14 @@
         "speed": 80
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -405,6 +445,14 @@
         "speed": 100
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 337,
@@ -503,6 +551,14 @@
         "speed": 43
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -577,6 +633,14 @@
         "speed": 58
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -659,6 +723,14 @@
         "speed": 78
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 3
+      },
       "learnset": [
         {
           "moveId": 430,
@@ -749,6 +821,14 @@
         "speed": 45
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -779,6 +859,14 @@
         "speed": 30
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 106,
@@ -806,6 +894,14 @@
         "speed": 70
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 93,
@@ -889,6 +985,14 @@
         "speed": 50
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 40,
@@ -920,6 +1024,14 @@
         "speed": 35
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 106,
@@ -947,6 +1059,14 @@
         "speed": 75
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 31,
@@ -1014,6 +1134,14 @@
         "speed": 56
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -1089,6 +1217,14 @@
         "speed": 71
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -1172,6 +1308,14 @@
         "speed": 91
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 3,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -1258,6 +1402,14 @@
         "speed": 72
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -1328,6 +1480,14 @@
         "speed": 97
       },
       "catchRate255": 127,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 14,
@@ -1415,6 +1575,14 @@
         "speed": 70
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 64,
@@ -1478,6 +1646,14 @@
         "speed": 100
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 365,
@@ -1556,6 +1732,14 @@
         "speed": 55
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 35,
@@ -1638,6 +1822,14 @@
         "speed": 80
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 423,
@@ -1744,6 +1936,14 @@
         "speed": 90
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 45,
@@ -1818,6 +2018,14 @@
         "speed": 100
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 3,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 84,
@@ -1852,6 +2060,14 @@
         "speed": 40
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -1922,6 +2138,14 @@
         "speed": 65
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -2004,6 +2228,14 @@
         "speed": 41
       },
       "catchRate255": 235,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 45,
@@ -2074,6 +2306,14 @@
         "speed": 56
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 45,
@@ -2145,6 +2385,14 @@
         "speed": 76
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 3,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -2195,6 +2443,14 @@
         "speed": 50
       },
       "catchRate255": 235,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 43,
@@ -2265,6 +2521,14 @@
         "speed": 65
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 43,
@@ -2336,6 +2600,14 @@
         "speed": 85
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 64,
@@ -2386,6 +2658,14 @@
         "speed": 35
       },
       "catchRate255": 150,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -2484,6 +2764,14 @@
         "speed": 60
       },
       "catchRate255": 25,
+      "evYield": {
+        "hp": 3,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 47,
@@ -2518,6 +2806,14 @@
         "speed": 65
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 52,
@@ -2604,6 +2900,14 @@
         "speed": 100
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 417,
@@ -2642,6 +2946,14 @@
         "speed": 20
       },
       "catchRate255": 170,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 47,
@@ -2716,6 +3028,14 @@
         "speed": 45
       },
       "catchRate255": 50,
+      "evYield": {
+        "hp": 3,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 47,
@@ -2751,6 +3071,14 @@
         "speed": 55
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 141,
@@ -2818,6 +3146,14 @@
         "speed": 90
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 103,
@@ -2897,6 +3233,14 @@
         "speed": 30
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 71,
@@ -2964,6 +3308,14 @@
         "speed": 40
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 71,
@@ -3039,6 +3391,14 @@
         "speed": 50
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 72,
@@ -3082,6 +3442,14 @@
         "speed": 25
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -3149,6 +3517,14 @@
         "speed": 30
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 440,
@@ -3232,6 +3608,14 @@
         "speed": 45
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -3307,6 +3691,14 @@
         "speed": 90
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 318,
@@ -3401,6 +3793,14 @@
         "speed": 95
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -3475,6 +3875,14 @@
         "speed": 120
       },
       "catchRate255": 50,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 400,
@@ -3565,6 +3973,14 @@
         "speed": 90
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -3643,6 +4059,14 @@
         "speed": 115
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 415,
@@ -3733,6 +4157,14 @@
         "speed": 55
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 346,
@@ -3811,6 +4243,14 @@
         "speed": 85
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 453,
@@ -3901,6 +4341,14 @@
         "speed": 70
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 343,
@@ -3983,6 +4431,14 @@
         "speed": 95
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 374,
@@ -4069,6 +4525,14 @@
         "speed": 60
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 44,
@@ -4155,6 +4619,14 @@
         "speed": 95
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 422,
@@ -4197,6 +4669,14 @@
         "speed": 90
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 346,
@@ -4267,6 +4747,14 @@
         "speed": 90
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 346,
@@ -4346,6 +4834,14 @@
         "speed": 70
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 3,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 61,
@@ -4392,6 +4888,14 @@
         "speed": 90
       },
       "catchRate255": 200,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 100,
@@ -4414,6 +4918,14 @@
         "speed": 105
       },
       "catchRate255": 100,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 100,
@@ -4496,6 +5008,14 @@
         "speed": 120
       },
       "catchRate255": 50,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 100,
@@ -4578,6 +5098,14 @@
         "speed": 35
       },
       "catchRate255": 180,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 67,
@@ -4652,6 +5180,14 @@
         "speed": 45
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 67,
@@ -4734,6 +5270,14 @@
         "speed": 55
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 469,
@@ -4821,6 +5365,14 @@
         "speed": 40
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 22,
@@ -4892,6 +5444,14 @@
         "speed": 55
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 22,
@@ -4971,6 +5531,14 @@
         "speed": 70
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 254,
@@ -5030,6 +5598,14 @@
         "speed": 70
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 40,
@@ -5113,6 +5689,14 @@
         "speed": 100
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 40,
@@ -5204,6 +5788,14 @@
         "speed": 20
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -5287,6 +5879,14 @@
         "speed": 35
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -5378,6 +5978,14 @@
         "speed": 45
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 3,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -5472,6 +6080,14 @@
         "speed": 90
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 45,
@@ -5546,6 +6162,14 @@
         "speed": 105
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 398,
@@ -5641,6 +6265,14 @@
         "speed": 15
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 174,
@@ -5724,6 +6356,14 @@
         "speed": 30
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 174,
@@ -5815,6 +6455,14 @@
         "speed": 45
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 319,
@@ -5898,6 +6546,14 @@
         "speed": 70
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 161,
@@ -5993,6 +6649,14 @@
         "speed": 60
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 398,
@@ -6084,6 +6748,14 @@
         "speed": 75
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 64,
@@ -6155,6 +6827,14 @@
         "speed": 100
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 365,
@@ -6237,6 +6917,14 @@
         "speed": 45
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 29,
@@ -6324,6 +7012,14 @@
         "speed": 70
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 29,
@@ -6426,6 +7122,14 @@
         "speed": 25
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 139,
@@ -6504,6 +7208,14 @@
         "speed": 50
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 1,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 139,
@@ -6590,6 +7302,14 @@
         "speed": 40
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -6673,6 +7393,14 @@
         "speed": 70
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 390,
@@ -6724,6 +7452,14 @@
         "speed": 80
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 95,
@@ -6803,6 +7539,14 @@
         "speed": 95
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 95,
@@ -6890,6 +7634,14 @@
         "speed": 110
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 95,
@@ -6977,6 +7729,14 @@
         "speed": 70
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 300,
@@ -7071,6 +7831,14 @@
         "speed": 42
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -7157,6 +7925,14 @@
         "speed": 67
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 171,
@@ -7259,6 +8035,14 @@
         "speed": 50
       },
       "catchRate255": 225,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 300,
@@ -7337,6 +8121,14 @@
         "speed": 75
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 469,
@@ -7427,6 +8219,14 @@
         "speed": 100
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 268,
@@ -7505,6 +8305,14 @@
         "speed": 140
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 268,
@@ -7596,6 +8404,14 @@
         "speed": 40
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 140,
@@ -7675,6 +8491,14 @@
         "speed": 55
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 402,
@@ -7729,6 +8553,14 @@
         "speed": 35
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 45,
@@ -7807,6 +8639,14 @@
         "speed": 45
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 45,
@@ -7897,6 +8737,14 @@
         "speed": 87
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 279,
@@ -7983,6 +8831,14 @@
         "speed": 76
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 279,
@@ -8073,6 +8929,14 @@
         "speed": 30
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 122,
@@ -8151,6 +9015,14 @@
         "speed": 35
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 139,
@@ -8225,6 +9097,14 @@
         "speed": 60
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 139,
@@ -8308,6 +9188,14 @@
         "speed": 25
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 30,
@@ -8383,6 +9271,14 @@
         "speed": 40
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 30,
@@ -8469,6 +9365,14 @@
         "speed": 50
       },
       "catchRate255": 30,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 111,
@@ -8555,6 +9459,14 @@
         "speed": 60
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 275,
@@ -8641,6 +9553,14 @@
         "speed": 90
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 4,
@@ -8719,6 +9639,14 @@
         "speed": 60
       },
       "catchRate255": 225,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 145,
@@ -8785,6 +9713,14 @@
         "speed": 85
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 145,
@@ -8863,6 +9799,14 @@
         "speed": 63
       },
       "catchRate255": 225,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 64,
@@ -8937,6 +9881,14 @@
         "speed": 68
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 398,
@@ -9019,6 +9971,14 @@
         "speed": 85
       },
       "catchRate255": 225,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -9098,6 +10058,14 @@
         "speed": 115
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 55,
@@ -9136,6 +10104,14 @@
         "speed": 90
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 345,
@@ -9243,6 +10219,14 @@
         "speed": 105
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 410,
@@ -9334,6 +10318,14 @@
         "speed": 95
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -9424,6 +10416,14 @@
         "speed": 105
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 98,
@@ -9498,6 +10498,14 @@
         "speed": 93
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 123,
@@ -9572,6 +10580,14 @@
         "speed": 85
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 11,
@@ -9646,6 +10662,14 @@
         "speed": 110
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -9720,6 +10744,14 @@
         "speed": 80
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 150,
@@ -9751,6 +10783,14 @@
         "speed": 81
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 37,
@@ -9814,6 +10854,14 @@
         "speed": 60
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 47,
@@ -9892,6 +10940,14 @@
         "speed": 48
       },
       "catchRate255": 35,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 144,
@@ -9914,6 +10970,14 @@
         "speed": 55
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 39,
@@ -9976,6 +11040,14 @@
         "speed": 65
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 39,
@@ -10050,6 +11122,14 @@
         "speed": 130
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 39,
@@ -10124,6 +11204,14 @@
         "speed": 65
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 39,
@@ -10198,6 +11286,14 @@
         "speed": 40
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 176,
@@ -10277,6 +11373,14 @@
         "speed": 35
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 132,
@@ -10352,6 +11456,14 @@
         "speed": 55
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 132,
@@ -10435,6 +11547,14 @@
         "speed": 55
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -10502,6 +11622,14 @@
         "speed": 80
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 364,
@@ -10589,6 +11717,14 @@
         "speed": 130
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 423,
@@ -10675,6 +11811,14 @@
         "speed": 30
       },
       "catchRate255": 25,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -10758,6 +11902,14 @@
         "speed": 85
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 3
+      },
       "learnset": [
         {
           "moveId": 16,
@@ -10833,6 +11985,14 @@
         "speed": 100
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 64,
@@ -10908,6 +12068,14 @@
         "speed": 90
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 17,
@@ -10982,6 +12150,14 @@
         "speed": 50
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 35,
@@ -11056,6 +12232,14 @@
         "speed": 70
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 35,
@@ -11139,6 +12323,14 @@
         "speed": 80
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 7,
@@ -11241,6 +12433,14 @@
         "speed": 130
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 93,
@@ -11331,6 +12531,14 @@
         "speed": 100
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 3,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -11401,6 +12609,14 @@
         "speed": 45
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -11475,6 +12691,14 @@
         "speed": 60
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -11557,6 +12781,14 @@
         "speed": 80
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -11643,6 +12875,14 @@
         "speed": 65
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -11721,6 +12961,14 @@
         "speed": 80
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -11803,6 +13051,14 @@
         "speed": 100
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 360,
@@ -11893,6 +13149,14 @@
         "speed": 43
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -11975,6 +13239,14 @@
         "speed": 58
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -12061,6 +13333,14 @@
         "speed": 78
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -12155,6 +13435,14 @@
         "speed": 20
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -12229,6 +13517,14 @@
         "speed": 90
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -12312,6 +13608,14 @@
         "speed": 50
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -12399,6 +13703,14 @@
         "speed": 70
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 143,
@@ -12494,6 +13806,14 @@
         "speed": 55
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -12565,6 +13885,14 @@
         "speed": 85
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -12644,6 +13972,14 @@
         "speed": 30
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 40,
@@ -12723,6 +14059,14 @@
         "speed": 40
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 450,
@@ -12814,6 +14158,14 @@
         "speed": 130
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 3,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 440,
@@ -12897,6 +14249,14 @@
         "speed": 67
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 48,
@@ -12976,6 +14336,14 @@
         "speed": 67
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 145,
@@ -13070,6 +14438,14 @@
         "speed": 60
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 84,
@@ -13112,6 +14488,14 @@
         "speed": 15
       },
       "catchRate255": 150,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -13158,6 +14542,14 @@
         "speed": 15
       },
       "catchRate255": 170,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 47,
@@ -13200,6 +14592,14 @@
         "speed": 20
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 45,
@@ -13279,6 +14679,14 @@
         "speed": 40
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 345,
@@ -13370,6 +14778,14 @@
         "speed": 70
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 64,
@@ -13453,6 +14869,14 @@
         "speed": 95
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 64,
@@ -13539,6 +14963,14 @@
         "speed": 35
       },
       "catchRate255": 235,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -13609,6 +15041,14 @@
         "speed": 45
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -13687,6 +15127,14 @@
         "speed": 55
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 7,
@@ -13777,6 +15225,14 @@
         "speed": 50
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 3
+      },
       "learnset": [
         {
           "moveId": 348,
@@ -13823,6 +15279,14 @@
         "speed": 40
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -13885,6 +15349,14 @@
         "speed": 50
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 3,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -13959,6 +15431,14 @@
         "speed": 30
       },
       "catchRate255": 65,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 452,
@@ -14045,6 +15525,14 @@
         "speed": 70
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 3
+      },
       "learnset": [
         {
           "moveId": 61,
@@ -14092,6 +15580,14 @@
         "speed": 50
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 150,
@@ -14183,6 +15679,14 @@
         "speed": 80
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 150,
@@ -14286,6 +15790,14 @@
         "speed": 110
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 3,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 150,
@@ -14388,6 +15900,14 @@
         "speed": 85
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -14462,6 +15982,14 @@
         "speed": 30
       },
       "catchRate255": 235,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 71,
@@ -14532,6 +16060,14 @@
         "speed": 30
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 71,
@@ -14607,6 +16143,14 @@
         "speed": 95
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -14690,6 +16234,14 @@
         "speed": 15
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 55,
@@ -14761,6 +16313,14 @@
         "speed": 35
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 55,
@@ -14835,6 +16395,14 @@
         "speed": 110
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 39,
@@ -14909,6 +16477,14 @@
         "speed": 65
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 39,
@@ -14984,6 +16560,14 @@
         "speed": 91
       },
       "catchRate255": 30,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 64,
@@ -15063,6 +16647,14 @@
         "speed": 30
       },
       "catchRate255": 70,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 3
+      },
       "learnset": [
         {
           "moveId": 408,
@@ -15153,6 +16745,14 @@
         "speed": 85
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 45,
@@ -15227,6 +16827,14 @@
         "speed": 48
       },
       "catchRate255": 225,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 237,
@@ -15249,6 +16857,14 @@
         "speed": 33
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 68,
@@ -15284,6 +16900,14 @@
         "speed": 85
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 384,
@@ -15366,6 +16990,14 @@
         "speed": 15
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -15441,6 +17073,14 @@
         "speed": 40
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 390,
@@ -15547,6 +17187,14 @@
         "speed": 45
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 99,
@@ -15626,6 +17274,14 @@
         "speed": 85
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 40,
@@ -15701,6 +17357,14 @@
         "speed": 30
       },
       "catchRate255": 25,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 422,
@@ -15807,6 +17471,14 @@
         "speed": 30
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 423,
@@ -15885,6 +17557,14 @@
         "speed": 45
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 423,
@@ -15968,6 +17648,14 @@
         "speed": 85
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 191,
@@ -16059,6 +17747,14 @@
         "speed": 65
       },
       "catchRate255": 25,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 418,
@@ -16150,6 +17846,14 @@
         "speed": 5
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 110,
@@ -16225,6 +17929,14 @@
         "speed": 85
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 400,
@@ -16300,6 +18012,14 @@
         "speed": 115
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -16374,6 +18094,14 @@
         "speed": 40
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 343,
@@ -16448,6 +18176,14 @@
         "speed": 55
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 343,
@@ -16522,6 +18258,14 @@
         "speed": 20
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 281,
@@ -16597,6 +18341,14 @@
         "speed": 30
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 281,
@@ -16684,6 +18436,14 @@
         "speed": 50
       },
       "catchRate255": 225,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -16759,6 +18519,14 @@
         "speed": 50
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 1,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 246,
@@ -16850,6 +18618,14 @@
         "speed": 35
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -16924,6 +18700,14 @@
         "speed": 65
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 55,
@@ -16990,6 +18774,14 @@
         "speed": 45
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 441,
@@ -17081,6 +18873,14 @@
         "speed": 75
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 217,
@@ -17104,6 +18904,14 @@
         "speed": 70
       },
       "catchRate255": 25,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 60,
@@ -17195,6 +19003,14 @@
         "speed": 70
       },
       "catchRate255": 25,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 43,
@@ -17274,6 +19090,14 @@
         "speed": 65
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 43,
@@ -17357,6 +19181,14 @@
         "speed": 95
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 422,
@@ -17452,6 +19284,14 @@
         "speed": 85
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 281,
@@ -17534,6 +19374,14 @@
         "speed": 40
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 316,
@@ -17604,6 +19452,14 @@
         "speed": 50
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 424,
@@ -17686,6 +19542,14 @@
         "speed": 60
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 176,
@@ -17768,6 +19632,14 @@
         "speed": 85
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -17846,6 +19718,14 @@
         "speed": 75
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 166,
@@ -17904,6 +19784,14 @@
         "speed": 35
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -17938,6 +19826,14 @@
         "speed": 70
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 279,
@@ -18021,6 +19917,14 @@
         "speed": 65
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -18099,6 +20003,14 @@
         "speed": 95
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 98,
@@ -18169,6 +20081,14 @@
         "speed": 83
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 123,
@@ -18239,6 +20159,14 @@
         "speed": 100
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -18309,6 +20237,14 @@
         "speed": 55
       },
       "catchRate255": 30,
+      "evYield": {
+        "hp": 3,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 111,
@@ -18395,6 +20331,14 @@
         "speed": 115
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 44,
@@ -18469,6 +20413,14 @@
         "speed": 100
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 1,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 44,
@@ -18543,6 +20495,14 @@
         "speed": 85
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 44,
@@ -18618,6 +20578,14 @@
         "speed": 41
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 44,
@@ -18693,6 +20661,14 @@
         "speed": 51
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 44,
@@ -18776,6 +20752,14 @@
         "speed": 61
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 422,
@@ -18875,6 +20859,14 @@
         "speed": 110
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 3
+      },
       "learnset": [
         {
           "moveId": 18,
@@ -18958,6 +20950,14 @@
         "speed": 90
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 3
+      },
       "learnset": [
         {
           "moveId": 18,
@@ -19041,6 +21041,14 @@
         "speed": 100
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 3,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 73,
@@ -19115,6 +21123,14 @@
         "speed": 70
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -19181,6 +21197,14 @@
         "speed": 95
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -19259,6 +21283,14 @@
         "speed": 120
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 3,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 400,
@@ -19341,6 +21373,14 @@
         "speed": 45
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -19404,6 +21444,14 @@
         "speed": 55
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -19483,6 +21531,14 @@
         "speed": 80
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 7,
@@ -19573,6 +21629,14 @@
         "speed": 40
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -19640,6 +21704,14 @@
         "speed": 50
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -19719,6 +21791,14 @@
         "speed": 60
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -19801,6 +21881,14 @@
         "speed": 35
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -19875,6 +21963,14 @@
         "speed": 70
       },
       "catchRate255": 127,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -19961,6 +22057,14 @@
         "speed": 60
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -20035,6 +22139,14 @@
         "speed": 100
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 415,
@@ -20121,6 +22233,14 @@
         "speed": 20
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -20155,6 +22275,14 @@
         "speed": 15
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 106,
@@ -20182,6 +22310,14 @@
         "speed": 65
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 71,
@@ -20248,6 +22384,14 @@
         "speed": 15
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 106,
@@ -20275,6 +22419,14 @@
         "speed": 65
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 3
+      },
       "learnset": [
         {
           "moveId": 93,
@@ -20342,6 +22494,14 @@
         "speed": 30
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 310,
@@ -20405,6 +22565,14 @@
         "speed": 50
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 310,
@@ -20468,6 +22636,14 @@
         "speed": 70
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 3
+      },
       "learnset": [
         {
           "moveId": 310,
@@ -20502,6 +22678,14 @@
         "speed": 30
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 117,
@@ -20549,6 +22733,14 @@
         "speed": 60
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 75,
@@ -20612,6 +22804,14 @@
         "speed": 80
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 185,
@@ -20655,6 +22855,14 @@
         "speed": 85
       },
       "catchRate255": 200,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 64,
@@ -20714,6 +22922,14 @@
         "speed": 125
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 365,
@@ -20785,6 +23001,14 @@
         "speed": 85
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 45,
@@ -20856,6 +23080,14 @@
         "speed": 65
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 487,
@@ -20950,6 +23182,14 @@
         "speed": 40
       },
       "catchRate255": 235,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 45,
@@ -21028,6 +23268,14 @@
         "speed": 50
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 45,
@@ -21118,6 +23366,14 @@
         "speed": 80
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 361,
@@ -21213,6 +23469,14 @@
         "speed": 65
       },
       "catchRate255": 200,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 145,
@@ -21268,6 +23532,14 @@
         "speed": 60
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 466,
@@ -21350,6 +23622,14 @@
         "speed": 35
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 71,
@@ -21417,6 +23697,14 @@
         "speed": 70
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 71,
@@ -21499,6 +23787,14 @@
         "speed": 30
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -21557,6 +23853,14 @@
         "speed": 90
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -21627,6 +23931,14 @@
         "speed": 100
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 3,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -21710,6 +24022,14 @@
         "speed": 40
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -21769,6 +24089,14 @@
         "speed": 160
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 450,
@@ -21856,6 +24184,14 @@
         "speed": 40
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -21922,6 +24258,14 @@
         "speed": 28
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -21988,6 +24332,14 @@
         "speed": 48
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -22070,6 +24422,14 @@
         "speed": 68
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 3,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 423,
@@ -22172,6 +24532,14 @@
         "speed": 25
       },
       "catchRate255": 180,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -22258,6 +24626,14 @@
         "speed": 50
       },
       "catchRate255": 200,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 362,
@@ -22356,6 +24732,14 @@
         "speed": 20
       },
       "catchRate255": 150,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 150,
@@ -22398,6 +24782,14 @@
         "speed": 30
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -22472,6 +24864,14 @@
         "speed": 50
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 252,
@@ -22558,6 +24958,14 @@
         "speed": 70
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 252,
@@ -22593,6 +25001,14 @@
         "speed": 50
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 43,
@@ -22687,6 +25103,14 @@
         "speed": 50
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 310,
@@ -22762,6 +25186,14 @@
         "speed": 30
       },
       "catchRate255": 180,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -22845,6 +25277,14 @@
         "speed": 40
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -22940,6 +25380,14 @@
         "speed": 50
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 3,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -23035,6 +25483,14 @@
         "speed": 60
       },
       "catchRate255": 180,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 117,
@@ -23114,6 +25570,14 @@
         "speed": 80
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 7,
@@ -23216,6 +25680,14 @@
         "speed": 65
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -23290,6 +25762,14 @@
         "speed": 105
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 424,
@@ -23380,6 +25860,14 @@
         "speed": 95
       },
       "catchRate255": 200,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 45,
@@ -23470,6 +25958,14 @@
         "speed": 95
       },
       "catchRate255": 200,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 45,
@@ -23560,6 +26056,14 @@
         "speed": 85
       },
       "catchRate255": 150,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 148,
@@ -23630,6 +26134,14 @@
         "speed": 85
       },
       "catchRate255": 150,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -23697,6 +26209,14 @@
         "speed": 65
       },
       "catchRate255": 150,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 71,
@@ -23779,6 +26299,14 @@
         "speed": 40
       },
       "catchRate255": 225,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -23857,6 +26385,14 @@
         "speed": 55
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -23952,6 +26488,14 @@
         "speed": 65
       },
       "catchRate255": 225,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 43,
@@ -24023,6 +26567,14 @@
         "speed": 95
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 364,
@@ -24117,6 +26669,14 @@
         "speed": 60
       },
       "catchRate255": 125,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 150,
@@ -24199,6 +26759,14 @@
         "speed": 60
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 150,
@@ -24294,6 +26862,14 @@
         "speed": 35
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 45,
@@ -24365,6 +26941,14 @@
         "speed": 40
       },
       "catchRate255": 150,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 45,
@@ -24447,6 +27031,14 @@
         "speed": 20
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 52,
@@ -24533,6 +27125,14 @@
         "speed": 60
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 150,
@@ -24611,6 +27211,14 @@
         "speed": 80
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 150,
@@ -24701,6 +27309,14 @@
         "speed": 60
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -24771,6 +27387,14 @@
         "speed": 10
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 44,
@@ -24838,6 +27462,14 @@
         "speed": 70
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 49,
@@ -24905,6 +27537,14 @@
         "speed": 100
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 49,
@@ -24979,6 +27619,14 @@
         "speed": 35
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 40,
@@ -25062,6 +27710,14 @@
         "speed": 55
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 279,
@@ -25157,6 +27813,14 @@
         "speed": 50
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 64,
@@ -25232,6 +27896,14 @@
         "speed": 80
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 365,
@@ -25326,6 +27998,14 @@
         "speed": 90
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -25400,6 +28080,14 @@
         "speed": 65
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 35,
@@ -25479,6 +28167,14 @@
         "speed": 70
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -25554,6 +28250,14 @@
         "speed": 70
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -25629,6 +28333,14 @@
         "speed": 60
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 189,
@@ -25704,6 +28416,14 @@
         "speed": 60
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 428,
@@ -25794,6 +28514,14 @@
         "speed": 35
       },
       "catchRate255": 205,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 145,
@@ -25865,6 +28593,14 @@
         "speed": 55
       },
       "catchRate255": 155,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 145,
@@ -25952,6 +28688,14 @@
         "speed": 55
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 93,
@@ -26039,6 +28783,14 @@
         "speed": 75
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 100,
@@ -26142,6 +28894,14 @@
         "speed": 23
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 310,
@@ -26213,6 +28973,14 @@
         "speed": 43
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 310,
@@ -26292,6 +29060,14 @@
         "speed": 75
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -26359,6 +29135,14 @@
         "speed": 45
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -26433,6 +29217,14 @@
         "speed": 80
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 150,
@@ -26463,6 +29255,14 @@
         "speed": 81
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 55,
@@ -26537,6 +29337,14 @@
         "speed": 70
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -26603,6 +29411,14 @@
         "speed": 40
       },
       "catchRate255": 200,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 168,
@@ -26693,6 +29509,14 @@
         "speed": 45
       },
       "catchRate255": 225,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 282,
@@ -26771,6 +29595,14 @@
         "speed": 65
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 282,
@@ -26861,6 +29693,14 @@
         "speed": 25
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 43,
@@ -26935,6 +29775,14 @@
         "speed": 25
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 7,
@@ -27038,6 +29886,14 @@
         "speed": 51
       },
       "catchRate255": 200,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 43,
@@ -27120,6 +29976,14 @@
         "speed": 65
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 35,
@@ -27198,6 +30062,14 @@
         "speed": 75
       },
       "catchRate255": 30,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -27288,6 +30160,14 @@
         "speed": 23
       },
       "catchRate255": 125,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 150,
@@ -27334,6 +30214,14 @@
         "speed": 50
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 181,
@@ -27400,6 +30288,14 @@
         "speed": 80
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 181,
@@ -27479,6 +30375,14 @@
         "speed": 25
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 111,
@@ -27550,6 +30454,14 @@
         "speed": 45
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 181,
@@ -27625,6 +30537,14 @@
         "speed": 65
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 3,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 242,
@@ -27707,6 +30627,14 @@
         "speed": 32
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 128,
@@ -27745,6 +30673,14 @@
         "speed": 52
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 250,
@@ -27811,6 +30747,14 @@
         "speed": 52
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 250,
@@ -27878,6 +30822,14 @@
         "speed": 55
       },
       "catchRate255": 25,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -27948,6 +30900,14 @@
         "speed": 97
       },
       "catchRate255": 225,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -28022,6 +30982,14 @@
         "speed": 50
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 99,
@@ -28088,6 +31056,14 @@
         "speed": 50
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 99,
@@ -28171,6 +31147,14 @@
         "speed": 100
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 424,
@@ -28270,6 +31254,14 @@
         "speed": 30
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 36,
@@ -28293,6 +31285,14 @@
         "speed": 50
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 393,
@@ -28372,6 +31372,14 @@
         "speed": 70
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 3,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 393,
@@ -28454,6 +31462,14 @@
         "speed": 50
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 3,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 153,
@@ -28524,6 +31540,14 @@
         "speed": 50
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 3
+      },
       "learnset": [
         {
           "moveId": 153,
@@ -28594,6 +31618,14 @@
         "speed": 50
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 153,
@@ -28673,6 +31705,14 @@
         "speed": 110
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 3
+      },
       "learnset": [
         {
           "moveId": 149,
@@ -28764,6 +31804,14 @@
         "speed": 110
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 149,
@@ -28854,6 +31902,14 @@
         "speed": 90
       },
       "catchRate255": 5,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 352,
@@ -28924,6 +31980,14 @@
         "speed": 90
       },
       "catchRate255": 5,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 341,
@@ -28995,6 +32059,14 @@
         "speed": 95
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 239,
@@ -29066,6 +32138,14 @@
         "speed": 100
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 3,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 273,
@@ -29148,6 +32228,14 @@
         "speed": 150
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 43,
@@ -29222,6 +32310,14 @@
         "speed": 31
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -29288,6 +32384,14 @@
         "speed": 36
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -29359,6 +32463,14 @@
         "speed": 56
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 452,
@@ -29445,6 +32557,14 @@
         "speed": 61
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -29516,6 +32636,14 @@
         "speed": 81
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -29595,6 +32723,14 @@
         "speed": 108
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -29677,6 +32813,14 @@
         "speed": 40
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -29747,6 +32891,14 @@
         "speed": 50
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -29826,6 +32978,14 @@
         "speed": 60
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -29913,6 +33073,14 @@
         "speed": 60
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -29980,6 +33148,14 @@
         "speed": 80
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -30051,6 +33227,14 @@
         "speed": 100
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -30129,6 +33313,14 @@
         "speed": 31
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -30196,6 +33388,14 @@
         "speed": 71
       },
       "catchRate255": 127,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -30270,6 +33470,14 @@
         "speed": 25
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 45,
@@ -30304,6 +33512,14 @@
         "speed": 65
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 45,
@@ -30374,6 +33590,14 @@
         "speed": 45
       },
       "catchRate255": 235,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -30440,6 +33664,14 @@
         "speed": 60
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -30510,6 +33742,14 @@
         "speed": 70
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -30585,6 +33825,14 @@
         "speed": 55
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 71,
@@ -30628,6 +33876,14 @@
         "speed": 90
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 311,
@@ -30666,6 +33922,14 @@
         "speed": 58
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 29,
@@ -30732,6 +33996,14 @@
         "speed": 58
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 29,
@@ -30803,6 +34075,14 @@
         "speed": 30
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -30870,6 +34150,14 @@
         "speed": 30
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -30948,6 +34236,14 @@
         "speed": 36
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 182,
@@ -30983,6 +34279,14 @@
         "speed": 36
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -31054,6 +34358,14 @@
         "speed": 66
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -31129,6 +34441,14 @@
         "speed": 70
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 230,
@@ -31160,6 +34480,14 @@
         "speed": 40
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 230,
@@ -31242,6 +34570,14 @@
         "speed": 95
       },
       "catchRate255": 200,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 45,
@@ -31316,6 +34652,14 @@
         "speed": 85
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 49,
@@ -31382,6 +34726,14 @@
         "speed": 115
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 423,
@@ -31460,6 +34812,14 @@
         "speed": 35
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 234,
@@ -31522,6 +34882,14 @@
         "speed": 85
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 234,
@@ -31592,6 +34960,14 @@
         "speed": 34
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 189,
@@ -31651,6 +35027,14 @@
         "speed": 39
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 189,
@@ -31721,6 +35105,14 @@
         "speed": 115
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -31804,6 +35196,14 @@
         "speed": 70
       },
       "catchRate255": 125,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 132,
@@ -31879,6 +35279,14 @@
         "speed": 80
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 132,
@@ -31961,6 +35369,14 @@
         "speed": 85
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 150,
@@ -32043,6 +35459,14 @@
         "speed": 105
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 243,
@@ -32133,6 +35557,14 @@
         "speed": 105
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 381,
@@ -32176,6 +35608,14 @@
         "speed": 71
       },
       "catchRate255": 30,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 310,
@@ -32234,6 +35674,14 @@
         "speed": 85
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 252,
@@ -32304,6 +35752,14 @@
         "speed": 112
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 252,
@@ -32386,6 +35842,14 @@
         "speed": 45
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 35,
@@ -32433,6 +35897,14 @@
         "speed": 74
       },
       "catchRate255": 225,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -32504,6 +35976,14 @@
         "speed": 84
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -32583,6 +36063,14 @@
         "speed": 23
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -32658,6 +36146,14 @@
         "speed": 33
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 241,
@@ -32752,6 +36248,14 @@
         "speed": 10
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 313,
@@ -32822,6 +36326,14 @@
         "speed": 60
       },
       "catchRate255": 145,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 321,
@@ -32912,6 +36424,14 @@
         "speed": 30
       },
       "catchRate255": 130,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -32951,6 +36471,14 @@
         "speed": 91
       },
       "catchRate255": 30,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 64,
@@ -33030,6 +36558,14 @@
         "speed": 35
       },
       "catchRate255": 100,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 174,
@@ -33101,6 +36637,14 @@
         "speed": 42
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -33160,6 +36704,14 @@
         "speed": 82
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -33227,6 +36779,14 @@
         "speed": 102
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 424,
@@ -33309,6 +36869,14 @@
         "speed": 5
       },
       "catchRate255": 50,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 118,
@@ -33395,6 +36963,14 @@
         "speed": 60
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 98,
@@ -33458,6 +37034,14 @@
         "speed": 90
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 399,
@@ -33552,6 +37136,14 @@
         "speed": 32
       },
       "catchRate255": 140,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -33614,6 +37206,14 @@
         "speed": 47
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 423,
@@ -33697,6 +37297,14 @@
         "speed": 65
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 44,
@@ -33772,6 +37380,14 @@
         "speed": 95
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 422,
@@ -33863,6 +37479,14 @@
         "speed": 50
       },
       "catchRate255": 140,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 310,
@@ -33942,6 +37566,14 @@
         "speed": 85
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 310,
@@ -34028,6 +37660,14 @@
         "speed": 46
       },
       "catchRate255": 200,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 20,
@@ -34102,6 +37742,14 @@
         "speed": 66
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -34176,6 +37824,14 @@
         "speed": 91
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -34259,6 +37915,14 @@
         "speed": 50
       },
       "catchRate255": 25,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -34330,6 +37994,14 @@
         "speed": 40
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 181,
@@ -34397,6 +38069,14 @@
         "speed": 60
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 8,
@@ -34476,6 +38156,14 @@
         "speed": 125
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 373,
@@ -34567,6 +38255,14 @@
         "speed": 60
       },
       "catchRate255": 30,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 243,
@@ -34665,6 +38361,14 @@
         "speed": 50
       },
       "catchRate255": 30,
+      "evYield": {
+        "hp": 3,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 122,
@@ -34748,6 +38452,14 @@
         "speed": 40
       },
       "catchRate255": 30,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 398,
@@ -34838,6 +38550,14 @@
         "speed": 50
       },
       "catchRate255": 30,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 275,
@@ -34928,6 +38648,14 @@
         "speed": 95
       },
       "catchRate255": 30,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 7,
@@ -35014,6 +38742,14 @@
         "speed": 83
       },
       "catchRate255": 30,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 9,
@@ -35101,6 +38837,14 @@
         "speed": 80
       },
       "catchRate255": 30,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 143,
@@ -35136,6 +38880,14 @@
         "speed": 95
       },
       "catchRate255": 30,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 400,
@@ -35234,6 +38986,14 @@
         "speed": 95
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 39,
@@ -35308,6 +39068,14 @@
         "speed": 65
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 39,
@@ -35383,6 +39151,14 @@
         "speed": 95
       },
       "catchRate255": 30,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 422,
@@ -35482,6 +39258,14 @@
         "speed": 80
       },
       "catchRate255": 50,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 246,
@@ -35572,6 +39356,14 @@
         "speed": 90
       },
       "catchRate255": 30,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 433,
@@ -35659,6 +39451,14 @@
         "speed": 80
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 348,
@@ -35758,6 +39558,14 @@
         "speed": 40
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 393,
@@ -35852,6 +39660,14 @@
         "speed": 45
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 7,
@@ -35955,6 +39771,14 @@
         "speed": 110
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 181,
@@ -36034,6 +39858,14 @@
         "speed": 91
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 271,
@@ -36108,6 +39940,14 @@
         "speed": 95
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 156,
@@ -36174,6 +40014,14 @@
         "speed": 80
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 156,
@@ -36240,6 +40088,14 @@
         "speed": 115
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 156,
@@ -36307,6 +40163,14 @@
         "speed": 90
       },
       "catchRate255": 30,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 225,
@@ -36378,6 +40242,14 @@
         "speed": 100
       },
       "catchRate255": 30,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 225,
@@ -36449,6 +40321,14 @@
         "speed": 77
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 246,
@@ -36519,6 +40399,14 @@
         "speed": 100
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 7,
@@ -36594,6 +40482,14 @@
         "speed": 90
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 3,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 225,
@@ -36664,6 +40560,14 @@
         "speed": 85
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 3
+      },
       "learnset": [
         {
           "moveId": 93,
@@ -36730,6 +40634,14 @@
         "speed": 80
       },
       "catchRate255": 30,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 145,
@@ -36792,6 +40704,14 @@
         "speed": 100
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 3,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 294,
@@ -36862,6 +40782,14 @@
         "speed": 125
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 466,
@@ -36928,6 +40856,14 @@
         "speed": 100
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 3,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 74,
@@ -36994,6 +40930,14 @@
         "speed": 120
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 3,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 69,
@@ -37069,6 +41013,14 @@
         "speed": 100
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 3,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 545,
@@ -37155,6 +41107,14 @@
         "speed": 63
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -37233,6 +41193,14 @@
         "speed": 83
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -37323,6 +41291,14 @@
         "speed": 113
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 3,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -37413,6 +41389,14 @@
         "speed": 45
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -37492,6 +41476,14 @@
         "speed": 55
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -37587,6 +41579,14 @@
         "speed": 65
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 359,
@@ -37685,6 +41685,14 @@
         "speed": 45
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -37763,6 +41771,14 @@
         "speed": 60
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -37853,6 +41869,14 @@
         "speed": 70
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 224,
@@ -37951,6 +41975,14 @@
         "speed": 42
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -38029,6 +42061,14 @@
         "speed": 77
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -38123,6 +42163,14 @@
         "speed": 55
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 43,
@@ -38193,6 +42241,14 @@
         "speed": 60
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 43,
@@ -38271,6 +42327,14 @@
         "speed": 80
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 423,
@@ -38361,6 +42425,14 @@
         "speed": 66
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -38443,6 +42515,14 @@
         "speed": 106
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -38537,6 +42617,14 @@
         "speed": 64
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -38615,6 +42703,14 @@
         "speed": 101
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 43,
@@ -38649,6 +42745,14 @@
         "speed": 64
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -38727,6 +42831,14 @@
         "speed": 101
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 43,
@@ -38761,6 +42873,14 @@
         "speed": 64
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -38839,6 +42959,14 @@
         "speed": 101
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 43,
@@ -38873,6 +43001,14 @@
         "speed": 24
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 149,
@@ -38959,6 +43095,14 @@
         "speed": 29
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 111,
@@ -38994,6 +43138,14 @@
         "speed": 43
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 16,
@@ -39073,6 +43225,14 @@
         "speed": 65
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 16,
@@ -39164,6 +43324,14 @@
         "speed": 93
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 16,
@@ -39254,6 +43422,14 @@
         "speed": 76
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 98,
@@ -39324,6 +43500,14 @@
         "speed": 116
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 98,
@@ -39406,6 +43590,14 @@
         "speed": 15
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -39476,6 +43668,14 @@
         "speed": 20
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -39562,6 +43762,14 @@
         "speed": 25
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -39649,6 +43857,14 @@
         "speed": 72
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 93,
@@ -39724,6 +43940,14 @@
         "speed": 114
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 93,
@@ -39810,6 +44034,14 @@
         "speed": 68
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -39889,6 +44121,14 @@
         "speed": 88
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -39979,6 +44219,14 @@
         "speed": 50
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -40053,6 +44301,14 @@
         "speed": 35
       },
       "catchRate255": 180,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -40135,6 +44391,14 @@
         "speed": 40
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -40225,6 +44489,14 @@
         "speed": 45
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -40315,6 +44587,14 @@
         "speed": 64
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 145,
@@ -40390,6 +44670,14 @@
         "speed": 69
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 145,
@@ -40473,6 +44761,14 @@
         "speed": 74
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 3,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 145,
@@ -40563,6 +44859,14 @@
         "speed": 45
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 20,
@@ -40641,6 +44945,14 @@
         "speed": 85
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 249,
@@ -40720,6 +45032,14 @@
         "speed": 42
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -40771,6 +45091,14 @@
         "speed": 42
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 320,
@@ -40814,6 +45142,14 @@
         "speed": 92
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 206,
@@ -40893,6 +45229,14 @@
         "speed": 57
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 111,
@@ -40968,6 +45312,14 @@
         "speed": 47
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 111,
@@ -41055,6 +45407,14 @@
         "speed": 112
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 3,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 224,
@@ -41145,6 +45505,14 @@
         "speed": 66
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 71,
@@ -41227,6 +45595,14 @@
         "speed": 116
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 74,
@@ -41273,6 +45649,14 @@
         "speed": 30
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 71,
@@ -41355,6 +45739,14 @@
         "speed": 90
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 74,
@@ -41401,6 +45793,14 @@
         "speed": 98
       },
       "catchRate255": 25,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -41484,6 +45884,14 @@
         "speed": 65
       },
       "catchRate255": 180,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 43,
@@ -41571,6 +45979,14 @@
         "speed": 74
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 43,
@@ -41666,6 +46082,14 @@
         "speed": 92
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 43,
@@ -41760,6 +46184,14 @@
         "speed": 50
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -41842,6 +46274,14 @@
         "speed": 95
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -41940,6 +46380,14 @@
         "speed": 60
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 64,
@@ -42031,6 +46479,14 @@
         "speed": 55
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 210,
@@ -42110,6 +46566,14 @@
         "speed": 45
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 504,
@@ -42201,6 +46665,14 @@
         "speed": 48
       },
       "catchRate255": 180,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 43,
@@ -42284,6 +46756,14 @@
         "speed": 58
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 43,
@@ -42375,6 +46855,14 @@
         "speed": 97
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 16,
@@ -42461,6 +46949,14 @@
         "speed": 30
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 310,
@@ -42539,6 +47035,14 @@
         "speed": 30
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 310,
@@ -42630,6 +47134,14 @@
         "speed": 22
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 117,
@@ -42721,6 +47233,14 @@
         "speed": 32
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 117,
@@ -42816,6 +47336,14 @@
         "speed": 70
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 98,
@@ -42907,6 +47435,14 @@
         "speed": 110
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 98,
@@ -43001,6 +47537,14 @@
         "speed": 65
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -43083,6 +47627,14 @@
         "speed": 75
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -43173,6 +47725,14 @@
         "speed": 65
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -43255,6 +47815,14 @@
         "speed": 105
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 369,
@@ -43353,6 +47921,14 @@
         "speed": 75
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -43439,6 +48015,14 @@
         "speed": 115
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 331,
@@ -43481,6 +48065,14 @@
         "speed": 45
       },
       "catchRate255": 200,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -43563,6 +48155,14 @@
         "speed": 55
       },
       "catchRate255": 100,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -43657,6 +48257,14 @@
         "speed": 65
       },
       "catchRate255": 50,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 3
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -43751,6 +48359,14 @@
         "speed": 20
       },
       "catchRate255": 200,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 149,
@@ -43833,6 +48449,14 @@
         "speed": 30
       },
       "catchRate255": 100,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 149,
@@ -43927,6 +48551,14 @@
         "speed": 30
       },
       "catchRate255": 50,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 149,
@@ -44026,6 +48658,14 @@
         "speed": 55
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 55,
@@ -44105,6 +48745,14 @@
         "speed": 98
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 55,
@@ -44195,6 +48843,14 @@
         "speed": 44
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 333,
@@ -44273,6 +48929,14 @@
         "speed": 59
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 333,
@@ -44363,6 +49027,14 @@
         "speed": 79
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 311,
@@ -44458,6 +49130,14 @@
         "speed": 75
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -44537,6 +49217,14 @@
         "speed": 95
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 224,
@@ -44632,6 +49320,14 @@
         "speed": 103
       },
       "catchRate255": 200,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 84,
@@ -44710,6 +49406,14 @@
         "speed": 60
       },
       "catchRate255": 200,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 64,
@@ -44789,6 +49493,14 @@
         "speed": 20
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 64,
@@ -44880,6 +49592,14 @@
         "speed": 15
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 1,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 71,
@@ -44959,6 +49679,14 @@
         "speed": 30
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 71,
@@ -45050,6 +49778,14 @@
         "speed": 40
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 145,
@@ -45125,6 +49861,14 @@
         "speed": 60
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 145,
@@ -45207,6 +49951,14 @@
         "speed": 65
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -45294,6 +50046,14 @@
         "speed": 65
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 81,
@@ -45377,6 +50137,14 @@
         "speed": 108
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 81,
@@ -45464,6 +50232,14 @@
         "speed": 10
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -45543,6 +50319,14 @@
         "speed": 20
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 431,
@@ -45637,6 +50421,14 @@
         "speed": 30
       },
       "catchRate255": 130,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 11,
@@ -45715,6 +50507,14 @@
         "speed": 50
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 11,
@@ -45805,6 +50605,14 @@
         "speed": 90
       },
       "catchRate255": 30,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 3,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 11,
@@ -45895,6 +50703,14 @@
         "speed": 60
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -45929,6 +50745,14 @@
         "speed": 40
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 29,
@@ -46007,6 +50831,14 @@
         "speed": 50
       },
       "catchRate255": 30,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 306,
@@ -46045,6 +50877,14 @@
         "speed": 30
       },
       "catchRate255": 255,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 93,
@@ -46135,6 +50975,14 @@
         "speed": 40
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 93,
@@ -46238,6 +51086,14 @@
         "speed": 20
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 52,
@@ -46325,6 +51181,14 @@
         "speed": 55
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 52,
@@ -46420,6 +51284,14 @@
         "speed": 80
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 123,
@@ -46454,6 +51326,14 @@
         "speed": 57
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -46536,6 +51416,14 @@
         "speed": 67
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -46630,6 +51518,14 @@
         "speed": 97
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -46724,6 +51620,14 @@
         "speed": 40
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 181,
@@ -46802,6 +51706,14 @@
         "speed": 50
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 276,
@@ -46900,6 +51812,14 @@
         "speed": 105
       },
       "catchRate255": 25,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 2
+      },
       "learnset": [
         {
           "moveId": 20,
@@ -46990,6 +51910,14 @@
         "speed": 25
       },
       "catchRate255": 200,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 141,
@@ -47068,6 +51996,14 @@
         "speed": 145
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 2,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 141,
@@ -47159,6 +52095,14 @@
         "speed": 32
       },
       "catchRate255": 75,
+      "evYield": {
+        "hp": 2,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 189,
@@ -47237,6 +52181,14 @@
         "speed": 65
       },
       "catchRate255": 180,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -47319,6 +52271,14 @@
         "speed": 105
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -47413,6 +52373,14 @@
         "speed": 48
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 43,
@@ -47496,6 +52464,14 @@
         "speed": 35
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -47575,6 +52551,14 @@
         "speed": 55
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 1,
@@ -47662,6 +52646,14 @@
         "speed": 60
       },
       "catchRate255": 120,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 10,
@@ -47745,6 +52737,14 @@
         "speed": 70
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 368,
@@ -47843,6 +52843,14 @@
         "speed": 55
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 228,
@@ -47918,6 +52926,14 @@
         "speed": 60
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 64,
@@ -48001,6 +53017,14 @@
         "speed": 80
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 64,
@@ -48096,6 +53120,14 @@
         "speed": 60
       },
       "catchRate255": 190,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 1,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 16,
@@ -48179,6 +53211,14 @@
         "speed": 80
       },
       "catchRate255": 60,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 16,
@@ -48273,6 +53313,14 @@
         "speed": 65
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 2,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 510,
@@ -48356,6 +53404,14 @@
         "speed": 109
       },
       "catchRate255": 90,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 2,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 11,
@@ -48435,6 +53491,14 @@
         "speed": 38
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 33,
@@ -48518,6 +53582,14 @@
         "speed": 58
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 2,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 458,
@@ -48609,6 +53681,14 @@
         "speed": 98
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 161,
@@ -48700,6 +53780,14 @@
         "speed": 60
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 52,
@@ -48767,6 +53855,14 @@
         "speed": 100
       },
       "catchRate255": 15,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 52,
@@ -48846,6 +53942,14 @@
         "speed": 108
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 3,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 98,
@@ -48921,6 +54025,14 @@
         "speed": 108
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 98,
@@ -48996,6 +54108,14 @@
         "speed": 108
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 3
+      },
       "learnset": [
         {
           "moveId": 98,
@@ -49070,6 +54190,14 @@
         "speed": 111
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 253,
@@ -49157,6 +54285,14 @@
         "speed": 111
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 253,
@@ -49244,6 +54380,14 @@
         "speed": 90
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 424,
@@ -49327,6 +54471,14 @@
         "speed": 90
       },
       "catchRate255": 45,
+      "evYield": {
+        "hp": 0,
+        "atk": 3,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 0,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 422,
@@ -49410,6 +54562,14 @@
         "speed": 101
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 335,
@@ -49497,6 +54657,14 @@
         "speed": 95
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 1,
+        "atk": 1,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 196,
@@ -49576,6 +54744,14 @@
         "speed": 108
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 0,
+        "spAtk": 3,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 453,
@@ -49651,6 +54827,14 @@
         "speed": 90
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 1,
+        "spDef": 1
+      },
       "learnset": [
         {
           "moveId": 496,
@@ -49730,6 +54914,14 @@
         "speed": 99
       },
       "catchRate255": 3,
+      "evYield": {
+        "hp": 0,
+        "atk": 1,
+        "def": 0,
+        "speed": 1,
+        "spAtk": 1,
+        "spDef": 0
+      },
       "learnset": [
         {
           "moveId": 546,

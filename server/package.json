@@ -10,8 +10,17 @@
     "typecheck": "tsc --noEmit",
     "test": "tsx --test test/*.test.ts",
     "validate-content": "tsx scripts/validate-content.ts",
+    "story:lint": "tsx scripts/story-lint.ts",
     "build-content": "tsx scripts/build-game-content.ts",
-    "smoke": "tsx scripts/smoke.ts"
+    "build:ability-i18n": "tsx scripts/build-ability-i18n.ts",
+    "smoke": "tsx scripts/smoke.ts",
+    "smoke:story": "tsx scripts/story-smoke.ts",
+    "smoke:social": "tsx scripts/social-smoke.ts",
+    "smoke:duel": "tsx scripts/duel-smoke.ts",
+    "smoke:growth": "tsx scripts/growth-smoke.ts",
+    "audit:maps": "python ../tools/rom/audit_maps.py --report ../.tools/map-audit/report.md",
+    "audit:assets": "python ../tools/rom/audit_assets.py",
+    "audit:assets:test": "python ../tools/rom/audit_assets.py --self-test"
   },
   "dependencies": {
     "@pkmn/sim": "^0.10.11",

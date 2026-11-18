@@ -16,6 +16,14 @@ var _box: Array = []
 var _max_party := 6
 var _max_box := 30
 var _sprite_cache: Dictionary = {}
+var _dialog_layer: Control
+var _dialog_title: Label
+var _dialog_body: Label
+var _dialog_input: LineEdit
+var _dialog_confirm: Button
+var _dialog_cancel: Button
+var _dialog_action := ""
+var _dialog_index := -1
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(PRESET_FULL_RECT)
@@ -36,7 +44,7 @@ func _ready() -> void:
 
 	_panel = PanelContainer.new()
 	_panel.name = "PcPanel"
-	_panel.custom_minimum_size = Vector2(780, 480)
+	_panel.custom_minimum_size = Vector2(860, 480)
 	_panel.add_theme_stylebox_override(
 		"panel", UI.glass_style(UI.INK, 14, UI.BORDER_STRONG, 1, 0)
 	)
@@ -104,7 +112,7 @@ func _ready() -> void:
 	box.add_child(columns)
 
 	var party_col := VBoxContainer.new()
-	party_col.custom_minimum_size = Vector2(330, 0)
+	party_col.custom_minimum_size = Vector2(370, 0)
 	party_col.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	party_col.add_theme_constant_override("separation", 4)
 	columns.add_child(party_col)
@@ -115,7 +123,7 @@ func _ready() -> void:
 	party_col.add_child(_party_list)
 
 	var box_col := VBoxContainer.new()
-	box_col.custom_minimum_size = Vector2(330, 0)
+	box_col.custom_minimum_size = Vector2(370, 0)
 	box_col.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	box_col.add_theme_constant_override("separation", 4)
 	columns.add_child(box_col)
@@ -136,6 +144,7 @@ func _ready() -> void:
 	)
 	footer.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	box.add_child(footer)
+	_build_dialog()
 
 func _icon(file: String) -> Texture2D:
 	var path := "res://assets/ui/icons/%s" % file
@@ -274,12 +283,16 @@ func _make_creature_info(creature: Dictionary) -> HBoxContainer:
 
 	var max_hp := maxi(1, int(creature.get("maxHp", 1)))
 	var hp := clampi(int(creature.get("hp", 0)), 0, max_hp)
-	info.add_child(Loc.make_label(
-		"Lv %d   %d/%d HP",
-		9,
-		UI.MUTED,
-		[int(creature.get("level", 1)), hp, max_hp]
-	))
+	var ability_name := str(creature.get("abilityName", ""))
+	var detail_key := "Lv %d   %d/%d HP"
+	var detail_args: Array = [int(creature.get("level", 1)), hp, max_hp]
+	if ability_name != "":
+		detail_key = "Lv %d   %d/%d HP   -   %s"
+		detail_args.append(ability_name)
+	var detail_label := Loc.make_label(detail_key, 9, UI.MUTED, detail_args)
+	detail_label.clip_text = true
+	detail_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	info.add_child(detail_label)
 	return line
 
 func _status_code(creature: Dictionary) -> String:
@@ -325,6 +338,9 @@ func _make_party_row(creature: Dictionary, index: int, keep_last: bool) -> Panel
 	line.add_theme_constant_override("separation", 5)
 	row.add_child(line)
 	line.add_child(_make_creature_info(creature))
+	var rename := _make_action("NAME")
+	rename.pressed.connect(func() -> void: _open_rename("party", index))
+	line.add_child(rename)
 	var store := _make_action("STORE")
 	store.disabled = keep_last
 	store.pressed.connect(
@@ -341,6 +357,9 @@ func _make_box_row(creature: Dictionary, index: int) -> PanelContainer:
 	line.add_theme_constant_override("separation", 5)
 	row.add_child(line)
 	line.add_child(_make_creature_info(creature))
+	var rename := _make_action("NAME")
+	rename.pressed.connect(func() -> void: _open_rename("box", index))
+	line.add_child(rename)
 	var take := _make_action("TAKE")
 	take.disabled = _party.size() >= _max_party
 	take.pressed.connect(
@@ -358,12 +377,15 @@ func _make_box_row(creature: Dictionary, index: int) -> PanelContainer:
 			})
 	)
 	line.add_child(swap)
+	var release := _make_action("FREE")
+	release.pressed.connect(func() -> void: _open_release(index))
+	line.add_child(release)
 	return row
 
 func _make_action(key: String) -> Button:
 	var button := Button.new()
 	Loc.bind(button, key)
-	button.custom_minimum_size = Vector2(50, 26)
+	button.custom_minimum_size = Vector2(46, 26)
 	button.focus_mode = Control.FOCUS_NONE
 	button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	UI.apply_font(button, 8)
@@ -399,9 +421,132 @@ func _on_party_input(event: InputEvent, index: int) -> void:
 		_build()
 		accept_event()
 
+func _build_dialog() -> void:
+	_dialog_layer = Control.new()
+	_dialog_layer.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+	_dialog_layer.mouse_filter = MOUSE_FILTER_STOP
+	_dialog_layer.visible = false
+	add_child(_dialog_layer)
+
+	var dim := ColorRect.new()
+	dim.color = Color(0.004, 0.012, 0.022, 0.72)
+	dim.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+	dim.mouse_filter = MOUSE_FILTER_STOP
+	_dialog_layer.add_child(dim)
+
+	var center := CenterContainer.new()
+	center.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+	center.mouse_filter = MOUSE_FILTER_IGNORE
+	_dialog_layer.add_child(center)
+
+	var panel := PanelContainer.new()
+	panel.name = "PcDialog"
+	panel.custom_minimum_size = Vector2(420, 0)
+	panel.add_theme_stylebox_override(
+		"panel", UI.glass_style(UI.INK, 12, UI.BORDER_STRONG, 1, 0)
+	)
+	panel.mouse_filter = MOUSE_FILTER_STOP
+	center.add_child(panel)
+	UI.add_bw_frame_overlay(panel)
+	var margin := UI.add_panel_content(panel, 12, 10)
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 8)
+	margin.add_child(box)
+
+	_dialog_title = UI.make_bold_label("", 15, UI.TEXT)
+	_dialog_title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	box.add_child(_dialog_title)
+	_dialog_body = UI.make_label("", 10, UI.MUTED)
+	_dialog_body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	box.add_child(_dialog_body)
+
+	_dialog_input = LineEdit.new()
+	_dialog_input.custom_minimum_size = Vector2(0, 30)
+	_dialog_input.max_length = 12
+	_dialog_input.focus_mode = Control.FOCUS_ALL
+	Loc.bind(_dialog_input, "Nickname")
+	UI.apply_font(_dialog_input, 12)
+	box.add_child(_dialog_input)
+
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 6)
+	row.alignment = BoxContainer.ALIGNMENT_END
+	box.add_child(row)
+	_dialog_cancel = Button.new()
+	Loc.bind(_dialog_cancel, "CANCEL")
+	_dialog_cancel.custom_minimum_size = Vector2(84, 28)
+	_dialog_cancel.focus_mode = Control.FOCUS_NONE
+	UI.style_button(_dialog_cancel, false, true)
+	_dialog_cancel.pressed.connect(_close_dialog)
+	row.add_child(_dialog_cancel)
+	_dialog_confirm = Button.new()
+	_dialog_confirm.custom_minimum_size = Vector2(84, 28)
+	_dialog_confirm.focus_mode = Control.FOCUS_NONE
+	UI.style_button(_dialog_confirm, true, true)
+	_dialog_confirm.pressed.connect(_dialog_confirm_pressed)
+	row.add_child(_dialog_confirm)
+
+func _open_rename(source: String, index: int) -> void:
+	var list := _party if source == "party" else _box
+	if index < 0 or index >= list.size() or not (list[index] is Dictionary):
+		return
+	var creature: Dictionary = list[index]
+	_dialog_action = "rename:%s" % source
+	_dialog_index = index
+	_dialog_title.text = Loc.tf("Rename %s", [str(creature.get("name", "?"))])
+	_dialog_body.text = Loc.t("Enter a nickname of 1-12 characters.")
+	_dialog_body.visible = true
+	_dialog_input.visible = true
+	_dialog_input.text = str(creature.get("name", ""))
+	Loc.bind(_dialog_confirm, "SAVE")
+	Loc.apply(_dialog_confirm)
+	_dialog_layer.visible = true
+	_dialog_input.grab_focus()
+	_dialog_input.select_all()
+
+func _open_release(index: int) -> void:
+	if index < 0 or index >= _box.size() or not (_box[index] is Dictionary):
+		return
+	var creature: Dictionary = _box[index]
+	_dialog_action = "release"
+	_dialog_index = index
+	_dialog_title.text = Loc.tf("Release %s?", [str(creature.get("name", "?"))])
+	_dialog_body.text = Loc.t("This cannot be undone. The Pokémon will be gone forever.")
+	_dialog_body.visible = true
+	_dialog_input.visible = false
+	Loc.bind(_dialog_confirm, "RELEASE")
+	Loc.apply(_dialog_confirm)
+	_dialog_layer.visible = true
+
+func _dialog_confirm_pressed() -> void:
+	if _dialog_action.begins_with("rename:"):
+		var name := _dialog_input.text.strip_edges()
+		if name == "":
+			_dialog_body.text = Loc.t("Enter a nickname.")
+			return
+		var source := _dialog_action.substr("rename:".length())
+		requested.emit({
+			"type": "rename_creature",
+			"source": source,
+			"index": _dialog_index,
+			"name": name
+		})
+		_close_dialog()
+		return
+	if _dialog_action == "release":
+		requested.emit({"type": "pc_release", "boxIndex": _dialog_index})
+		_close_dialog()
+
+func _close_dialog() -> void:
+	if _dialog_layer != null:
+		_dialog_layer.visible = false
+	_dialog_action = ""
+	_dialog_index = -1
+
 func close() -> void:
 	if not visible:
 		return
+	_close_dialog()
 	visible = false
 	closed.emit()
 
@@ -410,5 +555,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if event is InputEventKey and event.pressed and not event.echo:
 		if (event as InputEventKey).keycode == KEY_ESCAPE:
-			close()
+			if _dialog_layer != null and _dialog_layer.visible:
+				_close_dialog()
+			else:
+				close()
 			get_viewport().set_input_as_handled()

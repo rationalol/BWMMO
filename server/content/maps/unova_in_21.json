@@ -1,7 +1,8 @@
 {
   "id": "unova_in_21",
-  "name": "Interior",
+  "name": "Nacrene City",
   "zone": 21,
+  "outdoor": false,
   "spawn": {
     "x": 5,
     "y": 10,
@@ -11,10 +12,10 @@
     "################################",
     "################################",
     "################################",
-    "###.......######################",
+    "####...##.######################",
     "##.#.#.##.######################",
-    "#.........######################",
     "##........######################",
+    "###.......######################",
     "#####.....######################",
     "#####.....######################",
     "#####......#####################",
@@ -88,8 +89,226 @@
         "offsetX": 0,
         "offsetZ": 0,
         "mapFile": "unova_indoor/mapsets/tex_216/m_furniture01_00.glb",
-        "heights": "AAZLBrgGJgeTBwAIAAgACJMHJge5BkwGAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG4P/g/+D/4P/g/+D/4P/g/+D/4P/g/wAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABuD/4P/g/+D/4P9gAJAAYABgAOD/4P8ABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbg/+D/4P/g/+D/4P/g/+D/4P/g/+D/AAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG4f/h/+H/4f/gAeH/4f/h/+H/4f/h/wAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABuH/4f/h/+H/4f/h/+H/4f/h/+H/4f8ABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbi/+L/4v/i/+L/4v/i/+L/4v/i/+L/AAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG4v/i/+L/4v/i/+L/4v/i/+L/4v/i/wAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABuL/4v/j/+P/4//j/+P/4//j/+P/4/8ABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbi/+L/4v/j/+P/4//j/+P/4//j/+P/AAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADg/+D/4P8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
-        "props": []
+        "heights": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        "props": [
+          {
+            "x": -216.0,
+            "y": 0.0,
+            "z": -120.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/table01.glb"
+          },
+          {
+            "x": -216.0,
+            "y": 8.0,
+            "z": -120.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/table01.glb"
+          },
+          {
+            "x": -184.0,
+            "y": 0.0,
+            "z": -136.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/chair01.glb"
+          },
+          {
+            "x": -184.0,
+            "y": 0.0,
+            "z": -120.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/chair01.glb"
+          },
+          {
+            "x": -72.0,
+            "y": 0.0,
+            "z": -176.0,
+            "rotation": 270.0,
+            "file": "unova_indoor/propsets/b6/shelf01.glb"
+          },
+          {
+            "x": -88.0,
+            "y": 0.0,
+            "z": -176.0,
+            "rotation": 270.0,
+            "file": "unova_indoor/propsets/b6/shelf01.glb"
+          },
+          {
+            "x": -80.0,
+            "y": 0.0,
+            "z": -216.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/shelf02.glb"
+          },
+          {
+            "x": -184.0,
+            "y": 0.0,
+            "z": -216.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/shelf04.glb"
+          },
+          {
+            "x": -168.0,
+            "y": 0.0,
+            "z": -216.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/shelf04.glb"
+          },
+          {
+            "x": -232.0,
+            "y": 0.0,
+            "z": -184.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/shelf05.glb"
+          },
+          {
+            "x": -200.0,
+            "y": 0.0,
+            "z": -184.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/shelf05.glb"
+          },
+          {
+            "x": -136.0,
+            "y": 0.0,
+            "z": -184.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/plant01.glb"
+          },
+          {
+            "x": -120.0,
+            "y": 0.0,
+            "z": -184.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/plant01.glb"
+          },
+          {
+            "x": -144.0,
+            "y": 24.0,
+            "z": -232.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/art01.glb"
+          },
+          {
+            "x": -88.0,
+            "y": 0.0,
+            "z": -120.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/object02.glb"
+          },
+          {
+            "x": -216.0,
+            "y": 8.0,
+            "z": -216.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/box01.glb"
+          },
+          {
+            "x": -232.0,
+            "y": 0.0,
+            "z": -152.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/box01.glb"
+          },
+          {
+            "x": -216.0,
+            "y": 0.0,
+            "z": -200.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/box01.glb"
+          },
+          {
+            "x": -184.0,
+            "y": 0.0,
+            "z": -104.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/box01.glb"
+          },
+          {
+            "x": -88.0,
+            "y": 0.0,
+            "z": -136.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/box01.glb"
+          },
+          {
+            "x": -232.0,
+            "y": 0.0,
+            "z": -200.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/box01.glb"
+          },
+          {
+            "x": -200.0,
+            "y": 0.0,
+            "z": -216.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/box01.glb"
+          },
+          {
+            "x": -88.0,
+            "y": 0.0,
+            "z": -152.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/box01.glb"
+          },
+          {
+            "x": -72.0,
+            "y": 0.0,
+            "z": -136.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/box01.glb"
+          },
+          {
+            "x": -216.0,
+            "y": 0.0,
+            "z": -216.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/box01.glb"
+          },
+          {
+            "x": -80.0,
+            "y": 0.0,
+            "z": -200.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/shelf03.glb"
+          },
+          {
+            "x": -72.0,
+            "y": 0.0,
+            "z": -112.0,
+            "rotation": 270.0,
+            "file": "unova_indoor/propsets/b6/shelf03.glb"
+          },
+          {
+            "x": -192.0,
+            "y": 24.0,
+            "z": -232.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/art02.glb"
+          },
+          {
+            "x": -192.0,
+            "y": 24.0,
+            "z": -232.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/art02.glb"
+          },
+          {
+            "x": -112.0,
+            "y": 24.0,
+            "z": -232.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/art02.glb"
+          },
+          {
+            "x": -72.0,
+            "y": 0.0,
+            "z": -152.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b6/object03.glb"
+          }
+        ]
       }
     ]
   }

@@ -1,7 +1,8 @@
 {
   "id": "unova_in_28",
-  "name": "Interior",
+  "name": "Castelia City",
   "zone": 28,
+  "outdoor": false,
   "spawn": {
     "x": 32,
     "y": 37,
@@ -126,7 +127,7 @@
             "y": 11.099853515625,
             "z": 277.81982421875,
             "rotation": 42.9949951171875,
-            "file": "unova_indoor/propsets/b5/door_pc.glb"
+            "file": "unova_indoor/propsets/b4/box02.glb"
           }
         ]
       }

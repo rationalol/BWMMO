@@ -1,7 +1,8 @@
 {
   "id": "unova_in_274",
-  "name": "Interior",
+  "name": "N's Castle",
   "zone": 274,
+  "outdoor": false,
   "spawn": {
     "x": 8,
     "y": 20,
@@ -88,24 +89,456 @@
         "offsetX": 0,
         "offsetZ": 0,
         "mapFile": "unova_indoor/mapsets/tex_248/m_ncastle02_00_0.glb",
-        "heights": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgASABIAEgASABIAEgASABIAEgASABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAE0P/Q/9D/rQEHA6sCwwPDA8MDgAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAEgASABND/0P8AAHwAfADQ/9D/0P/Q/4AEgASABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAEgASABND/0P/Q/9D/0P98AHwA0P/Q/9D/0P/Q/9D/gASABIAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACABND/0P/Q/9D/AAPAAskB6QBgACAAIAAgAGAA6QDJAcACAAOABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAT//+oA7QD//wADwALJAekAYAAgACAAIABgAOkAyQHAAgADgAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAE5wDzAdIB8QAAA8ACyQHpAGAAIAAgACAAYADpAMkBwAIAA4AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACABOcAzwLPAvEAAAPAAskB6QBgACAAIAAgAGAA6QDJAcACAAOABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAT//+oA7QD//wADwALJAekAYAAgACAAIABgAOkAyQHAAgADgAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAE0P/Q/9D/0P/w//D/8P/w/9D/0P/Q/9D/0P/w//D/AAEAAYAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACABND/8P/w//D/8P/Q/9D/0P/Q/9D/0P/Q/9D/0P/Q/3wAfACABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgATQ/9D/0P/s/9D/0P/Q/9D/0P/Q/9D/0P/Q/9D/0P8AAQABgAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAEyQAGBQ4FMADw/9D/8P/Q/9D/0P/Q/9D/0P/Q/9D/0P/Q/4AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACABND/UQDQ/9D/8P/Q/9D/MADQ/9D/0P/Q/9D/+P/Q/9D/0P+ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgATQ/9D/0P/Q/9D/8P/Q/9D/0P/Q/9D/0P/Q/9D/0P/Q/9D/gAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAE0P/Q/9D/0P/Q/9D/0P/Q/9D/0P/Q/9D/0P/Q/9D/0P/Q/4AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0P/Q/9D/0P/Q/9D/0P/Q/9D/0P/Q/9D/0P/Q/9D/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0P/Q/9D/0P/Q/9D/0P/Q/9D/0P/Q/9D/0P8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADQ/9D/0P/Q/9D/0P/Q/9D/0P8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0P/Q/9D/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAND/0P/Q/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        "heights": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAMAAwACAAFAAAAAAAAAAEAAAAEAAgADgAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIADAAMAAgABQAAAAAAAAABAAAABAAIAA4ADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAwADAAIAAUAAAAAAAAAAQAAAAQACAAOAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAMAAwACAAFAAAAAAAAAAEAAAAEAAgADgAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIADAAMAAgABQAAAAAAAAABAAAABAAIAA4ADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
         "props": [
           {
             "x": -24.0,
             "y": 0.0,
             "z": -16.0,
             "rotation": 0.0,
-            "file": "unova_indoor/propsets/b33/tt_table01.glb"
+            "file": "unova_indoor/propsets/b38/in39_den.glb"
           },
           {
             "x": -184.0,
             "y": 0.0,
             "z": -120.0,
             "rotation": 0.0,
-            "file": "unova_indoor/propsets/b33/tt_train03.glb"
+            "file": "unova_indoor/propsets/b38/in39_hiko.glb"
           }
         ]
       }
     ]
-  }
+  },
+  "interactables": [
+    {
+      "id": "z274_o0",
+      "x": 1,
+      "y": 13,
+      "script": 2,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o1",
+      "x": 11,
+      "y": 2,
+      "script": 6,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o2",
+      "x": 4,
+      "y": 13,
+      "script": 1,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o3",
+      "x": 9,
+      "y": 4,
+      "script": 3,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o4",
+      "x": 9,
+      "y": 3,
+      "script": 3,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o5",
+      "x": 1,
+      "y": 9,
+      "script": 4,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o6",
+      "x": 2,
+      "y": 9,
+      "script": 4,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o7",
+      "x": 3,
+      "y": 9,
+      "script": 4,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o8",
+      "x": 4,
+      "y": 9,
+      "script": 4,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o9",
+      "x": 5,
+      "y": 9,
+      "script": 5,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o10",
+      "x": 6,
+      "y": 9,
+      "script": 5,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o11",
+      "x": 7,
+      "y": 9,
+      "script": 5,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o12",
+      "x": 8,
+      "y": 9,
+      "script": 5,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o13",
+      "x": 9,
+      "y": 9,
+      "script": 5,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o14",
+      "x": 13,
+      "y": 9,
+      "script": 5,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o15",
+      "x": 14,
+      "y": 9,
+      "script": 5,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o16",
+      "x": 15,
+      "y": 9,
+      "script": 5,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o17",
+      "x": 12,
+      "y": 2,
+      "script": 6,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o18",
+      "x": 13,
+      "y": 2,
+      "script": 6,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o19",
+      "x": 10,
+      "y": 2,
+      "script": 7,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o20",
+      "x": 15,
+      "y": 12,
+      "script": 8,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o21",
+      "x": 14,
+      "y": 12,
+      "script": 8,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o22",
+      "x": 13,
+      "y": 12,
+      "script": 8,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o23",
+      "x": 12,
+      "y": 12,
+      "script": 8,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o24",
+      "x": 11,
+      "y": 12,
+      "script": 8,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o25",
+      "x": 10,
+      "y": 12,
+      "script": 8,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o26",
+      "x": 9,
+      "y": 13,
+      "script": 8,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o27",
+      "x": 8,
+      "y": 14,
+      "script": 8,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o28",
+      "x": 9,
+      "y": 14,
+      "script": 8,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o29",
+      "x": 10,
+      "y": 15,
+      "script": 8,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o30",
+      "x": 10,
+      "y": 16,
+      "script": 8,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o31",
+      "x": 11,
+      "y": 16,
+      "script": 8,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o32",
+      "x": 12,
+      "y": 16,
+      "script": 8,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o33",
+      "x": 12,
+      "y": 15,
+      "script": 8,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o34",
+      "x": 13,
+      "y": 14,
+      "script": 8,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o35",
+      "x": 14,
+      "y": 15,
+      "script": 8,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o36",
+      "x": 15,
+      "y": 15,
+      "script": 8,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o37",
+      "x": 15,
+      "y": 14,
+      "script": 8,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o38",
+      "x": 15,
+      "y": 13,
+      "script": 8,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o39",
+      "x": 16,
+      "y": 10,
+      "script": 9,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o40",
+      "x": 16,
+      "y": 11,
+      "script": 9,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o41",
+      "x": 16,
+      "y": 12,
+      "script": 9,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    },
+    {
+      "id": "z274_o42",
+      "x": 17,
+      "y": 12,
+      "script": 9,
+      "label": "Furniture",
+      "dialogue": [
+        "It's furniture."
+      ]
+    }
+  ]
 }

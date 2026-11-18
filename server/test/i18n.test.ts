@@ -84,6 +84,83 @@ test("the shipped zh_CN catalog covers every species, move and item", () => {
   assert.equal(catalog.species[Object.keys(content.species)[0]].length > 0, true);
 });
 
+test("dialogue tables are keyed by the canonical English block", () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "bwmmo-dialogue-"));
+  const localeDir = path.join(dir, "zh_CN");
+  fs.mkdirSync(localeDir);
+  fs.writeFileSync(path.join(localeDir, "names.json"), JSON.stringify({ locale: "zh_CN" }));
+  fs.writeFileSync(
+    path.join(localeDir, "dialogue.json"),
+    JSON.stringify({
+      locale: "zh_CN",
+      dialogues: { "Welcome!\nTake care.": ["欢迎！", "请多保重。"] }
+    })
+  );
+  fs.writeFileSync(
+    path.join(localeDir, "dialogue_manual.json"),
+    JSON.stringify({
+      locale: "zh_CN",
+      dialogues: { "Welcome!\nTake care.": ["欢迎光临！", "一路小心。"] }
+    })
+  );
+  try {
+    const localizer = new ContentLocalizer(content, dir);
+    // The manual layer wins over the generated PokeMMO table.
+    assert.deepEqual(localizer.dialogue("zh_CN", ["Welcome!", "Take care."]), [
+      "欢迎光临！",
+      "一路小心。"
+    ]);
+    // Unknown blocks and other locales keep the English lines untouched.
+    const english = ["Nobody", "translated this"];
+    assert.deepEqual(localizer.dialogue("zh_CN", english), english);
+    assert.deepEqual(localizer.dialogue("en", ["Welcome!", "Take care."]), [
+      "Welcome!",
+      "Take care."
+    ]);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("every shipped NPC and story dialogue has a zh_CN translation", () => {
+  const localizer = new ContentLocalizer(content);
+  const missing: string[] = [];
+  const check = (label: string, lines: string[] | undefined) => {
+    if (!lines || lines.length === 0) return;
+    if (localizer.dialogue("zh_CN", lines) === lines) missing.push(label);
+  };
+
+  for (const map of Object.values(content.maps)) {
+    for (const npc of map.npcs) {
+      check(`${map.id}/${npc.id}`, npc.dialogue);
+      for (const [index, variant] of (npc.dialogueVariants ?? []).entries()) {
+        check(`${map.id}/${npc.id}#${index}`, variant.lines);
+      }
+    }
+    for (const object of map.interactables ?? []) {
+      check(`${map.id}/${object.id}`, object.dialogue);
+      if (localizer.npcName("zh_CN", object.label) === object.label) {
+        missing.push(`${map.id}/${object.id} label "${object.label}"`);
+      }
+    }
+  }
+
+  const storyDir = path.resolve(HERE, "..", "content", "story");
+  for (const file of fs.readdirSync(storyDir).filter((name) => name.endsWith(".json"))) {
+    const story = JSON.parse(fs.readFileSync(path.join(storyDir, file), "utf8"));
+    for (const [sceneId, scene] of Object.entries<any>(story.scenes ?? {})) {
+      for (const [index, step] of (scene.steps ?? []).entries()) {
+        if (step.type === "say") check(`${file}:${sceneId}:${index}`, step.lines);
+        if (step.type === "chooseStarter") check(`${file}:${sceneId}:${index}`, step.prompt);
+      }
+    }
+    for (const gate of story.gates ?? []) check(`${file}:gate:${gate.id}`, gate.lines);
+    for (const npc of story.npcs ?? []) check(`${file}:npc:${npc.id}`, npc.dialogue);
+  }
+
+  assert.deepEqual(missing, [], `untranslated content: ${missing.join(", ")}`);
+});
+
 test("outdoor location grid resolves towns and routes", () => {
   const grid = loadOutdoorLocations();
   assert.ok(grid, "outdoor location grid should load");

@@ -1,7 +1,8 @@
 {
   "id": "unova_in_192",
-  "name": "Interior",
+  "name": "Cold Storage",
   "zone": 192,
+  "outdoor": false,
   "spawn": {
     "x": 7,
     "y": 31,
@@ -12,20 +13,20 @@
     "################################",
     "#......................#########",
     "#.....................##########",
-    "#......###............##.....###",
-    "#......#..............##....####",
+    "#......###............##....####",
+    "#......#..............##.#..####",
     "#...........###.......##.#...###",
     "#....#......###..............###",
     "#....P......###..............###",
-    "#...........###..............###",
+    "#...........###.........#....###",
     "#.........#####...##....#....###",
     "#.........#####...##.........###",
-    "#.....######.........#.......###",
-    "#...########............#....###",
-    "#..##.######............##..####",
+    "#...########.........#..#....###",
+    "#..#########............#....###",
+    "#.##########............##..####",
     "#.#..#..................##...###",
-    "#.......................##...###",
-    "#...........####.............###",
+    "#...........#...........##...###",
+    "#....#......####.............###",
     "#....#.......###.............###",
     "###..........###.............###",
     "#............###.........#...###",
@@ -98,8 +99,191 @@
         "offsetX": 0,
         "offsetZ": 0,
         "mapFile": "unova_indoor/mapsets/tex_220/m_dun0501_00_00.glb",
-        "heights": "AAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
-        "props": []
+        "heights": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAMAAwADAAMAA4ACgAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwADAAMAAwADAAOAAoABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAwADAAMAAwADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAMAAwADAAMAAAAAAAAAAAADAAMAAwADAAMAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwADAAMAAwADAAAAAAAAAAAAAwADAAMAAwADAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAwADAAMAAwAAAAAAAAAAAAMAAwADAANAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAMAAwADAAMAAwADAAMAAwADAAMAAAAAAAAAAAADAAMAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwADAAMAAwADAAMAAwADAAMAAwADAAAAAAAAAAAAAwADAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAwADAAMAAwADAAMAAwADAAMAAwAAAAAAAAAAAAMAAwADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAKAAgADAAMAAwADAAMAAAAAAAAAAAADAAMAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABgAEAAwADAAMAAwADAAAAAAAAAAAAAwADAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAIAAAAMAAwADAAMAAwAAAAAAAAAAAAMAAwADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAMAAwADAAMAAAAAAAAAAAADAAMAAwADAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAwADAAAAAAAAAAAAAwADAAMAAwADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAMAAwAAAAAAAAAAAAMAAwADAAMAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwADAAMAAAAAAAAAAAADAAMAAwADAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAwADAAMAAwADAAMAAwADAAAAAAAAAAAAAwADAAMAAwADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAMAAwADAAMAAwADAAMAAwAAAAAAAAAAAAMAAwADAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwADAAMAAwADAAMAAwADAAMAAAAAAAAAAAADAAMAAwADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYABgAGAAMAAwADAAMAAwADAAAAAAAAAAAAAwADAAMAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAYABoEFgQSBAwADAAMAAwAAAAAAAAAAAAMAAwADAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAGAAaBBYEEgQMAAwADAAMAAAAAAAAAAIECgQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYABgAGAAYABgAGAAYABgAGAAAAAAAAAACBAYEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAYABgAGAAYABgAGAAYABgAAAAAAAAAAgQCBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAGAAYABgAGAAYABgAGAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOBBYEFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgQSBBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4EDgQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgACAAYACAAMAAwADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAgAGAAgADAAMAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        "props": [
+          {
+            "x": -168.0,
+            "y": 0.0,
+            "z": -176.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5container04.glb"
+          },
+          {
+            "x": -136.0,
+            "y": 0.0,
+            "z": -168.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5box01.glb"
+          },
+          {
+            "x": -200.0,
+            "y": 0.0,
+            "z": 120.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5box01.glb"
+          },
+          {
+            "x": -136.0,
+            "y": 0.0,
+            "z": -184.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5box01.glb"
+          },
+          {
+            "x": -104.0,
+            "y": 0.0,
+            "z": -184.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5box01.glb"
+          },
+          {
+            "x": -120.0,
+            "y": 0.0,
+            "z": -184.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5box01.glb"
+          },
+          {
+            "x": 200.0,
+            "y": 48.0,
+            "z": -24.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5box01.glb"
+          },
+          {
+            "x": -168.0,
+            "y": 48.0,
+            "z": -136.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5box01.glb"
+          },
+          {
+            "x": -216.0,
+            "y": 48.0,
+            "z": 56.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5box01.glb"
+          },
+          {
+            "x": 152.0,
+            "y": 0.0,
+            "z": 168.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5box01.glb"
+          },
+          {
+            "x": -232.0,
+            "y": 48.0,
+            "z": 56.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5box01.glb"
+          },
+          {
+            "x": 136.0,
+            "y": 48.0,
+            "z": -40.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5ice01.glb"
+          },
+          {
+            "x": -184.0,
+            "y": 0.0,
+            "z": -40.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5ice01.glb"
+          },
+          {
+            "x": -216.0,
+            "y": 48.0,
+            "z": -8.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5ice01.glb"
+          },
+          {
+            "x": -168.0,
+            "y": 0.0,
+            "z": -40.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5ice01.glb"
+          },
+          {
+            "x": 200.0,
+            "y": 48.0,
+            "z": -168.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5ice01.glb"
+          },
+          {
+            "x": -56.0,
+            "y": 0.0,
+            "z": 24.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5ice01.glb"
+          },
+          {
+            "x": -200.0,
+            "y": 48.0,
+            "z": -24.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5ice01.glb"
+          },
+          {
+            "x": 152.0,
+            "y": 48.0,
+            "z": -152.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5ice01.glb"
+          },
+          {
+            "x": 136.0,
+            "y": 48.0,
+            "z": -88.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5ice01.glb"
+          },
+          {
+            "x": -184.0,
+            "y": 48.0,
+            "z": -24.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5ice01.glb"
+          },
+          {
+            "x": -168.0,
+            "y": 48.0,
+            "z": 40.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5ice01.glb"
+          },
+          {
+            "x": -168.0,
+            "y": 48.0,
+            "z": -8.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5ice01.glb"
+          },
+          {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5ktmr_001.glb"
+          },
+          {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5ktmr_002.glb"
+          },
+          {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "rotation": 0.0,
+            "file": "unova_indoor/propsets/b10/d5ktmr_003.glb"
+          }
+        ]
       }
     ]
   }

@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import type { GameContent, MapDef, NpcDef } from "../content/types.js";
+import { canonicalAbility, resolveAbilityForSpecies } from "../game/abilities.js";
 import type { CharacterState, CreatureState } from "../game/types.js";
 
 interface LocaleNames {
@@ -13,6 +14,14 @@ interface LocaleNames {
   locations?: Record<string, string>;
   maps?: Record<string, string>;
   npcs?: Record<string, string>;
+  abilities?: Record<string, string>;
+  abilityDescriptions?: Record<string, string>;
+}
+
+/** Dialogue blocks keyed by their canonical English text (lines joined). */
+interface LocaleDialogue {
+  locale?: string;
+  dialogues?: Record<string, string[]>;
 }
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -26,6 +35,7 @@ export const DEFAULT_I18N_DIR = path.resolve(here, "..", "..", "content", "i18n"
 export class ContentLocalizer {
   private readonly content: GameContent;
   private readonly locales = new Map<string, LocaleNames>();
+  private readonly dialogues = new Map<string, Map<string, string[]>>();
 
   constructor(content: GameContent, directory: string = DEFAULT_I18N_DIR) {
     this.content = content;
@@ -41,6 +51,13 @@ export class ContentLocalizer {
         const namesFile = path.join(directory, entry.name, "names.json");
         if (fs.existsSync(namesFile)) {
           files.push({ file: namesFile, fallbackLocale: entry.name });
+        }
+        // Manual overrides load after the generated table for the same locale.
+        for (const name of ["dialogue.json", "dialogue_manual.json"]) {
+          const dialogueFile = path.join(directory, entry.name, name);
+          if (fs.existsSync(dialogueFile)) {
+            this.loadDialogue(dialogueFile, entry.name);
+          }
         }
       } else if (entry.isFile() && entry.name.endsWith(".json")) {
         files.push({
@@ -59,6 +76,28 @@ export class ContentLocalizer {
       } catch (error) {
         console.warn(`[i18n] could not load ${file}:`, error);
       }
+    }
+  }
+
+  private loadDialogue(file: string, fallbackLocale: string): void {
+    try {
+      const parsed = JSON.parse(fs.readFileSync(file, "utf8"));
+      if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return;
+      const data = parsed as LocaleDialogue;
+      if (!data.dialogues || typeof data.dialogues !== "object") return;
+      const locale = typeof data.locale === "string" ? data.locale : fallbackLocale;
+      let table = this.dialogues.get(locale);
+      if (!table) {
+        table = new Map();
+        this.dialogues.set(locale, table);
+      }
+      for (const [english, lines] of Object.entries(data.dialogues)) {
+        if (Array.isArray(lines) && lines.every((line) => typeof line === "string")) {
+          table.set(english, lines);
+        }
+      }
+    } catch (error) {
+      console.warn(`[i18n] could not load ${file}:`, error);
     }
   }
 
@@ -87,9 +126,14 @@ export class ContentLocalizer {
   }
 
   mapName(locale: string, id: string): string {
+    const localeNames = this.locales.get(locale);
+    const canonical = this.content.maps[id]?.name;
     return (
-      this.locales.get(locale)?.maps?.[id] ??
-      this.content.maps[id]?.name ??
+      localeNames?.maps?.[id] ??
+      // Indoor maps carry the ROM location name (e.g. "Pinwheel Forest"), so
+      // reuse the location table for them as well.
+      (canonical ? localeNames?.locations?.[canonical] : undefined) ??
+      canonical ??
       id
     );
   }
@@ -106,6 +150,32 @@ export class ContentLocalizer {
     return this.locales.get(locale)?.npcs?.[name] ?? name;
   }
 
+  abilityName(locale: string, id: string): string {
+    return (
+      this.locales.get(locale)?.abilities?.[id] ??
+      canonicalAbility(id)?.name ??
+      id
+    );
+  }
+
+  abilityDescription(locale: string, id: string): string {
+    return (
+      this.locales.get(locale)?.abilityDescriptions?.[id] ??
+      canonicalAbility(id)?.description ??
+      ""
+    );
+  }
+
+  /**
+   * Translates a whole dialogue block. Keys are the canonical English lines
+   * joined with newlines: the translated table can reflow a segment into a
+   * different number of pages, so it is matched per block, not per line.
+   */
+  dialogue(locale: string, lines: string[]): string[] {
+    if (lines.length === 0) return lines;
+    return this.dialogues.get(locale)?.get(lines.join("\n")) ?? lines;
+  }
+
   locationName(locale: string, name: string): string {
     return this.locales.get(locale)?.locations?.[name] ?? name;
   }
@@ -118,9 +188,20 @@ export class ContentLocalizer {
       species && creature.name && creature.name !== species.name
         ? creature.name
         : this.speciesName(locale, creature.species);
+    const ability = resolveAbilityForSpecies(
+      creature.species,
+      creature.ability,
+      creature.abilitySlot
+    );
     return {
       ...creature,
       name: displayName,
+      ability: ability?.id ?? creature.ability,
+      abilitySlot: ability?.slot ?? creature.abilitySlot,
+      abilityName: ability ? this.abilityName(locale, ability.id) : undefined,
+      abilityDescription: ability
+        ? this.abilityDescription(locale, ability.id)
+        : undefined,
       moves: creature.moves.map((move) => ({
         ...move,
         name: this.moveName(locale, move.id)

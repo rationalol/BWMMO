@@ -1,7 +1,8 @@
 {
   "id": "unova_in_36",
-  "name": "Interior",
+  "name": "Castelia City",
   "zone": 36,
+  "outdoor": false,
   "spawn": {
     "x": 28,
     "y": 0,

@@ -1,7 +1,8 @@
 {
   "id": "unova_in_209",
-  "name": "Interior",
+  "name": "Dragonspiral Tower",
   "zone": 209,
+  "outdoor": false,
   "spawn": {
     "x": 13,
     "y": 4,

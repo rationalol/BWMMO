@@ -90,6 +90,15 @@ const MANUAL_NPCS = {
   Resident: "居民",
   "Team Plasma": "等离子队",
   "Nurse Joy": "乔伊小姐",
+  "Gift Box": "礼物盒",
+  "Move Tutor": "招式教学家",
+  "Move Reminder": "招式回忆家",
+  "Link Trade": "连接交换台",
+  "Bond Expert": "羁绊专家",
+  "Ability Expert": "特性专家",
+  "Lab Supply": "研究所补给台",
+  "Lab Aide": "研究员助手",
+  "Lab PC": "研究所电脑",
   Bianca: "白露",
   Cheren: "黑连",
   Iris: "艾莉丝",
@@ -210,6 +219,14 @@ async function itemName(slug) {
 
 async function main() {
   const game = JSON.parse(await fs.readFile(GAME_FILE, "utf8"));
+  // Ability text comes from server/scripts/build-ability-i18n.ts. Preserve it
+  // when this older name generator rewrites the shared file.
+  let previous = {};
+  try {
+    previous = JSON.parse(await fs.readFile(OUT_FILE, "utf8"));
+  } catch {
+    // First run.
+  }
   const raw = await graphqlNames();
   const speciesById = new Map(
     (raw.species ?? []).map((entry) => [entry.pokemon_species_id, entry.name])
@@ -252,6 +269,22 @@ async function main() {
       if (npc.name) npcNames.add(npc.name);
     }
   }
+  // Story scenes and gates draw their speaker label from the same table.
+  const storyDir = path.join(ROOT, "server", "content", "story");
+  for (const file of (await fs.readdir(storyDir)).filter((name) => name.endsWith(".json"))) {
+    const story = JSON.parse(await fs.readFile(path.join(storyDir, file), "utf8"));
+    for (const scene of Object.values(story.scenes ?? {})) {
+      for (const step of scene.steps ?? []) {
+        if (step.speaker) npcNames.add(step.speaker);
+      }
+    }
+    for (const gate of story.gates ?? []) {
+      if (gate.speaker) npcNames.add(gate.speaker);
+    }
+    for (const npc of story.npcs ?? []) {
+      if (npc.name) npcNames.add(npc.name);
+    }
+  }
 
   const output = {
     locale: "zh_CN",
@@ -273,7 +306,11 @@ async function main() {
     ),
     npcs: Object.fromEntries(
       [...npcNames].sort().map((name) => [name, MANUAL_NPCS[name] ?? name])
-    )
+    ),
+    ...(previous.abilities ? { abilities: previous.abilities } : {}),
+    ...(previous.abilityDescriptions
+      ? { abilityDescriptions: previous.abilityDescriptions }
+      : {})
   };
 
   await fs.mkdir(path.dirname(OUT_FILE), { recursive: true });

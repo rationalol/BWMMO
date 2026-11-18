@@ -67,6 +67,28 @@ maps/text defined by the project, or assets the project is legally allowed to us
 
 The server is the source of truth. The client only sends intents and renders snapshots.
 
+### Server module layout
+
+`src/game/game-server.ts` is the composition root: connection lifecycle, authentication,
+character creation and the map/party snapshots. Domain logic lives in focused modules
+that receive the shared `GameHost` facade instead of reaching into each other:
+
+- `protocol.ts`: connection/session types, message helpers and public player/NPC views
+- `aoi.ts`: uniform-grid spatial index (32-tile buckets, exact Chebyshev filter)
+- `visibility.ts`: two-way `player_joined`/`player_left` diffing and local broadcasts
+- `world.ts`: movement, portal rules, tile-window streaming and encounter rolls
+- `battle.ts`: Pokémon Showdown Gen 5 session wrapper, wild and duel turn resolution,
+  localized event translation and per-viewer duel mirrors
+- `battles.ts`: wild encounters, turn resolution, battle transport and journal beats
+- `battle-outcome.ts`: XP/rewards/catch/evolution/black-out applied to the save
+- `journal.ts`: structured adventure-log entry kinds shared by the controllers
+- `social.ts`: friend requests, mutual friend lists, nearby-player snapshots and direct messages
+- `duels.ts`: friend-only duel invites, two-player battle lifecycle, forfeits and settlement
+- `services.ts`: NPC dialogue, healing, shop, medicine and PC actions
+- `progression.ts`: party/Dex snapshots and queued move-learning prompts
+- `character-normalizer.ts`: idempotent migrations for older character saves
+- `runtime.ts`: the `GameHost` surface shared by controllers
+
 ## Server design
 
 ### Authentication and sessions
@@ -92,6 +114,9 @@ All game content is loaded from `server/content` at startup:
 - `rom/npc_dialogues.json`: decoded NPC lines, referenced/set story flags, and conditional
   dialogue variants keyed by zone and NPC entity id
 - `maps/*.json`: ASCII maps, spawns, NPCs, portals, encounter zones, and the visual chunk manifest
+- `story/*.json`: story packs (scenes, story NPCs, interactions, triggers, gates, onEnter).
+  The loader merges their NPCs into the target maps before validation, so collision,
+  interaction and `map_state` all use one NPC list
 
 `server/src/content/loader.ts` derives widths/heights, validates every reference, and
 refuses to start on broken content. `npm run validate-content` runs the same checks
@@ -144,7 +169,20 @@ extracted assets. The intended visual direction is BW-derived:
 - Nuvema Town and Route 1 use the original field actors instead: `a/1/6/0` contains
   `fmdl_hero`/`fmdl_heroine`/`fmdl_boy4`/`fmdl_girl2`, each a 32×32 billboard card with
   embedded animation frames. `extract_nuvema.py` writes those frames plus `actor.json`
-  with four-direction idle/walk/run animations; Route 1 reuses the same actor root.
+  with four-direction idle/walk/run animations; its frame ids are already 1-based file
+  numbers, so `actor.json` declares `frameOffset: 0`. Route 1 reuses the same actor root.
+- NPCs use the map-model sprite sheets in `a/0/4/9`. A zone NPC's `model` id indexes
+  the 0x1C-byte object-code table in `a/0/4/8`, whose `resource[0]` is the sheet id
+  (model 78 → sprite 83, the Pokémon Center nurse; model 147 → sprite 144, Mom;
+  model 7 → sprite 12, Cheren; model 134 → sprite 135, Bianca).
+  `extract_overworld_sprites.py` writes those 32×32 frames to
+  `client/assets/bw/overworld/npc_<id>/`; the 3D client prefers them over the four
+  shared field actors. Player character ids 0-3 keep using the shared actors. These
+  sheet-derived ids are 0-based, so their `actor.json` declares `frameOffset: 1`; the
+  client adds that offset when resolving frame files. The
+  extractor scans both map files and story packs, decodes BTX0 with the stdlib readers
+  under `.tools/aletheia_src/tools`, and keys palette index 0 to transparency — field
+  sheets store their backdrop in slot 0 even when the TEX0 color0 flag is clear.
 - `tools/rom/extract_bw_map.py` resolves any overworld matrix cell, extracts its terrain,
   props and textures, and writes a placements manifest for one map. Route 1 south and
   north are cells `(24,22)` and `(24,21)`.
@@ -164,8 +202,12 @@ The full outdoor Unova world is assembled from the ROM matrix:
 
 1. `a/0/0/9` file 0 is the 29×27 overworld matrix: 783 cells, 109 non-empty, each with a
    model id and zone id. The other files in the same NARC are the small indoor matrices.
-2. Zone headers (`a/0/1/2`) name the area and matrix. Area records (`a/0/1/3`) provide the
-   prop bundle and map texture set.
+2. Zone headers (`a/0/1/2`) name the area and matrix. Area records (`a/0/1/3`) carry the
+   map texture set in field 1 and the overworld fallback bundle in field 0. Props are
+   grouped four texture sets per bundle, so the bundle to resolve a grid cell against is
+   `area[1] // 4`; using `area[0]` silently resolves every indoor prop against the town's
+   outdoor bundle, which is how the player's house ended up with a park chair and the lab
+   with a fountain while the real furniture was dropped.
 3. `tools/rom/extract_unova_outdoor.py` extracts every non-empty outdoor cell: terrain
    from `a/0/0/8`, props from `a/2/2/9`, textures from `a/0/1/4` and `a/1/7/6`, and
    converts them with Apicula. Output is ~51 MB under `client/assets/bw/unova_outdoor/`
@@ -225,10 +267,22 @@ floor until the player presses into the door, reproducing the original two-step 
 doorway tiles fire on the matching step. Portals without `entryDir` (legacy maps and
 scripted warps) keep the old any-direction behaviour. A successful door use sends a new
 `map_state` for `unova_in_<zone>` (or back to `unova_full`). The client shows a short
-loading fade on these transitions, but outdoor cell seams remain seamless. 374 indoor maps
-are generated (169 reachable from the overworld door graph); 13 NG/RD or cutscene scenes
+loading fade on these transitions, but outdoor cell seams remain seamless. 382 indoor maps
+are generated (169 reachable from the overworld door graph); NG/RD or cutscene scenes
 with no walkable tiles are skipped, as are doors whose target scene or coordinates are
 invalid.
+
+Indoor furniture is solid too. The ROM permission grid marks only floor and walls — beds,
+counters and shelves collide through their own meshes — so `build_unova_maps.py` reads
+each placed prop's GLB bounds (`tools/rom/glb_bounds.py`, ROM units, 16 per tile) and
+rewrites the tiles the AABB covers to `#`. Props taller than 6 units and starting below
+12 units qualify, up to 3.2 tiles per axis and 12 tiles per prop, with floor surfaces,
+warp markers, smoke planes and building shells excluded by name. Spawn, portal, NPC and
+interactable tiles are never overwritten. `interactables` from `a/1/2/5` become examine
+targets (`{id,x,y,script,label,dialogue}`) on the map; furniture collision can enclose
+one (the Pokémon Center mart counter), so unreachable targets are dropped at build time.
+The client examines the tile it faces (or the one it stands on) and the server checks the
+result is within Manhattan distance 1.
 
 ### Wild encounters
 
@@ -262,7 +316,9 @@ rolls outcomes.
   `player_moved` only to players within 64 tiles (Chebyshev) of the new position.
   Visibility is diffed in both directions after every move and map transition, so
   clients receive `player_joined`/`player_left` as characters enter or leave the AOI.
-  The tile window is recentred with `map_window` when the player nears its edge.
+  Both sides are found through a 32-tile bucket grid (`aoi.ts`), so only the
+  neighbourhoods around the old and new tile are scanned. The tile window is
+  recentred with `map_window` when the player nears its edge.
 - Rejected: send `move_ack` with the authoritative position and a reason.
 - Client predicts the step immediately and reconciles only against the ack for its latest
   sequence number. Older acks are ignored. An ack for the tile the client already
@@ -284,8 +340,42 @@ the worst latency feel for a tile-stepping game and keeps the server authoritati
 
 ### Chat and NPCs
 
-- Chat is global for the slice, rate-limited to one message per 800 ms and 200 chars.
+- Chat has three client tabs. `World` is the global channel, rate-limited to one message
+  per 800 ms and 200 chars. `System` is a personal adventure journal rendered from the
+  structured `journal` messages below. `Social` stores private conversations per player.
+- Connection, reconnection and server error text no longer enter the chat panel; the
+  client keeps a 300-line ring buffer shown under `Settings → Diagnostics → Connection log`.
+- `journal` entries are emitted by the server for encounters, moves, faints, switches,
+  balls, catches, defeats, black-outs, escapes, level-ups, evolutions, learned/forgotten
+  moves, healing, item use, shop trades and PC storage. The server localizes content
+  names, while the client renders the sentence from its own locale templates, so journal
+  lines re-render after a language switch.
+- Friends are mutual character-id lists persisted on the character (`friends`). A
+  friendship only exists after the recipient accepts: `friend_request` stores a pending
+  record in the store, `friend_accept` writes both lists, and `friend_decline` /
+  `friend_cancel` drop the pending record. Pending requests survive restarts and are
+  delivered to offline recipients on their next login. `social_state` carries the
+  friends list, `incomingRequests`, `outgoingRequests`, and nearby trainers with Manhattan
+  distance, a friend flag and the direction of any pending request.
+- `direct_message` is routed only to a live session and only when the recipient is a
+  friend or currently visible to the sender. Messages are echoed to the sender with
+  `outgoing:true`; they are not persisted, so the Social tab keeps the session history.
+- Friend duels are invite-based: `duel_request` is limited to online mutual friends,
+  expires after 30 seconds, and is cancelled when either side enters a wild battle or
+  disconnects. `duel_accept` clones both parties into one `gen5customgame` Showdown
+  session and sends each trainer a mirrored `battle_start`. Both sides submit a move or
+  switch for the same turn; the first client waits with `awaitingAction:false`. Balls,
+  medicine and running are rejected server-side, while forced switches are requested
+  only from the fainted side. A disconnect forfeits. Friendly duels award no money,
+  wins or XP, heal both parties and leave both characters at their world position.
 - NPC interaction requires the NPC to be on the same map and within Manhattan distance 2.
+- Furniture interaction sends the same `interact` message without an NPC id: the client
+  sends the `objectX`/`objectY` it faces, the server answers from the map's
+  `interactables` within Manhattan distance 1 with `kind:"object"` dialogue. Labels and
+  lines come from the prop name (`TV`, `Bed`, …); ROM object scripts mostly call global
+  scripts our VM cannot decode yet, so the generic line is the common case. Both the
+  label and the line are localized: labels sit in `names.json` `npcs`, lines in
+  `dialogue_manual.json`, and `npm test` fails if a new object lacks a `zh_CN` block.
 - Nuvema Town ships Bianca and Cheren as plain `kind:"npc"` dialogue NPCs; the client
   renders their `sprite` id with the original field-actor animations.
 - Nuvema also has a service corner south of the spawn: `nurse_joy` (`healer`),
@@ -317,8 +407,52 @@ Indoor NPC lines are decoded from the ROM rather than authored as placeholders:
 The server persists `character.storyFlags`. `selectDialogue` picks the first variant
 whose flags all match (default zero) and returns its lines and flags to set; after an
 interaction those flags are saved. That is how talking to Bianca in the lab once can
-unlock her follow-up battle-request branch on the next interaction. The default run
-assumes a new-game flag state; later story work can initialise the ROM flags properly.
+unlock her follow-up battle-request branch on the next interaction.
+
+### Story layer
+
+`server/content/story/*.json` adds scenes and world wiring on top of the ROM text:
+
+- `scenes` are ordered steps. `say`, `chooseStarter` and `battle` pause for a client
+  message or a battle result; `setFlag`, `giveStarter`, `givePokemon`, `giveItem`,
+  `heal`, `warp` and `notice` execute immediately. A scene is copied into a
+  per-session `StorySessionState`, so two players can be in different scenes (or
+  different pages) on the same map.
+- `walk` moves one NPC along a tile `path` and pauses the scene for
+  `path.length * msPerTile`, the same way the ROM's scripts apply a movement
+  sequence and wait for the object to arrive. The server does not store the new
+  position: movement is blocked for the whole scene, and the `map_state` sent at
+  `story_end` puts the NPC back on its authored tile. A walk whose NPC is hidden
+  or whose path crosses a wall is skipped instead of stalling the scene. Map NPCs
+  also carry the ROM `movement` byte; the client turns anything non-zero into an
+  idle look-around, and leaves 0 standing still.
+- Any step may carry `when`; a step whose flags do not match is skipped, which is the
+  scene equivalent of the ROM's conditional jump (`0x1F`). This is how the bedroom
+  scene picks the win-only and lose-only lines after a battle.
+- `battle` names a `trainer` from the pack's `trainers` map, or picks one through
+  `variants` (first `when` match wins). It starts a `mode:"trainer"` battle and stores
+  `resultFlag` (1 win / 0 loss, mirroring ROM work `0x8010`). The scene resumes when the
+  client sends `battle_closed`, then plays the `win` or `lose` pages and continues.
+- Story NPCs are merged into `map.npcs` at load, then filtered per player by
+  `visibleWhen` in `map_state`, interaction checks and movement collision. A hidden
+  NPC is neither drawn nor a wall for that player.
+- `onEnter` runs after login/teleport, `triggers` after each accepted step,
+  `interactions` replace an ordinary NPC's dialogue with a scene, and `gates` reject
+  movement onto their rectangle until `when` matches.
+- `chooseStarter` grants the first partner. New characters are created with an empty
+  party (`storyFlags` from `initialFlags`) and start on `story.startMap`.
+- Every acknowledgement carries `sceneId` and `step`; stale messages are rejected.
+  When the player picks an option, the scene's immediate follow-up steps (flags) run
+  before the reaction page so a disconnect cannot leave a partner without the flag.
+- `story_end` is followed by `map_state` to refresh NPC visibility.
+
+`DEBUG_SKIP_STORY=1` is a test-only switch that creates characters on the normal
+starting map with the prologue flags already set; the legacy smoke and client
+screenshot runs rely on it. Normal play leaves it unset. The prologue content lives
+in `server/content/story/nuvema.json`; the current engine is documented step by step
+in `docs/STORY_TESTING.md`. How the original ROM drives the same scenes and battles
+(script VM, `0x1F` jumps, works `0x4030`/`0x8010`, trainer ids 53–55/59–61) is
+written up in `docs/research/bw_story_script_flow.md`.
 
 ### Battle
 
@@ -328,6 +462,11 @@ protocol stay stable while the rules kernel becomes much more complete.
 
 - `createBattle` builds a `gen5customgame` Showdown battle with the player party on
   `p1` and the wild creature on `p2` (AI chooses the first available move).
+- `createTrainerBattle` does the same for a content trainer, but gives `p2` a named
+  team of several creatures. `mode:"trainer"` changes the log wording, rejects Run and
+  Catch, and lets the AI send out its next healthy creature automatically when its
+  active one faints (`makeChoices("", "switch N")`). XP and EV yields are summed over
+  every defeated team member; a loss heals the party instead of teleporting it home.
 - Showdown's team preview is resolved automatically; the client never sees it.
 - Player moves and switches are sent to Showdown. Run, catch and item use stay in our
   server: success ends the battle; a failed run/catch or a used medicine uses a hidden
@@ -341,6 +480,12 @@ protocol stay stable while the rules kernel becomes much more complete.
 - Our layer owns encounters, catch chance/ball consumption, run chance, medicine effects
   and revive bookkeeping, XP/level-ups, rewards, healing, persistence and the final
   `battle_end`.
+- Every creature stores a Showdown ability id and slot. `toPokemonSet` resolves it
+  through the Gen 5 dex (falling back to slot 0 for legacy saves), so normal, second and
+  hidden abilities survive save/load and evolution. `|-ability|` lines become structured
+  `ability` events; switch-in activations are also extracted from the initial log, and
+  `BattlesController`/`DuelsController` attach localized names/descriptions before the
+  client shows the ability banner.
 - After each turn the adapter copies HP/status and the remaining PP of every move from
   Showdown into `CreatureState`, and updates the active party index. Saved PP is loaded
   back into Showdown before the first action; Gen 5's default PP Ups are cleared so the
@@ -349,13 +494,21 @@ protocol stay stable while the rules kernel becomes much more complete.
 - The prototype uses a fixed Showdown seed for deterministic tests; later it can be
   randomized per battle.
 
-Species base stats, types, catch rates and full level-up learnsets come from the ROM
-(`tools/rom/extract_all_species.py` + `server/scripts/build-game-content.ts`).
-`statsForLevel` uses a Gen 5-style formula without IVs/EVs/nature. `game.json` contains
-all 649 base species and 559 moves; learnsets are filtered to moves that resolve in
-Showdown Gen 5, and each species keeps every ROM level-up entry it can support. Alternate
-forms, egg moves and TM/tutor moves are not imported yet. `baseXp` remains
-prototype-scaled.
+Species base stats, types, catch rates, EV yields and full level-up learnsets come from
+the ROM (`tools/rom/extract_all_species.py` + `server/scripts/build-game-content.ts`).
+Every creature rolls IVs (0-31) and a nature when created; `statsForCreature` applies the
+Gen 5 formula (`floor((2*base + IV + floor(EV/4)) * level / 100)` plus the level/nature
+terms), so the stored stats the HUD shows are exactly what Showdown computes from the
+same set. `game.json` contains all 649 base species and 559 moves; learnsets are filtered
+to moves that resolve in Showdown Gen 5, and each species keeps every ROM level-up entry
+it can support. Alternate forms, egg moves and TM/tutor moves are not imported yet.
+`baseXp` remains prototype-scaled.
+
+Defeating a wild or trainer creature awards that species' ROM EV yield to the active
+battler (the same creature that receives the XP). `awardEffortValues` enforces Gen 5's
+255-per-stat and 510-total caps and immediately recalculates stats; catching a wild
+creature, losing, fleeing and PvP duels award no EVs. The party summary shows the
+persisted EV block, so training is visible in the client.
 
 The client never decides damage, turn order, catch success, XP, or rewards. It only
 displays the synchronized battle state. Move buttons show current/max PP and disable
@@ -378,11 +531,16 @@ controlled by players.
   `move_learn_request` at a time. `learn_move` replaces a slot or declines; `forget_move`
   lets the party menu drop a known move while keeping at least one.
 - `SpeciesDef.evolutions` is generated from Showdown's Gen 5 dex into 320 relationships.
-  After a level-up, `levelEvolutionFor` evaluates level, known-move, held-item and stat
-  conditions (plus gender for Burmy/Combee). `evolveCreature` changes species, types,
-  stats, base XP and catch rate while preserving level, XP, moves, PP and queued learns.
-  Item, trade, friendship and location evolutions are imported for the Pokédex display
-  but do not have a trigger UI yet.
+  After a level-up, `levelEvolutionFor` evaluates level, known-move, held-item, friendship,
+  location/party and stat conditions (plus gender for Burmy/Combee). `evolveCreature`
+  changes species, types, stats, base XP and catch rate while preserving level, XP, moves,
+  PP and queued learns.
+- `growth.ts` adds the non-level triggers: `itemEvolutionFor` for `useItem` stones,
+  `tradeEvolutionFor` for the link-trade station (including a required held item) and the
+  friendship threshold (220) inside `levelEvolutionFor`. `queueMoveLearn` feeds tutors,
+  TMs and the move reminder into the same pending-move queue as level-ups, so all three
+  reuse the client's learn/replace prompt. `renameCreature`/`releaseFromBox` cover the PC
+  actions. The lab's `growth_test.json` story pack provides test NPCs and a one-time kit.
 - `pokedex` stores sorted national-dex `seen` and `caught` arrays. Encounters mark seen;
   captures, the starter and evolution mark caught. Older saves are seeded from the party
   and box on first load. `pokedex_request` returns the seen/caught state plus a 649-entry
@@ -398,6 +556,10 @@ same data:
 - `medicine`: `heal` restores a fixed amount, `cureStatus` clears a major status, and
   `revive` brings a fainted creature back at half HP. A medicine costs the turn in
   battle and can be used from the bag outside battle.
+- `tm`: carries a `moveId`. Using one queues that move through the normal learn prompt;
+  it is not consumed (Gen 5 TMs are reusable).
+- `evolution`: an evolution stone. Using it outside battle consults the species'
+  `useItem` evolution, consumes the stone and reports `evolution_event`.
 - `key`: reserved for future key items.
 
 The character inventory is `{items: {itemId: count}}`, capped at 99 per stack. Older
@@ -414,14 +576,29 @@ win → earn → buy → catch/heal.
 keeping at least one party member; withdrawing requires a free party slot; swapping
 works even when both sides are full. Boxed creatures keep their current HP and status,
 so the PC is storage rather than a free heal. The nurse, not the PC, restores HP and
-clears status.
+clears status. Rename validates a 1–12 character nickname (Unicode allowed, control
+characters rejected) and release permanently removes a boxed creature after the client
+confirms; party members are never released.
 
-The client uses four overlays: the HUD bag (pockets, item details, “use on” party
+The client uses six overlays: the HUD bag (pockets, item details, “use on” party
 targets), `shop_ui.gd` (buy/sell tabs with quantities and prices), `pc_ui.gd` (party and
-box columns with store/take/swap) and the battle bag (one button per owned ball type
-plus a medicine list and target picker). None of these overlays compute outcomes; they
-only send intents and render the server's next `shop_state`, `pc_state`, `party_state`
-or `battle_turn`.
+box columns with store/take/swap/name/free plus its rename and release dialogs),
+`move_service_ui.gd` (party + tutor/reminder move list), `trade_service_ui.gd` (party +
+`tradeable` state) and the battle bag (one button per owned ball type plus a medicine
+list and target picker). None of these overlays compute outcomes; they only send intents
+and render the server's next `shop_state`, `pc_state`, `move_service`, `trade_service`,
+`party_state` or `battle_turn`.
+
+The HUD exposes two map entries. The `Map` nav button opens the current area's zoomed tile
+map; the separate `World` nav button opens `world_map_ui.gd`,
+the Unova overview built from the ROM town-map texture (`a/0/8/5` file 7, cropped to
+256×168) and the 61-place table in `a/0/8/6`. `tools/rom/extract_town_map.py` writes the
+texture to `client/assets/bw/ui/unova_map.png` and the 40 named-area markers to
+`server/content/rom/world_map.json`; the server localizes the marker names and includes
+them as `map_state.worldMap`. The view highlights the entry whose name matches the
+current `location`, so routes and towns update without another server message. Indoor
+maps keep the last outdoor marker. The ROM texture is optional: without it the view
+draws a schematic marker map, and the area map keeps working.
 
 ### Client rendering and animation
 
@@ -463,7 +640,21 @@ or `battle_turn`.
   move: climbing more than 24 world units (1.5 tiles) is rejected, while dropping up to
   128 units is allowed. The client mirrors this rule in prediction, so ledges can be
   jumped down but walls/cliffs cannot be climbed.
-- Player and NPC actors get a soft blob-shadow quad at ground level. Outdoor camera is
+- Tall grass is a ROM overlay layer made of large `kusa_ec1/2/3` quads stacked 2–10
+  units above the floor. Because those cards are depth-tested map geometry, a sprite
+  standing on the terrain was cut through by the card on its own tile. `_collect_grass_lift()`
+  rasterizes each card triangle into the 32×32 tile grid while the chunk is instantiated
+  (taking the tallest layer per tile, clamped to `GRASS_LIFT_LIMIT`) and stores it in
+  `chunk_grass_lift`; `_stand_height()` then returns terrain + card lift for actor
+  placement, while step validation keeps using the unmodified terrain height. Indoors the
+  height grid is already sampled from the room mesh, so the measured lift collapses to
+  zero and actors are not raised twice.
+- Player and NPC actors get a soft blob-shadow quad at ground level. The 32×32 frames
+  contain only fully transparent/opaque pixels, so the sprite uses
+  `ALPHA_CUT_DISCARD`: it renders in the opaque pass and writes depth. Pond water
+  (`ike01`, alpha-blended) and other transparent overlays drawn after the sprite are then
+  depth-rejected where they lie behind the character instead of blending over it. Outdoor
+  camera is
   `(0,270,310)` with target `(0,22,-22)`. Indoors use a closer/higher preset
   `(0,220,165)` with target `(0,10,-20)` and an extra warm ambient boost. For indoor
   rooms with at most a 26×26 walkable bounding box, the camera focuses on the room centre
@@ -500,6 +691,37 @@ or `battle_turn`.
   of restarting the cycle every step.
 - Headless checks cover frame sheets, material overrides, particles and environment
   construction. Visual screenshots are taken with explicit foreground permission only.
+
+### Client boot, loading and audio
+
+- `Boot.tscn` is the entry scene. `project.godot` also registers `Loc`, `Audio` and
+  `Loading` autoloads, so the loading splash exists before any scene runs.
+- The Android APK stores `game.pck` as a deflated ZIP entry. Random reads from that
+  entry are extremely slow, so on mobile Boot copies the pack to `user://game.pck`
+  in 1 MB chunks (writing to `.tmp` and renaming after a size check) and mounts the
+  copy. Desktop mounts `res://game.pck` directly. The loading screen shows the copy
+  percentage; `Main._build_ui()` yields between the heavy 3D/UI steps so the
+  animation keeps running, then calls `Loading.finish()` after its first frame.
+- The engine start shows the configured navy clear color. `client/boot_splash.png`
+  (generated by `tools/build_boot_splash.py`) is drawn by the `Loading` autoload as
+  the loading-screen backdrop; a small procedural spinner and the progress bar sit
+  on top.
+- `Audio` loads `client/assets/bw/audio/manifest.json` lazily. BGM files are OGG with
+  a manifest `loop`/`loopOffset` taken from the ROM sequence's first backward jump;
+  SFX are WAV. All streams are read with `load_from_file`, so they do not depend on
+  Godot's import cache. The client picks BGM from the ROM's 32x32 zone grid (autumn
+  slot) for the outdoor world and from `indoorMaps` for interiors; battles switch to
+  the wild/trainer theme and restore the map theme when the result closes.
+- Touch controls (`touch_controls.gd`) use the NDS pad layout: a left D-pad and
+  a right ABXY diamond. A is interact/confirm, B is cancel/back and hold-to-run,
+  X/Y are reserved; the chat log moves to the top-right on touch so the left
+  thumb owns the bottom-left. `Main` recomputes the touch mode every frame:
+  world mode when `_can_control()`, dialogue mode (A/B only, moved right of the
+  dialogue panel), hidden for menus, services, battle and transitions. Desktop
+  maps J/K/U/I to A/B/X/Y; holding K (B) runs, Esc/F are cancel aliases and
+  Shift remains an extra run alias. The touch B and keyboard K both go through
+  `_cancel_action()`; the touch B's button-down/up latches `touch_b_held` for
+  running.
 
 ### Reconnect
 
@@ -566,7 +788,9 @@ Server:
   graph, map integrity, dialogue variant selection, battle resolution, catching with
   typed balls, battle medicine/revive, switching, XP/level-ups, level evolution, pending
   move learning/forgetting, PP persistence, Pokédex registration, item effects, shop
-  pricing helpers, PC deposit/withdraw/swap, persistence, and tokens.
+  pricing helpers, PC deposit/withdraw/swap, persistence, tokens, friend
+  request/accept/decline/cancel, direct-message routing and journal
+  level-up/evolution records.
 - A WebSocket smoke test that creates two accounts with different starters in the
   seamless world, verifies the starter Pokédex/catalog, the 65×65 `map_state` window and
   spawn/NPC data, moves and observes the broadcast, receives a recentred `map_window`
@@ -578,6 +802,16 @@ Server:
   checks the seen flag, resolves at least one server battle turn with spent PP synced
   back, exits the battle, reconnects with a token to the saved world position, Pokédex
   and remaining PP, uses a Potion on the damaged starter, and chats again.
+- `test/story.test.ts` covers the story rules: condition matching, per-player NPC
+  visibility and collision, gate selection, the bedroom starter grant (species, level,
+  flags, Pokédex, no double grant), stale page acknowledgements, invalid choices, Mom's
+  heal/flag and the one-time lab scene, plus legacy-save normalisation.
+- `scripts/story-smoke.ts` (`npm run smoke:story`) plays the whole prologue with a
+  brand-new account over the real WebSocket: create without a starter, click through the
+  bedroom scene, choose Tepig, talk to Mom, verify the locked Route 1 gate, enter the lab,
+  verify the same tile is now open, and reconnect without replaying the scene.
+- The legacy two-account smoke assumes the prologue is finished and needs
+  `DEBUG_SKIP_STORY=1` on its test server.
 - Battle resolution, encounters, portals, and healing are also covered by the node:test
   suites. Existing saves from the old per-cell maps are migrated to global `unova_full`
   coordinates at startup.
@@ -586,7 +820,9 @@ Client:
 
 - Headless Godot import/run catches parse and startup errors.
 - Auto modes (`--auto`, `--auto-b`, `--auto-run`, `--auto-dialogue`, `--auto-create`,
-  `--auto-reconnect`, `--capture-login`, `--touch`) run against Nuvema Town. The legacy
+  `--auto-reconnect`, `--capture-login`, `--touch`) run against Nuvema Town. Because new
+  characters now wake up in the bedroom with an empty party, run their test server with
+  `DEBUG_SKIP_STORY=1` unless the mode is meant to exercise the prologue. The legacy
   `--auto-battle` / `--auto-grove` paths need `startingMap` set back to `town`.
 - The Nuvema/Route 1 seamless world is built from locally extracted ROM assets. The
   headless asset check (`client/tests/check_rom_assets.gd`) loads every map GLB, prop,
@@ -605,8 +841,12 @@ Client:
 ## Known trade-offs
 
 - JSON store, not a database (party, PC box and item stacks are part of the character save)
-- Radius-based AOI only; no channels or sharding yet
+- Radius-based, grid-indexed AOI only; no channels or sharding yet
 - Global chat only
+- Story coverage stops at the Nuvema prologue: the scene/trigger/gate engine is in
+  place, but only one story pack ships. Bianca's first battle is a cutscene, and the
+  trainer-event commands of `a/0/5/7` are still unsupported; flags outside the pack are
+  only written by NPC dialogue scripts
 - All 649 base Gen 5 species and 559 moves are imported, but alternate forms, egg moves
   and TM/tutor moves are not; no held items, trainer/PvP battles or client battle status
   icons. PP is shown and persisted, but item/trade/friendship/location evolutions have
@@ -628,8 +868,9 @@ Client:
   from terrain normals/vertex colors, blob shadows and the camera angle; there is no
   real-time shadow map, SSAO or global illumination.
 - Outdoor streaming preloads a 5×5 cell window; collision tiles use a 65×65 window.
-  The AOI is a per-move linear scan with a 64-tile radius, `map_window` resends the whole
-  slice rather than a delta, and there are no channels/shards yet
+  The AOI is a 32-tile bucket grid with a 64-tile Chebyshev radius, so a move only scans
+  the buckets around the old and new tile instead of every online player. `map_window`
+  still resends the whole slice rather than a delta, and there are no channels/shards yet
 - 169 of the 374 generated indoor maps are reachable from the overworld door graph; 13
   scenes have no walkable permission tiles and some story/elevator doors are skipped. 966
   NPC dialogue profiles (164 conditional variants) are decoded, but many indoor NPC

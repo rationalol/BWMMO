@@ -1,9 +1,12 @@
 # Local tooling
 .tools/
+__pycache__/
+*.pyc
 
 # Node
 node_modules/
 server/data/
+server/.build/
 *.log
 
 # Godot
@@ -15,11 +18,17 @@ client/android/
 
 # Godot export artifacts
 client/build/
+# Generated Android asset pack (rebuild with client/tools/build_assets_pck.gd)
+client/game.pck
 
 # ROM / APK reference material (never commit copyrighted game files)
 *.nds
 *.apk
 *.zip
+# 批量编译出来的原作台词，本地生成、随时可重跑，不提交
+server/content/rom/story_bulk/
+# ROM 抽出来的训练家队伍，本地生成、随时可重跑，不提交
+server/content/rom/trainers.json
 
 # Layout test dumps
 client/.tmp_*.json

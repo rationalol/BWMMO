@@ -7,4 +7,4 @@ if not exist "%ROOT%.tools\Godot_v4.4.1-stable_win64.exe" (
   pause
   exit /b 1
 )
-start "" "%ROOT%.tools\Godot_v4.4.1-stable_win64.exe" --path "%ROOT%client"
+start "" "%ROOT%.tools\Godot_v4.4.1-stable_win64.exe" --path "%ROOT%client" -- --server=ws://127.0.0.1:2567
